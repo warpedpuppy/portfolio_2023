@@ -1,0 +1,29 @@
+svg#wp-logo {
+	width: 300px;
+	animation: wobble 3s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+  .cls-1 {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .cls-1,
+  .cls-2 {
+    fill: #231f20;
+  }
+
+  .cls-1,
+  .cls-3 {
+    stroke: #231f20;
+  }
+
+  .cls-4 {
+    fill: #fff;
+  }
+
+  .cls-3 {
+    fill: #f0f;
+    stroke-miterlimit: 10;
+  }
+}
