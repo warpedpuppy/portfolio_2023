@@ -1,12 +1,13 @@
 import './Home.scss';
-
+import { Link } from 'react-router-dom';
 function Home() {
 	return ( 
-		<>
+		<div id="home-page">
+		<Link to="/">home</Link>
 		<dl>
-			<dt>challenges</dt>
+			<dt><Link to="/challenges">challenges</Link></dt>
 				<dd>solitaire</dd>
-				<dd>fireworks</dd>
+				<dd><Link to="/challenges/fireworks">fireworks</Link></dd>
 				<dd>maze solver</dd>
 				<dd>soduko</dd>
 			<dt>gamelets</dt>
@@ -18,7 +19,7 @@ function Home() {
 			<dt>artsy stuff</dt>
 				<dd>glitter pool</dd>
 		</dl>
-		</>
+		</div>
 	 );
 }
 
