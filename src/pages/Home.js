@@ -6,16 +6,16 @@ function Home() {
 		<Link to="/">home</Link>
 		<dl>
 			<dt><Link to="/challenges">challenges</Link></dt>
-				<dd>solitaire</dd>
+				<dd><Link to="/challenges/solitaire">solitaire</Link></dd>
 				<dd><Link to="/challenges/fireworks">fireworks</Link></dd>
-				<dd>maze solver</dd>
-				<dd>soduko</dd>
-			<dt>gamelets</dt>
-				<dd>bounce pig, bounce</dd>
-				<dd>dragon</dd>
-				<dd>fish</dd>
-				<dd>planet jump</dd>
-				<dd>lines</dd>
+				<dd><Link to="/challenges/maze-solver">maze solver</Link></dd>
+				<dd><Link to="/challenges/soduko">soduko</Link></dd>
+				<dt><Link to="/games">gamelets</Link></dt>
+				<dd><Link to="/games/pig">pig</Link></dd>
+				<dd><Link to="/games/dragon">dragon</Link></dd>
+				<dd><Link to="/games/fish">fish</Link></dd>
+				<dd><Link to="/games/planet-jump">planet jump</Link></dd>
+				<dd><Link to="/games/planet-jump">lines</Link></dd>
 			<dt>artsy stuff</dt>
 				<dd>glitter pool</dd>
 		</dl>
