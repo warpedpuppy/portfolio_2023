@@ -1,6 +1,7 @@
 import './App.scss';
 import Logo from './components/Logo';
 import Home from './pages/Home';
+import Menu from './components/Menu';
 import Solitaire from './components/webinars/solitaire/Solitaire';
 import SVGAnimations from './components/webinars/SVGAnimations/SVGAnimations';
 import Fireworks from './components/challenges/fireworks/Fireworks';
@@ -10,6 +11,7 @@ import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 function App() {
   return (
 	<BrowserRouter>
+	<Menu />
 	<Logo />
 	<Home />
 	<Routes>

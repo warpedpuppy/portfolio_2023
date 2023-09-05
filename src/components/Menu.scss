@@ -1,0 +1,16 @@
+#menu {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+  dl {
+	display: block;
+	text-align: left;
+    dt {
+      margin-left: 50px;
+    }
+    dd {
+      margin-left: 200px;
+    }
+  }
+}
