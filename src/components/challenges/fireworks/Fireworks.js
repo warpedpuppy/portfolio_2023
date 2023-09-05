@@ -3,6 +3,7 @@ import Canvas from '../../Canvas';
 import StepOneFunction from './code/StepOne';
 import StepTwoFunction from './code/StepTwo';
 import StepThreeFunction from './code/StepThree';
+import StepFourFunction from './code/StepFour';
 function Fireworks() {
 	return ( 
 	<>
@@ -13,7 +14,7 @@ function Fireworks() {
 	<h3>step three</h3>
 	<Canvas startFunction={StepThreeFunction} />
 	<h3>step four</h3>
-	<Canvas startFunction={ () => {} } />
+	<Canvas startFunction={  StepFourFunction } />
 	</> );
 }
 

@@ -1,34 +1,7 @@
 export default function StepFourFunction(canvas) {
 
 
-	const fireworkQText = document.getElementById("fireworkQ");
-	const fireworkQInputRange = document.getElementById("fireworkQInputRange");
-	const fireworkShapeRadioInput = document.querySelectorAll("[name=shape]");
-	let shape = "circle";
-	for (let radio of fireworkShapeRadioInput) {
-		radio.onclick = function() {
-			shape = this.value;
-		}
-	}
-	
-	let fireworks = [];
-	let fireworkQ = 5;
-	fireworkQText.innerText = fireworkQ;
-	fireworkQInputRange.value = fireworkQ;
 
-	fireworkQInputRange.addEventListener('change', e => {
-
-
-		fireworks = [];
-		fireworkQ = e.target.value;
-		fireworkQText.innerText = fireworkQ;
-
-		for (let i = 0; i <= fireworkQ; i++){
-			let size = i + 5;
-			fireworks.push(new Firework(size))
-		}
-	})
-	
 
 	// const canvas = document.getElementById('canvas');
 	canvas.width = 600;
@@ -127,17 +100,14 @@ export default function StepFourFunction(canvas) {
 
 		draw(x, y, alpha, color) {
 			context.beginPath();
-			if (shape === 'circle') {
-				context.arc(x * this.sizeVariance, y * this.sizeVariance, this.size, 0, 2 * Math.PI, false);
-			} else {
-				context.rect(x * this.sizeVariance, y * this.sizeVariance, this.size, this.size)
-			}
+			// context.rect(x * this.sizeVariance, y * this.sizeVariance, this.size, this.size)
+			context.arc(x * this.sizeVariance, y * this.sizeVariance, this.size, 0, 2 * Math.PI, false);
 			context.fillStyle = `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${alpha})`;
 			context.fill();
 		}
 	}
-
-
+	const fireworks = [];
+	const fireworkQ = 20;
 	for (let i = 1; i <= fireworkQ; i++){
 		fireworks.push(new Firework(i))
 	}
@@ -146,7 +116,7 @@ export default function StepFourFunction(canvas) {
 	function animate () {
 		context.clearRect(0,0,canvas.width,canvas.height);
 		background.draw();
-		for (let i = 0; i < fireworkQ; i++){
+		for (let i = 1; i < fireworkQ; i++){
 			fireworks[i].draw()
 		}
 		requestAnimationFrame(animate)

@@ -8,18 +8,7 @@ export default function StepThreeFunction(canvas) {
 	canvas.height = 300;
 	const context = canvas.getContext('2d');
 
-	class Background {
-		constructor () {
-			
-		}
-		draw() {
-			context.beginPath();
-			context.rect(0,0,canvas.width, canvas.height);
-			context.fillStyle = `rgba(0,0,0,1)`;
-			context.fill();
-
-		}
-	}
+	
 
 	class Firework {
 		beamQ = 20;
@@ -54,11 +43,7 @@ export default function StepThreeFunction(canvas) {
 		}
 
 		returnColor () {
-			let arr = [];
-			for (let i = 0; i < 3; i++) {
-				arr.push(Math.floor(Math.random() * 255))
-			}
-			return arr;
+			return [0,0,0];
 		}
 
 		reset() {
@@ -67,8 +52,8 @@ export default function StepThreeFunction(canvas) {
 			this.angle = 0;
 			this.radius = 0;
 			this.alpha = 1;
-			this.centerX = this.buffer + Math.random() * canvas.width - (this.buffer * 2)
-			this.centerY = this.buffer + Math.random() * canvas.height - (this.buffer * 2)
+			this.centerX = canvas.width / 2;
+			this.centerY = canvas.height / 2;
 		}
 
 		draw() {
@@ -106,19 +91,14 @@ export default function StepThreeFunction(canvas) {
 			context.fill();
 		}
 	}
-	const fireworks = [];
-	const fireworkQ = 20;
-	for (let i = 1; i <= fireworkQ; i++){
-		fireworks.push(new Firework(i))
-	}
+
+	let firework = new Firework(5)
 	
-	const background = new Background();
+
 	function animate () {
 		context.clearRect(0,0,canvas.width,canvas.height);
-		background.draw();
-		for (let i = 1; i < fireworkQ; i++){
-			fireworks[i].draw()
-		}
+
+		firework.draw();
 		requestAnimationFrame(animate)
 	}
 	animate();
