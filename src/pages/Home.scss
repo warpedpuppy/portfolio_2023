@@ -1,8 +1,11 @@
 #home-page {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
+	align-items: center;
   dl {
-    text-align: left;
+	display: block;
+	text-align: left;
     dt {
       margin-left: 50px;
     }

@@ -8,10 +8,10 @@ const VARS = {
     piles: {},
     slots: [],
     ctx: undefined,
-    // canvas: document.querySelector('canvas'),
+    canvas: document.querySelector('canvas'),
     init: function (canvas) {
 		this.canvas = canvas;
-        this.ctx = canvas.getContext('2d')
+        this.ctx = this.canvas.getContext('2d')
     },
     spacing: {
         buffer: 10,
