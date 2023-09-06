@@ -7,35 +7,52 @@ import SVGAnimations from './components/webinars/SVGAnimations/SVGAnimations';
 import Fireworks from './components/challenges/fireworks/Fireworks';
 import MazeSolver from './components/challenges/mazeSolver/MazeSolver';
 import Soduko from './components/challenges/soduko/Soduko';
+import Webinars from './components/webinars/Webinars';
+import Challenges from './components/challenges/Challenges';
+import Games from './components/games/Games';
+import PrettyLittleThings from './components/pretty-little-things/PrettyLittleThings';
+import About from './pages/About';
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 function App() {
   return (
 	<BrowserRouter>
 	<Menu />
 	<Logo />
-	<Home />
 	<Routes>
 		<Route index element={<Home />} />
+		<Route path="home" element={<Outlet />}>
+			<Route index element={<Home />} />
+			<Route path="*" element={<h1>home subpage not found</h1>} />
+		</Route>
 		<Route path="webinars" element={<><h2>webinars:</h2><Outlet /></>}>
-			<Route index element={<div>index</div>} />
+			<Route index element={<Webinars />} />
 			<Route path="solitaire" element={<Solitaire />} />
 			<Route path="svg-animations" element={<SVGAnimations />} />
+			<Route path="*" element={<h1>webinars not found</h1>} />
 		</Route>
 		<Route path="challenges" element={<><h2>challenges:</h2><Outlet /></>}>
-			<Route index element={<div>index</div>} />
+			<Route index element={<Challenges />} />
 			<Route path="fireworks" element={<Fireworks />} />
 			<Route path="soduko" element={<Soduko />} />
 			<Route path="maze-solver" element={<MazeSolver />} />
 			<Route path="*" element={<h1>challenge not found</h1>} />
 		</Route>
-		<Route path="games" element={<><h2>games:</h2><Outlet /></>}>
-			<Route index element={<div>index</div>} />
+		<Route path="gamelets" element={<><h2>games:</h2><Outlet /></>}>
+			<Route index element={<Games />} />
 			<Route path="dragon" element={<div>dragon</div>} />
 			<Route path="fish" element={<div>fish</div>} />
 			<Route path="pig" element={<div>pig</div>} />
 			<Route path="planet-jump" element={<div>planet jump</div>} />
 			<Route path="lines" element={<div>lines</div>} />
 			<Route path="*" element={<h1>game not found</h1>} />
+		</Route>
+		<Route path="pretty-little-things" element={<><h2>pretty little things:</h2><Outlet /></>}>
+			<Route index element={<PrettyLittleThings />} />
+			<Route path="*" element={<h1>pretty little thing not found</h1>} />
+		</Route>
+		<Route path="about" element={<><h2>about:</h2><Outlet /></>}>
+			<Route index element={<About />} />
+			<Route path="*" element={<h1>about not found</h1>} />
 		</Route>
 		<Route path="*" element={<h1>not found</h1>} />
 	</Routes>
