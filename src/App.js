@@ -1,5 +1,5 @@
 import './App.scss';
-import Logo from './components/svgs/Logo';
+// import Logo from './components/svgs/Logo';
 import BamLogo from './components/svgs/BamLogo';
 import Home from './pages/Home';
 import Menu from './components/Menu';
@@ -12,6 +12,7 @@ import Webinars from './components/webinars/Webinars';
 import Challenges from './components/challenges/Challenges';
 import Games from './components/games/Games';
 import PrettyLittleThings from './components/pretty-little-things/PrettyLittleThings';
+import BouncePig from './components/games/bouncePig/BouncePig';
 import About from './pages/About';
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 function App() {
@@ -43,7 +44,7 @@ function App() {
 			<Route index element={<Games />} />
 			<Route path="dragon" element={<div>dragon</div>} />
 			<Route path="fish" element={<div>fish</div>} />
-			<Route path="pig" element={<div>pig</div>} />
+			<Route path="pig" element={<BouncePig />} />
 			<Route path="planet-jump" element={<div>planet jump</div>} />
 			<Route path="lines" element={<div>lines</div>} />
 			<Route path="*" element={<h1>game not found</h1>} />
