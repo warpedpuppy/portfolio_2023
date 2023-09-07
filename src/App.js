@@ -1,5 +1,6 @@
 import './App.scss';
-import Logo from './components/Logo';
+import Logo from './components/svgs/Logo';
+import BamLogo from './components/svgs/BamLogo';
 import Home from './pages/Home';
 import Menu from './components/Menu';
 import Solitaire from './components/webinars/solitaire/Solitaire';
@@ -17,7 +18,8 @@ function App() {
   return (
 	<BrowserRouter>
 	<Menu />
-	<Logo />
+	<BamLogo />
+	{/* <Logo /> */}
 	<Routes>
 		<Route index element={<Home />} />
 		<Route path="home" element={<Outlet />}>
@@ -37,7 +39,7 @@ function App() {
 			<Route path="maze-solver" element={<MazeSolver />} />
 			<Route path="*" element={<h1>challenge not found</h1>} />
 		</Route>
-		<Route path="gamelets" element={<><h2>games:</h2><Outlet /></>}>
+		<Route path="gamelets" element={<><h2>gamelets:</h2><Outlet /></>}>
 			<Route index element={<Games />} />
 			<Route path="dragon" element={<div>dragon</div>} />
 			<Route path="fish" element={<div>fish</div>} />
