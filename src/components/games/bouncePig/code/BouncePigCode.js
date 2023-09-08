@@ -157,7 +157,7 @@ export default function BouncePigCode (canvasContainer) {
 
 
             this.animate = Animate(this);
-            this.app.ticker.add(this.animate);
+            this.app.ticker.add(this.animate.tick);
           
         },
         resizeHandler:  function () {
@@ -170,6 +170,7 @@ export default function BouncePigCode (canvasContainer) {
             this.hero.cont.x = this.halfWidth;
 			this.hero.cont.y = this.halfHeight;
             // this.drums.resize();
+			this.animate.resize(this.halfWidth, this.halfHeight)
             this.clouds.resize();
 			if (this.swipeText.width > this.canvasWidth) {
 	
