@@ -1,6 +1,7 @@
 import * as PIXI from 'pixijs';
 import Utils from './utils';
 import Hero from './hero';
+import BouncePlatform from './bouncePlatform';
 import Background from './background';
 import Clouds from './clouds';
 import Animate from './animate';
@@ -40,6 +41,9 @@ export default function BouncePigCode (canvasContainer) {
            
             // canvas.appendChild(this.app.view);
 			const app = this.app = new PIXI.Application({ background: '#1099bb', resizeTo: canvasContainer });//
+			this.stage = app.stage;
+			this.stage.eventMode = 'static';
+			this.stage.cursor = 'pointer';
 			canvasContainer.appendChild(app.view);
 			// const spriteSheet = new PIXI.Spritesheet(
 			// 	PIXI.BaseTexture.from("/images/bouncePig/bpb.png"),
@@ -50,15 +54,7 @@ export default function BouncePigCode (canvasContainer) {
 			let sheet = await PIXI.Assets.load("/images/bouncePig/bpb.json")
 			this.sheet = sheet; 
 
-			this.clouds = Clouds(this);
-            this.clouds.init();
-            this.clouds.addToStage();
-            this.cloudsOnStage = true;
-	
-			let hero = this.hero = new Hero(sheet);
-			hero.init();
-			this.utils.center(hero.cont)
-			app.stage.addChild(hero.cont)
+			
 
 			
            
@@ -104,11 +100,22 @@ export default function BouncePigCode (canvasContainer) {
             // this.heroInstance.y = Math.ceil(this.halfHeight);
             // this.stage.addChild(this.heroInstance);
 
-            // this.bouncePlatform = BouncePlatform(this);
-            // this.bouncePlatform.init();
+			this.clouds = Clouds(this);
+            this.clouds.init();
+            this.clouds.addToStage();
+            this.cloudsOnStage = true;
+	
+			let hero = this.hero = new Hero(this.sheet);
+			hero.init();
+			this.utils.center(hero.cont)
+			this.app.stage.addChild(hero.cont)
 
-            // this.background = Background(this);
-            // this.background.init();
+
+            this.bouncePlatform = BouncePlatform(this);
+            this.bouncePlatform.init();
+
+            this.background = Background(this);
+            this.background.init();
 
 
             this.animateAllow = true;

@@ -11,7 +11,7 @@ export default function Background(gv){
             gv.stage.addChildAt(this.cont, 0);
         },
         backgroundBitmap: function() {
-            var background = new gv.PIXI.Sprite.fromFrame("background.jpg");
+            var background = gv.PIXI.Sprite.from(gv.sheet.textures["background.jpg"]);
             background.width = gv.canvasWidth;
             background.height = gv.canvasHeight;
             this.background = background;
@@ -22,7 +22,7 @@ export default function Background(gv){
             let colorCounter = 0,
                 ball;
             for (let i = 0; i <  this.ballQ; i++) {
-                ball = new gv.PIXI.Sprite.fromFrame("bubble.png");
+                ball = gv.PIXI.Sprite.from(gv.sheet.textures["bubble.png"]);
                 ball.scale.x = ball.scale.y = gv.utils.randomNumberBetween(5, 15);
                 ball.y = gv.utils.randomNumberBetween(0, gv.canvasHeight);
                 ball.x = gv.utils.randomNumberBetween(0, gv.canvasWidth);

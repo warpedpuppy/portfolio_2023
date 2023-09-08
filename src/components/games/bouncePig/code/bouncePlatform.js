@@ -1,8 +1,8 @@
 export default function BouncePlatform (gv) {
     return {
-        line: new gv.PIXI.Sprite.fromFrame("line.gif"),
-        dot1: new gv.PIXI.Sprite.fromFrame("newDot.png"),
-        dot2: new gv.PIXI.Sprite.fromFrame("newDot.png"),
+        line: gv.PIXI.Sprite.from(gv.sheet.textures["line.gif"]),
+        dot1: gv.PIXI.Sprite.from(gv.sheet.textures["newDot.png"]),
+        dot2: gv.PIXI.Sprite.from(gv.sheet.textures["newDot.png"]),
         init: function () {
             this.line.height = 2;
             this.line.anchor.y = 0.5;
@@ -26,9 +26,12 @@ export default function BouncePlatform (gv) {
             if (trueFalse === true) {
                 gv.stage.interactive = true;
                 gv.stage.buttonMode = true;
-                gv.stage.mousedown = gv.stage.touchstart =  this.placeFirstDot;
-                gv.stage.mousemove = gv.stage.touchmove = this.onMouseMove;
-                gv.stage.mouseup =  gv.stage.touchend = this.releaseMouse;
+				gv.stage.on('pointerdown', this.placeFirstDot)
+				gv.stage.on('pointermove', this.onMouseMove)
+				gv.stage.on('pointerup', this.releaseMouse)
+                // gv.stage.mousedown = gv.stage.touchstart =  this.placeFirstDot;
+                // gv.stage.mousemove = gv.stage.touchmove = this.onMouseMove;
+                // gv.stage.mouseup =  gv.stage.touchend = this.releaseMouse;
             } else {
                 gv.stage.mousedown = gv.stage.touchstart =  null;
                 gv.stage.mousemove = gv.stage.touchmove = null;
@@ -68,6 +71,7 @@ export default function BouncePlatform (gv) {
             gv.mouseDown = false;
         },
         tickIt: function() {
+
             if (this.dot2.visible === true) {
                 this.dot1.rotation += 0.25;
                 this.dot2.rotation += 0.25;
