@@ -1,5 +1,11 @@
 export default function Utils(gv){
     return {
+		canvasHeight: 0,
+		canvasWidth: 0,
+		setWidthAndHeight: function (width, height) {
+			this.canvasWidth = width;
+			this.canvasHeight = height;
+		},
         distributeAroundRadial: function (array, radius, addTo, spiral, itemQ){
             var arrayQ = (itemQ === undefined)?array.length:itemQ;
             var increase = (Math.PI * 2)/arrayQ;
@@ -120,10 +126,10 @@ export default function Utils(gv){
             window[ClassName].prototype._singletonInstance = thisInstance;
         },
         returnCanvasWidth: function () {
-            return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            return gv.canvas.offsetWidth;
         },
         returnCanvasHeight: function () {
-            return window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+            return gv.canvas.offsetHeight;
         },
         lineIntersectCircle: function (A ,B, C, r) {
             this.intersects = false;

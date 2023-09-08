@@ -3,11 +3,11 @@ import Utils from './utils';
 export default function Hero (sheet) {
     return {
         cont: new PIXI.Container(),
-        fallingTextures: [PIXI.Texture.fromFrame("heroFalling0001.png"), PIXI.Texture.fromFrame("heroFalling0002.png")],
-        chewingTextures: [PIXI.Texture.fromFrame("heroChewing0001.png"), PIXI.Texture.fromFrame("heroChewing0002.png")],
-        flyingTextures: [PIXI.Texture.fromFrame("heroFlying0001.png"), PIXI.Texture.fromFrame("heroFlying0002.png")],
-        standingTextures: [PIXI.Texture.fromFrame("heroStanding0001.png"), PIXI.Texture.fromFrame("heroStanding0002.png")],
-        glidingTextures: [PIXI.Texture.fromFrame("heroGliding.png"), PIXI.Texture.fromFrame("heroGliding0001.png"), PIXI.Texture.fromFrame("heroGliding0002.png")],
+        fallingTextures: [sheet.textures["heroFalling0001.png"], sheet.textures["heroFalling0002.png"]],
+        chewingTextures: [sheet.textures["heroChewing0001.png"], sheet.textures["heroChewing0002.png"]],
+        flyingTextures: [sheet.textures["heroFlying0001.png"], sheet.textures["heroFlying0002.png"]],
+        standingTextures: [sheet.textures["heroStanding0001.png"], sheet.textures["heroStanding0002.png"]],
+        glidingTextures: [sheet.textures["heroGliding.png"], sheet.textures["heroGliding0001.png"], sheet.textures["heroGliding0002.png"]],
         activeMC: "",
         chewCounter: 0,
         init: function () {
