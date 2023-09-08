@@ -66,9 +66,9 @@ export default function BouncePigCode (canvasContainer) {
         },
         stop: function () {
             window.onresize = null;
-            this.loader.destroy();
-            this.app.ticker.destroy();
-            this.renderer.destroy();
+            // this.loader.destroy();
+            // this.app.ticker.destroy();
+            this.app.destroy(true, {stageOptions: true});
         },
         Main: function () {
             // this.halfHeight = this.canvasHeight / 2;

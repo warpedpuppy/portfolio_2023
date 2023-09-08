@@ -1,15 +1,21 @@
+
 import './BouncePig.scss';
 import BouncePigCode from './code/BouncePigCode';
 import { useEffect, useRef } from 'react';
-
+import BackButton from '../../BackButton';
 function BouncePig() {
-	const canvasContainer = useRef(null)
+
+	const canvasContainer = useRef(null);
+	const game = useRef(null);
 	useEffect( () => {
-		const game = BouncePigCode(canvasContainer.current);
-		game.start();
-	}, [])
+		game.current = BouncePigCode(canvasContainer.current);
+		game.current.start();
+	}, [canvasContainer])
+
+	useEffect( () => () => {console.log('unmount'); game.current.stop()}, [] );
 	return ( 
 		<>
+		    <BackButton />
 			<div id="bounce-pig" ref={canvasContainer}></div>
 		</>
 	 );
