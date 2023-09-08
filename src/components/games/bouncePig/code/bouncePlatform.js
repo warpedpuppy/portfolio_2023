@@ -29,13 +29,11 @@ export default function BouncePlatform (gv) {
 				gv.stage.on('pointerdown', this.placeFirstDot)
 				gv.stage.on('pointermove', this.onMouseMove)
 				gv.stage.on('pointerup', this.releaseMouse)
-                // gv.stage.mousedown = gv.stage.touchstart =  this.placeFirstDot;
-                // gv.stage.mousemove = gv.stage.touchmove = this.onMouseMove;
-                // gv.stage.mouseup =  gv.stage.touchend = this.releaseMouse;
+               
             } else {
-                gv.stage.mousedown = gv.stage.touchstart =  null;
-                gv.stage.mousemove = gv.stage.touchmove = null;
-                gv.stage.mouseup =  gv.stage.touchend = null;
+				gv.stage.on('pointerdown', null)
+				gv.stage.on('pointermove', null)
+				gv.stage.on('pointerup', null)
             }
         },
         placeFirstDot: function(touchData) {
@@ -53,7 +51,8 @@ export default function BouncePlatform (gv) {
             this.dot2.y = mouseY;
             this.dot2.visible = true;
             gv.mouseDown = true;
-            gv.stage.removeChild(gv.swipeText);
+            // gv.stage.removeChild(gv.swipeText);
+			gv.swipeText.visible = false;
         },
         onMouseMove: function(touchData){
             if (gv.mouseDown === true) {

@@ -11,6 +11,8 @@ export default function Animate (gv) {
         //   testing = false;
     let A, B, i, mine, mineRect, cloud, boxPoint, cloudRect, drum, fruit, rect1;
 
+	
+
     return function () {
         if (gv.animateAllow === true) {
                 
@@ -129,9 +131,9 @@ export default function Animate (gv) {
             // }
         }
 
-        // if (gv.vy < gv.speedLimit) {
-        //     gv.vy += 0.25;
-        // }
+        if (gv.vy < gv.speedLimit) {
+            gv.vy += 0.25;
+        }
 
         // if (gv.speedLimit !== gv.storeSpeedLimit) {
         //     gv.swipeText.visible = false;
@@ -163,18 +165,23 @@ export default function Animate (gv) {
 
         if (gv.mouseDown !== true && gv.utils.lineIntersectCircle(A, B, C, 20)) {
             if ((dot1.x > dot2.x && dot1.y < dot2.y) || (dot1.y > dot2.y && dot1.x < dot2.x)) {
-                // gv.vx = -2;
+                gv.vx = -2;
                 gv.hero.cont.scale.x = 1;
             } else if ((dot1.x > dot2.x && dot1.y > dot2.y) || (dot1.y < dot2.y && dot1.x < dot2.x)) {
-                // gv.vx = 2;
+                gv.vx = 2;
                 gv.hero.cont.scale.x = -1;
             }
             //gv.utils.playSound("boing");
-            // gv.vy *= -1.5;
-            gv.hero.bounce();
+            gv.vy *= -1.5;
+			// console.log('hit')
+            // gv.hero.bounce();
             // gv.swipeText.visible = false;
             gv.speedLimit = gv.storeSpeedLimit;
         }
+
+		if (dot1.y < 0 && dot2.y < 0 ) {
+			gv.swipeText.visible = true;
+		}
     } 
     // gv.renderer.render(gv.stage);
 }

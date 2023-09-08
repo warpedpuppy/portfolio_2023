@@ -16,7 +16,7 @@ export default function BouncePigCode (canvasContainer) {
 		canvasWidth: canvasContainer.offsetWidth,
 		canvasHeight: canvasContainer.offsetHeight,
 		halfWidth: canvasContainer.offsetWidth / 2,
-		halfHeight: canvasContainer.offsetHeigh / 2,
+		halfHeight: canvasContainer.offsetHeight / 2,
         start: async function () {
             this.totalSoundsAndLoader = 7;
             this.utils = new Utils(this);
@@ -27,7 +27,7 @@ export default function BouncePigCode (canvasContainer) {
             // this.Back = Back;
             // this.ObjectPoolBuilder = ObjectPoolBuilder;
             // this.Mines = Mines;
-            // this.speedLimit = this.storeSpeedLimit = 10;
+            this.speedLimit = this.storeSpeedLimit = 10;
             // this.canvasWidth = this.utils.returnCanvasWidth();
             // this.canvasHeight = 400;
             this.vy = 2;
@@ -108,6 +108,8 @@ export default function BouncePigCode (canvasContainer) {
 			let hero = this.hero = new Hero(this.sheet);
 			hero.init();
 			this.utils.center(hero.cont)
+			hero.cont.x = this.halfWidth;
+			hero.cont.y = this.halfHeight;
 			this.app.stage.addChild(hero.cont)
 
 
@@ -116,6 +118,15 @@ export default function BouncePigCode (canvasContainer) {
 
             this.background = Background(this);
             this.background.init();
+
+			// let circle = new PIXI.Graphics();
+			// circle.beginFill(0x000000);
+			// circle.drawCircle(0,  0, 20)
+			// circle.endFill();
+			// circle.alpha = 0.5;
+			// circle.x = this.halfWidth;
+			// circle.y = this.halfHeight;
+			// this.stage.addChild(circle)
 
 
             this.animateAllow = true;
@@ -132,14 +143,19 @@ export default function BouncePigCode (canvasContainer) {
             // this.heroInstance.x - (this.heroInstance.width / 4),
             // this.heroInstance.y + (this.heroInstance.height/2)-20,this.hero.width/2, 5);
 
-            // this.swipeText = new PIXI.Sprite.fromFrame("swipeScreen.png");
+            this.swipeText = PIXI.Sprite.from(this.sheet.textures["swipeScreen.png"]);
 
             // this.stars = new ObjectPoolBuilder(PIXI, "star.png", 80, [3,8],[2,25], undefined, true, true, this, false, 1);
             // this.stars.init();
            
-            // this.stage.addChild(this.swipeText);
-            // this.swipeText.x = (this.canvasWidth - this.swipeText.width) / 2;
-            // this.swipeText.y = (this.canvasHeight - this.swipeText.height)-10;
+            this.stage.addChild(this.swipeText);
+			this.swipeText.scale.set(0.75)
+            this.swipeText.x = (this.canvasWidth - this.swipeText.width) / 2;
+            this.swipeText.y = (this.canvasHeight - this.swipeText.height)-10;
+			
+
+
+
             this.animate = Animate(this);
             this.app.ticker.add(this.animate);
           
@@ -150,11 +166,22 @@ export default function BouncePigCode (canvasContainer) {
             this.halfWidth = this.canvasWidth / 2;
             this.halfHeight = this.canvasHeight / 2;
             // this.renderer.resize(this.canvasWidth, this.canvasHeight);
-            // this.background.resize();
+            this.background.resize();
             this.hero.cont.x = this.halfWidth;
+			this.hero.cont.y = this.halfHeight;
             // this.drums.resize();
             this.clouds.resize();
-            // this.swipeText.x = (this.canvasWidth - this.swipeText.width) / 2;
+			if (this.swipeText.width > this.canvasWidth) {
+	
+				this.swipeText.scale.set(0.75)
+           
+			} else  {
+				this.swipeText.scale.set(1)
+			}
+
+
+			this.swipeText.x = (this.canvasWidth - this.swipeText.width) / 2;
+            this.swipeText.y = (this.canvasHeight - this.swipeText.height)-10;
             // this.heroInstance.y = this.halfHeight;
             // this.mines.resize();
             
