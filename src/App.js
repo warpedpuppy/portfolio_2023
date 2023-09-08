@@ -12,7 +12,8 @@ import Webinars from './components/webinars/Webinars';
 import Challenges from './components/challenges/Challenges';
 import Games from './components/games/Games';
 import PrettyLittleThings from './components/pretty-little-things/PrettyLittleThings';
-import BouncePig from './components/games/bouncePig/BouncePig';
+import Fish from './components/games/fish/Fish';
+import GameCanvas from './components/GameCanvas';
 import About from './pages/About';
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 function App() {
@@ -42,9 +43,9 @@ function App() {
 		</Route>
 		<Route path="gamelets" element={<><h2>gamelets:</h2><Outlet /></>}>
 			<Route index element={<Games />} />
-			<Route path="dragon" element={<div>dragon</div>} />
-			<Route path="fish" element={<div>fish</div>} />
-			<Route path="pig" element={<BouncePig />} />
+			<Route path="dragon" element={<GameCanvas game="dragon" />} />
+			<Route path="fish" element={<Fish />} />
+			<Route path="pig" element={<GameCanvas game="pig" />} />
 			<Route path="planet-jump" element={<div>planet jump</div>} />
 			<Route path="lines" element={<div>lines</div>} />
 			<Route path="*" element={<h1>game not found</h1>} />

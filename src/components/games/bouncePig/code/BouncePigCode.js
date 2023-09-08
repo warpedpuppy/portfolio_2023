@@ -45,24 +45,14 @@ export default function BouncePigCode (canvasContainer) {
 			this.stage.eventMode = 'static';
 			this.stage.cursor = 'pointer';
 			canvasContainer.appendChild(app.view);
-			// const spriteSheet = new PIXI.Spritesheet(
-			// 	PIXI.BaseTexture.from("/images/bouncePig/bpb.png"),
-			// 	"/images/bouncePig/bpb.json"
-			// )
-			// console.log(spriteSheet)
+			console.log(canvasContainer)
 			
 			let sheet = await PIXI.Assets.load("/images/bouncePig/bpb.json")
 			this.sheet = sheet; 
-
-			
-
-			
-           
-            // this.webGL = (this.renderer instanceof PIXI.CanvasRenderer) ? false : true;
             this.resizeHandler = this.resizeHandler.bind(this);
             window.onresize = () => this.resizeHandler();
 			this.Main();
-            // this.counter = 0;
+			this.resizeHandler();
         },
         stop: function () {
             window.onresize = null;
