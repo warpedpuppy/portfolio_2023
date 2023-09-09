@@ -108,36 +108,14 @@ export default function BouncePigCode (canvasContainer) {
 
             this.background = Background(this);
             this.background.init();
-
-			// let circle = new PIXI.Graphics();
-			// circle.beginFill(0x000000);
-			// circle.drawCircle(0,  0, 20)
-			// circle.endFill();
-			// circle.alpha = 0.5;
-			// circle.x = this.halfWidth;
-			// circle.y = this.halfHeight;
-			// this.stage.addChild(circle)
-
-
             this.animateAllow = true;
-            // this.introScreenOnStage = false;
+        
 
             this.loopingQ = 10;
-            // let hitAreaWidth = this.heroInstance.width * 0.5;
-            // let hitAreaHeight = this.heroInstance.height * 0.5;
-            // let hitAreaX =this.heroInstance.x - (hitAreaWidth / 2);
-            // let hitAreaY =  this.heroInstance.y - (hitAreaHeight / 2);
-
-            // this.rect2 = new PIXI.Rectangle(hitAreaX,hitAreaY,hitAreaWidth, hitAreaHeight);
-            // this.rect3 = new PIXI.Rectangle(
-            // this.heroInstance.x - (this.heroInstance.width / 4),
-            // this.heroInstance.y + (this.heroInstance.height/2)-20,this.hero.width/2, 5);
-
+            
             this.swipeText = PIXI.Sprite.from(this.sheet.textures["swipeScreen.png"]);
 
-            // this.stars = new ObjectPoolBuilder(PIXI, "star.png", 80, [3,8],[2,25], undefined, true, true, this, false, 1);
-            // this.stars.init();
-           
+            
             this.stage.addChild(this.swipeText);
 			this.swipeText.scale.set(0.75)
             this.swipeText.x = (this.canvasWidth - this.swipeText.width) / 2;

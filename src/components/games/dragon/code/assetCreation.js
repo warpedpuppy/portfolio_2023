@@ -2,7 +2,7 @@ import * as PIXI from 'pixijs';
 import Utils from './utils'
 import Config from './animationsConfig'
 
-export const AssetCreation = {
+const AssetCreation = {
   utils: Utils,
   opQ: 0,
   op: [],
@@ -35,9 +35,9 @@ export const AssetCreation = {
   Container () {
     return new PIXI.Container()
   },
-  Loader () {
-    return PIXI.loader
-  },
+//   Loader () {
+//     return PIXI.loader
+//   },
   Application (w, h, transParentBoolean) {
     return new PIXI.Application(w, h, { transparent: transParentBoolean })
   },
@@ -60,32 +60,32 @@ export const AssetCreation = {
     }
     return cont
   },
-  webgl () {
-    return this.utils.app.renderer instanceof PIXI.WebGLRenderer
-  },
-  ParticleContainer (q) {
-    return new PIXI.particles.ParticleContainer(q, {
-      scale: true,
-      position: true,
-      rotation: true,
-      uvs: true,
-      alpha: true
-    })
-  },
+//   webgl () {
+//     return this.utils.app.renderer instanceof PIXI.WebGLRenderer
+//   },
+//   ParticleContainer (q) {
+//     return new PIXI.particles.ParticleContainer(q, {
+//       scale: true,
+//       position: true,
+//       rotation: true,
+//       uvs: true,
+//       alpha: true
+//     })
+//   },
   ColorFilter () {
     return new PIXI.filters.ColorMatrixFilter()
   },
-  BitmapText (str) {
-    return new PIXI.extras.BitmapText(str, { font: '21px Hiragino Sans' })
-  },
-  Rope (texture, points) {
-    return new PIXI.mesh.Rope(texture, points)
-  },
+//   BitmapText (str) {
+//     return new PIXI.extras.BitmapText(str, { font: '21px Hiragino Sans' })
+//   },
+//   Rope (texture, points) {
+//     return new PIXI.mesh.Rope(texture, points)
+//   },
   Texture (str) {
     return PIXI.Texture.fromFrame(str)
   },
   AnimatedSprite (array) {
-    return new PIXI.extras.AnimatedSprite(array)
+    return new PIXI.AnimatedSprite(array)
   },
   returnObjectPool (str) {
     for (let i = 0; i < this.opQ; i++) {
@@ -112,15 +112,15 @@ export const AssetCreation = {
     return returnArr
   },
   Sprite (str) {
-    if (!str) {
-      return new PIXI.Sprite()
-    }
-    if (this.utils.spritesheet && this.utils.spritesheet.textures[str]) {
-      // if(test)console.log('from spritesheet', str)
-      return new PIXI.Sprite(this.utils.spritesheet.textures[str])
-    }
+    // if (!str) {
+    //   return new PIXI.Sprite()
+    // }
+    // if (this.utils.spritesheet && this.utils.spritesheet.textures[str]) {
+    //   // if(test)console.log('from spritesheet', str)
+    //   return new PIXI.Sprite(this.utils.spritesheet.textures[str])
+    // }
     // if(test)console.log('from directory', str, this.utils.spritesheet)
-    return new PIXI.Sprite.fromImage(`/bmps/dragon/${str}`)
+    return new PIXI.Sprite(PIXI.Texture.from(str));//new PIXI.Sprite.fromImage(`/bmps/dragon/${str}`)
   },
   Graphics () {
     return new PIXI.Graphics()
@@ -153,3 +153,4 @@ export const AssetCreation = {
   }
 
 }
+export default AssetCreation;
