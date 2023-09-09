@@ -45,7 +45,7 @@ export default function BouncePigCode (canvasContainer) {
 			this.stage.eventMode = 'static';
 			this.stage.cursor = 'pointer';
 			canvasContainer.appendChild(app.view);
-			console.log(canvasContainer)
+			// console.log( PIXI.Assets.cache._cache[0])
 			
 			let sheet = await PIXI.Assets.load("/images/bouncePig/bpb.json")
 			this.sheet = sheet; 
