@@ -18,10 +18,11 @@ function GameCanvas({game}) {
 
 	useEffect( () => () => gameRef.current.stop(), [] );
 
+
 	return ( 
 		<>
 		    <BackButton />
-			<div  className="game-canvases" ref={canvasContainer}></div>
+			<div className="game-canvases" ref={canvasContainer}></div>
 		</>
 	 );
 }

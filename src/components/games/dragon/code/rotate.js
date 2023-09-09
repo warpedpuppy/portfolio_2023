@@ -6,7 +6,7 @@ export default function Rotate() {
     utils: Utils,
     config: Config,
     movementQ: 0.1,
-    init () {
+    init () { 
     },
     rotate (str, activeAction) {
       // leaving this here for now because this really relates to the background current

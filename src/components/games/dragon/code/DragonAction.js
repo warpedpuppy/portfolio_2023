@@ -7,7 +7,7 @@ export default function DragonAction (gv) {
   return {
     
     
-    spinning: false,
+
     vx: 0,
     vy: 0,
     airBubbleCounter: 0,
@@ -55,21 +55,23 @@ export default function DragonAction (gv) {
       this.mode = mode
       this.maxLength = this.increment * gv.dragon.segmentsQ
     },
-    rotate (str) {
-      const obj = this.rotateFunction.rotate(str, this)
-      this.vx = -obj.vx
-      this.vy = -obj.vy
+    rotate (str, bool) {
+    //   const obj = this.rotateFunction.rotate(str, this)
+    //   this.vx = -obj.vx
+    //   this.vy = -obj.vy
+	gv.spinDirection = str;
+		gv.spinning = bool;
     },
     fire (boolean) {
-      this.flameOn = this.flames.visible = boolean
+      this.flameOn = gv.flames.visible = gv.flameOn = boolean
     },
     animate ()  {
-		// console.log('tick',DragonAction)
+	
     //   this.clouds.animate()
 
       gv.dragon.eyeCont.rotation = gv.radius
       gv.dragon.headCont.rotation = gv.radius
-		// console.log(gv.radius)
+
       gv.dragon.pos.push(gv.radius)
 
       if (gv.dragon.pos.length > gv.maxLength) {
@@ -85,26 +87,31 @@ export default function DragonAction (gv) {
         }
       }
 
-    //   if (this.flameOn) {
-    //     this.triangleOfCollision.fireHit()
+	  if (gv.spinning) {
+		gv.dragon.cont.rotation += gv.spinDirection === 'right' ? Utils.deg2rad(5) : Utils.deg2rad(-5) ;
+	  }
 
-    //     for (let i = 0; i < this.flameQ; i++) {
-    //       const item = this.flameArray[i]
-    //       const determineContinue = Math.floor(Math.random() * 10)
-    //       if (determineContinue < 9) continue
-    //       item.x += item.vx
-    //       item.y += item.vy
-    //       item.rotation += 0.5
-    //       item.alpha -= item.fade
-    //       if (Math.abs(item.y) > item.maxDistance) {
-    //         item.x = 0
-    //         item.y = 0
-    //         item.alpha = 1
-    //       }
-    //     }
-    //   } else if (!this.spinning) {
+      if (gv.flameOn) {
+        // this.triangleOfCollision.fireHit()
+
+
+        for (let i = 0; i < gv.flameQ; i++) {
+          const item = gv.flameArray[i]
+          const determineContinue = Math.floor(Math.random() * 10)
+          if (determineContinue < 9) continue
+          item.x += item.vx
+          item.y += item.vy
+          item.rotation += 0.5
+          item.alpha -= item.fade
+          if (Math.abs(item.y) > item.maxDistance) {
+            item.x = 0
+            item.y = 0
+            item.alpha = 1
+          }
+        }
+      } else {
         gv.radius =Utils.cosWave(gv.storeRadius, 0.15, 0.01)
-    //   }
+      }
 
       if (!gv.flameOn) {
         gv.dragon.wingCont.rotation = gv.storeRadius;

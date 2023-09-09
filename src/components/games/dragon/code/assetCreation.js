@@ -4,13 +4,15 @@ import Config from './animationsConfig'
 
 const AssetCreation = {
   utils: Utils,
-  opQ: 0,
+  opQ: 100,
   op: [],
   rings: [],
   lines: [],
   coins: [],
   opCounter: 0,
-  init () {
+  colors: [0xFF00FF, 0xFF0000, 0xFFFF00, 0xFF9900, 0x33FF00],
+  init (gv) {
+	this.gv = gv;
     // this.ringQ = (this.utils.app.renderer instanceof PIXI.WebGLRenderer) ? Config.bounceTotalPoints : 100
     // for (let i = 0; i < this.ringQ; i++) {
     //   this.lines.push(this.Graphics())
@@ -63,15 +65,15 @@ const AssetCreation = {
 //   webgl () {
 //     return this.utils.app.renderer instanceof PIXI.WebGLRenderer
 //   },
-//   ParticleContainer (q) {
-//     return new PIXI.particles.ParticleContainer(q, {
-//       scale: true,
-//       position: true,
-//       rotation: true,
-//       uvs: true,
-//       alpha: true
-//     })
-//   },
+  ParticleContainer (q) {
+    return new PIXI.ParticleContainer(q, {
+      scale: true,
+      position: true,
+      rotation: true,
+      uvs: true,
+      alpha: true
+    })
+  },
   ColorFilter () {
     return new PIXI.filters.ColorMatrixFilter()
   },
@@ -89,7 +91,8 @@ const AssetCreation = {
   },
   returnObjectPool (str) {
     for (let i = 0; i < this.opQ; i++) {
-      this.op[i].texture = this.utils.spritesheet.textures[str]
+    //   this.op[i].texture = this.utils.spritesheet.textures[str]
+	  this.op.push(this.Sprite(str));
     }
     return this.op
   },
@@ -126,8 +129,8 @@ const AssetCreation = {
     return new PIXI.Graphics()
   },
   createPool (cont, str, colors, scaleArray) {
-    const flameArray = this.returnObjectPool(str)
-    const flameQ = flameArray.length
+    const flameArray = this.returnObjectPool(str);
+    const flameQ = flameArray.length;
     let colorCounter = 0
     let item
     for (let i = 0; i < flameQ; i++) {
@@ -142,9 +145,9 @@ const AssetCreation = {
       item.vx = Math.cos(item.angle) * hypotenuse
       item.vy = Math.sin(item.angle) * hypotenuse
 
-      item.tint = colors[colorCounter]
+      item.tint = this.colors[colorCounter]
       colorCounter++
-      if (colorCounter > colors.length - 1) {
+      if (colorCounter > this.colors.length - 1) {
         colorCounter = 0
       }
       cont.addChild(item)

@@ -32,13 +32,12 @@ export default function DragonHero (parentCont) {
 
         if (i !== this.segmentsQ - 1) {
           segment = new PIXI.Sprite(PIXI.Texture.from('/bmps/dragon/dragonSegment.png'))
-          segment.y = i * (1 + 40)
-          // segment.scale.y = -1;
+          segment.y = i * (1 + 50)
+        //   segment.scale.y = -1;
         } else {
 		  let tailTexture = PIXI.Texture.from('/bmps/dragon/dragonTail.png')
           segment = new PIXI.Sprite(tailTexture)
-          segment.y = i * 40;
-		  console.log(segment.y, i, tailTexture.height)
+          segment.y = i * 50;
         }
         segment.anchor.x = 0.5
         segment.anchor.y = 0.2
