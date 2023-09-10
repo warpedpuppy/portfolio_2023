@@ -15,7 +15,7 @@ export default function Rotate() {
       if (str === 'right') {
         this.idle = false
         activeAction.radius += this.movementQ
-        this.velocity = this.config[`${this.utils.root.activeMode}Velocity`]
+        this.velocity = 6;
         this.vx = this.velocity * Math.sin(activeAction.radius)
         this.vy = -this.velocity * Math.cos(activeAction.radius)
         activeAction.storeRadius = activeAction.radius
@@ -23,7 +23,7 @@ export default function Rotate() {
       } else if (str === 'left') {
         this.idle = false
         activeAction.radius -= this.movementQ
-        this.velocity = this.config[`${this.utils.root.activeMode}Velocity`]
+        this.velocity = 6;
         this.vx = this.velocity * Math.sin(activeAction.radius)
         this.vy = -this.velocity * Math.cos(activeAction.radius)
         activeAction.storeRadius = activeAction.radius

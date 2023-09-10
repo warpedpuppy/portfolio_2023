@@ -60,7 +60,7 @@ export default function DragonCode(canvasContainer) {
 			window.removeEventListener('keyup', this.keyUpHandler)
 		},
 		keyDownHandler: function (e) {
-
+			e.preventDefault();
 			if (e.keyCode === 32) {
 				this.flameOn = true;
 				this.animate.fire(true)
