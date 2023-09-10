@@ -32,6 +32,12 @@ export default function LinesCode(canvasContainer) {
 					.moveTo(this.canvasWidth, buffer + (i  * buffer))
 					.lineTo(this.canvasWidth - (lineQ * buffer) + ( i * buffer), 0);
 					app.stage.addChild(line)
+
+					line = new PIXI.Graphics();
+					line.lineStyle(1, 0x0096FF)
+					.moveTo(buffer + (i  * buffer), 0)
+					.lineTo(0, (lineQ * buffer) - ( i * buffer));
+					app.stage.addChild(line)
 			}
 		},
 		stop: function () {
