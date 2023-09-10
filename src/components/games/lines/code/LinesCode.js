@@ -13,30 +13,44 @@ export default function LinesCode(canvasContainer) {
 			canvasContainer.appendChild(app.view);
 			let buffer = 10; 
 			let lineQ = this.canvasHeight / buffer;
+			const obj = {BL: [], BR: [], TR: [], TL: []}
+			let start, end;
 			for (let i = 0; i < lineQ; i ++) {
 					let line = new PIXI.Graphics();
+					start = [0, buffer + (i * buffer)]
+					end = [buffer + (i * buffer), this.canvasHeight]
 					line.lineStyle(1, 0x000000)
-					.moveTo(0, buffer + (i * buffer))
-					.lineTo(buffer + (i * buffer), this.canvasHeight);
+					.moveTo(start[0], start[1])
+					.lineTo(end[0], end[1]);
+					obj.BL = {start, end}
 					app.stage.addChild(line)
 
 					
 					line = new PIXI.Graphics();
+					start = [this.canvasWidth - (i  * buffer), this.canvasHeight]
+					end = [this.canvasWidth, buffer + (i  * buffer)]
 					line.lineStyle(1, 0xFF00FF)
-					.moveTo(this.canvasWidth - (i  * buffer), this.canvasHeight)
-					.lineTo(this.canvasWidth, buffer + (i  * buffer));
+					.moveTo(start[0], start[1])
+					.lineTo(end[0], end[1]);
+					obj.BR = {start, end}
 					app.stage.addChild(line)
 
 					line = new PIXI.Graphics();
+					start = [this.canvasWidth, buffer + (i  * buffer)]
+					end = [this.canvasWidth - (lineQ * buffer) + ( i * buffer), 0]
 					line.lineStyle(1, 0x66ff00)
-					.moveTo(this.canvasWidth, buffer + (i  * buffer))
-					.lineTo(this.canvasWidth - (lineQ * buffer) + ( i * buffer), 0);
+					.moveTo(start[0], start[1])
+					.lineTo(end[0], end[1]);
+					obj.TR = {start, end}
 					app.stage.addChild(line)
 
 					line = new PIXI.Graphics();
+					start = [buffer + (i  * buffer), 0]
+					end = [0, (lineQ * buffer) - ( i * buffer)]
 					line.lineStyle(1, 0x0096FF)
-					.moveTo(buffer + (i  * buffer), 0)
-					.lineTo(0, (lineQ * buffer) - ( i * buffer));
+					.moveTo(start[0], start[1])
+					.lineTo(end[0], end[1]);
+					obj.TL = {start, end}
 					app.stage.addChild(line)
 			}
 		},
