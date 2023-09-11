@@ -1,10 +1,9 @@
-import Utils from '../../utils/utils'
-import Assets from '../../utils/assetCreation'
+import Utils from './utils'
+import Assets from './assetCreation'
 import AirBubbles from './airBubbles'
-import Rotate from '../action/rotate'
-import TriangleOfCollision from '../action/triangleOfCollision'
+import Rotate from './rotate'
 
-export default function FishAction() {
+export default function FishAction(gv) {
   return {
     radius: 0,
     storeRadius: 0,
@@ -19,22 +18,19 @@ export default function FishAction() {
     percApply: true,
     airBubbles: AirBubbles(),
     increment: 5,
-    triangleOfCollision: TriangleOfCollision(),
     flameOn: false,
     rotateFunction: Rotate(),
-    init (stage) {
-      this.hero = this.utils.hero
+    init () {
+       gv.fishHero = this.utils.hero
       this.wh = this.utils.wh
-      this.stage = stage
-      // this.vx = this.utils.randomNumberBetween(1,2);
-      //          this.vy = this.utils.randomNumberBetween(1,2);
-      this.airBubbles.setupBubbles(stage)
+      this.stage = gv.stage
+      this.airBubbles.setupBubbles(this.stage)
       this.triangleOfCollision.init()
       this.flames = Assets.ParticleContainer(this.flameQ)
     },
     start () {
       this.createPool()
-      this.maxLength = this.increment * this.hero.activeHero.segmentsQ
+      this.maxLength = this.increment *  gv.fishHero.segmentsQ
     },
     createPool () {
       const obj = Assets.createPool(
@@ -48,7 +44,7 @@ export default function FishAction() {
       this.flameQ = obj.flameQ
       this.flames.visible = false
       this.flames.y = -40
-      this.hero.activeHero.headCont.addChildAt(this.flames, 0)
+       gv.fishHero.headCont.addChildAt(this.flames, 0)
     },
     rotate (str) {
       const obj = this.rotateFunction.rotate(str, this)
@@ -79,33 +75,33 @@ export default function FishAction() {
           }
         }
       }
-      this.hero.activeHero.headCont.rotation = this.radius
+      gv.fishHero.headCont.rotation = this.radius
 
       if (!this.spinning) {
         this.radius = this.utils.cosWave(this.storeRadius, 0.15, 0.01)
       }
 
-      this.hero.activeHero.segments[0].rotation = this.radius
-      this.hero.pos.push(this.radius)
+	  gv.fishHero.segments[0].rotation = this.radius
+	  gv.fishHero.pos.push(this.radius)
 
-      if (this.hero.pos.length > this.maxLength) {
-        this.hero.pos = this.hero.pos.slice(-this.maxLength)
+      if ( gv.fishHero.pos.length > this.maxLength) {
+         gv.fishHero.pos =  gv.fishHero.pos.slice(-this.maxLength)
       }
 
-      for (let i = 1; i < this.hero.activeHero.segmentsQ; i++) {
-        const index = this.hero.pos.length - (i * this.increment)
-        if (this.hero.pos.length >= index) {
-          this.hero.activeHero.segments[i].rotation = this.hero.pos[index]
+      for (let i = 1; i <  gv.fishHero.segmentsQ; i++) {
+        const index =  gv.fishHero.pos.length - (i * this.increment)
+        if ( gv.fishHero.pos.length >= index) {
+           gv.fishHero.segments[i].rotation =  gv.fishHero.pos[index]
         }
       }
 
       this.airBubbles.animate()
-      this.hero.activeHero.leftFin.rotation = this.utils.deg2rad(this.utils.cosWave(0, 20, 0.004))
-      this.hero.activeHero.rightFin.rotation = this.utils.deg2rad(this.utils.cosWave(0, -20, 0.004))
-      this.hero.activeHero.tail.rotation = this.utils.deg2rad(this.utils.cosWave(0, 60, 0.01))
+       gv.fishHero.leftFin.rotation = this.utils.deg2rad(this.utils.cosWave(0, 20, 0.004))
+       gv.fishHero.rightFin.rotation = this.utils.deg2rad(this.utils.cosWave(0, -20, 0.004))
+       gv.fishHero.tail.rotation = this.utils.deg2rad(this.utils.cosWave(0, 60, 0.01))
 
-      this.hero.activeHero.finCont.rotation = this.radius
-      this.hero.activeHero.eyeCont.rotation = this.radius
+       gv.fishHero.finCont.rotation = this.radius
+       gv.fishHero.eyeCont.rotation = this.radius
       this.airBubbles.bubblesCont.rotation = this.storeRadius // this is why airbubbles needs to be in here
     }
   }

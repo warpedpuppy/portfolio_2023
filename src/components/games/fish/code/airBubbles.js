@@ -1,7 +1,7 @@
-import Utils from '../../utils/utils'
-import Assets from '../../utils/assetCreation'
+import Utils from './utils'
+import Assets from './assetCreation'
 
-export default function () {
+export default function AirBubbles () {
   return {
     mode: undefined,
     radius: 0,

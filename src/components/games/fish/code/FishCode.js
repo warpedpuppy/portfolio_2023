@@ -1,7 +1,7 @@
 import * as PIXI from 'pixijs';
 import FishHero from './FishHero';
 import SwimBackground from './swimBackground';
-
+import FishAction from './FishAction';
 export default function FishCode(canvasContainer) {
 
 	return {
@@ -21,9 +21,12 @@ export default function FishCode(canvasContainer) {
 			background.init();
 			background.addToStage();
 
-			let fishHero = FishHero(this);
+			let fishHero = this.fishHero = FishHero(this);
+
 			fishHero.init();
 			fishHero.addToStage();
+
+			this.fishAction = FishAction(this)
 
             this.app.ticker.add(this.ticker.bind(this));
 			window.addEventListener('keydown', this.keyDownHandler.bind(this))
@@ -37,6 +40,7 @@ export default function FishCode(canvasContainer) {
 			window.removeEventListener('keyup', this.keyUpHandler)
 		},
 		ticker: function () {
+			this.fishAction.animate();
 			this.background.animate();
 		},
 		keyDownHandler: function (e) {
