@@ -4,7 +4,7 @@ import AirBubbles from './airBubbles'
 import Rotate from '../action/rotate'
 import TriangleOfCollision from '../action/triangleOfCollision'
 
-export default function () {
+export default function FishAction() {
   return {
     radius: 0,
     storeRadius: 0,

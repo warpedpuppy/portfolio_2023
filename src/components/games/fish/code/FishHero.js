@@ -1,7 +1,7 @@
-import Assets from '../../utils/assetCreation'
-import Utils from '../../utils/utils'
+import Assets from './assetCreation'
+import Utils from './utils'
 
-export default function () {
+export default function FishHero(gv) {
   return {
     cont: Assets.Container(),
     dists: [0, 40, 35, 30, 23],
@@ -9,25 +9,27 @@ export default function () {
     fish: [],
     pos: [],
     utils: Utils,
-    init (parentCont) {
-      this.parentCont = parentCont
+    init () {
+      this.parentCont = gv.stage;
       this.spritesheet = this.utils.spritesheet
       this.segmentsQ = 5
       this.finCont = Assets.Container()
       this.eyeCont = Assets.Container()
       this.headCont = Assets.Container()
       this.fishArray = [
-        'headSegment.png',
-        'bodySegment1.png',
-        'bodySegment2.png',
-        'bodySegment3.png',
-        'bodySegment4.png',
-        'bodySegment5.png']
+        '/bmps/fish/headSegment.png',
+        '/bmps/fish/bodySegment1.png',
+        '/bmps/fish/bodySegment2.png',
+        '/bmps/fish/bodySegment3.png',
+        '/bmps/fish/bodySegment4.png',
+        '/bmps/fish/bodySegment5.png']
       this.distTotal = 0
+
+	
 
       // AIR BUBBLES
       for (let i = 0; i < 4; i++) {
-        const r = Assets.Sprite('gradientRing.png')
+        const r = Assets.Sprite('/bmps/fish/gradientRing.png')
         r.anchor.set(0.5)
         r.scale.set(0)
         this.airBubbles.push(r)
@@ -40,28 +42,28 @@ export default function () {
         this.fish.push(segment)
         this.cont.addChildAt(segment, 0)
       }
-
-      const rightFin = this.rightFin = Assets.Sprite('swimFin.png')
+	
+      const rightFin = this.rightFin = Assets.Sprite('/bmps/fish/swimFin.png')
       this.rightFin.x = 20
       rightFin.scale.set(0.5)
       this.rightFin.y = 15
       rightFin.scale.x = -1
       this.finCont.addChild(rightFin)
-
-      const leftFin = this.leftFin = Assets.Sprite('swimFin.png')
+	
+      const leftFin = this.leftFin = Assets.Sprite('/bmps/fish/swimFin.png')
       this.leftFin.x = -20
       leftFin.scale.set(0.5)
       leftFin.y = 15
       this.finCont.addChild(leftFin)
       this.cont.addChildAt(this.finCont, 0)
 
-      const rightEye = this.rightEye = Assets.Sprite('swimEye.png')
+      const rightEye = this.rightEye = Assets.Sprite('/bmps/fish/swimEye.png')
       rightEye.anchor.set(0.5)
       rightEye.scale.set(0.5)
       this.rightEye.x = 10
       this.eyeCont.addChild(rightEye)
 
-      const leftEye = this.leftEye = Assets.Sprite('swimEye.png')
+      const leftEye = this.leftEye = Assets.Sprite('/bmps/fish/swimEye.png')
       this.leftEye.x = -10
       leftEye.anchor.set(0.5)
       leftEye.scale.set(0.5)
@@ -72,6 +74,7 @@ export default function () {
       this.segments = this.fish
 
       this.activeHero = this
+	
     },
     hit () {
 
@@ -95,7 +98,7 @@ export default function () {
       cont.addChild(b)
       cont.body = b
       if (num === this.segmentsQ - 1) {
-        const tail = this.tail = Assets.Sprite('bodySegmentTail.png')
+        const tail = this.tail = Assets.Sprite('/bmps/fish/bodySegmentTail.png')
         this.tail.anchor.x = 0.5
 
         tail.y = b.y + (b.height / 2) - 10
@@ -105,8 +108,8 @@ export default function () {
       return cont
     },
     addToStage () {
-      this.cont.x = this.utils.canvasWidth / 2
-      this.cont.y = this.utils.canvasHeight / 2
+      this.cont.x = gv.halfWidth;
+      this.cont.y = gv.halfHeight;
       this.parentCont.addChild(this.cont)
     },
     removeFromStage () {

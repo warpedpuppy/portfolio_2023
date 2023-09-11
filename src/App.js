@@ -43,7 +43,7 @@ function App() {
 		<Route path="gamelets" element={<><h2>gamelets:</h2><Outlet /></>}>
 			<Route index element={<Games />} />
 			<Route path="dragon" element={<GameCanvas game="dragon" />} />
-			<Route path="fish" element={<GameCanvas />} />
+			<Route path="fish" element={<GameCanvas game="fish" />} />
 			<Route path="pig" element={<GameCanvas game="pig" />} />
 			<Route path="planet-jump" element={<div>planet jump</div>} />
 			<Route path="lines" element={<GameCanvas game="lines" />} />

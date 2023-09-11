@@ -1,18 +1,19 @@
-import Assets from '../../utils/assetCreation'
-import Utils from '../../utils/utils'
+import Assets from './assetCreation'
+import Utils from './utils'
 
-export default function () {
+export default function LilypadsLotuses (gv) {
   return {
     array: [],
     utils: Utils,
     cont: Assets.Container(),
     buffer: 10,
     init (parentCont) {
+		Utils.setProperties(gv)
       this.parentCont = parentCont
       this.wh = this.utils.wh
       this.strs = [
-        ['lilyPad2.png', 178],
-        ['lilypad1.png', 211]
+        ['/bmps/fish/lilyPad2.png', 178],
+        ['/bmps/fish/lilypad1.png', 211]
       ]
       this.loopingQ = 6
 
@@ -34,8 +35,7 @@ export default function () {
       this.utils.setLilypads(this)
     },
     addToStage () {
-      const index = 0// this.utils.app.kingCont.getChildIndex(this.utils.hero.cont)+1;
-      this.parentCont.addChildAt(this.cont, index)
+      gv.stage.addChild(this.cont)
     },
     removeFromStage () {
       this.parentCont.removeChild(this.cont)

@@ -1,7 +1,7 @@
-import Utils from '../../utils/utils'
-import Assets from '../../utils/assetCreation'
+import Utils from './utils'
+import Assets from './assetCreation'
 
-export default function () {
+export default function FishSchool(gv) {
   return {
     points: [],
     sharkPoints: [],
@@ -15,23 +15,25 @@ export default function () {
     fishCont: Assets.Container(),
     sharkQ: 20,
     buffer: 10,
-    init (cont) {
-      this.cont = cont
+    init () {
+      this.cont = gv.stage;
       this.wh = this.utils.wh
       this.fish = this.fish.bind(this)
       this.spritesheet = this.utils.spritesheet
       const steps = this.imageWidth / this.pointQ
-      this.texture = this.spritesheet.textures['koi.png']
-      this.sharkTexture = this.spritesheet.textures['shark.png']
+      this.texture = Assets.Texture('/bmps/fish/koi.png')
+
+      this.sharkTexture = Assets.Texture('/bmps/fish/shark.png')
       for (let i = 0; i < this.pointQ; i++) {
         this.points.push({ x: i * steps, y: 0 })
         this.sharkPoints.push({ x: i * steps, y: 0 })
       }
 
       for (let i = 0; i < this.fishQ; i++) {
+
         const f = this.fish(this.texture, this.points, this.utils)
-        f.x = this.utils.randomNumberBetween(0, this.wh.canvasWidth)
-        f.y = this.utils.randomNumberBetween(0, this.wh.canvasHeight)
+        f.x = this.utils.randomNumberBetween(0, gv.canvasWidth)
+        f.y = this.utils.randomNumberBetween(0, gv.canvasHeight)
         f.vx = this.utils.randomNumberBetween(-3, 3)
         f.vy = this.utils.randomNumberBetween(-3, 3)
         f.alpha = 0.5
@@ -42,8 +44,8 @@ export default function () {
 
       for (let i = 0; i < this.sharkQ; i++) {
         const f = this.fish(this.sharkTexture, this.sharkPoints, this.utils)
-        f.x = this.utils.randomNumberBetween(0, this.wh.canvasWidth)
-        f.y = this.utils.randomNumberBetween(0, this.wh.canvasHeight)
+        f.x = this.utils.randomNumberBetween(0, gv.canvasWidth)
+        f.y = this.utils.randomNumberBetween(0, gv.canvasHeight)
         f.vx = this.utils.randomNumberBetween(-3, 3)
         f.vy = this.utils.randomNumberBetween(-3, 3)
         f.alpha = 0.25
@@ -56,8 +58,8 @@ export default function () {
       this.loopingQ = this.fishQ + this.sharkQ
     },
     addToStage () {
-      this.cont.addChildAt(this.fishCont, 3)
-      this.cont.addChildAt(this.sharkCont, 0)
+      this.cont.addChild(this.fishCont)
+      this.cont.addChild(this.sharkCont)
     },
     removeFromStage () {
       this.cont.removeChild(this.fishCont)
@@ -78,14 +80,14 @@ export default function () {
 
       for (let i = 0; i < this.loopingQ; i++) {
         const f = this.fishArray[i]
-        f.x += (f.vx - this.utils.root.activeAction.vx)
-        f.y += (f.vy - this.utils.root.activeAction.vy)
+        f.x += (f.vx - gv.vx)
+        f.y += (f.vy - gv.vy)
         if (f.x < -f.width - this.buffer) {
           f.x += this.buffer
           f.vx *= -1
           f.vy *= -1
           f.rotation = Math.atan2(f.vy, f.vx)
-        } else if (f.x > this.utils.canvasWidth + f.width + this.buffer) {
+        } else if (f.x > gv.canvasWidth + f.width + this.buffer) {
           f.x -= this.buffer
           f.vx *= -1
           f.vy *= -1
@@ -97,7 +99,7 @@ export default function () {
           f.vx *= -1
           f.vy *= -1
           f.rotation = Math.atan2(f.vy, f.vx)
-        } else if (f.y > this.utils.canvasHeight + f.width + this.buffer) {
+        } else if (f.y > gv.canvasHeight + f.width + this.buffer) {
           f.y -= this.buffer
           f.vx *= -1
           f.vy *= -1
