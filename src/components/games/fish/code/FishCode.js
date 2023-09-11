@@ -2,6 +2,8 @@ import * as PIXI from 'pixijs';
 import FishHero from './FishHero';
 import SwimBackground from './swimBackground';
 import FishAction from './FishAction';
+import Clock from './clock';
+import Gears from './gears';
 export default function FishCode(canvasContainer) {
 
 	return {
@@ -31,6 +33,14 @@ export default function FishCode(canvasContainer) {
 
 			this.fishAction = FishAction(this)
 
+			this.clock = Clock(this);
+			this.clock.init();
+			this.clock.addToStage();
+
+			this.gears = Gears(this);
+			this.gears.init();
+			this.gears.addToStage();
+
             this.app.ticker.add(this.ticker.bind(this));
 			window.addEventListener('keydown', this.keyDownHandler.bind(this))
 			window.addEventListener('keyup', this.keyUpHandler.bind(this))
@@ -45,6 +55,9 @@ export default function FishCode(canvasContainer) {
 		ticker: function () {
 			this.fishAction.animate();
 			this.background.animate();
+			this.clock.animate();
+
+			this.gears.animate()
 
 	
 			if (this.rotateLeftBoolean) {
@@ -55,9 +68,7 @@ export default function FishCode(canvasContainer) {
 				this.fishAction.rotate()
 			}
 
-			// this.clock.animate()
 
-			// this.gears.animate()
 
 
 
