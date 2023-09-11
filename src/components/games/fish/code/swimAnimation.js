@@ -1,26 +1,13 @@
 import PixiFps from 'pixi-fps'
-import Utils from './utils/utils'
-import Assets from './utils/assetCreation'
-import Tweens from './utils/Tweens'
-import OrientationChange from './utils/orientationChange'
+import Utils from './utils'
+import Assets from './assetCreation'
 import Clock from './supportingClasses/universal/clock'
-import Swim from './supportingClasses/swim/indexSwim'
-import FilterAnimation from './supportingClasses/grid/items/magic/filterAnimation'
 import Gears from './supportingClasses/universal/gears'
-import Hero from './supportingClasses/swim/heroSwim'
-import ControlPanel from './supportingClasses/universal/controlPanel'
-import LevelComplete from './supportingClasses/universal/levelComplete'
-import Tokens from './supportingClasses/universal/tokens/tokenIndex'
 import Config from './animationsConfig'
 import KeyHandler from './supportingClasses/universal/keyHandler'
 import Grid from './supportingClasses/grid/gridIndex'
-import LoadingAnimation from './supportingClasses/universal/loadingAnimation'
-import MobileMask from './supportingClasses/universal/mobileMask'
-import Resize from './supportingClasses/swim/swimResize'
-import MazeServices from '../services/maze-service'
-import DefaultMaze from '../defaults/DefaultMaze'
 
-export default function FishAnimation() {
+export default function FishAnimation(gv) {
   return {
     mode: ['swim'],
     activeModeIndex: 0,
@@ -29,30 +16,21 @@ export default function FishAnimation() {
     action: true,
     gears: Gears(),
     clock: Clock(),
-    filterAnimation: FilterAnimation(),
-    hero: Hero(),
     transitionAnimationPlaying: false,
     utils: Utils,
     loader: Assets.Loader(),
     activeAction: undefined,
-    swim: Swim(),
-    tokens: Tokens(),
-    controlPanel: ControlPanel(),
     grid: Grid(),
     dbData: {},
     storeAction: true,
     timeOut: undefined,
-    levelComplete: LevelComplete(),
     fullStop: false,
     kingCont: Assets.Container(),
     frame: Assets.Graphics(),
     kingContBackground: Assets.Graphics(),
-    resize: Resize(),
-    orientationChange: OrientationChange(),
     showFPS: false,
     init (isMobile, isMobileOnly, id, parent) {
       this.id = id
-      console.log("1", id)
       if (this.id === undefined) {
         parent.redirectHome()
         return
@@ -94,7 +72,7 @@ export default function FishAnimation() {
         this.fpsCounter.x = this.utils.canvasWidth - 75
       }
 
-      LoadingAnimation.start(this.kingCont)
+
 
       this.kingCont.addChild(this.filterContainer)
 
@@ -105,65 +83,15 @@ export default function FishAnimation() {
       this.animateDesktopIpad = this.animateDesktopIpad.bind(this)
       this.animateMobile = this.animateMobile.bind(this)
 
-      if (!this.loader.resources['/ss/ss.json']) {
-        this.loader
-          .add('/ss/ss.json')
-          .add('Hobo', '/fonts/hobostd.xml')
-          .load(this.loadDB)
-      } else {
-        this.loadDB()
-      }
+     
     },
-    async loadDB () {
-      try {
-        const res = await MazeServices.getOneMaze(this.id)
-        if (res.result && res.result === "none") {
-          this.grid.boards = [...this.grid.boards, ...DefaultMaze]
-        } else {
-           this.grid.boards = [...this.grid.boards, ...res]
-        }
-      } catch (e) {
-        this.grid.boards = [...this.grid.boards, ...DefaultMaze]
-      }
-      this.buildGame()
-    },
-    changeGrid (obj) {
-      this.id = obj.id
-      try {
-        // let res = await MazeServices.getOneMaze(this.id)
-        const test = this.grid.boards.find((item) => item.id === obj.id)
-        if (test) {
-          this.grid.nextBoard(obj.id)
-        } else {
-          this.grid.boards = [...this.grid.boards, obj]
-          this.grid.nextBoard(obj.id)
-        }
-      } catch (e) {
-        this.grid.boards = [...this.grid.boards, ...DefaultMaze]
-        this.buildGame()
-      }
-    },
+  
+    
     pause (boolean) {
       this.action = boolean
     },
     buildGame () {
-      const { spritesheet } = this.loader.resources['/ss/ss.json']
-
-      this.utils.setProperties({
-        isMobileOnly: this.isMobileOnly,
-        isMobile: this.isMobile,
-        spritesheet,
-        canvasWidth: this.utils.canvasWidth,
-        canvasHeight: this.utils.canvasHeight,
-        app: this.app,
-        root: this
-      })
-
-      if (this.isMobile) {
-        this.mobileMask = MobileMask()
-        this.backgroundColor = 0x000099
-        this.mobileMask.setMask()
-      }
+     
       Assets.init()
 
       this.gears.init().addToStage()
@@ -221,7 +149,6 @@ export default function FishAnimation() {
       // this.animations.circles({start: true, expand: true});
 
       this.hero.addToStage()
-      LoadingAnimation.stop(this.kingCont)
     },
     stop () {
       window.onresize = undefined

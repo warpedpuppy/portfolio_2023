@@ -7,7 +7,7 @@ export default function FishAction(gv) {
   return {
     radius: 0,
     storeRadius: 0,
-    spinning: false,
+
     utils: Utils,
     vx: 0,
     vy: 0,
