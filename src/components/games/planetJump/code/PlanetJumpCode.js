@@ -15,7 +15,7 @@ export default function PlanetJumpCode(canvasContainer) {
 
 			AssetCreation.init(this)
 
-			const app = this.app = new PIXI.Application({ background: '#000066', resizeTo: canvasContainer });
+			const app = this.app = new PIXI.Application({ background: '#FFFFFF', resizeTo: canvasContainer });
 			this.stage = app.stage;
 			canvasContainer.appendChild(app.view);
 
@@ -29,7 +29,9 @@ export default function PlanetJumpCode(canvasContainer) {
 
 			let jumpBackground = JumpBackground(this);
 			jumpBackground.init();
+
 			jumpBackground.addToStage();
+
 			this.jumpBackground = jumpBackground;
 
 			this.jumpAction = JumpAction(this);

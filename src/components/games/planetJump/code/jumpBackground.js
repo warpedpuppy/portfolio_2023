@@ -29,12 +29,12 @@ export default function JumpBackground(gv) {
     orbListen: true,
     heroCollisionDetectObject: {},
     init (parentCont, action) {
-      this.hero = this.utils.hero
-      this.app = this.utils.app
-      this.parentCont = parentCont
-      this.wh = this.utils.wh
-      this.spritesheet = this.utils.spritesheet
-      this.action = action
+      this.hero = gv.hero;
+      this.app = gv;
+      this.parentCont = gv.stage;
+      this.wh = gv;
+      this.spritesheet = gv.sheet;
+      this.action = action;
 
       this.makeTransitionComplete = this.makeTransitionComplete.bind(this)
 
@@ -68,7 +68,7 @@ export default function JumpBackground(gv) {
       this.threeInARow = ThreeInARow().init(this.orbs, this.spacer, this.colors, this.startScale, this.orbsCont, this.listeners)
       this.threeInARow.completeHandler1()
 
-      this.background.beginFill(0x000066).drawRect(0, 0, this.wh.canvasWidth, this.wh.canvasHeight).endFill()
+      this.background.beginFill(0x000066).drawRect(0, 0, gv.canvasWidth, gv.canvasHeight).endFill()
       this.cont.addChild(this.background)
 
       this.cont.addChild(this.orbsCont)
@@ -99,7 +99,7 @@ export default function JumpBackground(gv) {
       gv.hero.cont.y = gv.halfHeight;
       this.pause = false
       gv.stage.addChildAt(this.cont, 1)
-      gv.hero.floor = (-(this.currentOrb.background.width / 2))// * this.currentOrb.background.scale.x;
+      gv.hero.floor = (-(this.currentOrb.background.width / 2))
       this.orbsCont.alpha = 1
     },
     removeFromStage () {
@@ -111,10 +111,10 @@ export default function JumpBackground(gv) {
     },
     resize () {
       this.background.clear()
-      this.background.beginFill(0x000066).drawRect(0, 0, this.utils.canvasWidth, this.utils.canvasHeight).endFill()
+      this.background.beginFill(0x000066).drawRect(0, 0, gv.canvasWidth, gv.canvasHeight).endFill()
 
-      this.orbsCont.x = (this.utils.canvasWidth / 2)
-      this.orbsCont.y = (this.utils.canvasHeight / 2)
+      this.orbsCont.x = (gv.canvasWidth / 2)
+      this.orbsCont.y = (gv.canvasHeight / 2)
 
       this.cont.x = 0
       this.cont.y = 0

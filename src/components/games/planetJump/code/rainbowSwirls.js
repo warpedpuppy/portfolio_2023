@@ -153,8 +153,8 @@ export default function RainbowSwirls(gv) {
 
     },
     animate () {
-      this.testCounter++
-      if (this.testCounter % this.interval === 0) this.newBrick()
+      this.testCounter++;
+      if (this.testCounter % this.interval === 0) {this.testCounter = 0; this.newBrick()};
     }
   }
 }
