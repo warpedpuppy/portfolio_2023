@@ -1,7 +1,7 @@
-import Utils from '../../utils/utils'
-import Assets from '../../utils/assetCreation'
+import Utils from './utils'
+import Assets from './assetCreation'
 
-export default function () {
+export default function RainbowSwirls(gv) {
   return {
     cont: undefined,
     colSpacing: 200,
@@ -38,11 +38,11 @@ export default function () {
       this.curve = this.curves[Math.floor(Math.random() * 4)]
       this.app = this.utils.app
 
-      this.goldTile = this.utils.spritesheet.textures['tile.png']
+      this.goldTile = gv.sheet.textures['tile.png']
       this.interval = this.utils.randomIntBetween(0, 2)
-      this.parentCont = parentCont
+      this.parentCont = gv.stage
 
-      this.spritesheet = this.utils.spritesheet
+      this.spritesheet = gv.sheet;
 
       this.tileQ = Assets.webgl ? 150 : 10
       this.cont = Assets.ParticleContainer(this.tileQ)

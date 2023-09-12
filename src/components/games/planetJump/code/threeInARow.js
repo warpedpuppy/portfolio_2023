@@ -1,9 +1,9 @@
-import Utils from '../../utils/utils'
-import Assets from '../../utils/assetCreation'
-import Tweens from '../../utils/Tweens'
-import Config from '../../animationsConfig'
+import Utils from './utils'
+import Assets from './assetCreation'
+import Tweens from './Tweens'
+import Config from './animationsConfig'
 
-export default function () {
+export default function ThreeInARow() {
   return {
     cont: Assets.Container(),
     utils: Utils,

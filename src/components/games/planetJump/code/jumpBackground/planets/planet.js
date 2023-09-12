@@ -1,11 +1,11 @@
-import Assets from '../../../../utils/assetCreation'
-import Utils from '../../../../utils/utils'
-import Config from '../../../../animationsConfig'
+import Assets from '../../assetCreation'
+import Utils from '../../utils'
+import Config from '../../animationsConfig'
 import Dots from './dots'
 import Gremlin from './gremlins'
-import Tweens from '../../../../utils/Tweens'
+import Tweens from '../../Tweens'
 
-export default function () {
+export default function Planets() {
   return {
     utils: Utils,
     dots: Dots(),

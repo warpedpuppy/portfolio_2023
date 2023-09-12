@@ -1,12 +1,12 @@
-import Utils from '../../utils/utils'
-import Assets from '../../utils/assetCreation'
-import Config from '../../animationsConfig'
+import Utils from './utils'
+import Assets from './assetCreation'
+import Config from './animationsConfig'
 import RainbowSwirls from './rainbowSwirls'
-import Tweens from '../../utils/Tweens'
+import Tweens from './Tweens'
 import Planets from './jumpBackground/planets/planet'
 import ThreeInARow from './threeInARow'
 
-export default function () {
+export default function JumpBackground(gv) {
   return {
     cont: Assets.Container(),
     background: Assets.Graphics(),
@@ -75,7 +75,7 @@ export default function () {
 
       this.startXs = ['TL', 'BL', 'TR', 'BR']
       for (let i = 0; i < this.rainbowSwirlsQ; i++) {
-        this.tileColumn = RainbowSwirls()
+        this.tileColumn = RainbowSwirls(gv)
         this.tileColumn.init(this.cont, this.startXs[i], action)
         this.tileColumn.addToStage()
         this.rainbowSwirlInstances.push(this.tileColumn)
@@ -88,47 +88,24 @@ export default function () {
     },
     listeners (boolean) {
       this.orbListen = boolean
-      this.utils.root.keyHandler.onOff(boolean)
+    //   gv.keyHandler.onOff(boolean)
     },
     addToStage () {
       this.transition = false
       this.currentOrb = this.landingOrb
       this.orbsCont.pivot = Assets.Point(this.landingOrb.x, this.landingOrb.y)
-      this.orbsCont.x = (this.utils.canvasWidth / 2)
-      this.orbsCont.y = (this.utils.canvasHeight / 2)
-      this.hero.cont.y = this.utils.canvasHeight / 2
+      this.orbsCont.x = gv.halfWidth;
+      this.orbsCont.y = gv.halfHeight;
+      gv.hero.cont.y = gv.halfHeight;
       this.pause = false
-      this.parentCont.addChildAt(this.cont, 1)
-      this.utils.root.hero.heroJump.floor = (-(this.currentOrb.background.width / 2))// * this.currentOrb.background.scale.x;
+      gv.stage.addChildAt(this.cont, 1)
+      gv.hero.floor = (-(this.currentOrb.background.width / 2))// * this.currentOrb.background.scale.x;
       this.orbsCont.alpha = 1
-    },
-    addSpaceShip () {
-      const spaceShipOrbIndex = this.currentOrb.index + 1
-      this.spaceShipOrb = this.orbs[spaceShipOrbIndex]
-      const { spaceShip } = this.utils.root.grid.gridBuild
-      spaceShip.x = spaceShip.y = 0
-      spaceShip.scale.set(this.currentOrb.background.scale.x)
-      this.orbs[spaceShipOrbIndex].spaceShip = true
-      this.orbs[spaceShipOrbIndex].addChild(spaceShip)
-
-      // console.log("add space ship", this.utils.canvasWidth, this.orbsCont.x)
-    },
-    addToken () {
-      if (!this.tokenTaken) {
-        const tokenOrbIndex = this.currentOrb.index - 1
-        this.tokenOrb = this.orbs[tokenOrbIndex]
-        this.token = this.utils.root.grid.gridBuild.tokens[3]
-        this.token.x = this.token.y = 0
-        this.dotsContArray[tokenOrbIndex].addChild(this.token)
-        this.tokenLock = Assets.Sprite('tokenLock.png')
-        this.tokenLock.anchor.set(0.5)
-        this.dotsContArray[tokenOrbIndex].addChild(this.tokenLock)
-      }
     },
     removeFromStage () {
       Tweens.killAll()
 
-      this.parentCont.removeChild(this.cont)
+      gv.stage.removeChild(this.cont)
       // this.jumpPoints.removeFromStage();
       // this.parentCont.removeChild(this.orbsCont);
     },

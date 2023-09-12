@@ -1,8 +1,8 @@
-import Utils from '../../utils/utils'
-import Assets from '../../utils/assetCreation'
-import Config from '../../animationsConfig'
+import Utils from '../utils'
+import Assets from '../assetCreation'
+import Config from '../animationsConfig'
 import RainbowSwirls from './rainbowSwirls'
-import Tweens from '../../utils/tweens'
+import Tweens from '../tweens'
 import Planets from './planet'
 // import JumpPoints from './jumpPoints';
 import JumpTokenUnlockedGraphic from './jumpTokenUnlocked'

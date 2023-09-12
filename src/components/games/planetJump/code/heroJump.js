@@ -1,7 +1,7 @@
-import Utils from '../../utils/utils'
-import Assets from '../../utils/assetCreation'
-
-export default function () {
+import Utils from './utils'
+import Assets from './assetCreation'
+import * as PIXI from 'pixijs';
+export default function JumpHero(gv) {
   return {
     cont: Assets.Container(),
     shell: Assets.Container(),
@@ -24,18 +24,19 @@ export default function () {
     bounceBlockIndex: 4,
     doneCounter: 0,
     type: undefined,
-    init (parentCont) {
-      this.parentCont = parentCont
-      this.spritesheet = this.utils.spritesheet
+    init () {
+      this.parentCont = gv.stage;
+    //   this.spritesheet = gv.sheet;
+	//   console.log(this.spritesheet)
       this.activeHero = this.heroJump = this
       this.buildHero()
       this.shell.addChild(this.cont)
     },
     smileyEye () {
       const cont = Assets.Container()
-      const eye = Assets.Sprite('jumpEye.png')
+      const eye = new PIXI.Sprite(PIXI.Texture.from('/bmps/planet-jump/jumpEye.png'))
       eye.anchor.set(0.5)
-      const pupil = Assets.Sprite('jumpPupil.png')
+      const pupil = new PIXI.Sprite(PIXI.Texture.from('/bmps/planet-jump/jumpPupil.png'))
       pupil.anchor.set(0.5)
       cont.addChild(eye)
       cont.addChild(pupil)
@@ -43,18 +44,18 @@ export default function () {
       return cont
     },
     smileyMouth () {
-      this.grimace = this.spritesheet.textures['grimace.png']
-      const s = Assets.Sprite(this.grimace)
-      this.smile = this.spritesheet.textures['smile.png']
+      this.grimace =PIXI.Texture.from('/bmps/planet-jump/grimace.png')
+      const s = new PIXI.Sprite(this.grimace)
+      this.smile = PIXI.Texture.from('/bmps/planet-jump/smile.png')
       s.anchor.set(0.5)
       s.scale.set(0.5)
       return s
     },
     jumpMouth () {
-      this.mouth.texture = this.smile
+      this.mouth.texture = this.smile;
     },
     grimaceMouth () {
-      this.mouth.texture = this.grimace
+      this.mouth.texture = this.grimace;
     },
     look (str) {
       if (str === 'right') {
@@ -88,12 +89,12 @@ export default function () {
     },
     buildHero () {
       const feet = [
-        Assets.Texture('walk1.png'),
-        Assets.Texture('walk2.png'),
-        Assets.Texture('walk3.png'),
-        Assets.Texture('walk2.png')
+		PIXI.Texture.from('/bmps/planet-jump/walk1.png'),
+        PIXI.Texture.from('/bmps/planet-jump/walk2.png'),
+        PIXI.Texture.from('/bmps/planet-jump/walk3.png'),
+		PIXI.Texture.from('/bmps/planet-jump/walk2.png')
       ]
-      const walking = Assets.AnimatedSprite(feet)
+      const walking = new PIXI.AnimatedSprite(feet)
       walking.animationSpeed = 0.1
       walking.play()
 
@@ -101,7 +102,7 @@ export default function () {
       this.feet.anchor.set(0.5)
       this.cont.addChild(this.feet)
 
-      const body = Assets.Sprite('jumpBody.png')
+      const body = new PIXI.Sprite(PIXI.Texture.from('/bmps/planet-jump/jumpBody.png'))
       body.anchor.set(0.5)
       body.y = -40
       this.body = body
@@ -122,8 +123,8 @@ export default function () {
       this.grimaceMouth()
     },
     addToStage () {
-      this.shell.x = this.utils.canvasWidth / 2
-      this.shell.y = this.utils.canvasHeight / 2
+      this.shell.x = gv.canvasWidth / 2
+      this.shell.y = gv.canvasHeight / 2
 
       this.parentCont.addChild(this.shell)
     },
@@ -131,8 +132,8 @@ export default function () {
       this.parentCont.removeChild(this.shell)
     },
     resize () {
-      this.shell.x = this.utils.canvasWidth / 2
-      this.shell.y = this.utils.canvasHeight / 2
+      this.shell.x = gv.canvasWidth / 2
+      this.shell.y = gv.canvasHeight / 2
     }
   }
 }

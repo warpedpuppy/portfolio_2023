@@ -45,7 +45,7 @@ function App() {
 			<Route path="dragon" element={<GameCanvas game="dragon" />} />
 			<Route path="fish" element={<GameCanvas game="fish" />} />
 			<Route path="pig" element={<GameCanvas game="pig" />} />
-			<Route path="planet-jump" element={<div>planet jump</div>} />
+			<Route path="planet-jump" element={<GameCanvas game="planet-jump" />} />
 			<Route path="lines" element={<GameCanvas game="lines" />} />
 			<Route path="*" element={<h1>game not found</h1>} />
 		</Route>

@@ -1,7 +1,8 @@
-import Assets from '../../../../utils/assetCreation'
-import Utils from '../../../../utils/utils'
+import Assets from '../../assetCreation'
+import Utils from '../../utils'
+import * as PIXI from 'pixijs';
 // import Config from './animationsConfig';
-export default function () {
+export default function Gremlins() {
   return {
     utils: Utils,
     cont: Assets.Container(),
@@ -17,10 +18,10 @@ export default function () {
       const bodyCont = Assets.Container()
       bodyCont.y = -height / 2
       const feet = [
-        Assets.Texture('walk1.png'),
-        Assets.Texture('walk2.png'),
-        Assets.Texture('walk3.png'),
-        Assets.Texture('walk2.png')
+		PIXI.Texture.from('/bmps/planet-jump/walk1.png'),
+        PIXI.Texture.from('/bmps/planet-jump/walk2.png'),
+        PIXI.Texture.from('/bmps/planet-jump/walk3.png'),
+		PIXI.Texture.from('/bmps/planet-jump/walk2.png')
       ]
       const walking = Assets.AnimatedSprite(feet)
       walking.animationSpeed = 0.1
@@ -68,9 +69,9 @@ export default function () {
       return cont
     },
     smileyMouth () {
-      this.grimace = this.utils.spritesheet.textures['grimace.png']
-      const s = Assets.Sprite(this.grimace)
-      this.smile = this.utils.spritesheet.textures['smile.png']
+		this.grimace =PIXI.Texture.from('/bmps/planet-jump/grimace.png')
+		const s = new PIXI.Sprite(this.grimace)
+		this.smile = PIXI.Texture.from('/bmps/planet-jump/smile.png')
       s.anchor.set(0.5)
       s.scale.set(0.5)
       return s
