@@ -121,25 +121,27 @@ export default function RainbowSwirls(gv) {
     newXY () {
       const buffer = 0
       const perc = 0.5
+
       if (this.quadrant === 'TL') {
         return {
-          x: this.utils.randomNumberBetween(buffer, this.utils.canvasWidth * perc),
-          y: this.utils.randomNumberBetween(buffer, this.utils.canvasHeight * perc)
+          x: this.utils.randomNumberBetween(buffer, gv.canvasWidth * perc),
+          y: this.utils.randomNumberBetween(buffer, gv.canvasHeight * perc)
         }
       } if (this.quadrant === 'TR') {
         return {
-          x: this.utils.randomNumberBetween(this.utils.canvasWidth * perc, this.utils.canvasWidth),
-          y: this.utils.randomNumberBetween(buffer, this.utils.canvasHeight * perc)
+          x: this.utils.randomNumberBetween(gv.canvasWidth * perc, this.utils.canvasWidth),
+          y: this.utils.randomNumberBetween(buffer, gv.canvasHeight * perc)
         }
+		
       } if (this.quadrant === 'BL') {
         return {
-          x: this.utils.randomNumberBetween(buffer, this.utils.canvasWidth * perc),
-          y: this.utils.randomNumberBetween(this.utils.canvasHeight * perc, this.utils.canvasHeight)
+          x: this.utils.randomNumberBetween(buffer, gv.canvasWidth * perc),
+          y: this.utils.randomNumberBetween(gv.canvasHeight * perc, gv.canvasHeight)
         }
       } if (this.quadrant === 'BR') {
         return {
-          x: this.utils.randomNumberBetween(this.utils.canvasWidth * perc, this.utils.canvasWidth),
-          y: this.utils.randomNumberBetween(this.utils.canvasHeight * perc, this.utils.canvasHeight)
+          x: this.utils.randomNumberBetween(gv.canvasWidth * perc, gv.canvasWidth),
+          y: this.utils.randomNumberBetween(gv.canvasHeight * perc, gv.canvasHeight)
         }
       }
     },

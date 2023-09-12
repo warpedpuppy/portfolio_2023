@@ -22,17 +22,19 @@ export default function PlanetJumpCode(canvasContainer) {
 			let sheet = await PIXI.Assets.load("/bmps/planet-jump/ss.json")
 			this.sheet = sheet; 
 
-			let jumpHero = JumpHero(this)
-			jumpHero.init();
-			jumpHero.addToStage();
-			this.hero = jumpHero;
+		
 
 			let jumpBackground = JumpBackground(this);
 			jumpBackground.init();
-
-			jumpBackground.addToStage();
-
 			this.jumpBackground = jumpBackground;
+
+			let jumpHero = JumpHero(this)
+			jumpHero.init();
+			
+			this.hero = jumpHero;
+			
+			jumpBackground.addToStage();
+			jumpHero.addToStage();
 
 			this.jumpAction = JumpAction(this);
 			this.jumpAction.init()

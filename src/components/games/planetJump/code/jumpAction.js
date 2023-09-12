@@ -13,12 +13,12 @@ export default function JumpAction(gv) {
     pause: false,
     heroCollisionDetectObject: {},
     init (stage) {
-      this.bkgd = gv.jumpBackground
-      this.hero = gv.hero
-      this.canvasWidth = gv.canvasWidth
-      this.canvasHeight = gv.canvasHeight
-      this.stage = gv.stage
-      this.vx = this.speed
+      this.bkgd = gv.jumpBackground;
+      this.hero = gv.hero;
+      this.canvasWidth = gv.canvasWidth;
+      this.canvasHeight = gv.canvasHeight;
+      this.stage = gv.stage;
+      this.vx = this.speed;
       const radius = (gv.hero.cont.width / 2) * gv.hero.cont.scale.x
       this.heroCollisionDetectObject.radius = radius
     },
@@ -47,30 +47,30 @@ export default function JumpAction(gv) {
       }
     },
     animate () {
-    //   if (this.pause) return
+      if (this.pause) return
       for (let i = 0; i < this.bkgd.rainbowSwirlsQ; i++) {
         this.bkgd.rainbowSwirlInstances[i].animate();
       }
 
-    //   const globalPoint = gv.hero.body.toGlobal(this.utils.app.stage)
-    //   this.heroCollisionDetectObject.x = globalPoint.x
-    //   this.heroCollisionDetectObject.y = globalPoint.y
+      const globalPoint = gv.hero.body.toGlobal(gv.stage)
+      this.heroCollisionDetectObject.x = globalPoint.x
+      this.heroCollisionDetectObject.y = globalPoint.y
 
-    //   this.bkgd.currentOrb.classRef.dotsAndGremlinCollision(this.heroCollisionDetectObject)
+      this.bkgd.currentOrb.classRef.dotsAndGremlinCollision(this.heroCollisionDetectObject)
 
-    //   for (let i = 0; i < this.bkgd.loopingQ; i++) {
-    //     this.bkgd.orbs[i].classRef.animate(this.bkgd, this.heroCollisionDetectObject)
-    //   }
+      for (let i = 0; i < this.bkgd.loopingQ; i++) {
+        this.bkgd.orbs[i].classRef.animate(this.bkgd, this.heroCollisionDetectObject)
+      }
 
-    //   gv.hero.shell.rotation += gv.utils.deg2rad(this.vx)
-    //   gv.hero.activeHero.cont.y += this.vy
-    //   if (gv.hero.cont.y > gv.hero.floor) {
-    //     gv.hero.cont.y = gv.hero.floor
-    //     this.vy = 0
-    //     this.hero.grimaceMouth()
-    //   } else if (gv.hero.cont.y < gv.hero.floor) {
-    //     this.vy += this.gravity
-    //   }
+      gv.hero.shell.rotation += Utils.deg2rad(this.vx)
+      gv.hero.activeHero.cont.y += this.vy
+      if (gv.hero.cont.y > gv.hero.floor) {
+        gv.hero.cont.y = gv.hero.floor
+        this.vy = 0
+        this.hero.grimaceMouth()
+      } else if (gv.hero.cont.y < gv.hero.floor) {
+        this.vy += this.gravity
+      }
     }
   }
 }

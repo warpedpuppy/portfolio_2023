@@ -5,7 +5,7 @@ import Dots from './dots'
 import Gremlin from './gremlins'
 import Tweens from '../../Tweens'
 
-export default function Planets() {
+export default function Planets(gv) {
   return {
     utils: Utils,
     dots: Dots(),
@@ -62,7 +62,7 @@ export default function Planets() {
     },
     dotsAndGremlinCollision (heroObject) {
       this.cont.dots.forEach((dot) => {
-        const globalPoint = dot.toGlobal(this.utils.app.stage)
+        const globalPoint = dot.toGlobal(gv.stage)
         const temp = { x: globalPoint.x, y: globalPoint.y, radius: dot.radius }
         if (dot.visible && this.dotEatBoolean && this.utils.ccc(heroObject, temp)) {
           dot.visible = false
@@ -70,7 +70,7 @@ export default function Planets() {
       })
       const g = this.cont.gremlin
       g.rotation += 0.03
-      const gp = g.body.toGlobal(this.utils.app.stage)
+      const gp = g.body.toGlobal(gv.stage)
       const temp2 = { x: gp.x, y: gp.y, radius: 15 }
       if (!g.hit && this.utils.ccc(heroObject, temp2)) {
         this.gremlinHit()
@@ -92,7 +92,7 @@ export default function Planets() {
     },
     animate (c, hero) {
       this.cont.foreground.rotation += 0.003
-      const gp = this.cont.toGlobal(this.utils.app.stage, undefined, true)
+      const gp = this.cont.toGlobal(gv.stage, undefined, true)
       const po = { x: gp.x, y: gp.y, radius: this.cont.radius }
 
       if (this.cont !== c.currentOrb && !c.transition && this.utils.ccc(hero, po)) {

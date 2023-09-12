@@ -49,7 +49,7 @@ export default function JumpBackground(gv) {
 
       for (let i = 0; i < this.rowQ; i++) {
         for (let j = 0; j < this.colQ; j++) {
-          const planet = Planets().buildPlanet(counter, this.startScale)
+          const planet = Planets(gv).buildPlanet(counter, this.startScale)
           planet.x = j * this.spacer
           planet.y = planet.startY = i * this.spacer
           this.orbsCont.addChild(planet)
