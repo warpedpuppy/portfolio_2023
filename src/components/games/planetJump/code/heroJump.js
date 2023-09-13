@@ -125,7 +125,6 @@ export default function JumpHero(gv) {
     addToStage () {
       this.shell.x = gv.halfWidth;
       this.shell.y = gv.halfHeight;
-console.log(this.shell)
       this.parentCont.addChild(this.shell)
     },
     removeFromStage () {

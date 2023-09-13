@@ -675,15 +675,6 @@
 	"sourceSize": {"w":200,"h":199},
 	"pivot": {"x":0.5,"y":0.5}
 },
-"star.png":
-{
-	"frame": {"x":1164,"y":1822,"w":178,"h":169},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":169},
-	"sourceSize": {"w":179,"h":170},
-	"pivot": {"x":0.5,"y":0.5}
-},
 "swimEye.png":
 {
 	"frame": {"x":1173,"y":2030,"w":15,"h":15},
@@ -709,15 +700,6 @@
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":36},
 	"sourceSize": {"w":100,"h":36},
-	"pivot": {"x":0.5,"y":0.5}
-},
-"swipeScreen.png":
-{
-	"frame": {"x":770,"y":1847,"w":272,"h":182},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":1,"y":1,"w":272,"h":182},
-	"sourceSize": {"w":273,"h":184},
 	"pivot": {"x":0.5,"y":0.5}
 },
 "tile.png":

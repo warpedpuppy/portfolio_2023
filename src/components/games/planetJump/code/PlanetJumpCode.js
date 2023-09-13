@@ -19,7 +19,8 @@ export default function PlanetJumpCode(canvasContainer) {
 			this.stage = app.stage;
 			canvasContainer.appendChild(app.view);
 
-			let sheet = await PIXI.Assets.load("/bmps/planet-jump/ss.json")
+			let str = "/bmps/planet-jump/ss.json";
+			let sheet = !PIXI.Cache.has(str) ? await PIXI.Assets.load(str) : PIXI.Cache.get(str);
 			this.sheet = sheet; 
 
 		
