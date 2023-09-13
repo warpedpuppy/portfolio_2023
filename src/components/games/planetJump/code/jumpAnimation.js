@@ -182,9 +182,9 @@ export default function JumpAnimation() {
       this.hero.cont.visible = true
 
       if (Config.testingJump) {
-        const background = this.utils.root.jump.jumpBackground.orbsCont
-        background.scale.set(1)
-        this.jump.addToStage()
+        const background = this.utils.root.jump.jumpBackground.orbsCont;
+        background.scale.set(1);
+        this.jump.addToStage();
       }
       this.app.stage.addChild(this.fpsCounter)
     },

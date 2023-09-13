@@ -66,11 +66,10 @@ export default function PlanetJumpCode(canvasContainer) {
 		},
 		keyDownHandler: function (e) {
 			e.preventDefault();
-			if (e.keyCode === 39) {
-				this.rightHit();
-			} else if (e.keyCode === 37) {
-				this.leftHit();
-			}
+			if (e.keyCode === 32) {
+				console.log("jump")
+				this.jumpAction.jump();
+			} 
 			
 		},
 		keyUpHandler: function (e) {

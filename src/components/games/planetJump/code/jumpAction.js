@@ -1,5 +1,5 @@
 import Utils from './utils'
-
+import Tweens from './Tweens';
 export default function JumpAction(gv) {
   return {
     gravity: 0.3,
@@ -47,7 +47,10 @@ export default function JumpAction(gv) {
       }
     },
     animate () {
-      if (this.pause) return
+      if (this.pause) return ; 
+
+	  Tweens.animate();
+	  
       for (let i = 0; i < this.bkgd.rainbowSwirlsQ; i++) {
         this.bkgd.rainbowSwirlInstances[i].animate();
       }

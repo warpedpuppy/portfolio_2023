@@ -3,7 +3,7 @@ import BlastOff from './tweensSupport/spaceShipBlastOff'
 import ReturnHome from './tweensSupport/spaceShipReturnHome'
 import Easing from './tweensSupport/easing'
 
-export default {
+const Tweens = {
   utils: Utils,
   allowTween: false,
   fadeOutBoolean: false,
@@ -36,12 +36,6 @@ export default {
       'easeOutBounce')
     this.tween(hero, 0.5, { y: [hero.y, -newPlanet.radius] })
   },
-  spaceShipBlastOff (ship, maze, background, onCompleteHandler) {
-    this.blastOff.spaceShipBlastOff(ship, maze, background, onCompleteHandler)
-  },
-  spaceShipReturnHome (background, maze, ship, onCompleteHandler) {
-    this.returnHome.spaceShipReturnHome(background, maze, ship, onCompleteHandler)
-  },
   tween (item, seconds, changePropertiesObject, onComplete, easing) {
     if (!item || item.isTweening) return
 
@@ -64,7 +58,6 @@ export default {
     return -c * Math.cos(t / d * (Math.PI / 2)) + c + b
   },
   animate () {
-    // console.log(this.tweenArray.length)
     if (this.tweenArray.length) {
       this.tweenArray.forEach((item, index) => {
         if (!item.obj) {
@@ -102,3 +95,4 @@ export default {
   }
 
 }
+export default Tweens;

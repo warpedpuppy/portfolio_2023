@@ -120,31 +120,33 @@ export default function JumpBackground(gv) {
       this.cont.y = 0
     },
     switchPlanets (newPlanet, i) {
-      if (this.utils.root.all && newPlanet.spaceShip) {
-        // this.hero.activeHero.cont.y = 0;
-        this.pause = true
-        this.utils.root.jump.jumpAction.pause = true
-        this.utils.root.grid.gridBuild.spaceShip.classRef.returnHome()
-        return
-      }
+    //   if (this.utils.root.all && newPlanet.spaceShip) {
+    //     // this.hero.activeHero.cont.y = 0;
+    //     this.pause = true
+    //     this.utils.root.jump.jumpAction.pause = true
+    //     this.utils.root.grid.gridBuild.spaceShip.classRef.returnHome()
+    //     return
+    //   }
 
-      const oldPlanet = this.currentOrb
+      const oldPlanet = this.currentOrb;
 
-      this.pause = true
+	  console.log(newPlanet, oldPlanet, newPlanet === oldPlanet)
 
-      this.currentOrb = newPlanet
+      this.pause = true;
 
-      const color1 = oldPlanet.color
-      const tint1 = oldPlanet.background.tint
+      this.currentOrb = newPlanet;
 
-      const color2 = this.currentOrb.color
-      const tint2 = this.currentOrb.background.tint
+      const color1 = oldPlanet.color;
+      const tint1 = oldPlanet.background.tint;
 
-      oldPlanet.color = color2
-      oldPlanet.background.tint = tint2
+      const color2 = this.currentOrb.color;
+      const tint2 = this.currentOrb.background.tint;
 
-      this.currentOrb.color = color1
-      this.currentOrb.background.tint = tint1
+      oldPlanet.color = color2;
+      oldPlanet.background.tint = tint2;
+
+      this.currentOrb.color = color1;
+      this.currentOrb.background.tint = tint1;
 
       Tweens.tween(oldPlanet, 1.5, {
         x: [this.currentOrb.x, oldPlanet.x],
@@ -155,8 +157,8 @@ export default function JumpBackground(gv) {
         x: [oldPlanet.x, this.currentOrb.x],
         y: [oldPlanet.y, this.currentOrb.y]
       }, undefined, 'easeOutBounce')
-
-      Tweens.planetJump(this.orbsCont, this.hero.activeHero.cont, newPlanet, this.makeTransitionComplete.bind(this, i))
+	
+      Tweens.planetJump(this.orbsCont, gv.hero.cont, newPlanet, this.makeTransitionComplete.bind(this, i))
 
       // } else if (newPlanet === this.tokenOrb && this.jumpTokenUnlocked && !this.jumpTokenTaken) {
 
