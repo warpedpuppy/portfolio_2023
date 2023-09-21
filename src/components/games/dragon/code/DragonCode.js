@@ -2,6 +2,7 @@ import * as PIXI from 'pixijs';
 import DragonHero from "./heroFly"
 import DragonAction from './DragonAction';
 import AssetCreation from './assetCreation';
+import NodeGarden from './nodeGarden';
 export default function DragonCode(canvasContainer) {
 
 	return {
@@ -29,6 +30,9 @@ export default function DragonCode(canvasContainer) {
 			dragon.init()
 			dragon.addToStage();
 			this.dragon = dragon;
+
+			this.nodeGarden = NodeGarden(PIXI, this);
+			this.nodeGarden.init();
 
 
 			AssetCreation.init(this);

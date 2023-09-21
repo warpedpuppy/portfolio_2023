@@ -78,17 +78,17 @@ export default function DragonAction (gv) {
         gv.dragon.pos = gv.dragon.pos.slice(-gv.maxLength)
       }
 
-     
+     gv.nodeGarden.animate();
 
 	  if (gv.spinning) {
 		gv.dragon.cont.rotation += gv.spinDirection === 'right' ? Utils.deg2rad(5) : Utils.deg2rad(-5) ;
 
-
+		let spinQ = 0.35;
 		for (let i = 1; i <= gv.dragon.segmentsQ; i++) {
 			if (gv.spinDirection === 'left' && gv.dragon.segments[i].rotation < Utils.deg2rad(5 * i)) {
-				gv.dragon.segments[i].rotation += Utils.deg2rad(0.5 * i)
+				gv.dragon.segments[i].rotation += Utils.deg2rad(spinQ * i)
 			} else if (gv.spinDirection === 'right' && gv.dragon.segments[i].rotation > Utils.deg2rad(-5 * i)){
-				gv.dragon.segments[i].rotation += Utils.deg2rad(-0.5 * i)
+				gv.dragon.segments[i].rotation += Utils.deg2rad(-spinQ * i)
 			}
 			
 		}
