@@ -68,6 +68,7 @@ export default function DragonAction (gv) {
     animate ()  {
 	
 
+
       gv.dragon.eyeCont.rotation = gv.radius
       gv.dragon.headCont.rotation = gv.radius
 
@@ -84,10 +85,13 @@ export default function DragonAction (gv) {
 
 
 		for (let i = 1; i <= gv.dragon.segmentsQ; i++) {
-		
-			  gv.dragon.segments[i].rotation =  gv.spinDirection === 'right' ? Utils.deg2rad(-5 * i) : Utils.deg2rad(5 * i);
-			  
-		  }
+			if (gv.spinDirection === 'left' && gv.dragon.segments[i].rotation < Utils.deg2rad(5 * i)) {
+				gv.dragon.segments[i].rotation += Utils.deg2rad(0.5 * i)
+			} else if (gv.spinDirection === 'right' && gv.dragon.segments[i].rotation > Utils.deg2rad(-5 * i)){
+				gv.dragon.segments[i].rotation += Utils.deg2rad(-0.5 * i)
+			}
+			
+		}
 
 
 
