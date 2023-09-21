@@ -67,7 +67,6 @@ export default function DragonAction (gv) {
     },
     animate ()  {
 	
-    //   this.clouds.animate()
 
       gv.dragon.eyeCont.rotation = gv.radius
       gv.dragon.headCont.rotation = gv.radius
@@ -78,17 +77,28 @@ export default function DragonAction (gv) {
         gv.dragon.pos = gv.dragon.pos.slice(-gv.maxLength)
       }
 
-      for (let i = 1; i <= gv.dragon.segmentsQ; i++) {
-        const index = gv.dragon.pos.length - (i * gv.increment)
-
-        if (gv.dragon.pos.length >= index) {
-          gv.dragon.segments[i].rotation = gv.dragon.pos[index];
-		  
-        }
-      }
+     
 
 	  if (gv.spinning) {
 		gv.dragon.cont.rotation += gv.spinDirection === 'right' ? Utils.deg2rad(5) : Utils.deg2rad(-5) ;
+
+
+		for (let i = 1; i <= gv.dragon.segmentsQ; i++) {
+		
+			  gv.dragon.segments[i].rotation =  gv.spinDirection === 'right' ? Utils.deg2rad(-5 * i) : Utils.deg2rad(5 * i);
+			  
+		  }
+
+
+
+	  } else {
+		for (let i = 1; i <= gv.dragon.segmentsQ; i++) {
+			const index = gv.dragon.pos.length - (i * gv.increment)
+			if (gv.dragon.pos.length >= index) {
+			  gv.dragon.segments[i].rotation = gv.dragon.pos[index];
+			  
+			}
+		  }
 	  }
 
       if (gv.flameOn) {

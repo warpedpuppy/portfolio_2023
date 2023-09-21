@@ -1,5 +1,5 @@
 import * as PIXI from 'pixijs';
-import Utils from './utils';
+
 export default function Hero (sheet) {
     return {
         cont: new PIXI.Container(),

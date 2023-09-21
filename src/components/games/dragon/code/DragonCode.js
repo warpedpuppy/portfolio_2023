@@ -2,7 +2,6 @@ import * as PIXI from 'pixijs';
 import DragonHero from "./heroFly"
 import DragonAction from './DragonAction';
 import AssetCreation from './assetCreation';
-import Utils from './utils';
 export default function DragonCode(canvasContainer) {
 
 	return {

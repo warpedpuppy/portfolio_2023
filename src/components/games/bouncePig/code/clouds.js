@@ -1,8 +1,8 @@
-
+import * as PIXI from 'pixijs';
 export default function Clouds (gv) {
     return {
         clouds: [],
-        cont: new gv.PIXI.Container(),
+        cont: new PIXI.Container(),
         onStage:false,
         init: function (){
             for(let i = 0; i < gv.cloudQ; i ++){
@@ -32,12 +32,12 @@ export default function Clouds (gv) {
             this.addToStage();
         },
         cloud: function (side) {
-            let cloud = (side === "right")? gv.PIXI.Sprite.from(gv.sheet.textures["cloudRight.png"]): gv.PIXI.Sprite.from(gv.sheet.textures["cloudLeft.png"]);
+            let cloud = (side === "right")? PIXI.Sprite.from(gv.sheet.textures["cloudRight.png"]): PIXI.Sprite.from(gv.sheet.textures["cloudLeft.png"]);
             cloud.side= side;
             cloud.cacheAsBitmap = true;
             cloud.w = cloud.width;
             cloud.h = cloud.height;
-            let box = new gv.PIXI.Rectangle(0,60,cloud.w, 10);
+            let box = new PIXI.Rectangle(0,60,cloud.w, 10);
             cloud.box = box;
             return cloud;
         }

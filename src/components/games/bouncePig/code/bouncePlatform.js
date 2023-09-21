@@ -1,8 +1,9 @@
+import * as PIXI from 'pixijs';
 export default function BouncePlatform (gv) {
     return {
-        line: gv.PIXI.Sprite.from(gv.sheet.textures["line.gif"]),
-        dot1: gv.PIXI.Sprite.from(gv.sheet.textures["newDot.png"]),
-        dot2: gv.PIXI.Sprite.from(gv.sheet.textures["newDot.png"]),
+        line: PIXI.Sprite.from(gv.sheet.textures["line.gif"]),
+        dot1: PIXI.Sprite.from(gv.sheet.textures["newDot.png"]),
+        dot2: PIXI.Sprite.from(gv.sheet.textures["newDot.png"]),
         init: function () {
             this.line.height = 2;
             this.line.anchor.y = 0.5;
@@ -51,7 +52,6 @@ export default function BouncePlatform (gv) {
             this.dot2.y = mouseY;
             this.dot2.visible = true;
             gv.mouseDown = true;
-            // gv.stage.removeChild(gv.swipeText);
 			gv.swipeText.visible = false;
         },
         onMouseMove: function(touchData){
@@ -61,7 +61,7 @@ export default function BouncePlatform (gv) {
                     mouseY = mouse.y;
                 this.dot2.x = mouseX;
                 this.dot2.y = mouseY;
-                let disAngle = gv.utils.distanceAndAngle(new gv.PIXI.Point(this.dot1.x, this.dot1.y), new gv.PIXI.Point(this.dot2.x, this.dot2.y));
+                let disAngle = gv.utils.distanceAndAngle(new PIXI.Point(this.dot1.x, this.dot1.y), new PIXI.Point(this.dot2.x, this.dot2.y));
                 this.line.rotation = disAngle[1];
                 this.line.width = disAngle[0];
             }
