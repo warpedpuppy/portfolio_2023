@@ -10,29 +10,23 @@ export default function Rotate() {
     },
     rotate (str, activeAction) {
       // leaving this here for now because this really relates to the background current
-      let returnObj = {}
-
-      if (str === 'right') {
+      let returnObj = {};
+      if (str === 'left') {
         this.idle = false
         activeAction.radius += this.movementQ
-        this.velocity =6
-        this.vx = this.velocity * Math.sin(activeAction.radius)
-        this.vy = -this.velocity * Math.cos(activeAction.radius)
-        activeAction.storeRadius = activeAction.radius
+        this.vx = 6 * Math.sin(activeAction.radius);
+        this.vy = -6 * Math.cos(activeAction.radius);
+        activeAction.storeRadius = activeAction.radius;
         returnObj = { vx: -this.vx, vy: -this.vy }
-      } else if (str === 'left') {
+      } else if (str === 'right') {
         this.idle = false
         activeAction.radius -= this.movementQ
-        this.velocity = 6
-        this.vx = this.velocity * Math.sin(activeAction.radius)
-        this.vy = -this.velocity * Math.cos(activeAction.radius)
+        this.vx = 6 * Math.sin(activeAction.radius)
+        this.vy = -6 * Math.cos(activeAction.radius)
         activeAction.storeRadius = activeAction.radius
         returnObj = { vx: -this.vx, vy: -this.vy }
       }
-      // console.log(activeAction.radius)
-
-      // console.log(returnObj)
-      return returnObj
+      return returnObj;
     },
     addToStage () {
 

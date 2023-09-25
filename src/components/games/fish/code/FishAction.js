@@ -47,9 +47,10 @@ export default function FishAction(gv) {
        gv.fishHero.headCont.addChildAt(this.flames, 0)
     },
     rotate (str) {
-      const obj = this.rotateFunction.rotate(str, this)
-      this.vx = -obj.vx
-      this.vy = -obj.vy
+		const obj = this.rotateFunction.rotate(str, this)
+		this.vx = -obj.vx
+		this.vy = -obj.vy
+		return obj
     },
     resize () {
       this.airBubbles.resize()
@@ -75,11 +76,16 @@ export default function FishAction(gv) {
           }
         }
       }
-      gv.fishHero.headCont.rotation = this.radius
+      gv.fishHero.headCont.rotation = this.radius;
 
-      if (!this.spinning) {
-        this.radius = this.utils.cosWave(this.storeRadius, 0.15, 0.01)
+      if (!gv.spinning) {
+        this.radius = this.utils.cosWave(this.storeRadius, 0.15, 0.01);
+
+		
+
       }
+
+	
 
 	  gv.fishHero.segments[0].rotation = this.radius
 	  gv.fishHero.pos.push(this.radius)
@@ -88,12 +94,12 @@ export default function FishAction(gv) {
          gv.fishHero.pos =  gv.fishHero.pos.slice(-this.maxLength)
       }
 
-      for (let i = 1; i <  gv.fishHero.segmentsQ; i++) {
-        const index =  gv.fishHero.pos.length - (i * this.increment)
-        if ( gv.fishHero.pos.length >= index) {
-           gv.fishHero.segments[i].rotation =  gv.fishHero.pos[index]
-        }
-      }
+	  for (let i = 1; i <  gv.fishHero.segmentsQ; i++) {
+		const index =  gv.fishHero.pos.length - (i * this.increment)
+		if ( gv.fishHero.pos.length >= index) {
+		   gv.fishHero.segments[i].rotation =  gv.fishHero.pos[index]
+		}
+	  }
 
       this.airBubbles.animate()
        gv.fishHero.leftFin.rotation = this.utils.deg2rad(this.utils.cosWave(0, 20, 0.004))

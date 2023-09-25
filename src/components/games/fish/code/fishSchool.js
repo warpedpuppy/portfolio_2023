@@ -7,13 +7,13 @@ export default function FishSchool(gv) {
     sharkPoints: [],
     imageWidth: 300,
     pointQ: 5,
-    fishQ: 30,
+    fishQ: 15,
     fishArray: [],
     sharkArray: [],
     utils: Utils,
     sharkCont: Assets.Container(),
     fishCont: Assets.Container(),
-    sharkQ: 20,
+    sharkQ: 5,
     buffer: 10,
     init () {
       this.cont = gv.stage;
@@ -100,10 +100,11 @@ export default function FishSchool(gv) {
           f.vy *= -1
           f.rotation = Math.atan2(f.vy, f.vx)
         } else if (f.y > gv.canvasHeight + f.width + this.buffer) {
-          f.y -= this.buffer
-          f.vx *= -1
-          f.vy *= -1
-          f.rotation = Math.atan2(f.vy, f.vx)
+
+          f.y = -this.buffer;
+          f.vx *= -1;
+          f.vy *= -1;
+          f.rotation = Math.atan2(f.vy, f.vx);
         }
       }
     }

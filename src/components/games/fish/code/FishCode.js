@@ -4,6 +4,8 @@ import SwimBackground from './swimBackground';
 import FishAction from './FishAction';
 import Clock from './clock';
 import Gears from './gears';
+import Utils from './utils';
+import Grid from './Grid';
 export default function FishCode(canvasContainer) {
 
 	return {
@@ -13,9 +15,12 @@ export default function FishCode(canvasContainer) {
 		halfHeight: canvasContainer.offsetHeight / 2,
 		vx: 0,
     	vy: 0,
+		radius: 0,
+		velocity: 6,
 		spinning: false,
 		rotateLeftBoolean: false,
 		rotateRightBoolean: false,
+		spinDirection: '', 
 		start: function () {
 
 			const app = this.app = new PIXI.Application({ background: '#1099bb', resizeTo: canvasContainer });
@@ -25,6 +30,10 @@ export default function FishCode(canvasContainer) {
 			let background = this.background = SwimBackground(this);
 			background.init();
 			background.addToStage();
+
+			this.grid = Grid(this);
+			this.grid.init();
+			this.stage.addChild(this.grid.cont)
 
 			let fishHero = this.fishHero = FishHero(this);
 
@@ -52,41 +61,49 @@ export default function FishCode(canvasContainer) {
 			window.removeEventListener('keydown', this.keyDownHandler.bind(this));
 			window.removeEventListener('keyup', this.keyUpHandler.bind(this))
 		},
+		rotate (str) {
+			let obj = this.fishAction.rotate(str, this);
+			this.vx = obj.vx ? -obj.vx : this.vx;
+			this.vy = -obj.vy ? -obj.vy : this.vx;
+		  },
 		ticker: function () {
 			this.fishAction.animate();
 			this.background.animate();
 			this.clock.animate();
-
+			this.grid.animate();
 			this.gears.animate()
-
 	
 			if (this.rotateLeftBoolean) {
-				this.fishAction.rotate('left')
+				this.rotate('left');
 			} else if (this.rotateRightBoolean) {
-				this.fishAction.rotate('right')
-			} else {
-				this.fishAction.rotate()
-			}
-
+				this.rotate('right')
+			} 
 
 
 
 
 		},
 		leftHit () {
-			this.spinning = true
-			this.rotateLeftBoolean = true
+			this.spinning = true;
+			this.rotateLeftBoolean = true;
+			this.spinDirection = 'left';
 		  },
 		  rightHit () {
-			this.spinning = true
-			this.rotateRightBoolean = true
+			this.spinning = true;
+			this.rotateRightBoolean = true;
+			this.spinDirection = 'right';
 		  },
 		keyDownHandler: function (e) {
 			e.preventDefault();
-			if (e.keyCode === 39) {
+			if (e.keyCode === 37) {
 				this.rightHit();
-			} else if (e.keyCode === 37) {
+			} else if (e.keyCode === 39) {
 				this.leftHit();
+			} else {
+				this.fishHero.cont.rotation = Utils.deg2rad(0);
+				this.vx = 0;
+				this.vy = 0;
+
 			}
 			
 		},
