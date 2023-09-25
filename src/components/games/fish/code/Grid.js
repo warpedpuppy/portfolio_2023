@@ -40,17 +40,17 @@ export default function Grid(gv) {
 					box.x -= gv.vx * 0.25;
 					box.y -= gv.vy * 0.25;
 
-					// if (box.y < 0) {
-					// 	box.y = this.boxHeight * this.boxVQ
-					// } else if (box.y > gv.canvasHeight) {
-					// 	box.y = 0;
-					// }
+					if (box.y < -this.boxHeight) {
+						box.y = this.boxHeight * this.boxVQ
+					} else if (box.y > gv.canvasHeight) {
+						box.y = -this.boxHeight;
+					}
 
-					// if (box.x< 0) {
-					// 	box.x = this.boxWidth * this.boxHQ
-					// } else if (box.x > gv.canvasWidth) {
-					// 	box.x = 0;
-					// }
+					if (box.x < -this.boxWidth) {
+						box.x = this.boxWidth * this.boxHQ
+					} else if (box.x > gv.canvasWidth) {
+						box.x = -this.boxWidth;
+					}
 			}
 		}
 
