@@ -24,7 +24,7 @@ export default function Grid(gv) {
 				for (let j = 0; j < boxHQ; j ++) {
 					let b = new PIXI.Graphics();
 					b.lineStyle(2, 0xFFFFFF, 1);
-					// b.alpha = 0.15;
+					b.alpha = 0.15;
 					b.drawRect(0, 0, this.boxWidth, this.boxHeight);
 					b.x = j * this.boxWidth;
 					b.y = i * this.boxHeight;

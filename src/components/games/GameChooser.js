@@ -10,6 +10,8 @@ export default function GameChooser (str) {
 			return require('./fish/code/FishCode');
 		case "planet-jump":
 				return require('./planetJump/code/PlanetJumpCode');
+		case "fireworks1":
+			return require('../challenges/fireworks/code/StepOne');
 		default:
 		  return './bouncePig/code/BouncePigCode';
 	  }
