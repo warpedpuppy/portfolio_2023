@@ -1,6 +1,7 @@
 import './ThreeOfAKind.scss';
 import Game from './code/canvas/canvas';
 import { useEffect, useRef } from 'react';
+import BackButton from '../../BackButton';
 function ThreeOfAKind() {
 
 	const gameRef = useRef(null);
@@ -11,6 +12,7 @@ function ThreeOfAKind() {
 	useEffect( () => () => gameRef.current.stop(), [] );
 
 	return ( <>
+	<BackButton />
 	<canvas id='three-of-id-canvas' width="800" height="400"></canvas>
 		<div className="controls">
 			<label>rows: </label><select id="rows"></select>

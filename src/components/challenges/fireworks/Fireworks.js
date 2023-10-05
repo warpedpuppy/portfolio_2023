@@ -4,9 +4,11 @@ import StepOneFunction from './code/StepOne';
 import StepTwoFunction from './code/StepTwo';
 import StepThreeFunction from './code/StepThree';
 import StepFourFunction from './code/StepFour';
+import BackButton from '../../BackButton';
 function Fireworks() {
 	return ( 
 	<>
+	<BackButton />
 	<h3>step one</h3>
 	<ChallengesCanvas startFunction={StepOneFunction} />
 	 <h3>step two</h3>
