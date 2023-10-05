@@ -19,7 +19,7 @@ export default class GameCode {
     this.canvas.height = 500;
     this.hide = false;
     Graphics.init(this.ctx);
-	this.loop = this.loop.bind(this)
+	// this.loop = this.loop.bind(this)
     this.loop();
     this.addOval();
 
@@ -57,7 +57,7 @@ export default class GameCode {
     document.removeEventListener("mousedown", this.mouseDownHandler);
   }
 
-  loop() {
+  loop = () => {
     this.ctx.strokeStyle = "#000000";
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     Graphics.drawCircle({ x: 250, y: 250 }, 250);
@@ -74,25 +74,26 @@ export default class GameCode {
     requestAnimationFrame(this.loop);
   }
 
-  clear() {
+  clear = () => {
     this.discs.length = 0;
     this.discsInDiscs.length = 0;
   }
 
-  addOval() {
+  addOval = () => {
     let oval = new Oval(this.ctx);
     this.ovals.push(oval);
   }
 
-  addNewDisc() {
+  addNewDisc = () =>  {
     let disc = new Disc(
       this.ctx,
       Utils.randomIntBetween(100, 125),
       this.discs.length - 1
     );
+
     this.discs.push(disc);
   }
-  addNewDiscInDisc() {
+  addNewDiscInDisc = () => {
     let disc = new DiscInDisc(
       this.ctx,
       Utils.randomIntBetween(100, 125),
@@ -100,7 +101,7 @@ export default class GameCode {
     );
     this.discsInDiscs.push(disc);
   }
-  hideDiscs() {
+  hideDiscs = () => {
     this.hide = !this.hide;
     for (let i = 0; i < this.discs.length; i++) {
       this.discs[i].hide(this.hide);
