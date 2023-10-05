@@ -5,7 +5,7 @@ import BackButton from './BackButton';
 import GameChooser from './games/GameChooser';
 
 function GameCanvas({game}) {
-	console.log(game)
+
 	let gameCode = GameChooser(game).default;
 
 	const canvasContainer = useRef(null);

@@ -9,6 +9,7 @@ import Fireworks from './components/challenges/fireworks/Fireworks';
 import MazeSolver from './components/challenges/mazeSolver/MazeSolver';
 import Soduko from './components/challenges/soduko/Soduko';
 import Murmuration from './components/challenges/murmuration/Murmuration';
+import ThreeOfAKind from './components/challenges/threeOfAKind/ThreeOfAKind';
 import Webinars from './components/webinars/Webinars';
 import Challenges from './components/challenges/Challenges';
 import Games from './components/games/Games';
@@ -40,6 +41,7 @@ function App() {
 			<Route path="soduko" element={<Soduko />} />
 			<Route path="maze-solver" element={<MazeSolver />} />
 			<Route path="murmuration" element={<Murmuration />} />
+			<Route path="three-of-a-kind" element={<ThreeOfAKind />} />
 			<Route path="*" element={<h1>challenge not found</h1>} />
 		</Route>
 		<Route path="gamelets" element={<><h2>gamelets:</h2><Outlet /></>}>

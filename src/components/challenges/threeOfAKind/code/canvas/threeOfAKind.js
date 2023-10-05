@@ -85,6 +85,7 @@ export default class ThreeOfAKind {
 
 		draw(rowsWithThrees, colsWithThrees) {
 			const { BOX_WIDTH: width, BOX_HEIGHT: height, ROWQ, COLQ, LEFT_ADJUST, TOP_ADJUST, rects, SPACER } = VARS;
+			const { canvas } = this;
 
 			this.ctx.clearRect(0, 0, canvas.width, canvas.height);
 			for (let row = 0; row < ROWQ; row++) {
