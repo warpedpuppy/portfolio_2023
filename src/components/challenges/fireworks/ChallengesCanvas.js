@@ -1,7 +1,6 @@
 // THIS WAS AN EXPERIMENT TO SEE IF I COULD UNIFY
 import './ChallengesCanvas.scss';
 import { useEffect, useRef } from 'react';
-import BackButton from '../BackButton';
 
 function ChallengesCanvas({startFunction}) {
 	// let gameCode = GameChooser(game).default;
@@ -18,7 +17,6 @@ function ChallengesCanvas({startFunction}) {
 
 	return ( 
 		<>
-		    <BackButton />
 			<canvas ref={canvasRef}></canvas>
 		</>
 	 );

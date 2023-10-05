@@ -1,5 +1,5 @@
 import './Fireworks.scss';
-import ChallengesCanvas from '../ChallengesCanvas';
+import ChallengesCanvas from './ChallengesCanvas';
 import StepOneFunction from './code/StepOne';
 import StepTwoFunction from './code/StepTwo';
 import StepThreeFunction from './code/StepThree';

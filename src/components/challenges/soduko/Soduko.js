@@ -1,8 +1,17 @@
-import './Soduko.scss';
+import "./Soduko.scss";
+import SudokuQuadrantChecker from './code/SodukoTedChallenge';
+import { useEffect } from "react";
 function Soduko() {
-	return ( <>
-	<h1>soduko</h1>
-	</> );
+	useEffect(() => {
+		SudokuQuadrantChecker();
+	}, [])
+  return (
+    <div className="soduko-container">
+      <h1>soduko</h1>
+      <div id="soduko-grid"></div>
+      <h3 id="looping-data">x</h3>
+    </div>
+  );
 }
 
 export default Soduko;
