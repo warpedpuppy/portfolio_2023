@@ -1,9 +1,9 @@
 import './Home.scss';
-
+import BamLogo from '../components/svgs/BamLogo';
 function Home() {
 	return ( 
 		<div id="home-page">
-			<h1>home</h1>
+			<BamLogo />
 		</div>
 	 );
 }

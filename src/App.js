@@ -1,6 +1,5 @@
 import './App.scss';
-// import Logo from './components/svgs/Logo';
-import BamLogo from './components/svgs/BamLogo';
+
 import Home from './pages/Home';
 import Menu from './components/Menu';
 import Solitaire from './components/webinars/solitaire/Solitaire';
@@ -22,8 +21,7 @@ function App() {
   return (
 	<BrowserRouter>
 	<Menu />
-	<BamLogo />
-	{/* <Logo /> */}
+	
 	<Routes>
 		<Route index element={<Home />} />
 		<Route path="home" element={<Outlet />}>

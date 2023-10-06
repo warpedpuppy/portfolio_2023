@@ -3,15 +3,34 @@ $mobile-breakpoint: 1024px;
 
 nav {
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
   background-color: transparent;
   height: $nav-height;
   border-bottom: 2px solid var(--light-grey);
+  h1 {
+	position: relative;
+	z-index: 50;
+	margin-left: 20px;
+	a {
+		text-decoration: none;
+	}
+  }
+  .menu-screen {
+	background-color: white;
+	position: absolute;
+	top:0;
+	left: 0;
+	z-index: 20;
+	width: 100vw;
+	height: 50px;
+	border-bottom: 2px solid var(--light-grey);
+  }
   > ul {
 		display: flex;
 		position: absolute;
+		z-index: 10;
 		top: $nav-height;
 		flex-direction: column;
 		transition: top 1s ease-in-out;
@@ -21,6 +40,7 @@ nav {
 			text-align: center;
 			padding: 5px 0;
 			border-bottom: 1px solid var(--light-grey);
+			background-color: rgba($color: #FFFFFF, $alpha: 0.85);
 		}
 	}
   &.collapsed {
@@ -30,12 +50,16 @@ nav {
 	> .hamburger {
 		> span:nth-child(1) {
 			top: -5px;
-			
 		}
 		> span:nth-child(3) {
 			top: 5px;
 		}
 	  }
+  }
+  > svg {
+	position: relative;
+	z-index: 31;
+	height: 50px;
   }
   > .hamburger {
 	cursor: pointer;
@@ -44,6 +68,8 @@ nav {
 	flex-direction: column;
 	margin-right: 20px;
 	height:50px;
+	position: relative;
+	z-index: 30;
 	> span {
 		position: relative;
 		width: 50px;
@@ -84,10 +110,12 @@ nav {
       flex-direction: row;
 	  position: static;
 	  list-style-type: none;
+	  z-index: 40;
 	  li {
 		border: none;
 		width: auto;
 		margin: 0 20px;
+		cursor: pointer;
 	  }
     }
 	.hamburger {
