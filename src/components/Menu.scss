@@ -1,36 +1,90 @@
+$nav-height: 50px;
+$mobile-breakpoint: 1024px;
+
 nav {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   flex-direction: column;
+  background-color: transparent;
+  height: $nav-height;
+  border-bottom: 2px solid var(--light-grey);
   > ul {
-    border-bottom: 1px solid var(--light-grey);
+		display: flex;
+		position: absolute;
+		top: $nav-height;
+		flex-direction: column;
+		transition: top 1s ease-in-out;
+		top: 50px;
+		> li {
+			width: 100vw;
+			text-align: center;
+			padding: 5px 0;
+			border-bottom: 1px solid var(--light-grey);
+		}
+	}
+  &.collapsed {
+	> ul {
+		top: -150px;
+	}
+	> .hamburger {
+		> span:nth-child(1) {
+			top: -5px;
+			
+		}
+		> span:nth-child(3) {
+			top: 5px;
+		}
+	  }
   }
-  ul {
-    display: flex;
-    list-style-type: none;
-    justify-content: flex-end;
-    width: 100%;
+  > .hamburger {
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	margin-right: 20px;
+	height:50px;
+	> span {
+		position: relative;
+		width: 50px;
+		display: block;
+		border-bottom: 2px solid black;
+		transition: bottom 0.25s linear, top 0.25s linear;
+		&:nth-child(1) {
+			top:0;
+		}
+		&:nth-child(3) {
+			top:0;
+		}
 
-    li {
-      margin: 0 20px;
-	  cursor: pointer;
-    }
+	}
   }
   #submenu {
     display: flex;
     justify-content: flex-end;
-	width: 100%;
-   
+    width: 100%;
+
     div {
       display: none;
-	  border-bottom: 1px solid  var(--light-grey);
-	  width: 100%;
+      border-bottom: 1px solid var(--light-grey);
+      width: 100%;
       &.show {
         display: flex;
-		justify-content: flex-end;
-		width: 100%;
+        justify-content: flex-end;
+        width: 100%;
       }
     }
+  }
+}
+
+@media (min-width: $mobile-breakpoint) {
+  nav {
+    // background-color: red;
+    ul {
+      display: flex;
+    }
+	.hamburger {
+		display: none;
+	}
   }
 }
