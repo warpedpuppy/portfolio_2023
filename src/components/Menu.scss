@@ -81,7 +81,14 @@ nav {
   nav {
     // background-color: red;
     ul {
-      display: flex;
+      flex-direction: row;
+	  position: static;
+	  list-style-type: none;
+	  li {
+		border: none;
+		width: auto;
+		margin: 0 20px;
+	  }
     }
 	.hamburger {
 		display: none;
