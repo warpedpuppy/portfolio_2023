@@ -17,7 +17,7 @@ function ChallengesCanvas({startFunction}) {
 
 	return ( 
 		<>
-			<canvas ref={canvasRef}></canvas>
+			<canvas className="challenge-canvas" ref={canvasRef}></canvas>
 		</>
 	 );
 }

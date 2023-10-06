@@ -17,7 +17,7 @@ function ChallengesCanvas({startClass}) {
 
 	return ( 
 		<>
-			<canvas ref={canvasRef}></canvas>
+			<canvas className="murmuration-canvas"  ref={canvasRef}></canvas>
 		</>
 	 );
 }
