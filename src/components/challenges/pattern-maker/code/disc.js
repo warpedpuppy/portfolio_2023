@@ -8,7 +8,7 @@ export default class Disc {
 	}
 	#ctx;
 	#counter = 0;
-	#rotationSpeed = Utils.randomNumberBetween(0.005, 0.0005);
+	#rotationSpeed = Utils.randomNumberBetween(0.005, 0.0025);
 	#counter2 = 10;
 	#dotX;
 	#dotY;

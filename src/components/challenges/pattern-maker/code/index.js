@@ -21,7 +21,7 @@ export default class GameCode {
     Graphics.init(this.ctx);
 	// this.loop = this.loop.bind(this)
     this.loop();
-    this.addOval();
+    this.addNewDisc();
 
     document.querySelector("#clear").addEventListener("click", this.clear);
     document
@@ -32,9 +32,6 @@ export default class GameCode {
       .addEventListener("click", this.addNewDiscInDisc);
     document
       .querySelector("#addNewDisc")
-      .addEventListener("click", this.addNewDisc);
-    document
-      .querySelector("#addOval")
       .addEventListener("click", this.addNewDisc);
     document.addEventListener("mousemove", this.mouseMoveHandler);
     document.addEventListener("mousedown", this.mouseDownHandler);
@@ -79,10 +76,6 @@ export default class GameCode {
     this.discsInDiscs.length = 0;
   }
 
-  addOval = () => {
-    let oval = new Oval(this.ctx);
-    this.ovals.push(oval);
-  }
 
   addNewDisc = () =>  {
     let disc = new Disc(

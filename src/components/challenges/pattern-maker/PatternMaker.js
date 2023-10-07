@@ -17,11 +17,11 @@ function PatternMaker() {
 	
 	return ( <>
 	<BackButton />
+	<h3>click on revolving circle to make point</h3>
 	<canvas ref={canvasContainer}></canvas>
 		<div>
 			{/* <!-- <button id="switchDirections">switch directions</button> --> */}
 			<button id="addNewDisc">add new disc</button>
-			<button id="addOval">add oval</button>
 			<button id="addNewDiscInDisc">add new disc in disc</button>
 			<button id="hideDiscs">hide discs</button>
 			<button id="clear">clear</button>

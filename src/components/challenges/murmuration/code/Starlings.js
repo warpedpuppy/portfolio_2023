@@ -90,10 +90,6 @@ export default class Starling {
 	}
 	//body
 	engine.beginPath();
-	// engine.moveTo(pos.x, pos.y - this.bodyHeight);
-	// engine.lineTo(pos.x + this.bodyWidth, pos.y - this.bodyHeight);
-	// engine.lineTo(pos.x + this.bodyWidth, pos.y + this.bodyHeight);
-	// engine.lineTo(pos.x, pos.y + this.bodyHeight);
 	engine.moveTo(pos.x, pos.y);
 	engine.lineTo(pos.x + scaleIt(50), pos.y + scaleIt(10));
 	engine.lineTo(pos.x + scaleIt(130), pos.y + scaleIt(10));
@@ -109,9 +105,6 @@ export default class Starling {
 	//wing
 	// engine.stroke();
 	engine.beginPath();
-	// engine.moveTo(pos.x + 10, pos.y - 2);
-	// engine.lineTo(pos.x + 10, wingHeight);
-	// engine.lineTo(pos.x + 30, pos.y - 2);
 
 	engine.moveTo(pos.x + scaleIt(50), pos.y + scaleIt(20));
 	engine.lineTo(pos.x + scaleIt(70), pos.y);
