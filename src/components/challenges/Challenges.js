@@ -2,6 +2,8 @@ import './Challenges.scss';
 import { Link } from 'react-router-dom';
 function Challenges() {
 	return ( 
+		<div className='general-layout challenges'>
+		<h2>challenges:</h2>
 		<ul>
 			<li><Link to="/challenges/fireworks">fireworks</Link></li>
 			<li><Link to="/challenges/maze-solver">maze solver</Link></li>
@@ -10,6 +12,7 @@ function Challenges() {
 			<li><Link to="/challenges/murmuration">murmuration</Link></li>
 			<li><Link to="/challenges/pattern-maker">pattern maker</Link></li>
 		</ul>
+		</div>
 	 );
 }
 

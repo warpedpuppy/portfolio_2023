@@ -34,7 +34,7 @@ function App() {
 			<Route path="svg-animations" element={<SVGAnimations />} />
 			<Route path="*" element={<h1>webinars not found</h1>} />
 		</Route>
-		<Route path="challenges" element={<><h2>challenges:</h2><Outlet /></>}>
+		<Route path="challenges" element={<Outlet />}>
 			<Route index element={<Challenges />} />
 			<Route path="fireworks" element={<Fireworks />} />
 			<Route path="soduko" element={<Soduko />} />
@@ -44,7 +44,7 @@ function App() {
 			<Route path="pattern-maker" element={<PatternMaker />} />
 			<Route path="*" element={<h1>challenge not found</h1>} />
 		</Route>
-		<Route path="gamelets" element={<><h2>gamelets:</h2><Outlet /></>}>
+		<Route path="gamelets" element={<Outlet />}>
 			<Route index element={<Games />} />
 			<Route path="dragon" element={<GameCanvas game="dragon" />} />
 			<Route path="fish" element={<GameCanvas game="fish" />} />
@@ -57,7 +57,7 @@ function App() {
 			<Route index element={<PrettyLittleThings />} />
 			<Route path="*" element={<h1>pretty little thing not found</h1>} />
 		</Route>
-		<Route path="about" element={<><h2>about:</h2><Outlet /></>}>
+		<Route path="about" element={<Outlet />}>
 			<Route index element={<About />} />
 			<Route path="*" element={<h1>about not found</h1>} />
 		</Route>

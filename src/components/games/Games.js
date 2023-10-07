@@ -2,6 +2,8 @@ import './Games.scss';
 import { Link } from 'react-router-dom';
 function Games() {
 	return ( 
+		<div className="general-layout">
+			<h2>gamelets:</h2>
 		<ul>
 			<li><Link to="/gamelets/pig">pig</Link></li>
 			<li><Link to="/gamelets/dragon">dragon</Link></li>
@@ -9,6 +11,7 @@ function Games() {
 			<li><Link to="/gamelets/planet-jump">planet jump</Link></li>
 			<li><Link to="/gamelets/lines">lines</Link></li>
 		</ul>
+		</div>
 	 );
 }
 
