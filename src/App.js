@@ -28,7 +28,7 @@ function App() {
 			<Route index element={<Home />} />
 			<Route path="*" element={<h1>home subpage not found</h1>} />
 		</Route>
-		<Route path="webinars" element={<><h2>webinars:</h2><Outlet /></>}>
+		<Route path="webinars" element={<Outlet />}>
 			<Route index element={<Webinars />} />
 			<Route path="solitaire" element={<Solitaire />} />
 			<Route path="svg-animations" element={<SVGAnimations />} />
