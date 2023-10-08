@@ -17,6 +17,7 @@ import PrettyLittleThings from './components/pretty-little-things/PrettyLittleTh
 import GameCanvas from './components/GameCanvas';
 import About from './pages/About';
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
+import WebDev from './components/webinars/web-dev/WebDev';
 function App() {
   return (
 	<BrowserRouter>
@@ -32,6 +33,7 @@ function App() {
 			<Route index element={<Webinars />} />
 			<Route path="solitaire" element={<Solitaire />} />
 			<Route path="svg-animations" element={<SVGAnimations />} />
+			<Route path="web-dev" element={<WebDev />} />
 			<Route path="*" element={<h1>webinars not found</h1>} />
 		</Route>
 		<Route path="challenges" element={<Outlet />}>

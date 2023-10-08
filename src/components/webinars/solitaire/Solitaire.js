@@ -3,6 +3,7 @@ import './Solitaire.scss';
 import Canvas from '../../GameCanvas';
 import SolitaireGame from './code/SolitaireGame';
 import { useEffect, useRef } from 'react';
+import BackButton from "../../BackButton";
 function Solitaire() {
 	const canvasRef = useRef(null);
 	useEffect( () => {		
@@ -13,6 +14,7 @@ function Solitaire() {
 	return ( 
 		<div className="challenges-layout">
 			<h1>Solitaire</h1>
+			<BackButton />
 			<iframe width="560" height="315" src="https://www.youtube.com/embed/hasFnKRrT0Y?si=auXbr0g6Z3_FbMVh" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen={true}></iframe>
 			<h2>the challenge is: code a javascript solitaire for the canvas element.</h2>
 			<p><a href='https://www.youtube.com/watch?v=hasFnKRrT0Y' target='_blank' rel="noreferrer">link</a></p>

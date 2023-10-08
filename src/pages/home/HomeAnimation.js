@@ -31,7 +31,7 @@ export default class HomeAnimation {
         this.items.push(this.shape(x, y, img));
       }
       this.tick();
-      console.log("loaded");
+
     };
     img.src = "/bmps/home/star.png";
 
@@ -63,7 +63,7 @@ export default class HomeAnimation {
       w: 5,
       h: 5,
       r: Math.random() * this.maxDistance,
-      rq: Math.random() * 0.25 + 0.5,
+      rq: Math.random() * 0.25 + 0.5 * (Math.floor(Math.random() * 2) < 1 ? -1 : 1),
       img,
       rotation: 0,
       rotateSpeed: Math.random() * 0.00015 + 0.00002,
@@ -77,8 +77,10 @@ export default class HomeAnimation {
     for (let i = 0; i < this.itemQ; i++) {
       let box = this.items[i];
       let { img } = box;
-      box.r += box.rq;
-      if (box.r > this.maxDistance) box.r = 0;
+	box.r += box.rq;
+
+      
+      if (Math.abs(box.r) > this.maxDistance) box.r = 0;
 
       const { x, y } = this.distributeAroundCircle(this.center, box.r, i);
 
