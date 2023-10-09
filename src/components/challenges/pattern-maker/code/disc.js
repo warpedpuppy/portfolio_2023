@@ -104,6 +104,10 @@ export default class Disc {
 			Graphics.drawCircle({x: this.#discX, y: this.#discY}, this.#radius, this.#highlight)
 			this.temp -= this.#rotationSpeed;
 			this.createLines(ctx, this.temp)
+
+			ctx.font = "20px Arial";
+			ctx.fillStyle = "black";
+			ctx.fillText("click me", this.#discX - 25, this.#discY);
 		}
 		
 		
