@@ -15,11 +15,13 @@ class MouseEvents {
 	mouseDownHandler = e => {
 		if (this.#chosenSquares.length >= 2) {
 			this.#chosenSquares = [];
+
 		} else if (this.#chosenSquares.length === 1) {
 			let { row: row1, col: col1 } = this.#chosenSquares[0];
 			let { row: row2, col: col2 } = this.#activeSquare;
 			if (Math.abs(col1-col2) <= 1 && Math.abs(row1-row2) <= 1) {
-				[this.#chosenSquares[0].color, this.#activeSquare.color] = [this.#activeSquare.color, this.#chosenSquares[0].color];	
+				[this.#chosenSquares[0].color, this.#activeSquare.color] = [this.#activeSquare.color, this.#chosenSquares[0].color];
+				VARS.setChosen(undefined, undefined);
 				this.#update();
 				this.#chosenSquares = [];
 			} else {
@@ -27,24 +29,31 @@ class MouseEvents {
 				return;
 			}
 		} else {
+			VARS.setChosen(this.#activeSquare.row, this.#activeSquare.col);
+			this.#update();
 			this.#chosenSquares.push(this.#activeSquare)
 		}
 	}
 
 	mouseMoveHandler = e => {
+	
 		const { ROWQ, COLQ, rects, canvas } = VARS;
 		const { pageX: mouseX, pageY: mouseY } = e;
 		const { x: canvasX, y: canvasY } = canvas.getBoundingClientRect();
 
 		let mouseXOnCanvas = mouseX - canvasX;
 		let mouseYOnCanvas = mouseY - canvasY;
+	
 		let test = [];
 		for (let row = 0; row < ROWQ; row++) {
 			for (let col = 0; col < COLQ; col++) {
 				if (Utils.rectPointCollision(mouseXOnCanvas, mouseYOnCanvas, rects[row][col])) {
 					this.#activeSquare = rects[row][col];
+					VARS.setHover(row, col);
+					this.#update();
 					test.push(true)
 				} else {
+					
 					test.push(false)
 				}
 			}
@@ -52,6 +61,8 @@ class MouseEvents {
 		if (test.includes(true)) {
 			canvas.classList.add('over')
 		} else {
+			VARS.setHover(undefined, undefined);
+			this.#update();
 			canvas.classList.remove('over')
 		}
 	}

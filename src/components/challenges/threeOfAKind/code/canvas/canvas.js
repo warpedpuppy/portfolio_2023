@@ -31,11 +31,11 @@ export default class Game {
 		document.addEventListener('mousedown', this.mouseEvents.mouseDownHandler)
 	} 
 
-	changeRows (e) {
+	changeRows = (e) => {
 		this.mouseEvents.change('rows', e.target.value)
 	}
 
-	changeCols (e) {
+	changeCols = (e) => {
 		this.mouseEvents.change('cols', e.target.value)
 	}
 

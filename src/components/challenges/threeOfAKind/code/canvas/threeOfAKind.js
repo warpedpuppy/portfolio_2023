@@ -29,7 +29,7 @@ export default class ThreeOfAKind {
 		}
 
 		update = async () => {
-			
+
 			let rowsWithThrees = [];
 			let colsWithThrees = [];
 			let colColorTracker = {};
@@ -84,7 +84,7 @@ export default class ThreeOfAKind {
 		}
 
 		draw(rowsWithThrees, colsWithThrees) {
-			const { BOX_WIDTH: width, BOX_HEIGHT: height, ROWQ, COLQ, LEFT_ADJUST, TOP_ADJUST, rects, SPACER } = VARS;
+			const { BOX_WIDTH: width, BOX_HEIGHT: height, ROWQ, COLQ, LEFT_ADJUST, TOP_ADJUST, rects, SPACER, hover, chosen } = VARS;
 			const { canvas } = this;
 
 			this.ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -97,6 +97,17 @@ export default class ThreeOfAKind {
 					let adjust = width * 0.25 ;
 					let xPosAdjusted = xPos + adjust;
 					let yPosAdjusted = yPos + adjust;
+
+					let hoverTrue = hover.row === row && hover.col === col;
+					let chosenTrue = chosen.row === row && chosen.col === col;
+
+					if (hoverTrue || chosenTrue) {
+						this.ctx.lineWidth = 5;
+					} else {
+						this.ctx.lineWidth = 1;
+					}
+
+			
 
 					if (rowsWithThrees.includes(item) || colsWithThrees.includes(item)) {
 						this.ctx.strokeRect(xPosAdjusted, yPosAdjusted, width * 0.5, height * 0.5);

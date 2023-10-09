@@ -20,8 +20,16 @@ const VARS = {
 		'orange',
 		'red'
 	],
+	setHover: function (row, col) {
+		this.hover = { row, col };
+	},
+	setChosen: function (row, col) {
+		this.chosen = { row, col };
+	},
 	init: function (canvas) {
 		VARS.canvas = canvas;
+		this.hover = {};
+		this.chosen = {};
 		this.SCREEN_WIDTH = canvas.width;
 		this.SCREEN_HEIGHT = canvas.height
 		this.BOARD_WIDTH = (this.BOX_WIDTH + (this.SPACER - this.BOX_WIDTH)) * this.COLQ;

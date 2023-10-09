@@ -1,0 +1,18 @@
+.three-of-a-kind {
+  #three-of-id-canvas {
+    display: block;
+    margin: 0 auto;
+    &.over {
+      cursor: pointer;
+    }
+  }
+  .controls {
+    display: flex;
+    width: 100%;
+	justify-content: center;
+	label {
+		font-weight: bold;
+		margin: 0 5px 0 20px;
+	}
+  }
+}
