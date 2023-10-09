@@ -3,7 +3,7 @@ import Graphics from './graphics.js';
 export default class Disc {
 	constructor(ctx, radius = 125, dir) {
 		this.#ctx = ctx;
-		this.#radius = radius;
+		this.#radius = (Math.random() * 75) + 75;
 		if (dir % 2 === 0) this.#rotationSpeed *= -1;
 	}
 	#ctx;
@@ -116,7 +116,7 @@ export default class Disc {
 			dot.counter -= this.#rotationSpeed;
 			
 			dot.lines.push({x: dot.x, y: dot.y})
-			ctx.strokeStyle = "black";
+			ctx.strokeStyle = "rgba(0,0,0,0.5)";
 
 			Graphics.drawCircle({x: dot.x, y: dot.y}, 5, this.#highlight)
 
@@ -127,7 +127,7 @@ export default class Disc {
 			})
 			ctx.stroke();
 
-			ctx.strokeStyle = "black";
+			ctx.strokeStyle = "rgba(0,0,0,0.5)";
 
 		})
 
@@ -152,6 +152,6 @@ export default class Disc {
 		endCoords =  Utils.distributeAroundCircle(discCoords, -this.#radius, this.#counter2  );
 		Graphics.drawLine(startCoords, endCoords)
 
-		ctx.strokeStyle = "black";
+		ctx.strokeStyle = "rgba(0,0,0,0.5)";
 	}
 }

@@ -15,9 +15,11 @@ function PatternMaker() {
 
 
 	
-	return ( <>
+	return ( 
+	<section className="pattern-maker general-challenges-layout">
 	<BackButton />
 	<h3>click on revolving circle to make point</h3>
+	<div>
 	<canvas ref={canvasContainer}></canvas>
 		<div>
 			{/* <!-- <button id="switchDirections">switch directions</button> --> */}
@@ -26,7 +28,9 @@ function PatternMaker() {
 			<button id="hideDiscs">hide discs</button>
 			<button id="clear">clear</button>
 		</div>
-	</> );
+		</div>
+	</section>
+	 );
 }
 
 export default PatternMaker;
