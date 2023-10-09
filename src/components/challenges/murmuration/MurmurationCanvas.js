@@ -1,5 +1,5 @@
 // THIS WAS AN EXPERIMENT TO SEE IF I COULD UNIFY
-import './ChallengesCanvas.scss';
+import './MurmurationCanvas.scss';
 import { useEffect, useRef } from 'react';
 
 function ChallengesCanvas({startClass}) {
@@ -12,14 +12,10 @@ function ChallengesCanvas({startClass}) {
 		gameRef.current = new startClass(canvasRef.current);
 	}, [gameRef, startClass])
 
-	// useEffect( () => () => gameRef.current.stop(), [] );
+	useEffect( () => () => gameRef.current.stop(), [] );
 
 
-	return ( 
-		<>
-			<canvas className="murmuration-canvas"  ref={canvasRef}></canvas>
-		</>
-	 );
+	return <canvas className="murmuration-canvas"  ref={canvasRef} />
 }
 
 export default ChallengesCanvas;

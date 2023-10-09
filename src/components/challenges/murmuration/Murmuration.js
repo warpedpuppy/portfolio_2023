@@ -1,12 +1,12 @@
 import './Murmuration.scss';
-import ChallengesCanvas from './ChallengesCanvas';
+import MurmurationCanvas from './MurmurationCanvas';
 import SetUpMurmuration from './code/index';
 import BackButton from '../../BackButton';
 function Murmuration() {
 	return ( <>
 	<BackButton />
 	murmuration
-	<ChallengesCanvas startClass={SetUpMurmuration} />
+	<MurmurationCanvas startClass={SetUpMurmuration} />
 	</> );
 }
 

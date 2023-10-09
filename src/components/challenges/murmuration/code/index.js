@@ -7,7 +7,7 @@ export default class SetUpMurmuration {
 		this.engine = canvas.getContext("2d");
 		this.canvasWidth = window.innerWidth;
 		this.canvasHeight = window.innerHeight;
-	
+		this.halt = false;
 		this.canvas.setAttribute("width", this.canvasWidth);
 		this.canvas.setAttribute("height", this.canvasHeight);
 	
@@ -23,10 +23,12 @@ export default class SetUpMurmuration {
 
 	}
 	stop() {
+		this.halt = true;
 		window.removeEventListener("resize", this.resizeHandler);
 	}
 
 	tick () {
+		if (this.halt) return ;
 		this.engine.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
 		this.murmuration.renderBirds();
 		window.requestAnimationFrame(this.tick);
