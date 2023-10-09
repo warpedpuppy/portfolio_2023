@@ -7,12 +7,12 @@ function Soduko() {
 		SudokuQuadrantChecker();
 	}, [])
   return (
-    <div className="soduko-container">
+    <section className="soduko-container general-challenges-layout">
 		<BackButton />
       <h1>soduko</h1>
       <div id="soduko-grid"></div>
       <h3 id="looping-data">x</h3>
-    </div>
+    </section>
   );
 }
 
