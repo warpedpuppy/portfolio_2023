@@ -4,8 +4,7 @@ import VARS from './vars.js';
 
 export default class Game {
 
-	constructor () {
-		const canvas = document.getElementById("three-of-id-canvas");
+	constructor (canvas) {
 		const ctx = canvas.getContext("2d");
 		VARS.init(canvas);
 		const three = new ThreeOfAKind(ctx, canvas);

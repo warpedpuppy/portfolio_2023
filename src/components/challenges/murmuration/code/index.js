@@ -32,7 +32,7 @@ export default class SetUpMurmuration {
 		window.requestAnimationFrame(this.tick);
 	};
 
-	resizeHandler (e) {
+	resizeHandler = (e) => {
 		this.canvasWidth = window.innerWidth;
 		this.canvasHeight = window.innerHeight;
 		this.murmuration.resize(this.canvasWidth, this.canvasHeight)

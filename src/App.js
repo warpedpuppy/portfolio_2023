@@ -22,7 +22,6 @@ function App() {
   return (
 	<BrowserRouter>
 	<Menu />
-	
 	<Routes>
 		<Route index element={<Home />} />
 		<Route path="home" element={<Outlet />}>

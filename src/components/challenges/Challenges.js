@@ -8,7 +8,7 @@ function Challenges() {
 		<p>Here are several of them:</p>
 		<ul>
 			<li><Link to="/challenges/fireworks">fireworks</Link></li>
-			<li><Link to="/challenges/maze-solver">maze solver</Link></li>
+			{/* <li><Link to="/challenges/maze-solver">maze solver</Link></li> */}
 			<li><Link to="/challenges/soduko">soduko</Link></li>
 			<li><Link to="/challenges/three-of-a-kind">three of a kind</Link></li>
 			<li><Link to="/challenges/murmuration">murmuration</Link></li>

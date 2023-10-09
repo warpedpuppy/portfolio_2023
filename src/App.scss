@@ -1,6 +1,7 @@
  :root {
 	--light-grey: rgba(0,0,0,0.25);
 	--mobile-breakpoint: 768px;
+	--left-right-margin: 20px;
  }
  * {
 	margin: 0;
@@ -30,5 +31,6 @@
  }
 
  .general-layout {
-	margin: 0 20px;
+	margin: 0 var(--left-right-margin);
  }
+

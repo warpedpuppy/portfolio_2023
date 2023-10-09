@@ -38,6 +38,7 @@ nav {
 		> li {
 			width: 100vw;
 			text-align: center;
+			cursor: pointer;
 			padding: 5px 0;
 			border-bottom: 1px solid var(--light-grey);
 			background-color: rgba($color: #FFFFFF, $alpha: 0.85);
