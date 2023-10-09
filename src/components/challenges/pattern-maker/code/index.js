@@ -23,6 +23,11 @@ export default class GameCode {
 
     this.loop();
     this.addNewDisc();
+	for (let i = 0; i < this.discs.length; i++) {
+		let disc = this.discs[i];
+		 disc.addDot({x: 10, y:10});
+	
+	  }
 
     document.querySelector("#clear").addEventListener("click", this.clear);
     document
