@@ -104,6 +104,9 @@ export default class DiscInDisc {
 					x: this.#innerDiscX, 
 					y: this.#innerDiscY, 
 				}, this.#innerDiscRadius, false);
+			this.#ctx.font = "20px Arial";
+			this.#ctx.fillStyle = "black";
+			this.#ctx.fillText("click me", this.#innerDiscX - 35, this.#innerDiscY + 5);
 		}
 
 		this.#dots.forEach( dot => {

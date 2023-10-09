@@ -107,7 +107,7 @@ export default class Disc {
 
 			ctx.font = "20px Arial";
 			ctx.fillStyle = "black";
-			ctx.fillText("click me", this.#discX - 25, this.#discY);
+			ctx.fillText("click me", this.#discX - 35, this.#discY + 5);
 		}
 		
 		
