@@ -2,7 +2,7 @@ import Disc from "./disc.js";
 import DiscInDisc from "./discInDisc.js";
 import Utils from "./utils.js";
 import Graphics from "./graphics.js";
-import Oval from "./oval.js";
+
 export default class GameCode {
   hide = false;
   activePoint = undefined;
@@ -10,6 +10,7 @@ export default class GameCode {
   testY = undefined;
   constructor(canvas) {
     this.canvas = canvas;
+	this.halt = false;
     this.ctx = canvas.getContext("2d");
     this.discs = [];
     this.discsInDiscs = [];
@@ -19,7 +20,7 @@ export default class GameCode {
     this.canvas.height = 500;
     this.hide = false;
     Graphics.init(this.ctx);
-	// this.loop = this.loop.bind(this)
+
     this.loop();
     this.addNewDisc();
 
@@ -37,24 +38,13 @@ export default class GameCode {
     document.addEventListener("mousedown", this.mouseDownHandler);
   }
   stop() {
-    // document.querySelector("#clear").removeEventListener("click", this.clear);
-    // document
-    //   .querySelector("#hideDiscs")
-    //   .removeEventListener("click", this.hideDiscs);
-    // document
-    //   .querySelector("#addNewDiscInDisc")
-    //   .removeEventListener("click", this.addNewDiscInDisc);
-    // document
-    //   .querySelector("#addNewDisc")
-    //   .removeEventListener("click", this.addNewDisc);
-    // document
-    //   .querySelector("#addOval")
-    //   .removeEventListener("click", this.addNewDisc);
+	this.halt = true;
     document.removeEventListener("mousemove", this.mouseMoveHandler);
     document.removeEventListener("mousedown", this.mouseDownHandler);
   }
 
   loop = () => {
+	if (this.halt) return ;
     this.ctx.strokeStyle = "#000000";
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     Graphics.drawCircle({ x: 250, y: 250 }, 250);
