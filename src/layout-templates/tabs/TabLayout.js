@@ -1,10 +1,12 @@
 import Tabs from "./Tabs";
 import TabBody from "./TabBody";
-function TabLayout({content}) {
+import { useState } from 'react';
+function TabLayout({code, concept, content}) {
+	const [ active, setActive ] = useState(0)
 	return ( 
 		<>
-		<Tabs />
-		<TabBody content={content} />
+		<Tabs active={active} setActive={setActive} />
+		<TabBody  active={active} content={content} code={code} concept={concept} />
 		</>
 	 );
 }

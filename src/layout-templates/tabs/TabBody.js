@@ -1,6 +1,6 @@
 import './TabBody.scss';
-function TabBody({content}) {
-	return ( <div className="tab-body-shell">{content} </div> );
+function TabBody({active, code, concept, content}) {
+	return ( <div className="tab-body-shell">{active === 0 ? content : active === 1 ? code : concept } </div> );
 }
 
 export default TabBody;
