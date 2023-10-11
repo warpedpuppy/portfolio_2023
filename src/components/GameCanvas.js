@@ -1,9 +1,9 @@
 // THIS WAS AN EXPERIMENT TO SEE IF I COULD UNIFY
 import './GameCanvas.scss';
 import { useEffect, useRef } from 'react';
-import BackButton from './BackButton';
-import GameChooser from './games/GameChooser';
 
+import GameChooser from './games/GameChooser';
+import TabLayout from '../layout-templates/tabs/TabLayout';
 function GameCanvas({game}) {
 
 	let gameCode = GameChooser(game).default;
@@ -20,10 +20,12 @@ function GameCanvas({game}) {
 
 
 	return ( 
-		<>
-		    <BackButton />
-			<div className="game-canvases" ref={canvasContainer}></div>
-		</>
+		<div className="general-layout">
+		    <TabLayout 
+			tabs={ ['content', 'concept'] } 
+			content={<div className="game-canvases" ref={canvasContainer}></div>}
+			/>
+		</div>
 	 );
 }
 
