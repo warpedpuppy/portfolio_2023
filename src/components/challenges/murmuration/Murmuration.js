@@ -1,13 +1,14 @@
 import "./Murmuration.scss";
-import MurmurationCanvas from "./MurmurationCanvas";
-import SetUpMurmuration from "./code/index";
 
 import TabLayout from "../../../layout-templates/tabs/TabLayout";
+import MurmurationContent from "./components/MumurationContent";
+import MurmurationCode from "./components/MurmurationCode";
+import MurmurationConcept from "./components/MurmurationConcept";
 function Murmuration() {
   return (
     <section className="general-challenges-layout">
 		<h1>murmuration</h1>
-		<TabLayout content={<MurmurationCanvas startClass={SetUpMurmuration} />} />
+		<TabLayout content={<MurmurationContent />} code={<MurmurationCode />} concept={<MurmurationConcept />} />
       
     </section>
   );

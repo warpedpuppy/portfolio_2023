@@ -1,5 +1,5 @@
 function ThreeConcept() {
-	return ( <></> );
+	return ( <>three concept</> );
 }
 
 export default ThreeConcept;
