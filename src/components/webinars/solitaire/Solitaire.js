@@ -1,6 +1,5 @@
 
 import './Solitaire.scss';
-import Canvas from '../../GameCanvas';
 import SolitaireGame from './code/SolitaireGame';
 import { useEffect, useRef } from 'react';
 import BackButton from "../../BackButton";

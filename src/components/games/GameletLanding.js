@@ -1,6 +1,6 @@
-import './Games.scss';
+import './GameletLanding.scss';
 import { Link } from 'react-router-dom';
-function Games() {
+function GameletLanding() {
 	return ( 
 		<div className="general-layout">
 			<h2>gamelets:</h2>
@@ -16,4 +16,4 @@ function Games() {
 	 );
 }
 
-export default Games;
+export default GameletLanding;

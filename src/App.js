@@ -12,9 +12,9 @@ import ThreeOfAKind from './components/challenges/threeOfAKind/ThreeOfAKind';
 import PatternMaker from './components/challenges/pattern-maker/PatternMaker';
 import Webinars from './components/webinars/Webinars';
 import Challenges from './components/challenges/Challenges';
-import Games from './components/games/Games';
+import GameletLanding from './components/games/GameletLanding';
 import PrettyLittleThings from './components/pretty-little-things/PrettyLittleThings';
-import GameCanvas from './components/GameCanvas';
+import Gamelets from './components/games/Gamelets';
 import About from './pages/About';
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import WebDev from './components/webinars/web-dev/WebDev';
@@ -46,12 +46,12 @@ function App() {
 			<Route path="*" element={<h1>challenge not found</h1>} />
 		</Route>
 		<Route path="gamelets" element={<Outlet />}>
-			<Route index element={<Games />} />
-			<Route path="dragon" element={<GameCanvas game="dragon" />} />
-			<Route path="fish" element={<GameCanvas game="fish" />} />
-			<Route path="pig" element={<GameCanvas game="pig" />} />
-			<Route path="planet-jump" element={<GameCanvas game="planet-jump" />} />
-			<Route path="lines" element={<GameCanvas game="lines" />} />
+			<Route index element={<GameletLanding />} />
+			<Route path="dragon" element={<Gamelets game="dragon" />} />
+			<Route path="fish" element={<Gamelets game="fish" />} />
+			<Route path="pig" element={<Gamelets game="pig" />} />
+			<Route path="planet-jump" element={<Gamelets game="planet-jump" />} />
+			<Route path="lines" element={<Gamelets game="lines" />} />
 			<Route path="*" element={<h1>game not found</h1>} />
 		</Route>
 		<Route path="pretty-little-things" element={<><h2>pretty little things:</h2><Outlet /></>}>
