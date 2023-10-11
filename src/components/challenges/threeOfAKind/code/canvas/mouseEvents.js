@@ -29,6 +29,7 @@ class MouseEvents {
 				return;
 			}
 		} else {
+			if (!this.#activeSquare) return;
 			VARS.setChosen(this.#activeSquare.row, this.#activeSquare.col);
 			this.#update();
 			this.#chosenSquares.push(this.#activeSquare)

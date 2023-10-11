@@ -1,34 +1,14 @@
 import './PatternMaker.scss';
-import BackButton from '../../BackButton';
-import { useEffect, useRef } from 'react';
-import GameCode from './code/index.js';
+import PatternMakerContent from './components/PatternMakerContent';
+import TabLayout from '../../../layout-templates/tabs/TabLayout';
 function PatternMaker() {
-
-	const canvasContainer = useRef(null);
-	const gameRef = useRef(null);
-
-	useEffect( () => {
-		gameRef.current = new GameCode(canvasContainer.current);
-	}, [canvasContainer])
-
-	useEffect( () => () => gameRef.current.stop(), [] );
 
 
 	
 	return ( 
-	<section className="pattern-maker general-challenges-layout">
-	<BackButton />
-	<h3>click on revolving circle to make point</h3>
-	<div>
-	<canvas ref={canvasContainer}></canvas>
-		<div>
-			{/* <!-- <button id="switchDirections">switch directions</button> --> */}
-			<button id="addNewDisc">add new disc</button>
-			<button id="addNewDiscInDisc">add new disc in disc</button>
-			<button id="hideDiscs">hide discs</button>
-			<button id="clear">clear</button>
-		</div>
-		</div>
+	<section className="general-challenges-layout">
+		<h1>spirograph</h1>
+		<TabLayout content={<PatternMakerContent />} />
 	</section>
 	 );
 }

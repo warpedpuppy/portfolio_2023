@@ -1,5 +1,7 @@
 canvas.murmuration-canvas {
-	border: 1px solid black;
 	display: block;
-	margin: 10px auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
 }

@@ -2,8 +2,9 @@
 export default function SudokuQuadrantChecker(strArr) {
 	
 	let nodes = [];
-	
-	buildGrid();
+	let built = false;
+
+	if (!built) buildGrid(); 
 
 	function processChange (e) {
 		let start = Date.now();
@@ -78,6 +79,7 @@ export default function SudokuQuadrantChecker(strArr) {
 				nodes.push(obj);
 			}
 		}
+		built = true;
 	}
 	function highlight(arr) {
 		let props = ['row', 'col', 'ninth'];
