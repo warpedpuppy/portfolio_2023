@@ -120,17 +120,8 @@ export default function JumpBackground(gv) {
       this.cont.y = 0
     },
     switchPlanets (newPlanet, i) {
-    //   if (this.utils.root.all && newPlanet.spaceShip) {
-    //     // this.hero.activeHero.cont.y = 0;
-    //     this.pause = true
-    //     this.utils.root.jump.jumpAction.pause = true
-    //     this.utils.root.grid.gridBuild.spaceShip.classRef.returnHome()
-    //     return
-    //   }
 
       const oldPlanet = this.currentOrb;
-
-	  console.log(newPlanet, oldPlanet, newPlanet === oldPlanet)
 
       this.pause = true;
 
