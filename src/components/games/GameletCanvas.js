@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 import GameChooser from './GameChooser';
+import './GameletCanvas.scss';
 
 function GameletCanvas({game}) {
 	
@@ -18,7 +19,7 @@ function GameletCanvas({game}) {
 
 
 	return ( 
-		<div className="game-canvases" ref={canvasContainer}></div>
+		<div className="game-canvas" ref={canvasContainer}></div>
 	 ); 
 }
 

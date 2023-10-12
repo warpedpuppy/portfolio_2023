@@ -6,6 +6,8 @@ import Clock from './clock';
 import Gears from './gears';
 import Utils from './utils';
 import Grid from './Grid';
+import SwimResize from './swimResize';
+import LilypadsLotuses from './lilypadsLotuses'
 export default function FishCode(canvasContainer) {
 
 	return {
@@ -21,8 +23,9 @@ export default function FishCode(canvasContainer) {
 		rotateLeftBoolean: false,
 		rotateRightBoolean: false,
 		spinDirection: '', 
+		
 		start: function () {
-
+			
 			const app = this.app = new PIXI.Application({ background: '#1099bb', resizeTo: canvasContainer });
 			this.stage = app.stage;
 			canvasContainer.appendChild(app.view);
@@ -50,7 +53,14 @@ export default function FishCode(canvasContainer) {
 			this.gears.init();
 			this.gears.addToStage();
 
+			this.resize = SwimResize(this);
+
+			this.lilypadLotuses = LilypadsLotuses(this);
+			this.lilypadLotuses.init(this.stage)
+			this.lilypadLotuses.addToStage()
+
             this.app.ticker.add(this.ticker.bind(this));
+			window.addEventListener('resize', this.resize.resizeHandler.bind(this))
 			window.addEventListener('keydown', this.keyDownHandler.bind(this))
 			window.addEventListener('keyup', this.keyUpHandler.bind(this))
 
@@ -58,6 +68,7 @@ export default function FishCode(canvasContainer) {
 		stop: function () {
 			window.onresize = null;
 			this.app.destroy(true, {stageOptions: true});
+			window.removeEventListener('resize', this.resize.resizeHandler.bind(this))
 			window.removeEventListener('keydown', this.keyDownHandler.bind(this));
 			window.removeEventListener('keyup', this.keyUpHandler.bind(this))
 		},
@@ -72,7 +83,7 @@ export default function FishCode(canvasContainer) {
 			this.clock.animate();
 			this.grid.animate();
 			this.gears.animate()
-	
+			this.lilypadLotuses.animate()
 			if (this.rotateLeftBoolean) {
 				this.rotate('left');
 			} else if (this.rotateRightBoolean) {

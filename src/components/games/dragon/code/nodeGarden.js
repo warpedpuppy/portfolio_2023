@@ -14,13 +14,12 @@ export default function NodeGarden (PIXI, gv){
         app: new PIXI.Application(),
         speedLimit: 6,
         init: function () {
-
-            this.resize = this.resize.bind(this);
-            window.onresize = this.resize;
-
             this.build();
 
         },
+		stop: function () {
+
+		},
         build: function () {
             this.particles = [];
             this.lines = [];
@@ -55,19 +54,19 @@ export default function NodeGarden (PIXI, gv){
                 particle.body.x += particle.vx;
                 particle.body.y += particle.vy;
 
-                if (particle.body.x > this.canvasWidth) {
+                if (particle.body.x > gv.canvasWidth) {
                     particle.body.x = 0;
                     particle.vx = Math.random() * 6 - 3;
                 } else if (particle.body.x < 0) {
-                    particle.body.x = this.canvasWidth;
+                    particle.body.x = gv.canvasWidth;
                      particle.vx = Math.random() * 6 - 3;
                 }
 
-                if (particle.body.y > this.canvasHeight) {
+                if (particle.body.y > gv.canvasHeight) {
                     particle.body.y = 0;
                     particle.vy = Math.random() * 6 - 3;
                 } else if(particle.body.y < 0) {
-                    particle.body.y = this.canvasHeight;
+                    particle.body.y = gv.canvasHeight;
                     particle.vy = Math.random() * 6 - 3;
                 }
 
@@ -121,11 +120,12 @@ export default function NodeGarden (PIXI, gv){
                 partB.vy -= ay;
             }
         },
-        resize: function () {
-            gv.stage.removeChildren();
-            this.canvasWidth = this.utils.returnCanvasWidth();
-            this.renderer.resize(this.canvasWidth, this.canvasHeight);
-            this.build();
-        }
+        // resize: function () {
+		// 	console.log(gv.canvasWidth)
+        //     // gv.stage.removeChildren();
+        //     // this.canvasWidth = this.utils.returnCanvasWidth();
+        //     // // this.renderer.resize(this.canvasWidth, this.canvasHeight);
+        //     this.build();
+        // }
     }
 }

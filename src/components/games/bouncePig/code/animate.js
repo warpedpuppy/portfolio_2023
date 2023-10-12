@@ -12,8 +12,11 @@ export default function Animate(gv) {
 		C = new PIXI.Point(halfWidth, halfHeight);
 	},
     tick: function() {
+
       if (gv.animateAllow === true) {
         gv.bouncePlatform.tickIt();
+
+		gv.background.tickIt();
       
         if (gv.mouseDown !== true) {
           dot1.y -= gv.vy;

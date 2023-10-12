@@ -3,6 +3,7 @@ import DragonHero from "./heroFly"
 import DragonAction from './DragonAction';
 import AssetCreation from './assetCreation';
 import NodeGarden from './nodeGarden';
+import FlyResize from './flyResize';
 export default function DragonCode(canvasContainer) {
 
 	return {
@@ -34,6 +35,8 @@ export default function DragonCode(canvasContainer) {
 			this.nodeGarden = NodeGarden(PIXI, this);
 			this.nodeGarden.init();
 
+			this.resize = FlyResize(this);
+
 
 			AssetCreation.init(this);
 
@@ -51,7 +54,7 @@ export default function DragonCode(canvasContainer) {
 			this.animate = DragonAction(this);
             this.app.ticker.add(this.animate.animate.bind(this));
 
-
+			window.addEventListener('resize', this.resize.resizeHandler.bind(this.resize))
 			window.addEventListener('keydown', this.keyDownHandler.bind(this))
 			window.addEventListener('keyup', this.keyUpHandler.bind(this))
 
@@ -59,6 +62,7 @@ export default function DragonCode(canvasContainer) {
 		stop: function () {
 			window.onresize = null;
 			this.app.destroy(true, {stageOptions: true});
+			window.removeEventListener('resize', this.resize.resizeHandler.bind(this))
 			window.removeEventListener('keydown', this.keyDownHandler);
 			window.removeEventListener('keyup', this.keyUpHandler)
 		},

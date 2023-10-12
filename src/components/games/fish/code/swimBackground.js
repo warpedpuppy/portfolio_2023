@@ -2,7 +2,7 @@ import Assets from './assetCreation'
 import Utils from './utils'
 // import Tweens from '../../utils/Tweens' 
 import FishSchool from './fishSchool'
-import LilypadsLotuses from './lilypadsLotuses'
+
 
 export default function SwimBackground(gv) {
   return {
@@ -14,11 +14,11 @@ export default function SwimBackground(gv) {
     sizeIncrement: 2,
     utils: Utils,
     gridIndex: 5,
-    lilypadLotuses: LilypadsLotuses(gv),
+    
     fishSchool: FishSchool(gv),
     init () {
       this.parentCont = this.utils.root.kingCont
-      this.lilypadLotuses.init(this.parentCont)
+    
       this.fishSchool.init(this.parentCont)
 
       this.cont = Assets.quadrupleSpriteSize(this.texture);
@@ -60,7 +60,7 @@ export default function SwimBackground(gv) {
 		gv.stage.addChild(this.cont2)
 		gv.stage.addChild(this.cont)
 		this.fishSchool.addToStage()
-		this.lilypadLotuses.addToStage()
+		
     },
     removeFromStage () {
       this.fishSchool.removeFromStage()
@@ -72,7 +72,7 @@ export default function SwimBackground(gv) {
     animate () {
       this.fishSchool.animate()
 
-      this.lilypadLotuses.animate()
+    
 
       this.cont2.x += this.cont2.vx
       this.cont2.y += this.cont2.vy

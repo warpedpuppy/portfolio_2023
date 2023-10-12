@@ -70,9 +70,7 @@ export default function BouncePigCode (canvasContainer) {
 
             this.stage.addChild(this.swipeText);
 			this.swipeText.scale.set(0.75)
-            this.swipeText.x = (this.canvasWidth - this.swipeText.width) / 2;
-            this.swipeText.y = (this.canvasHeight - this.swipeText.height)-10;
-			
+           
             this.animate = Animate(this);
             this.app.ticker.add(this.animate.tick);
           
@@ -95,7 +93,7 @@ export default function BouncePigCode (canvasContainer) {
 			}
 
 			this.swipeText.x = (this.canvasWidth - this.swipeText.width) / 2;
-            this.swipeText.y = (this.canvasHeight - this.swipeText.height)-10;            
+            this.swipeText.y = 50;//(this.canvasHeight - this.swipeText.height)-10;            
         }
     }
 }

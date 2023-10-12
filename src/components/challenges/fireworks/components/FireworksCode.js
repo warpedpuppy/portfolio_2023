@@ -1,5 +1,5 @@
 function FireworksCode() {
-	return ( <>code</> );
+	return ( "holding page" );
 }
 
 export default FireworksCode;
