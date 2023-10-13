@@ -10,7 +10,7 @@ function GameletLanding() {
 			<li><Link to="/gamelets/dragon">dragon</Link></li>
 			<li><Link to="/gamelets/fish">fish</Link></li>
 			<li><Link to="/gamelets/planet-jump">planet jump</Link></li>
-			<li><Link to="/gamelets/lines">lines</Link></li>
+			{/* <li><Link to="/gamelets/lines">lines</Link></li> */}
 			</ul>
 		</div>
 	 );

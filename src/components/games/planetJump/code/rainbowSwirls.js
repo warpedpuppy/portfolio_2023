@@ -1,6 +1,6 @@
 import Utils from './utils'
 import Assets from './assetCreation'
-
+import * as PIXI from 'pixijs';
 export default function RainbowSwirls(gv) {
   return {
     cont: undefined,
@@ -39,17 +39,16 @@ export default function RainbowSwirls(gv) {
       this.app = this.utils.app
 
       this.goldTile = gv.sheet.textures['tile.png']
-      this.interval = this.utils.randomIntBetween(0, 2)
+      this.interval = this.utils.randomIntBetween(5, 10)
       this.parentCont = gv.stage
 
       this.spritesheet = gv.sheet;
 
-      this.tileQ = Assets.webgl ? 150 : 10
+      this.tileQ = Assets.webgl ? 150 : 20
       this.cont = Assets.ParticleContainer(this.tileQ)
 
       for (let i = 0; i < this.tileQ; i++) {
         const s = this.brick()
-        s.alpha = 0.5
         s.tint = this.colors[this.colorCounter]
         this.colorCounter++
         if (this.colorCounter > this.colors.length - 1) this.colorCounter = 0
@@ -66,10 +65,11 @@ export default function RainbowSwirls(gv) {
       this.curveQ = this.utils.randomIntBetween(this.curvedQs[0], this.curvedQs[1])
     },
     brick () {
-      const s = Assets.Sprite('tile.png')
+      const s = PIXI.Sprite.from('/bmps/tile.png');
       s.counter = 0
-      s.curveCounter = 0
-      this.brickHeight = s.height
+	  s.alpha = 0.25;
+      s.curveCounter = 0;
+      this.brickHeight = 50;
       s.anchor.x = 0.5
       s.anchor.y = 1
       return s
@@ -81,10 +81,10 @@ export default function RainbowSwirls(gv) {
         this.objectPoolCounter = 0
       }
 
-      this.curveCounter++
-      this.curve *= 1.05
-      const deg = this.utils.deg2rad(this.curve)
-      s.rotation = deg
+      this.curveCounter++;
+      this.curve *= 1.05;
+      const deg = this.utils.deg2rad(this.curve);
+      s.rotation = deg;
       if (this.curveCounter > this.curveQ) {
         this.curve = this.curves[Math.floor(Math.random() * 4)]
         this.curveCounter = 0
@@ -119,8 +119,8 @@ export default function RainbowSwirls(gv) {
       this.cont.addChild(s)
     },
     newXY () {
-      const buffer = 0
-      const perc = 0.5
+      const buffer = 0;
+      const perc = 0.5;
 
       if (this.quadrant === 'TL') {
         return {

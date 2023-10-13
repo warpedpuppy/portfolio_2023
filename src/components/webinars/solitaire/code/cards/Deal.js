@@ -11,7 +11,11 @@ const Deal = {
     totalColumns: 7,
     xOffset: 0,
     start: function () {
-        
+        this.cardCounter = 0;
+		this.startX = 0;
+		this.startY = 0;
+		this.xOffset = 0;
+		this.loopingQ = 7;
         VARS.deck = [...VARS.allVisualAssets]
 
 
@@ -47,8 +51,6 @@ const Deal = {
         }
 
         let card, verticalSpacer = 0;
-
-        
 
         while (this.loopingQ > 0) {
             for (let j = 0; j < this.loopingQ; j++) {

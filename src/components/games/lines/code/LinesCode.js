@@ -59,8 +59,16 @@ export default function LinesCode(canvasContainer) {
         app.stage.addChild(line);
       }
 
-	  setTimeout(() => this.move(), 500)
+	  setTimeout(() => this.move(), 500);
+	//   this.animate = this.animate.bind(this);
+	//   this.animate();
     },
+	// animate: function () {
+	// 	ctx.beginPath();
+	// 	ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+	// 	ctx.stroke();
+	// 	requestAnimationFrame(this.animate);
+	// },
     move: function () {
 
 		for (let i = 0 ; i < this.obj.BL.length; i++) {

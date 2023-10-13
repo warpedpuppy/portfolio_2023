@@ -3,8 +3,9 @@ import Utils from '../utils/Utils.js';
 import DragContainer from '../visualAssets/DragContainer.js';
 const Animate = {
     counter: 0,
+	halt: false,
     start: function() {
-
+		if (this.halt) return;
         const { mousePoint, xyDiff, ctx, canvas } = VARS;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         let over = [];
@@ -28,11 +29,15 @@ const Animate = {
             }
 
         })
-
         this.cursor(over.includes(true));
-
         requestAnimationFrame(() => this.start());
     },
+	setHalt: function (bool) {
+		this.halt = bool
+	},
+	stop: function () {
+		this.halt = true;
+	},
     cursor: function(boolean) {
         if (boolean) {
             VARS.canvas.style.cursor = "pointer";

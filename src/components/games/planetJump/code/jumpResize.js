@@ -1,43 +1,18 @@
-import Utils from '../../utils/utils'
+import Utils from './utils';
 
-export default function () {
+export default function JumpResize (root) {
   return {
-    utils: Utils,
-    timeOut: undefined,
-    resizeBundle () {
-      const { root } = this.utils
-      root.clock.resize()
-      root.gears.resize()
-      root.hero.resize()
-      root.jump.resize()
-      // root.fpsCounter.x = root.utils.canvasWidth - 75;
-      if (root.isMobile) {
-        root.controlPanel.resize()
-      }
-    },
     resizeHandler () {
-      const { root } = this.utils
 
-      this.canvasWidth = this.utils.returnCanvasWidth()
-      this.canvasHeight = this.utils.returnCanvasHeight()
+		root.canvasWidth = Utils.returnCanvasWidth()
+		root.canvasHeight = Utils.returnCanvasHeight()
 
-      this.utils.resize(this.canvasWidth, this.canvasHeight)
+		Utils.resize(root.canvasWidth, root.canvasHeight)
 
-      this.resizeBundle()
-
-      root.app.renderer.resize(this.canvasWidth, this.canvasHeight)
-
-      root.action = false
-
-      if (this.timeOut) {
-        clearTimeout(this.timeOut)
-      }
-      this.timeOut = setTimeout(this.resized.bind(this), 200)
-    },
-    resized () {
-      const { root } = this.utils
-      root.action = true
-      clearTimeout(this.timeOut)
+        root.hero.resize();
+		root.clock.resize();
+		root.gears.resize();
+		root.jumpBackground.resize()
     }
   }
 }

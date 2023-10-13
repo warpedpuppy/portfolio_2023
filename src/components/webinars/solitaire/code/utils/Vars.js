@@ -8,8 +8,14 @@ const VARS = {
     piles: {},
     slots: [],
     ctx: undefined,
-    canvas: document.querySelector('canvas'),
+	dragContainer: [],
     init: function (canvas) {
+		this.resetValues();
+		this.allVisualAssets = [];
+		this.deck = [];
+		this.piles = {};
+		this.slots = [];
+		this.xyDiff = {x: 0, y: 0};
 		this.canvas = canvas;
         this.ctx = this.canvas.getContext('2d')
     },

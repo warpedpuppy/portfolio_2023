@@ -4,10 +4,12 @@ import Deck from "./cards/Deck.js";
 import MouseDown from "./action/MouseDown.js";
 import MouseUp from "./action/MouseUp.js";
 import Animate from "./action/Animate.js";
-const SolitaireGame = {
-  canvas: undefined,
-  initialized: false,
-  init: function (canvas) {
+class SolitaireGame {
+  canvas = undefined;
+  initialized = false;
+
+  constructor(canvas) {
+
     if (!this.initialized) {
       VARS.init(canvas);
       this.canvas = VARS.canvas = canvas;
@@ -15,38 +17,48 @@ const SolitaireGame = {
       Deck.build();
       Deal.start();
       this.addListeners();
-
+	  Animate.setHalt(false)
       Animate.start();
       this.initialized = true;
     }
-  },
-  addListeners: function () {
-    this.mouseMoveHandler();
-    this.mouseDownHandler();
-    this.mouseUpHandler();
-    this.mouseOutHandler();
-  },
-  mouseMoveHandler: function () {
-    this.canvas.addEventListener("mousemove", (e) => {
+  }
+
+  stop() {
+	Animate.stop();
+	this.canvas.removeEventListener("mousemove", this.mouseMoveHandler);
+	this.canvas.removeEventListener("mousedown", this.mouseDownHandler);
+	this.canvas.removeEventListener("mouseup", this.mouseUpHandler);
+	this.canvas.removeEventListener("mouseout", this.mouseOutHandler);
+	this.initialized = false;
+  }
+
+  addListeners() {
+	this.canvas.addEventListener("mousemove", this.mouseMoveHandler);
+	this.canvas.addEventListener("mousedown", this.mouseDownHandler);
+	this.canvas.addEventListener("mouseup", this.mouseUpHandler);
+	this.canvas.addEventListener("mouseout", this.mouseOutHandler);
+  }
+  mouseMoveHandler = e => {
+
       let leftOffset = (window.innerWidth - VARS.canvas.width) / 2;
 	  let rect = this.canvas.getBoundingClientRect();
       VARS.mousePoint = { x: e.pageX - leftOffset, y: e.clientY - rect.top };
-    });
-  },
-  mouseDownHandler: function () {
-    this.canvas.addEventListener("mousedown", () => {
+
+  }
+  mouseDownHandler= e => {
+
       MouseDown.setActiveCardAndPopulateDragArray();
-    });
-  },
-  mouseUpHandler: function () {
-    this.canvas.addEventListener("mouseup", (e) => {
+
+  }
+  mouseUpHandler= e => {
+
       if (VARS.activeCard) MouseUp.activeCardExists();
-    });
-  },
-  mouseOutHandler: function () {
-    this.canvas.addEventListener("mouseout", (e) => {
+
+  }
+  mouseOutHandler= e => {
+
       if (VARS.activeCard) MouseUp.activeCardExists();
-    });
-  },
+
+  }
 };
 export default SolitaireGame;
