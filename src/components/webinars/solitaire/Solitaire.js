@@ -5,7 +5,7 @@ import SolitaireContent from "./components/SolitaireContent";
 function Solitaire() {
   
   return (
-    <div className="challenges-layout">
+    <div className="general-layout">
       <h1>Solitaire</h1>
       <TabLayout
 	   active="2"

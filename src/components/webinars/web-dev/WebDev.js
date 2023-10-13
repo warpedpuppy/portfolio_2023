@@ -1,7 +1,7 @@
 import TabLayout from "../../../layout-templates/tabs/TabLayout";
 function WebDev() {
 	return ( 
-	<>
+	<div className="general-layout">
 	<TabLayout 
 	tabs={['video', 'concept']}
 	content={
@@ -14,7 +14,7 @@ function WebDev() {
 	code={<>concept</>}
 
  	/>
-	</> );
+	</div> );
 }
 
 export default WebDev;
