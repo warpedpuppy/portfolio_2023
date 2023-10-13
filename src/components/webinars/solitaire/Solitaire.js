@@ -22,19 +22,6 @@ function Solitaire() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen={true}
             ></iframe>
-            <h2>
-              the challenge is: code a javascript solitaire for the canvas
-              element.
-            </h2>
-            <p>
-              <a
-                href="https://www.youtube.com/watch?v=hasFnKRrT0Y"
-                target="_blank"
-                rel="noreferrer"
-              >
-                link
-              </a>
-            </p>
           </>
         }
        
