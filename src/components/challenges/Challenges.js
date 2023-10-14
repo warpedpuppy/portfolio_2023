@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 function Challenges() {
 	return ( 
 		<div className='general-layout challenges'>
+			<div className="landing-page-internal-box">
+			<div className="landing-animation">
+			</div>
 		<h2>challenges:</h2>
 		<p>Over the years I've created a lot of challenges for students, friends, and sometimes just myself.</p>
 		<p>Here are several of them:</p>
@@ -14,6 +17,7 @@ function Challenges() {
 			<li><Link to="/challenges/murmuration">murmuration</Link></li>
 			<li><Link to="/challenges/pattern-maker">pattern maker</Link></li>
 		</ul>
+		</div>
 		</div>
 	 );
 }

@@ -28,6 +28,7 @@
 
  .general-layout {
 	margin: 0 var(--left-right-margin);
+	min-height: 100vh;
 	h1 {
 		text-align: center;
 	}

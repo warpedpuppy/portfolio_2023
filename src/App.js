@@ -1,5 +1,5 @@
 import './App.scss';
-
+import './LandingPages.scss';
 import Home from './pages/Home';
 import Menu from './components/Menu';
 import Solitaire from './components/webinars/solitaire/Solitaire';
@@ -18,6 +18,7 @@ import Gamelets from './components/games/Gamelets';
 import About from './pages/About';
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import WebDev from './components/webinars/web-dev/WebDev';
+
 function App() {
   return (
 	<BrowserRouter>

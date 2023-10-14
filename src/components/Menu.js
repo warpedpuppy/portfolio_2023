@@ -1,7 +1,6 @@
 import './Menu.scss';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import BamLogo from './svgs/BamLogo';
 function Menu() {
 	const navigate = useNavigate();
 	const [ page, setPage ] = useState('home');
@@ -10,7 +9,8 @@ function Menu() {
 	function goToPage(e) {
 		let name = e.target.innerText.replace(/ /g, '-')
 		setPage(name);
-		navigate(name)
+		navigate(name);
+		setCollapsed(true);
 	}
 
 	return ( 

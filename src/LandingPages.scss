@@ -1,0 +1,35 @@
+.landing-page-internal-box {
+	position: relative;
+	margin: 50px auto;
+	h2, p {
+		margin-bottom: 10px;
+	}
+	ul {
+		margin-left: 25%;
+		position: relative;
+		z-index: 2;
+		li {
+			margin: 5px 0;
+			a {
+				font-weight: bold;
+				cursor: pointer;
+			}
+		}
+	}
+	.landing-animation {
+		position: absolute;
+		background-color: rgba($color: #000000, $alpha: 0.25);
+		border-radius: 50%;
+		width: 500px;
+		height: 500px;
+		top: -250px;
+		left: -250px;
+		z-index: 1;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.landing-page-internal-box {
+		width:max-content;
+	}
+}
