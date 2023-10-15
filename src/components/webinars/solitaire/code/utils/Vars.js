@@ -31,10 +31,11 @@ const VARS = {
         this.cardHeight = 150 * this.percentage;
         this.canvasWidth = 1000 * this.percentage;
         this.canvasHeight = 800 * this.percentage;
-		this.suits= ["clubs", "diamonds", "hearts", "spades"];
-        this.ranks= ["ace", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king"];
-
-		console.log(this.cardWidth, this.cardHeight)
+		this.suits = ["clubs", "diamonds", "hearts", "spades"];
+        this.ranks = ["ace", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king"];
+		this.buffer = 10 * this.percentage;
+        this.buffer_larger = 40 * this.percentage;
+        this.slot_spacer =  50 * this.percentage;
 
 		this.resetValues();
 		this.allVisualAssets = [];
@@ -44,11 +45,6 @@ const VARS = {
 		this.xyDiff = {x: 0, y: 0};
 		this.canvas = canvas;
         this.ctx = this.canvas.getContext('2d')
-    },
-    spacing: {
-        buffer: 10,
-        buffer_larger: 40,
-        slot_spacer: 50
     },
     resetValues: function () {
         this.activeCard = undefined;

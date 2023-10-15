@@ -20,6 +20,7 @@ class SolitaireGame {
 	  Animate.setHalt(false)
       Animate.start();
       this.initialized = true;
+	  
     }
   }
 
@@ -29,15 +30,30 @@ class SolitaireGame {
 	this.canvas.removeEventListener("mousedown", this.mouseDownHandler);
 	this.canvas.removeEventListener("mouseup", this.mouseUpHandler);
 	this.canvas.removeEventListener("mouseout", this.mouseOutHandler);
+	window.removeEventListener("resize", this.reset)
 	this.initialized = false;
   }
 
   addListeners() {
+	window.addEventListener("resize", this.reset)
 	this.canvas.addEventListener("mousemove", this.mouseMoveHandler);
 	this.canvas.addEventListener("mousedown", this.mouseDownHandler);
 	this.canvas.addEventListener("mouseup", this.mouseUpHandler);
 	this.canvas.addEventListener("mouseout", this.mouseOutHandler);
   }
+
+  reset = () => {
+	this.initialized = false;
+	if (!this.initialized) {
+		VARS.init(this.canvas);
+		Deck.build();
+		Deal.start();
+		Animate.setHalt(false)
+		Animate.start();
+		this.initialized = true;
+	  }
+  }
+
   mouseMoveHandler = e => {
 
       let leftOffset = (window.innerWidth - VARS.canvas.width) / 2;

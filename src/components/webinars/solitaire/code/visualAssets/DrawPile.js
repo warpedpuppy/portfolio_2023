@@ -10,7 +10,7 @@ const DrawPile = {
 
         this.x = x;
 
-        let yVal = VARS.cardHeight + VARS.spacing.buffer_larger,
+        let yVal = VARS.cardHeight + VARS.buffer_larger,
             topCard;
 
         arr.forEach(card => {

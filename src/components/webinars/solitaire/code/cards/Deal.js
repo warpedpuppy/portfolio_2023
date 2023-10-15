@@ -19,11 +19,11 @@ const Deal = {
         VARS.deck = [...VARS.allVisualAssets]
 
 
-        this.startX = VARS.cardWidth + VARS.spacing.buffer_larger;
-        this.startY = VARS.cardHeight + VARS.spacing.buffer_larger;
+        this.startX = VARS.cardWidth + VARS.buffer_larger;
+        this.startY = VARS.cardHeight + VARS.buffer_larger;
 
-        let gameBoardWidth = (VARS.cardWidth * 8)  + (VARS.spacing.buffer * 6 ) + VARS.spacing.buffer_larger;
-        this.xOffset = (VARS.canvas.width - gameBoardWidth) / 2;
+        let gameBoardWidth = ((VARS.cardWidth * 8)  + (VARS.buffer * 6 ) + VARS.buffer_larger);
+        this.xOffset = ((VARS.canvas.width - gameBoardWidth) / 2);
         let xOffset = this.xOffset;
 
         // PILES
@@ -45,7 +45,7 @@ const Deal = {
 
         for (let i = 0; i < this.loopingQ; i++) { 
            let marker = Marker();
-            marker.build(xOffset + (this.startX + (VARS.cardWidth + VARS.spacing.buffer) * i),this.startY, i);
+            marker.build(xOffset + (this.startX + (VARS.cardWidth + VARS.buffer) * i),this.startY, i);
             VARS.allVisualAssets.unshift(marker);
             VARS.piles[i] = [marker];
         }
@@ -58,8 +58,8 @@ const Deal = {
                 card = deck[this.cardCounter];
                 
                 
-                let x = xOffset + (this.startX + (VARS.cardWidth + VARS.spacing.buffer) * j);
-                let y = this.startY + (VARS.spacing.buffer * verticalSpacer);
+                let x = xOffset + (this.startX + (VARS.cardWidth + VARS.buffer) * j);
+                let y = this.startY + (VARS.buffer * verticalSpacer);
                 card.setPosition({x, y})
                
                 
@@ -84,17 +84,17 @@ const Deal = {
             verticalSpacer++;
             this.loopingQ--;
 
-            this.startX += VARS.cardWidth + VARS.spacing.buffer;
+            this.startX += VARS.cardWidth + VARS.buffer;
         }
         return { adjustedCardCounter: this.cardCounter, adjustedStartY: this.startY }
     },
     createSlots() {
         let width = 0;
-        let allFourSlotWidths = (VARS.cardWidth + VARS.spacing.slot_spacer) * 4;
+        let allFourSlotWidths = (VARS.cardWidth + VARS.slot_spacer) * 4;
         let xOffset = (VARS.canvas.width - allFourSlotWidths) / 2;
         for (let i = 0; i < 4; i++) {
             let imageString = `/bmps/slot${VARS.suits[i].charAt(0).toUpperCase()}${VARS.suits[i].substring(1, VARS.suits[i].length)}.png`; 
-            let xVal = xOffset + ((VARS.cardWidth + VARS.spacing.slot_spacer) * i);
+            let xVal = xOffset + ((VARS.cardWidth + VARS.slot_spacer) * i);
             let yVal = 10;
             let slot = Slot();
 
@@ -103,7 +103,7 @@ const Deal = {
             VARS.slots.push(slot);
             VARS.allVisualAssets.push(slot);
         }
-        width = ( VARS.cardWidth + VARS.spacing.slot_spacer) * 3;
+        width = ( VARS.cardWidth + VARS.slot_spacer) * 3;
     }
 }
 export default Deal;
