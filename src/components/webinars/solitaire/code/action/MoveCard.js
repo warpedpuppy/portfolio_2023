@@ -41,7 +41,7 @@ const MoveCard = {
             if (!slot) {
                 VARS.piles[pileKey].push(card);
                 card.setIndex(+pileKey);
-                yPos = y + (VARS.spacing.buffer_larger * (i + markerAdjust));
+                yPos = y + (VARS.buffer_larger * (i + markerAdjust));
             } else {
                 target.increaseSlotRank();
                 card.setClickability(false);

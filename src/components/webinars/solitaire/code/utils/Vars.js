@@ -26,7 +26,6 @@ const VARS = {
 		canvas.width = this.canvasWidth;
 		canvas.height = this.idealHeight;
 
-		console.log(this.percentage)
 		this.cardWidth = 100 * this.percentage;
         this.cardHeight = 150 * this.percentage;
         this.canvasWidth = 1000 * this.percentage;
