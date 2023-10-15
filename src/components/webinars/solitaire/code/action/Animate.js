@@ -6,7 +6,7 @@ const Animate = {
 	halt: false,
     start: function() {
 		if (this.halt) return;
-        const { mousePoint, xyDiff, ctx, canvas } = VARS;
+        const { mousePoint, xyDiff, ctx, canvas, cardWidth, cardHeight } = VARS;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         let over = [];
 
@@ -14,10 +14,10 @@ const Animate = {
             const { img, x, y, clickable } = card;
 
 
-            ctx.drawImage(img, x, y);
+            ctx.drawImage(img, x, y, cardWidth, cardHeight);
 
             if (clickable) {
-                let rect = { x, y, width: 100, height: 150 };
+                let rect = { x, y, width: cardWidth, height: cardHeight };
                 let hit = Utils.pointRectangleCollisionDetection(mousePoint, rect);
                 over.push(hit);
             }

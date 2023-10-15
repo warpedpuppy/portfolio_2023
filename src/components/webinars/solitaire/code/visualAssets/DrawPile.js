@@ -10,7 +10,7 @@ const DrawPile = {
 
         this.x = x;
 
-        let yVal = VARS.build.cardHeight + VARS.spacing.buffer_larger,
+        let yVal = VARS.cardHeight + VARS.spacing.buffer_larger,
             topCard;
 
         arr.forEach(card => {
@@ -38,8 +38,8 @@ const DrawPile = {
             y,
             clickable: false,
             resetDrawPileButton: true,
-            width: VARS.build.cardWidth,
-            height: VARS.build.cardHeight
+            width: VARS.cardWidth,
+            height: VARS.cardHeight
         }
         VARS.allVisualAssets.unshift(this.resetButton);
  
@@ -57,7 +57,7 @@ const DrawPile = {
             card.setClickability(false);
             card.setDrawPile(false);
             card.setFlipPile(true);
-            let cardPosition = {y: (VARS.build.cardHeight * 2 + 60) + (i * 10), x: card.getPosition().x };
+            let cardPosition = {y: (VARS.cardHeight * 2 + 60) + (i * 10), x: card.getPosition().x };
             card.setPosition(cardPosition);
             card.reveal(true);
         }

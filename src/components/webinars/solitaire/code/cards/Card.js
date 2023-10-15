@@ -22,7 +22,7 @@ const Card =  function () {
         _index: undefined,
         dragYOffset: 0,
         build: function (rank, suit, value, x, y) {
-            let indexOfRank = VARS.build.ranks.indexOf(rank);
+            let indexOfRank = VARS.ranks.indexOf(rank);
             this.rank = indexOfRank + 1;
             this.suit = suit;
             this.img = new Image();
@@ -32,8 +32,8 @@ const Card =  function () {
             this.value = value;
             this.x = x;
             this.y = y;
-            this.width = VARS.build.cardWidth;
-            this.height = VARS.build.cardHeight;
+            this.width = VARS.cardWidth;
+            this.height = VARS.cardHeight;
             this.reveal(true);
             return this;
         },

@@ -2,8 +2,7 @@ import Card from './Card.js';
 import VARS from '../utils/Vars.js';
 const Deck = {
     build: function () {
-        let { allVisualAssets } = VARS;
-        const { suits, ranks } = VARS.build;
+        let { allVisualAssets, suits, ranks } = VARS;
         let value = 1;
         suits.forEach( (suit, i) => {
             ranks.forEach( (rank, j) => {

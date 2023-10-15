@@ -16,8 +16,8 @@ const Marker =  function () {
             this.img.src = this.src;
             this.x = x;
             this.y = y;
-            this.height = VARS.build.cardHeight;
-            this.width = VARS.build.cardWidth;
+            this.height = VARS.cardHeight;
+            this.width = VARS.cardWidth;
             this._index = index;
         },
         getPosition: function() {

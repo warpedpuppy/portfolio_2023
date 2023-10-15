@@ -14,7 +14,7 @@ function SolitaireContent() {
 
 
 	return ( 
-		<canvas width="1000" height="1000" id="solitaire-canvas" ref={canvasRef} />
+		<canvas id="solitaire-canvas" ref={canvasRef} />
 	 ); 
 }
 

@@ -19,8 +19,8 @@ const Slot =  function () {
             this.x = x;
             this.y = y;
             this.suit = suit;
-            this.height = VARS.build.cardHeight;
-            this.width = VARS.build.cardWidth;
+            this.height = VARS.cardHeight;
+            this.width = VARS.cardWidth;
         },
         increaseSlotRank: function () {
             this.rank++;
