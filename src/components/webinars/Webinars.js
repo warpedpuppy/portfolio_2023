@@ -7,11 +7,11 @@ function Webinars() {
 			<div className="landing-animation">
 			</div>
 			<h2>webinars:</h2>
-			<p>I've taught several webinars, and luckily there's video evidence of three of them!</p>
+			<p>I've taught several webinars, and luckily there's video evidence of three of them:</p>
 			<ul>
-				<li><Link to="/webinars/solitaire">code solitaire in javascript</Link></li>
-				<li><Link to="/webinars/svg-animations">animate svgs</Link></li>
-				<li><Link to="/webinars/web-dev">things I've learned as a webdev</Link></li>
+				<li><Link to="/webinars/solitaire">Coding Solitaire in JavaScript</Link></li>
+				<li><Link to="/webinars/svg-animations">Animating SVGs</Link></li>
+				<li><Link to="/webinars/web-dev">Things I've Learned as a Webdev</Link></li>
 			</ul>
 			</div>
 		</div>

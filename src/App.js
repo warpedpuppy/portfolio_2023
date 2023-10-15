@@ -1,5 +1,6 @@
 import './App.scss';
-import './LandingPages.scss';
+import './sass/LandingPages.scss';
+import './sass/GeneralLayout.scss';
 import Home from './pages/Home';
 import Menu from './components/Menu';
 import Solitaire from './components/webinars/solitaire/Solitaire';
