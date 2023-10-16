@@ -16,6 +16,8 @@ import Challenges from './components/challenges/Challenges';
 import GameletLanding from './components/games/GameletLanding';
 import PrettyLittleThings from './components/pretty-little-things/PrettyLittleThings';
 import Gamelets from './components/games/Gamelets';
+import KlimtBackground from './components/pretty-little-things/klimt-background/KlimtBackground';
+import PrettyRing from './components/pretty-little-things/pretty-ring/PrettyRing';
 import About from './pages/About';
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import WebDev from './components/webinars/web-dev/WebDev';
@@ -56,8 +58,10 @@ function App() {
 			<Route path="lines" element={<Gamelets game="lines" />} />
 			<Route path="*" element={<h1>game not found</h1>} />
 		</Route>
-		<Route path="pretty-little-things" element={<><h2>pretty little things:</h2><Outlet /></>}>
+		<Route path="pretty-little-things" element={<Outlet />}>
 			<Route index element={<PrettyLittleThings />} />
+			<Route path="klimt-background" element={<KlimtBackground />} />
+			<Route path="pretty-ring" element={<PrettyRing />} />
 			<Route path="*" element={<h1>pretty little thing not found</h1>} />
 		</Route>
 		<Route path="about" element={<Outlet />}>

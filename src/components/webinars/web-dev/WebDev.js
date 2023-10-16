@@ -1,12 +1,13 @@
 import TabLayout from "../../../layout-templates/tabs/TabLayout";
 import WebDevVideo from "./components/WebDevVideo";
+import WebDevContent from "./components/WebDevContent";
 function WebDev() {
 	return ( 
 		<div className="general-layout">
 		<TabLayout 
-			tabs={['video', 'concept']}
+			tabs={['video', 'site']}
 			content={<WebDevVideo />}
-			code={<>concept</>}
+			code={<WebDevContent />}
 		/>
 		</div> 
 	);
