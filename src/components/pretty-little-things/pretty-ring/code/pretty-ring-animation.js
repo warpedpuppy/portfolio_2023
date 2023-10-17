@@ -8,6 +8,7 @@ class PrettyRingAnimation  {
     totalItems=  1000;
     pauseBoolean=  false;
     constructor (canvas) {
+		this.canvas = canvas;
         this.dots = [];
 		let w = canvas.clientWidth, h = canvas.clientHeight;
         Utils.setWidthAndHeight(w, h);
@@ -21,13 +22,21 @@ class PrettyRingAnimation  {
         app.stage.addChild(container);
 
         this.app = app;
-        let arr = Utils.distributeAroundCircle({x:0, y: 0}, this.totalItems, 400 )
-
-        let particleContainer = this.particleContainer = new PIXI.ParticleContainer();
+		let particleContainer = this.particleContainer = new PIXI.ParticleContainer();
         particleContainer.pivot.set(0.5)
+
+		this.build();
+		window.addEventListener('resize', this.resize)
+        app.ticker.add(this.ticker.bind(this));
+    }
+	build(init = true) {
+		let radius = (Utils.canvasWidth / 4);
+		let arr = Utils.distributeAroundCircle({x:0, y: 0}, this.totalItems, radius )
+
+       
         let index = 0;
         for (let i = 0; i < arr.length; ++i) {
-            let sprite = PIXI.Sprite.from("/bmps/dot.png");
+            let sprite = init ? PIXI.Sprite.from("/bmps/dot.png") : this.dots[i];
             sprite.x = sprite.storeX = arr[i].x;
             sprite.y = sprite.storeY = arr[i].y;
             sprite.variance = Utils.randomNumberBetween(1, 50)
@@ -37,24 +46,31 @@ class PrettyRingAnimation  {
             sprite.tint = this.colors[index];
             index ++;
             if (index > this.colors.length - 1)index = 0;
-            particleContainer.addChild(sprite);
-            this.dots.push(sprite)
-        }
-        particleContainer.scale.set(1 / window.devicePixelRatio)
-        app.stage.alpha = 0;
-        
-        app.stage.addChild(particleContainer);
-        particleContainer.x = (Utils.canvasWidth / 2) ;
-        particleContainer.y = (Utils.canvasHeight / 2) ;
-        this.particleContainer = particleContainer;
 
-        Tweens.tween(app.stage, 3, {alpha: [0,1]});
-        app.ticker.add(this.ticker.bind(this));
-    }
+			if (init) {
+				this.particleContainer.addChild(sprite);
+            	this.dots.push(sprite)
+			}
+            
+        }
+        this.particleContainer.scale.set(1 / window.devicePixelRatio)
+		this.app.stage.alpha = 0;
+        
+        this.app.stage.addChild(this.particleContainer);
+        this.particleContainer.x = (Utils.canvasWidth / 2) ;
+        this.particleContainer.y = (Utils.canvasHeight / 2) ;
+
+        Tweens.tween(this.app.stage, 3, {alpha: [0,1]});	
+	}
     pause() {
         this.pauseBoolean = !this.pauseBoolean;
     }
-    resize(w, h) {
+    resize = () => {
+
+		this.app.stage.removeChild(this.particleContainer);
+		this.build(false);
+
+		let w = this.canvas.clientWidth, h = this.canvas.clientHeight;
         Utils.setWidthAndHeight(w, h);
         this.app.renderer.resize(w, h)
         this.particleContainer.x = (Utils.canvasWidth / 2) ;
@@ -62,6 +78,7 @@ class PrettyRingAnimation  {
     }
     stop() {
         this.app.destroy(true);
+		window.removeEventListener('resize', this.resize)
     }
     ticker(delta) {
         if (!this.pauseBoolean) {
