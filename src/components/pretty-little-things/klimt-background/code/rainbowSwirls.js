@@ -57,7 +57,6 @@ export default function RainbowSwirls() {
       const newPos = this.newXY();
       s.x = newPos.x;
       s.y = newPos.y;
-	  console.log(s.x, s.y)
       this.cont.addChild(s);
 
       this.curveQ = this.utils.randomIntBetween(this.curvedQs[0], this.curvedQs[1])
