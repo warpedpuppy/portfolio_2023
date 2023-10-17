@@ -1,19 +1,23 @@
 import * as PIXI from 'pixijs';
 import RainbowSwirls from './rainbowSwirls';
-import Utils from './utils';
+import Utils from '../../../../utils/utils';
 
-const PezAnimation = {
-    rainbowSwirlsQ: 4,
-    rainbowSwirlInstances: [],
-    pauseBoolean: false,
-    init: function (w, h) {
-
+class KlimtAnimation {
+    rainbowSwirlsQ = 4;
+    rainbowSwirlInstances = [];
+    pauseBoolean = false;
+	halt = false;
+    constructor (canvas) {
         this.rainbowSwirlInstances = [];
+		let w = canvas.clientWidth, h = canvas.clientHeight;
+		this.canvas = canvas;
         Utils.setWidthAndHeight(w, h);
+
         const app = new PIXI.Application({
-        width: w, height: h,  backgroundAlpha: 0, resolution: 1,
-        });
-        document.getElementById("candy-canvas").appendChild(app.view);
+			background: '#000000',
+			resizeTo: canvas,
+		});
+        canvas.appendChild(app.view);
         
         const container = new PIXI.Container();
 
@@ -24,27 +28,32 @@ const PezAnimation = {
         this.startXs = ['TL', 'BL', 'TR', 'BR']
         for (let i = 0; i < this.rainbowSwirlsQ; i++) {
           this.tileColumn = RainbowSwirls()
-          this.tileColumn.init(container, this.startXs[i], 30, 15)
+          this.tileColumn.init(container, this.startXs[i], 30, 15, w, h)
           this.tileColumn.addToStage()
           this.rainbowSwirlInstances.push(this.tileColumn)
         }
-        
+        window.addEventListener('resize', this.resize)
         app.ticker.add(this.ticker.bind(this));
-    },
-    resize: function (w, h) {
-        Utils.setWidthAndHeight(w, h);
-        this.app.renderer.resize(w, h)
-    },
-    pause: function () {
+    }
+    resize = () => {
+		let w = this.canvas.clientWidth, h = this.canvas.clientHeight;
+		for (let i = 0; i < this.rainbowSwirlsQ; i++) {
+			this.rainbowSwirlInstances[i].resize(w, h)
+		}
+    }
+    pause() {
         this.pauseBoolean = !this.pauseBoolean;
-    },
-    destroy: function () {
-        this.app.destroy(true);
+    }
+    stop() {
+		window.removeEventListener('resize', this.resize)
+        this.app.destroy();
         for (let i = 0; i < this.rainbowSwirlsQ; i++) {
             this.rainbowSwirlInstances[i].removeFromStage()
         }
-    },
-    ticker: function (delta) {
+		this.halt = true;
+    }
+    ticker(delta) {
+		if (this.halt) return ; 
         if (!this.pauseBoolean) {
             for (let i = 0; i < this.rainbowSwirlsQ; i++) {
                 this.rainbowSwirlInstances[i].animate()
@@ -54,6 +63,6 @@ const PezAnimation = {
     }
     
 }
-export default PezAnimation
+export default KlimtAnimation
 
 

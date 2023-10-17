@@ -11,9 +11,9 @@ function PrettyLittleThings() {
 		<p>Here are several of them:</p>
 		<ul>
 			<li><Link to="/glitter-pool">glitter pool</Link></li>
-			<li><Link to="/klimt">klimt inspired background</Link></li>
-			<li><Link to="/pretty-ring">pretty ring</Link></li>
-			<li><Link to="/sparklies">sparklies</Link></li>
+			<li><Link to="/pretty-little-things/klimt-background">klimt inspired background</Link></li>
+			<li><Link to="/pretty-little-things/pretty-ring">pretty ring</Link></li>
+			<li><Link to="/pretty-little-things/sparklies">sparklies</Link></li>
 		</ul>
 		</div>
 		</div>

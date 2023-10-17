@@ -1,28 +1,7 @@
-import React, { Component } from 'react';
-import PsychologyAnimation from './psychologyAnimation';
-import Utils from '../utils/utils';
-import PauseButton from '../PauseButton';
-export default class PrettyRing extends Component {
+import TabLayout from '../../../layout-templates/tabs/TabLayout';
+import PrettyRingCanvas from './components/PrettyRingCanvas';
 
-componentDidMount = () => {
-    Utils.getWidthAndHeight()
-    PsychologyAnimation.init(Utils.canvasWidth, Utils.canvasHeight);
-    window.addEventListener('resize', this.resizeHandler);
+function PrettyRing () {
+    return <TabLayout content={<PrettyRingCanvas />} />;
 }
-componentWillUnmount = () => {
-  PsychologyAnimation.stop();
-    window.removeEventListener('resize', this.resizeHandler);
-}
-resizeHandler = () => {
-  Utils.getWidthAndHeight()
-  PsychologyAnimation.resize(Utils.canvasWidth, Utils.canvasHeight);
-}
-  render() {
-    return (
-      <>
-      <div id="psychology"></div>
-      <PauseButton buttonHandler={PsychologyAnimation} />
-      </>
-    );
-  }
-}
+export default PrettyRing;

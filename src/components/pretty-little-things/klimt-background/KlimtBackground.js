@@ -1,28 +1,20 @@
-import React, { Component } from 'react';
-import CandyAnimation from './code/candyAnimation';
-import Utils from './code/utils';
-export default class KlimtBackground extends Component {
+import { useRef, useEffect } from "react";
+import KlimtCanvas from "./components/KlimtCanvas";
+import TabLayout from "../../../layout-templates/tabs/TabLayout";
 
-  componentDidMount = async () => {
-    setTimeout(this.createSwirls, 100)
-    window.addEventListener('resize', this.resizeHandler);
-  }
-  createSwirls = () => {
-    Utils.getWidthAndHeight()
-    CandyAnimation.init(Utils.canvasWidth, Utils.canvasHeight);
-  }
-  componentWillUnmount = () => {
-    CandyAnimation.destroy();
-    window.removeEventListener('resize', this.resizeHandler);
-  }
-  resizeHandler = () => {
-    Utils.getWidthAndHeight()
-    CandyAnimation.resize(Utils.canvasWidth, Utils.canvasHeight);
-  }
+function KlimtBackground() {
+ 
 
-  render() {
-    return <>
-    <div id="candy-canvas"></div>
-    </>;
-  }
+  return (
+    <div className="general-layout">
+      <h1>Klimt-inspired animation</h1>
+
+      <TabLayout
+        content={<KlimtCanvas />}
+        code={<h1>code</h1>}
+        concept={<h1>concept</h1>}
+      />
+    </div>
+  );
 }
+export default KlimtBackground;

@@ -1,19 +1,21 @@
-import * as PIXI from 'pixi.js';
-import Utils from '../utils/utils';
-import Tweens from '../utils/Tweens';
-const PsychologyAnimation = {
-    colors: [0x446996,0x2d4264,0x182033,0xb2826,0x1f3423,0xb482a,0x364a2b,0x262a16,0x3a4016,0x888136,0x635021,0x533217,0x5c2a1d],
-    dots: [],
-    totalItems: 1000,
-    pauseBoolean: false,
-    init: function (w, h) {
-        this.dots = [];
+import * as PIXI from 'pixijs';
+import Utils from '../../../../utils/utils';
+import Tweens from '../../../../utils/Tweens';
+class PrettyRingAnimation  {
 
+    colors = [0x446996,0x2d4264,0x182033,0xb2826,0x1f3423,0xb482a,0x364a2b,0x262a16,0x3a4016,0x888136,0x635021,0x533217,0x5c2a1d];
+    dots=  [];
+    totalItems=  1000;
+    pauseBoolean=  false;
+    constructor (canvas) {
+        this.dots = [];
+		let w = canvas.clientWidth, h = canvas.clientHeight;
         Utils.setWidthAndHeight(w, h);
         const app = new PIXI.Application({
-        width: w, height: h,  backgroundAlpha:0, resolution: 1, autoResize:true
-        });
-        document.getElementById("psychology").appendChild(app.view);
+			background: '#000000',
+			resizeTo: canvas,
+		});
+        canvas.appendChild(app.view);
         
         const container = new PIXI.Container();
         app.stage.addChild(container);
@@ -48,20 +50,20 @@ const PsychologyAnimation = {
 
         Tweens.tween(app.stage, 3, {alpha: [0,1]});
         app.ticker.add(this.ticker.bind(this));
-    },
-    pause: function () {
+    }
+    pause() {
         this.pauseBoolean = !this.pauseBoolean;
-    },
-    resize: function (w, h) {
+    }
+    resize(w, h) {
         Utils.setWidthAndHeight(w, h);
         this.app.renderer.resize(w, h)
         this.particleContainer.x = (Utils.canvasWidth / 2) ;
         this.particleContainer.y = (Utils.canvasHeight / 2) ;
-    },
-    stop: function () {
+    }
+    stop() {
         this.app.destroy(true);
-    },
-    ticker: function (delta) {
+    }
+    ticker(delta) {
         if (!this.pauseBoolean) {
             Tweens.animate();
             this.particleContainer.rotation += 0.004;
@@ -77,6 +79,6 @@ const PsychologyAnimation = {
     }
     
 }
-export default PsychologyAnimation;
+export default PrettyRingAnimation;
 
 

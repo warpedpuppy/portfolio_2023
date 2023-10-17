@@ -1,5 +1,5 @@
-import Utils from './utils';
-import Assets from './assetCreation'
+import Utils from '../../../../utils/utils';
+import * as PIXI from 'pixijs';
 export default function RainbowSwirls() {
   return {
     cont: undefined,
@@ -22,9 +22,11 @@ export default function RainbowSwirls() {
     customHeight: undefined,
     colors: [0xfff0f5, 0xe6e6fa, 0xff7575, 0xffb775, 0xfff175, 0xc3ff76, 0x7bffb8, 0x7de8ff, 0x799fff, 0xff93f7],
     colorCounter: 0,
-    init (parentCont, quadrant, cw, ch) {
+    init (parentCont, quadrant, cw, ch, w, h) {
       this.customHeight = ch;
       this.customWidth = cw;
+	  this.utils.canvasWidth = w;
+	  this.utils.canvasHeight = h;
       this.quadrant = quadrant
       this.curve = this.curves[Math.floor(Math.random() * 4)]
       this.app = this.utils.app;
@@ -33,7 +35,13 @@ export default function RainbowSwirls() {
       this.parentCont = parentCont
 
       this.tileQ =  150 ;
-      this.cont = Assets.ParticleContainer(this.tileQ)
+      this.cont = new PIXI.ParticleContainer(this.tileQ, {
+		scale: true,
+		position: true,
+		rotation: true,
+		uvs: true,
+		alpha: true
+	  });
 
       for (let i = 0; i < this.tileQ; i++) {
         const s = this.brick();
@@ -49,12 +57,18 @@ export default function RainbowSwirls() {
       const newPos = this.newXY();
       s.x = newPos.x;
       s.y = newPos.y;
+	  console.log(s.x, s.y)
       this.cont.addChild(s);
 
       this.curveQ = this.utils.randomIntBetween(this.curvedQs[0], this.curvedQs[1])
+	
     },
+	resize(w, h) {
+		this.utils.canvasHeight = h;
+		this.utils.canvasWidth = w;
+	},
     brick () {
-      const s = Assets.Sprite('pez.png')
+      const s = PIXI.Sprite.from('/bmps/pez.png')
       s.counter = 0
       s.curveCounter = 0;
       this.brickHeight = s.height

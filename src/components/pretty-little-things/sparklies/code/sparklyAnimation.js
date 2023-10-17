@@ -1,4 +1,4 @@
-import * as PIXI from 'pixi.js';
+import * as PIXI from 'pixijs';
 import Utils from '../utils/utils';
 import Tweens from '../utils/Tweens';
 const PsychologyAnimation = {
