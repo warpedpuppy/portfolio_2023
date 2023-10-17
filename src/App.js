@@ -18,6 +18,7 @@ import PrettyLittleThings from './components/pretty-little-things/PrettyLittleTh
 import Gamelets from './components/games/Gamelets';
 import KlimtBackground from './components/pretty-little-things/klimt-background/KlimtBackground';
 import PrettyRing from './components/pretty-little-things/pretty-ring/PrettyRing';
+import Sparklies from './components/pretty-little-things/sparklies/Sparklies';
 import About from './pages/About';
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import WebDev from './components/webinars/web-dev/WebDev';
@@ -62,6 +63,7 @@ function App() {
 			<Route index element={<PrettyLittleThings />} />
 			<Route path="klimt-background" element={<KlimtBackground />} />
 			<Route path="pretty-ring" element={<PrettyRing />} />
+			<Route path="sparklies" element={<Sparklies />} />
 			<Route path="*" element={<h1>pretty little thing not found</h1>} />
 		</Route>
 		<Route path="about" element={<Outlet />}>
