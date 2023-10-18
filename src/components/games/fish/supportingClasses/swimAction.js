@@ -1,7 +1,7 @@
-import Utils from '../../utils/utils'
-import Assets from '../../utils/assetCreation'
-import AirBubbles from './airBubbles'
-
+import Utils from '../../../../utils/utils';
+import * as PIXI from 'pixijs';
+import AirBubbles from './airBubbles';
+import Assets from './assetCreation';
 
 export default function SwimAction() {
   return {

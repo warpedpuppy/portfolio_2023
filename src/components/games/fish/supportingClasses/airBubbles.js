@@ -1,6 +1,6 @@
-import Utils from '../../utils/utils'
-import Assets from '../../utils/assetCreation'
-
+import Utils from '../../../../utils/utils';
+import * as PIXI from 'pixijs';
+import Assets from './assetCreation';
 export default function AirBubbles() {
   return {
     mode: undefined,
@@ -14,7 +14,7 @@ export default function AirBubbles() {
     airBubbleStart: 0,
     countAllow: true,
     expand: [],
-    bubblesCont: Assets.Container(),
+    bubblesCont: new PIXI.Container(),
     times: [50, 100],
     setupBubbles (cont) {
       this.wh = this.utils.wh

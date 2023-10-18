@@ -1,6 +1,6 @@
-import Assets from '../../fish/code/assetCreation'
-import Utils from '../../fish/code/utils'
-import Config from '../../fish/code/animationsConfig'
+import Assets from './assetCreation'
+import Utils from './utils'
+import Config from './animationsConfig'
 
 export default function Gears (gv) {
   return {

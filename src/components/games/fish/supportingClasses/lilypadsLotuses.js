@@ -1,11 +1,11 @@
-import Assets from '../../utils/assetCreation'
-import Utils from '../../utils/utils'
-
+import * as PIXI from 'pixijs';
+import Utils from '../../../../utils/utils';
+import Assets from './assetCreation';
 export default function LilypadsLotuses() {
   return {
     array: [],
     utils: Utils,
-    cont: Assets.Container(),
+    cont: new PIXI.Container(),
     buffer: 10,
     init (parentCont) {
       this.parentCont = parentCont

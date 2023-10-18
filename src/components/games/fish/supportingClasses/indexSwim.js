@@ -1,7 +1,7 @@
 import SwimAction from './swimAction'
 import SwimBackground from './swimBackground'
 import Ripples from './ripples'
-import Utils from '../../utils/utils'
+import Utils from '../../../../utils/utils';
 
 export default function IndexSwim() {
   return {

@@ -1,12 +1,12 @@
-import Assets from '../../utils/assetCreation'
-import Utils from '../../utils/utils'
-
+import * as PIXI from 'pixijs';
+import Utils from '../../../../utils/utils';
+import Assets from './assetCreation';
 export default function Clock() {
   return {
     hourToRadians: (1 / 12) * (2 * Math.PI),
     minutesToRadians: (1 / 60) * (2 * Math.PI),
     secondsToRadians: (1 / 60) * (2 * Math.PI),
-    cont: Assets.Container(),
+    cont: new PIXI.Container(),
     counter: 0,
     demo: false,
     utils: Utils,

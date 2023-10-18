@@ -1,36 +1,35 @@
 
-import Utils from '../../utils/utils'
-import Assets from '../../utils/assetCreation'
-import Tweens from '../../utils/Tweens'
+import Utils from '../../../../utils/utils';
+import * as PIXI from 'pixijs';
+import Tweens from '../../../../utils/Tweens'
 import Clock from './clock'
 import Swim from './indexSwim'
 import Gears from './gears'
 import Resize from './swimResize'
 
-export default function SwimAnimations() {
+export default function SwimAnimation(canvasContainer) {
   return {
     mode: ['swim'],
     activeModeIndex: 0,
     resize: Resize(),
     activeMode: undefined,
-    filterContainer: Assets.Container(),
+    filterContainer: new PIXI.Container(),
     action: true,
     gears: Gears(),
     clock: Clock(),
     transitionAnimationPlaying: false,
     utils: Utils,
-    loader: Assets.Loader(),
     activeAction: undefined,
     swim: Swim(),
     dbData: {},
     storeAction: true,
     timeOut: undefined,
     fullStop: false,
-    kingCont: Assets.Container(),
-    frame: Assets.Graphics(),
-    kingContBackground: Assets.Graphics(),
+    kingCont: new PIXI.Container(),
+    frame: new PIXI.Graphics(),
+    kingContBackground: new PIXI.Graphics(),
     showFPS: false,
-    init () {
+    start () {
       this.utils.root = this
       this.activeMode = this.mode[this.activeModeIndex]
 
@@ -51,13 +50,8 @@ export default function SwimAnimations() {
         }
       }
 
-      const app = this.app = Assets.Application({
-        width: this.utils.canvasWidth,
-        height: this.utils.canvasHeight,
-        backgroundAlpha: 0,
-        resolution: 1
-      })
-      document.getElementById('fish-canvas').appendChild(app.view)
+      const app = this.app = new PIXI.Application({ background: 'rbga(0,0,0,0)', resizeTo: canvasContainer })
+      canvasContainer.appendChild(app.view)
       this.stage = app.stage
       this.stage.addChild(this.kingCont)
 
@@ -66,32 +60,26 @@ export default function SwimAnimations() {
       this.buildGame = this.buildGame.bind(this)
       this.startGame = this.startGame.bind(this)
       this.animate = this.animate.bind(this)
+	  this.buildGame()
 
-      if (!this.loader.resources['/ss/ss.json']) {
-        this.loader
-          .add('/ss/ss.json')
-          .load(this.buildGame)
-      } else {
-        this.buildGame()
-      }
+	  this.app.ticker.add(this.animate.bind(this));
     },
     pause (boolean) {
       this.action = !this.action;
     },
     buildGame () {
-      const { spritesheet } = this.loader.resources['/ss/ss.json']
+    //   const { spritesheet } = this.loader.resources['/ss/ss.json']
 
       this.utils.setProperties({
         isMobileOnly: this.isMobileOnly,
         isMobile: this.isMobile,
-        spritesheet,
         canvasWidth: this.utils.canvasWidth,
         canvasHeight: this.utils.canvasHeight,
         app: this.app,
         root: this
       })
 
-      Assets.init()
+    //   Assets.init()
       this.gears.init().addToStage()
       this.clock.init().addToStage()
       this.swim.init(this.kingCont)
@@ -111,18 +99,18 @@ export default function SwimAnimations() {
     animate () {
       Tweens.animate()
 
-      if (this.fullStop) return
+    //   if (this.fullStop) return
 
-      if (this.action) {
-        if (this.rotateLeftBoolean) {
-          this.activeAction.rotate('left')
-        } else if (this.rotateRightBoolean) {
-          this.activeAction.rotate('right')
-        }
+    //   if (this.action) {
+        // if (this.rotateLeftBoolean) {
+        //   this.activeAction.rotate('left')
+        // } else if (this.rotateRightBoolean) {
+        //   this.activeAction.rotate('right')
+        // }
         this.clock.animate()
         this.gears.animate()
         this[this.activeMode].animate()
-      }
+    //   }
     }
   }
 }

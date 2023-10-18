@@ -1,9 +1,9 @@
-import Assets from '../../utils/assetCreation'
-import Utils from '../../utils/utils'
-import Tweens from '../../utils/Tweens'
+import * as PIXI from 'pixijs';
+import Utils from '../../../../utils/utils';
+import Tweens from '../../../../utils/Tweens'
 import FishSchool from './fishSchool'
 import LilypadsLotuses from './lilypadsLotuses'
-
+import Assets from './assetCreation';
 export default function SwimBackground() {
   return {
     texture: 'waterSmall.png',

@@ -1,6 +1,6 @@
-import Utils from '../../utils/utils'
-import Assets from '../../utils/assetCreation'
-
+import Utils from '../../../../utils/utils';
+import * as PIXI from 'pixijs';
+import Assets from './assetCreation';
 export default function FishSchool() {
   return {
     points: [],
@@ -9,7 +9,7 @@ export default function FishSchool() {
     fishQ: 10,
     fishArray: [],
     utils: Utils,
-    fishCont: Assets.Container(),
+    fishCont: new PIXI.Container(),
     buffer: 10,
     init (cont) {
       this.cont = cont
@@ -17,7 +17,7 @@ export default function FishSchool() {
       this.fish = this.fish.bind(this)
       this.spritesheet = this.utils.spritesheet
       const steps = this.imageWidth / this.pointQ
-      this.texture = this.spritesheet.textures['koi.png']
+      this.texture = Assets.Texture('/bmps/fish/koi.png')
       for (let i = 0; i < this.pointQ; i++) {
         this.points.push({ x: i * steps, y: 0 })
       }
@@ -43,7 +43,7 @@ export default function FishSchool() {
       this.cont.removeChild(this.fishCont)
     },
     fish (texture, points) {
-      const stripCont = Assets.Container()
+      const stripCont = Assets.Container();
       stripCont.pivot.set(0.5)
       const strip = this.strip = Assets.Rope(texture, points)
       stripCont.addChild(strip)

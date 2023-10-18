@@ -11,7 +11,7 @@ function GameletLanding() {
 			<p>I'm including them because they presented interesting coding issues and, frankly, they're cute.</p>
 			<ul>
 			<li><Link to="/gamelets/pig">pig</Link></li>
-			<li><Link to="/gamelets/dragon">dragon</Link></li>
+			{/* <li><Link to="/gamelets/dragon">dragon</Link></li> */}
 			<li><Link to="/gamelets/fish">fish</Link></li>
 			<li><Link to="/gamelets/planet-jump">planet jump</Link></li>
 			{/* <li><Link to="/gamelets/lines">lines</Link></li> */}

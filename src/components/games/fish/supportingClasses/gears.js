@@ -1,6 +1,6 @@
-import Assets from '../../utils/assetCreation'
-import Utils from '../../utils/utils'
-// import Config from '../../utils/animationsConfig'
+import * as PIXI from 'pixijs';
+import Utils from '../../../../utils/utils';
+import Assets from './assetCreation';
 
 export default function Gears() {
   return {

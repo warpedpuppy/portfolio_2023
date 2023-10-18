@@ -1,6 +1,6 @@
-import Assets from '../../utils/assetCreation'
-import Utils from '../../utils/utils'
-
+import * as PIXI from 'pixijs';
+import Utils from '../../../../utils/utils';
+import Assets from './assetCreation';
 export default function Ripples() {
   return {
     ripples: [],
@@ -10,13 +10,13 @@ export default function Ripples() {
     init () {
       this.wh = this.utils.wh
 
-      this.parent = Assets.Container()
+      this.parent = new PIXI.Container()
       this.parent.width = this.wh.canvasWidth
       this.parent.height = this.wh.canvasHeight
 
       this.app = this.utils.app
 
-      this.totalSprites = Assets.webgl ? 10 : 10
+      this.totalSprites = 10
 
       const sprites = this.sprites = Assets.ParticleContainer(this.totalSprites)
 

@@ -7,9 +7,9 @@ export default function GameChooser (str) {
 		case "lines":
 			return require('./lines/code/LinesCode');
 		case "fish":
-			return require('./fish/code/FishCode');
+			return require('./fish/supportingClasses/swimAnimation');
 		case "planet-jump":
-				return require('./planetJump/code/PlanetJumpCode');
+			return require('./planetJump/code/PlanetJumpCode');
 		case "fireworks1":
 			return require('../challenges/fireworks/code/StepOne');
 		default:
