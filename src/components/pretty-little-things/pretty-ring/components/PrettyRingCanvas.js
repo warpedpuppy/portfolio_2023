@@ -11,6 +11,6 @@ function PrettyRingCanvas() {
 
   useEffect(() => () => gameRef.current.stop(), []);
 
-  return <div id="candy-canvas" ref={canvasRef} />;
+  return <div className="plt-canvas" ref={canvasRef} />;
 }
 export default PrettyRingCanvas;
