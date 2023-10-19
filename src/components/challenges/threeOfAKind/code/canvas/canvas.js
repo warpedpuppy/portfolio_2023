@@ -21,30 +21,14 @@ export default class Game {
 		canvas.height = this.canvasHeight;
 
 		const ctx = canvas.getContext("2d");
-		VARS.init(canvas, width, height);
-		
+		VARS.init(canvas, this.canvasWidth, this.canvasHeight);
+
 		const three = new ThreeOfAKind(ctx, canvas);
 		this.mouseEvents = new MouseEvents(three);
-		this.rowSelect = document.querySelector("#rows")
-
 		
-
-		for (let i =5; i <= 15; i++){
-			let option = document.createElement('option');
-			option.innerText = i;
-			if ( i===15 ) option.selected = true;
-			this.rowSelect.appendChild(option)
-		}
-		this.rowSelect.addEventListener('change', this.changeRows )
-	
-		this.colSelect = document.querySelector("#cols")
-		for (let i =10; i <= 30; i++){
-			let option = document.createElement('option');
-			option.innerText = i;
-			if ( i===30 ) option.selected = true;
-			this.colSelect.appendChild(option)
-		}
-		this.colSelect.addEventListener('change', this.changeCols)
+		
+		this.createSelectUI();
+		
 	
 		document.addEventListener('mousemove', this.mouseEvents.mouseMoveHandler);
 		document.addEventListener('mousedown', this.mouseEvents.mouseDownHandler);
@@ -65,8 +49,29 @@ export default class Game {
 		this.canvas.width = this.canvasWidth;
 		this.canvas.height = this.canvasHeight;
 
-		VARS.setVars(width, height);
+		VARS.init(this.canvas, width, height);
 
+	}
+
+	createSelectUI () {
+
+		this.rowSelect = document.querySelector("#rows")
+		for (let i =5; i <= 15; i++){
+			let option = document.createElement('option');
+			option.innerText = i;
+			if ( i===15 ) option.selected = true;
+			this.rowSelect.appendChild(option)
+		}
+		this.rowSelect.addEventListener('change', this.changeRows )
+	
+		this.colSelect = document.querySelector("#cols")
+		for (let i =10; i <= 30; i++){
+			let option = document.createElement('option');
+			option.innerText = i;
+			if ( i===30 ) option.selected = true;
+			this.colSelect.appendChild(option)
+		}
+		this.colSelect.addEventListener('change', this.changeCols)
 	}
 
 	changeRows = (e) => {

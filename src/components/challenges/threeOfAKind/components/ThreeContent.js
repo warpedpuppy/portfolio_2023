@@ -5,17 +5,26 @@ function ThreeContent() {
   const gameRef = useRef(null);
   useEffect(() => {
     gameRef.current = new Game(canvasRef.current);
+	window.addEventListener('resize', resizeHandler)
   }, [gameRef]);
 
-  useEffect(() => () => gameRef.current.stop(), []);
+  useEffect(() => () => stopFunction(), []);
+
+  function stopFunction() {
+	gameRef.current.stop()
+	window.removeEventListener('resize', resizeHandler)
+  }
+
+  function resizeHandler() {
+	gameRef.current.stop();
+	gameRef.current = new Game(canvasRef.current);
+  }
 
   return (
     <>
       <canvas
         id="three-of-id-canvas"
         ref={canvasRef}
-        // width="800"
-        // height="400"
       ></canvas>
       <div className="controls">
         <label>rows: </label>
