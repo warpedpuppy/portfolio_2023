@@ -8,7 +8,8 @@ function ThreeContent() {
 	window.addEventListener('resize', resizeHandler)
   }, [gameRef]);
 
-  useEffect(() => () => () => {
+  useEffect(() => () => {
+	// console.log("dismount three")
 	gameRef.current.stop()
 	window.removeEventListener('resize', resizeHandler)
   }, []);
