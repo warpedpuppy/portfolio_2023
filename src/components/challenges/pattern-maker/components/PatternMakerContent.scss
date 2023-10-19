@@ -2,6 +2,7 @@
 	> div {
 		display: flex;
 		justify-content: center;
+		flex-direction: column;
 		canvas {
 			&.over {
 				cursor: pointer;
@@ -21,4 +22,12 @@
 		}
 	}
 	
+}
+@media (min-width: 1024px ) {
+	.pattern-maker {
+		> div {
+			flex-direction: row;
+		}
+		
+	}
 }

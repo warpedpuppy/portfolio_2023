@@ -14,8 +14,8 @@ function ThreeContent() {
       <canvas
         id="three-of-id-canvas"
         ref={canvasRef}
-        width="800"
-        height="400"
+        // width="800"
+        // height="400"
       ></canvas>
       <div className="controls">
         <label>rows: </label>

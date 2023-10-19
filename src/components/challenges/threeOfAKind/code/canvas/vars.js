@@ -26,16 +26,20 @@ const VARS = {
 	setChosen: function (row, col) {
 		this.chosen = { row, col };
 	},
-	init: function (canvas) {
+	init: function (canvas, w, h) {
+
+		this.COLQ = Math.floor((w / this.BOX_WIDTH) - 6);
+		this.ROWQ = Math.floor((h / this.BOX_WIDTH) / 2);
+		this.BOARD_HEIGHT = (this.BOX_HEIGHT + (this.SPACER - this.BOX_HEIGHT)) * this.ROWQ;
+		this.TOP_ADJUST = this.BOX_HEIGHT;//(this.SCREEN_HEIGHT - this.BOARD_HEIGHT) / 2;
+
 		VARS.canvas = canvas;
 		this.hover = {};
 		this.chosen = {};
 		this.SCREEN_WIDTH = canvas.width;
 		this.SCREEN_HEIGHT = canvas.height
 		this.BOARD_WIDTH = (this.BOX_WIDTH + (this.SPACER - this.BOX_WIDTH)) * this.COLQ;
-		this.BOARD_HEIGHT = (this.BOX_HEIGHT + (this.SPACER - this.BOX_HEIGHT)) * this.ROWQ;
 		this.LEFT_ADJUST = (this.SCREEN_WIDTH - this.BOARD_WIDTH) / 2;
-		this.TOP_ADJUST = (this.SCREEN_HEIGHT - this.BOARD_HEIGHT) / 2;
 		this.rects = {};
 	}
 }
