@@ -8,12 +8,11 @@ function ThreeContent() {
 	window.addEventListener('resize', resizeHandler)
   }, [gameRef]);
 
-  useEffect(() => () => stopFunction(), []);
-
-  function stopFunction() {
+  useEffect(() => () => () => {
 	gameRef.current.stop()
 	window.removeEventListener('resize', resizeHandler)
-  }
+  }, []);
+
 
   function resizeHandler() {
 	gameRef.current.stop();

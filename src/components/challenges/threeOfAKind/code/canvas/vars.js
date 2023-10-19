@@ -30,7 +30,6 @@ const VARS = {
 		let boxAndSpacer = this.SPACER;
 		this.COLQ = w === 800 ? 30 : Math.floor((w / boxAndSpacer) - 6);
 		this.ROWQ = h === 400 ? 15 : Math.floor((h / boxAndSpacer) * 0.66);
-		console.log(w, h, boxAndSpacer,  this.COLQ)
 		this.BOARD_HEIGHT = (this.BOX_HEIGHT + (this.SPACER - this.BOX_HEIGHT)) * this.ROWQ;
 		this.TOP_ADJUST = this.BOX_HEIGHT;
 

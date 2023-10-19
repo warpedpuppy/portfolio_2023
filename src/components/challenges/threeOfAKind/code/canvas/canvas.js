@@ -21,54 +21,38 @@ export default class Game {
 		canvas.height = this.canvasHeight;
 
 		const ctx = canvas.getContext("2d");
-		VARS.init(canvas, this.canvasWidth, this.canvasHeight);
+		const [ colQ, rowQ ] = VARS.init(canvas, this.canvasWidth, this.canvasHeight);
 
 		const three = new ThreeOfAKind(ctx, canvas);
 		this.mouseEvents = new MouseEvents(three);
 		
 		
-		this.createSelectUI();
+		this.createSelectUI(colQ, rowQ);
 		
 	
 		document.addEventListener('mousemove', this.mouseEvents.mouseMoveHandler);
 		document.addEventListener('mousedown', this.mouseEvents.mouseDownHandler);
-		window.addEventListener('resize', this.resize)
 	} 
-	resize = e => {
-		let width = document.querySelector(".tab-body-shell").clientWidth;
-		let height = document.querySelector(".tab-body-shell").clientHeight;
-		
-		if (width >= 768) {
-			this.canvasWidth = 800;
-			this.canvasHeight = 400;
-		} else {
-			this.canvasWidth = width;
-			this.canvasHeight = height;
-		}
 
-		this.canvas.width = this.canvasWidth;
-		this.canvas.height = this.canvasHeight;
 
-		VARS.init(this.canvas, width, height);
-
-	}
-
-	createSelectUI () {
+	createSelectUI (colQ, rowQ) {
 
 		this.rowSelect = document.querySelector("#rows")
-		for (let i =5; i <= 15; i++){
+		this.rowSelect.innerHTML = "";
+		for (let i =5; i <= rowQ; i++){
 			let option = document.createElement('option');
 			option.innerText = i;
-			if ( i===15 ) option.selected = true;
+			if ( i===rowQ ) option.selected = true;
 			this.rowSelect.appendChild(option)
 		}
 		this.rowSelect.addEventListener('change', this.changeRows )
 	
-		this.colSelect = document.querySelector("#cols")
-		for (let i =10; i <= 30; i++){
+		this.colSelect = document.querySelector("#cols");
+		this.colSelect.innerHTML = "";
+		for (let i =10; i <= colQ; i++){
 			let option = document.createElement('option');
 			option.innerText = i;
-			if ( i===30 ) option.selected = true;
+			if ( i===colQ ) option.selected = true;
 			this.colSelect.appendChild(option)
 		}
 		this.colSelect.addEventListener('change', this.changeCols)
@@ -83,7 +67,6 @@ export default class Game {
 	}
 
 	stop() {
-		window.removeEventListener('resize', this.resize)
 		this.rowSelect.removeEventListener('change', this.changeRows)
 		this.colSelect.removeEventListener('change', this.changeCols)
 		document.removeEventListener('mousemove', this.mouseEvents.mouseMoveHandler);
