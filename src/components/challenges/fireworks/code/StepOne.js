@@ -48,8 +48,20 @@ export default class StepOneFireworks {
 	constructor (canvas) {
 		this.halt = false;
 		this.canvas = canvas;
-		this.canvas.width = 600;
-		this.canvas.height = 300;
+		let width = document.querySelector(".tab-body-shell").clientWidth;
+		let breakpoint = 768;
+		let maxHeight = 300;
+		if (width >= breakpoint) {
+			this.canvasWidth = 600;
+			this.canvasHeight = maxHeight;
+		} else {
+			this.canvasWidth = width - 100;
+			this.canvasHeight = maxHeight * (maxHeight / breakpoint);
+		}
+
+		this.canvas.width = this.canvasWidth;
+		this.canvas.height = this.canvasHeight;
+
 		this.context = this.canvas.getContext('2d');
 		this.firework = new Firework(5, canvas, this.context);
 		this.animate();
