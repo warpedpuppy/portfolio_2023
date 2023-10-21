@@ -104,12 +104,12 @@ export default class StepThreeFireworks {
 		this.canvasHeight = maxHeight;
 	} else {
 		this.canvasWidth = width - 100;
-		this.canvasHeight = maxHeight * (maxHeight / breakpoint);
+		this.canvasHeight = maxHeight;
 	}
 
 	this.canvas.width = this.canvasWidth;
 	this.canvas.height = this.canvasHeight;
-	
+
     this.context = canvas.getContext("2d");
     this.firework = new Firework(5, canvas, this.context);
     this.animate();

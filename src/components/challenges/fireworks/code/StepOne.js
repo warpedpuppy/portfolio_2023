@@ -56,7 +56,7 @@ export default class StepOneFireworks {
 			this.canvasHeight = maxHeight;
 		} else {
 			this.canvasWidth = width - 100;
-			this.canvasHeight = maxHeight * (maxHeight / breakpoint);
+			this.canvasHeight = maxHeight;
 		}
 
 		this.canvas.width = this.canvasWidth;
