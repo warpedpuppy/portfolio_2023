@@ -45,10 +45,10 @@ class Beam {
 	}
 }
 export default class StepOneFireworks {
-	constructor (canvas) {
+	constructor (canvas, parentCont) {
 		this.halt = false;
 		this.canvas = canvas;
-		let width = document.querySelector(".tab-body-shell").clientWidth;
+		let width = document.querySelector(parentCont).clientWidth;
 		let breakpoint = 768;
 		let maxHeight = 300;
 		if (width >= breakpoint) {

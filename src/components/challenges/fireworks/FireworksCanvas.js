@@ -7,14 +7,14 @@ function FireworksCanvas({mainClass}) {
 	const gameRef = useRef(null);
 
 	useEffect( () => {
-				gameRef.current = new mainClass(canvasRef.current);
+				gameRef.current = new mainClass(canvasRef.current, ".general-layout");
 	}, [mainClass])
 
 	useEffect( () => {
 		function resizeHandler() {
 			// console.log("resize")
 			gameRef.current.stop();
-			gameRef.current = new mainClass(canvasRef.current);
+			gameRef.current = new mainClass(canvasRef.current, ".general-layout");
 		}
 		window.addEventListener('resize', resizeHandler)
 		return () => {
@@ -24,11 +24,7 @@ function FireworksCanvas({mainClass}) {
 		}
 	})
 
-	return ( 
-		<>
-			<canvas className="challenge-canvas" ref={canvasRef}></canvas>
-		</>
-	 );
+	return <canvas className="challenge-canvas" ref={canvasRef} /> ;
 }
 
 export default FireworksCanvas;

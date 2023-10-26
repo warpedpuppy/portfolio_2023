@@ -8,7 +8,7 @@ import StepFourFireworks from "../code/StepFour";
 function FireworksContent() {
   return (
  
-	<>
+	<div className="content-container">
       <h3>step one</h3>
 	  <a href={`https://github.com/warpedpuppy/portfolio_2023/blob/main/src/components/challenges/fireworks/code/StepOne.js` } target="_blank" rel="noreferrer">link to code</a>
       <FireworksCanvas mainClass={StepOneFireworks} />
@@ -21,7 +21,7 @@ function FireworksContent() {
       <h3>step four</h3>
 	  <a href={`https://github.com/warpedpuppy/portfolio_2023/blob/main/src/components/challenges/fireworks/code/StepFour.js` } target="_blank" rel="noreferrer">link to code</a>
       <FireworksCanvas mainClass={StepFourFireworks} />
-	  </> 
+	  </div> 
   );
 }
 
