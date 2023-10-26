@@ -1,14 +1,6 @@
-import TabLayout from '../../../layout-templates/tabs/TabLayout';
-import PrettyRingCanvas from './components/PrettyRingCanvas';
-
-function PrettyRing () {
-    return (
-		<div className='general-layout'>
-		<h1>pretty ring</h1>
-		<TabLayout 
-		backButtonBoolean={true}
-		contentArray={[<PrettyRingCanvas />]} />	
-		</div>
-		);
+import PrettyRingCanvas from "./components/PrettyRingCanvas";
+import GeneralLayout from "../../../layout-templates/GeneralLayout";
+function PrettyRing() {
+  return <GeneralLayout title="pretty ring" component={<PrettyRingCanvas />} />;
 }
 export default PrettyRing;

@@ -1,19 +1,13 @@
-import { useRef, useEffect } from "react";
 import KlimtCanvas from "./components/KlimtCanvas";
-import TabLayout from "../../../layout-templates/tabs/TabLayout";
+import GeneralLayout from "../../../layout-templates/GeneralLayout";
 
 function KlimtBackground() {
- 
-
   return (
-    <div className="general-layout">
-      <h1>Klimt-inspired animation</h1>
-
-      <TabLayout
-	  backButtonBoolean={true}
-        contentArray={[<KlimtCanvas />]}
-      />
-    </div>
+    <GeneralLayout
+      title="Klimt-inspired animation"
+      subtitle=""
+      component={<KlimtCanvas />}
+    />
   );
 }
 export default KlimtBackground;

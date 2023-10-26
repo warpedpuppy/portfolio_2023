@@ -11,6 +11,6 @@ function SparkliesCanvas() {
 
   useEffect(() => () => gameRef.current.stop(), []);
 
-  return <div className="plt-canvas" ref={canvasRef} />;
+  return <div className="plt-canvas canvas-pixi-cont" ref={canvasRef} />;
 }
 export default SparkliesCanvas;

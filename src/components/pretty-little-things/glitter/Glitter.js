@@ -1,14 +1,12 @@
-import TabLayout from '../../../layout-templates/tabs/TabLayout';
-import GlitterCanvas from './components/GlitterCanvas';
 
+import GlitterCanvas from './components/GlitterCanvas';
+import GeneralLayout from '../../../layout-templates/GeneralLayout';
 function Glitter () {
     return (
-		<div className='general-layout'>
-		<h1>glitter</h1>
-		<TabLayout 
-		backButtonBoolean={true}
-		contentArray={[<GlitterCanvas />]} />	
-		</div>
+		<GeneralLayout
+		title="glitter"
+		subtitle="sub"
+		component={<GlitterCanvas />} />	
 		);
 }
 export default Glitter;

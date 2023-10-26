@@ -18,7 +18,7 @@ class GlitterAnimation {
       background: "#400175",
       resizeTo: canvas,
     });
-
+	canvas.height = this.canvasHeight;
     canvas.appendChild(this.app.view);
 
 	this.stage = this.app.stage;

@@ -1,14 +1,10 @@
-import TabLayout from '../../../layout-templates/tabs/TabLayout';
-import SparkliesCanvas from './components/SparkliesCanvas';
 
+import SparkliesCanvas from './components/SparkliesCanvas';
+import GeneralLayout from '../../../layout-templates/GeneralLayout';
 function Sparklies () {
-    return (
-		<div className='general-layout'>
-		<h1>sparklies</h1>
-		<TabLayout 
-		backButtonBoolean={true}
-		contentArray={[<SparkliesCanvas />]} />	
-		</div>
+		return (<GeneralLayout 
+		title="sparklies"
+		component={<SparkliesCanvas />} />	
 		);
 }
 export default Sparklies;
