@@ -6,8 +6,8 @@ export default class Game {
 
 	constructor (canvas) {
 		this.canvas = canvas;
-		let width = document.querySelector(".tab-body-shell").clientWidth;
-		let height = document.querySelector(".tab-body-shell").clientHeight;
+		let width = document.querySelector(".general-layout").clientWidth;
+		let height = document.querySelector(".general-layout").clientHeight;
 		
 		if (width >= 768) {
 			this.canvasWidth = 800;

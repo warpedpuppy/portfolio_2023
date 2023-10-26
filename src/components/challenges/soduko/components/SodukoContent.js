@@ -5,11 +5,10 @@ function SodukoContent() {
     SudokuQuadrantChecker();
   }, []);
   return (
-    <>
+    <div className="soduko-container">
       <div id="soduko-grid"></div>
-	  <h2>the above grid will show errors if the same number appears multple times in any row, column, or ninth section.</h2>
       <h3 id="looping-data">&nbsp;</h3>
-    </>
+    </div>
   );
 }
 
