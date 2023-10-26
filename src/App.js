@@ -20,6 +20,9 @@ import KlimtBackground from './components/pretty-little-things/klimt-background/
 import PrettyRing from './components/pretty-little-things/pretty-ring/PrettyRing';
 import Sparklies from './components/pretty-little-things/sparklies/Sparklies';
 import Glitter from './components/pretty-little-things/glitter/Glitter';
+import BouncePig from './components/games/bouncePig/BouncePig';
+import FishAnimation from './components/games/fish/FishAnimation';
+import PlanetJump from './components/games/planetJump/PlanetJump';
 import About from './pages/About';
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import WebDev from './components/webinars/web-dev/WebDev';
@@ -54,9 +57,9 @@ function App() {
 		<Route path="gamelets" element={<Outlet />}>
 			<Route index element={<GameletLanding />} />
 			<Route path="dragon" element={<Gamelets game="dragon" />} />
-			<Route path="fish" element={<Gamelets game="fish" />} />
-			<Route path="pig" element={<Gamelets game="pig" />} />
-			<Route path="planet-jump" element={<Gamelets game="planet-jump" />} />
+			<Route path="fish" element={<FishAnimation />} />
+			<Route path="pig" element={<BouncePig />} />
+			<Route path="planet-jump" element={<PlanetJump />} />
 			<Route path="lines" element={<Gamelets game="lines" />} />
 			<Route path="*" element={<h1>game not found</h1>} />
 		</Route>
