@@ -1,5 +1,5 @@
 import "./Tabs.scss";
-import BackButton from "../../components/BackButton";
+
 
 function Tabs({ tabs, active, setActive }) {
   if (!tabs) tabs = ["content", "code", "concept"];
@@ -9,7 +9,7 @@ function Tabs({ tabs, active, setActive }) {
 
   return (
     <div className="tab-shell">
-      <BackButton />
+
       <ul className="tab-container">
         {tabs.map((tab, i) => {
           return (

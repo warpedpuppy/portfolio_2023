@@ -1,12 +1,14 @@
 import Tabs from "./Tabs";
 import TabBody from "./TabBody";
 import { useState } from 'react';
-function TabLayout({tabs, code, concept, content}) {
+import BackButton from "../../components/BackButton";
+function TabLayout({tabs, contentArray, backButtonBoolean}) {
 	const [ active, setActive ] = useState(0)
 	return ( 
 		<>
+		{ backButtonBoolean && <BackButton /> }
 		<Tabs tabs={tabs} active={active} setActive={setActive} />
-		<TabBody  active={active} content={content} code={code} concept={concept} />
+		<TabBody  active={active} contentArray={contentArray} />
 		</>
 	 );
 }

@@ -9,9 +9,8 @@ function PatternMaker() {
     <section className="general-challenges-layout">
       <h1>spirograph</h1>
       <TabLayout
-        content={<PatternMakerContent />}
-        code={<PatternMakerCode />}
-        concept={<PatternMakerConcept />}
+	  backButtonBoolean={true}
+        contentArray={[<PatternMakerContent />,<PatternMakerCode />,<PatternMakerConcept />]}
       />
     </section>
   );

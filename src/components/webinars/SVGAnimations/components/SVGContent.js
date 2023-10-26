@@ -1,12 +1,8 @@
 import './SVGContent.scss';
-
+import IFrameComponent from '../../../../layout-templates/IFrameComponent';
 function SVGContent() {
 	return ( 
-		<div className='svg-content'>
-			<h3 className='loading'>Loading</h3>
-			<iframe title="svg-handout" src="https://gentle-churros-c83d46.netlify.app/"></iframe>
-		</div>
-		
+		<IFrameComponent src="https://gentle-churros-c83d46.netlify.app/" title="svg web page"/>
 	 );
 }
 

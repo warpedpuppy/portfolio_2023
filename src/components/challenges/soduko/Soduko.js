@@ -9,7 +9,10 @@ function Soduko() {
   return (
     <section className="soduko-container general-challenges-layout">
       <h1>soduko error handler</h1>
-	  <TabLayout content={<SodukoContent />} code={<SodukoCode />} concept={<SodukoConcept />}/>
+	  <TabLayout 
+	  tabs={['content', 'code']}
+	  backButtonBoolean={true}
+	  contentArray={[<SodukoContent />,<SodukoCode />,<SodukoConcept />]}/>
     </section>
   );
 }

@@ -7,7 +7,8 @@ function Gamelets({game}) {
 		<div className="general-layout">
 		    <TabLayout 
 			tabs={ ['content', 'concept'] } 
-			content={ <GameletCanvas game={game} /> }
+			backButtonBoolean={true}
+			contentArray={ [<GameletCanvas game={game} />] }
 			/>
 		</div>
 	 );

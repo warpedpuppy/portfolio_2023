@@ -10,7 +10,9 @@ function ThreeOfAKind() {
 	return ( 
 	<section className='general-challenges-layout three-of-a-kind'>
 		<h1>three-of-a-kind checker</h1>
-	<TabLayout content={<ThreeContent /> } code={<ThreeCode />} concept={<ThreeConcept />} />
+	<TabLayout 
+	backButtonBoolean={true}
+	contentArray={[<ThreeContent />,<ThreeCode />,<ThreeConcept />]} />
 	</section> );
 }
 

@@ -4,10 +4,11 @@ import WebDevContent from "./components/WebDevContent";
 function WebDev() {
 	return ( 
 		<div className="general-layout">
+			<h1>things I've learned as a web dev</h1>
 		<TabLayout 
+		backButtonBoolean={true}
 			tabs={['video', 'site']}
-			content={<WebDevVideo />}
-			code={<WebDevContent />}
+			contentArray={[<WebDevVideo />, <WebDevContent />]}
 		/>
 		</div> 
 	);

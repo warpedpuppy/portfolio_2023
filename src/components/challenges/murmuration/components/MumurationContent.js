@@ -9,7 +9,21 @@ function MurmurationContent() {
 		gameRef.current = new SetUpMurmuration(canvasRef.current);
 	}, [gameRef])
 
-	useEffect( () => () => gameRef.current.stop(), [] );
+	// useEffect( () => () => gameRef.current.stop(), [] );
+
+	useEffect( () => {
+		function resizeHandler() {
+			// console.log("resize")
+			gameRef.current.stop();
+			gameRef.current = new SetUpMurmuration(canvasRef.current);
+		}
+		window.addEventListener('resize', resizeHandler)
+		return () => {
+			// console.log('dismount')
+			gameRef.current.stop()
+			window.removeEventListener('resize', resizeHandler)
+		}
+	})
 
 
 	return <canvas className="murmuration-canvas"  ref={canvasRef} />

@@ -8,7 +8,9 @@ function Murmuration() {
   return (
     <section className="general-challenges-layout">
 		<h1>murmuration</h1>
-		<TabLayout content={<MurmurationContent />} code={<MurmurationCode />} concept={<MurmurationConcept />} />
+		<TabLayout 
+		backButtonBoolean={true}
+		contentArray={[<MurmurationContent />,<MurmurationCode />,<MurmurationConcept />]} />
       
     </section>
   );

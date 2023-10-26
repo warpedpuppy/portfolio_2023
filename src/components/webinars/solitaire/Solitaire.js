@@ -10,10 +10,9 @@ function Solitaire() {
       <h1>Coding Solitaire</h1>
       <TabLayout
 	   active="2"
+	   	backButtonBoolean={true}
         tabs={["video", "game"]}
-		code={<SolitaireContent />}
-        content={<SolitaireVideo />}
-		// code={<>code</>}
+		contentArray={[ <SolitaireVideo />, <SolitaireContent /> ]}
       />
     </div>
   );

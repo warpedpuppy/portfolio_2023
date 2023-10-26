@@ -5,7 +5,9 @@ function Sparklies () {
     return (
 		<div className='general-layout'>
 		<h1>sparklies</h1>
-		<TabLayout content={<SparkliesCanvas />} />	
+		<TabLayout 
+		backButtonBoolean={true}
+		contentArray={[<SparkliesCanvas />]} />	
 		</div>
 		);
 }

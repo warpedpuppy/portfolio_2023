@@ -5,7 +5,9 @@ function Glitter () {
     return (
 		<div className='general-layout'>
 		<h1>glitter</h1>
-		<TabLayout content={<GlitterCanvas />} />	
+		<TabLayout 
+		backButtonBoolean={true}
+		contentArray={[<GlitterCanvas />]} />	
 		</div>
 		);
 }

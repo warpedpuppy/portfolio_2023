@@ -5,7 +5,9 @@ function PrettyRing () {
     return (
 		<div className='general-layout'>
 		<h1>pretty ring</h1>
-		<TabLayout content={<PrettyRingCanvas />} />	
+		<TabLayout 
+		backButtonBoolean={true}
+		contentArray={[<PrettyRingCanvas />]} />	
 		</div>
 		);
 }

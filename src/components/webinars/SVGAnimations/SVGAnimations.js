@@ -7,9 +7,9 @@ function SVGAnimations() {
 	<div className='general-layout'>
 		<h1>Animating SVGs</h1>
 		<TabLayout 
-		tabs={['video', 'concept', 'handout']}
-		content={<SVGVideo />}
-		concept={<SVGContent />}
+		backButtonBoolean={true}
+		tabs={['video', 'handout']}
+		contentArray={[ <SVGVideo />, <SVGContent /> ]}
 		/>
 
 	</div> 

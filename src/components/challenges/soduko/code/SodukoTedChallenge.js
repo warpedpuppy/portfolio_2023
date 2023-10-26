@@ -64,7 +64,8 @@ export default function SudokuQuadrantChecker(strArr) {
 	}
 	function buildGrid() {
 		let grid = document.querySelector('#soduko-grid');
-		grid.classList.add('soduko-grid')
+		grid.innerHTML = "";
+		grid.classList.add('soduko-grid');
 
 		for (let row = 0; row < 9; row++) {
 			for (let col = 0; col < 9; col++) {

@@ -10,9 +10,8 @@ function KlimtBackground() {
       <h1>Klimt-inspired animation</h1>
 
       <TabLayout
-        content={<KlimtCanvas />}
-        code={<h1>code</h1>}
-        concept={<h1>concept</h1>}
+	  backButtonBoolean={true}
+        contentArray={[<KlimtCanvas />]}
       />
     </div>
   );
