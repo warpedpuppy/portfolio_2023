@@ -3,6 +3,7 @@ function ChallengesLanding() {
 	return ( 
 		<GeneralLandingPage
 			title="challenges:"
+			dotColor={'0x990099'}
 			explanatoryText={[`Over the years I've created a lot of challenges for students, friends, and sometimes just myself.`]}
 			links={
 				[

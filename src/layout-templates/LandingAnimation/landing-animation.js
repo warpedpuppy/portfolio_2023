@@ -5,8 +5,9 @@ class LandingAnimationCode {
 	objectQ = 100;
 	angle = 0;
 	increase;
-	constructor(canvasContainer) {
+	constructor(canvasContainer, color) {
 		if (canvasContainer.children.length === 0) {
+			this.color = color;
 			this.canvasContainer = canvasContainer;
 			this.canvasWidth = canvasContainer.offsetWidth;
 			this.canvasHeight = canvasContainer.offsetHeight;
@@ -21,10 +22,10 @@ class LandingAnimationCode {
 		for (let i = 0; i < this.objectQ; i++) {
 			let dot = new PIXI.Sprite(PIXI.Texture.from(`/bmps/dot.png`));
 			dot.radius = Math.floor(Math.random() * 100)
-			dot.tint = 0xFF00FF;
+			dot.tint = this.color;
 			dot.scale.set(0.5);
 			dot.dir = 'out'
-			dot.alpha = Math.random() * 1;
+			dot.alpha = Math.random() * 0.5;
 			let increase = (Math.PI * 2) / this.objectQ;
 			this.angle += increase;
 			dot.angle = this.angle;

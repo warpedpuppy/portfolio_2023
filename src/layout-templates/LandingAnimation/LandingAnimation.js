@@ -1,13 +1,14 @@
 import { useEffect, useRef } from 'react';
 import LandingAnimationCode from './landing-animation';
 
-function LandingAnimation() {
+function LandingAnimation({dotColor}) {
 	const canvasContainer = useRef(null);
 	const gameRef = useRef(null);
 	useEffect( () => {
-		gameRef.current = new LandingAnimationCode(canvasContainer.current);
+		if (gameRef.current) return;
+		gameRef.current = new LandingAnimationCode(canvasContainer.current, dotColor);
 		gameRef.current.start();
-	}, [canvasContainer])
+	}, [canvasContainer, dotColor])
 
 	useEffect( () => () => gameRef.current.stop(), [] );
 

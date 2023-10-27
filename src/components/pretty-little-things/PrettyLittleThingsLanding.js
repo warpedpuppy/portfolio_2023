@@ -3,6 +3,7 @@ function PrettyLittleThingsLanding() {
 	return ( 
 		<GeneralLandingPage
 			title="pretty little things:"
+			dotColor={'0x669900'}
 			explanatoryText={[`Over the years I've created a lot of pretty little things for work and myself.`, `Here are several of them:`]}
 			links={
 				[

@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import LandingAnimation from './LandingAnimation/LandingAnimation';
-function GeneralLandingPage({title, explanatoryText, links}) {
+function GeneralLandingPage({title, explanatoryText, links, dotColor}) {
 	return ( 
 		<div className="general-layout">
 			<div className="landing-page-internal-box">
-			<LandingAnimation />
+			<LandingAnimation dotColor={dotColor} />
 			<h2>{ title } </h2>
 			{
 				(Array.isArray(explanatoryText)) ?

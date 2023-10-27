@@ -4,6 +4,7 @@ function WebinarsLanding() {
 		<GeneralLandingPage
 			title="webinars:"
 			explanatoryText={[`I've taught several webinars, and luckily there's video evidence of three of them:`]}
+			dotColor={'0xFF9900'}
 			links={
 				[
 					{link: "/webinars/solitaire", title: 'Coding Solitaire in JavaScript'},
