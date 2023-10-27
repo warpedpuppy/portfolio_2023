@@ -24,7 +24,8 @@ class LandingAnimationCode {
 			dot.radius = Math.floor(Math.random() * 100)
 			dot.tint = this.color;
 			dot.scale.set((Math.random() * 0.25) + 0.25);
-			dot.dir = 'out'
+			dot.dir = 'out';
+			dot.increment = Math.random()* 1
 			dot.alpha = Math.random() * 0.5;
 			let increase = (Math.PI * 2) / this.objectQ;
 			this.angle += increase;
@@ -36,10 +37,6 @@ class LandingAnimationCode {
 		}
 		this.app.ticker.add(this.ticker);
 	}
-	cosWave (startPoint, differential, speed) {
-		const currentDate = new Date()
-		return startPoint + (Math.cos(currentDate.getTime() * speed) * differential)
-	}
 	stop () {
 		this.objectPool = [];
 		this.app.destroy();
@@ -48,12 +45,12 @@ class LandingAnimationCode {
 		for (let i = 0; i < this.objectQ; i++) {
 			let dot = this.objectPool[i];
 			if (dot.dir === 'out') {
-				dot.radius ++;
+				dot.radius += dot.increment;
 				if (dot.radius > 100) {
 					dot.dir = 'in';
 				}
 			} else {
-				dot.radius --;
+				dot.radius -= dot.increment;
 				if (dot.radius < 0) {
 					dot.dir = 'out';
 				}
