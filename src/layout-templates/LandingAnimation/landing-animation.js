@@ -23,7 +23,7 @@ class LandingAnimationCode {
 			let dot = new PIXI.Sprite(PIXI.Texture.from(`/bmps/dot.png`));
 			dot.radius = Math.floor(Math.random() * 100)
 			dot.tint = this.color;
-			dot.scale.set(0.5);
+			dot.scale.set((Math.random() * 0.25) + 0.25);
 			dot.dir = 'out'
 			dot.alpha = Math.random() * 0.5;
 			let increase = (Math.PI * 2) / this.objectQ;
