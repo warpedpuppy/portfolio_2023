@@ -12,7 +12,7 @@ import Murmuration from './components/challenges/murmuration/Murmuration';
 import ThreeOfAKind from './components/challenges/threeOfAKind/ThreeOfAKind';
 import PatternMaker from './components/challenges/pattern-maker/PatternMaker';
 import Webinars from './components/webinars/Webinars';
-import Challenges from './components/challenges/Challenges';
+import ChallengesLanding from './components/challenges/ChallengesLanding';
 import GameletLanding from './components/games/GameletLanding';
 import PrettyLittleThings from './components/pretty-little-things/PrettyLittleThings';
 import Gamelets from './components/games/Gamelets';
@@ -45,7 +45,7 @@ function App() {
 			<Route path="*" element={<h1>webinars not found</h1>} />
 		</Route>
 		<Route path="challenges" element={<Outlet />}>
-			<Route index element={<Challenges />} />
+			<Route index element={<ChallengesLanding />} />
 			<Route path="fireworks" element={<Fireworks />} />
 			<Route path="soduko" element={<Soduko />} />
 			<Route path="maze-solver" element={<MazeSolver />} />
