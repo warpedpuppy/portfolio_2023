@@ -115,8 +115,6 @@ const Utils =  {
     return color
   },
   cosWave (startPoint, differential, speed) {
-    // place in an onEnterFrame Handler0.0015
-
     const currentDate = new Date()
     return startPoint + (Math.cos(currentDate.getTime() * speed) * differential)
   },

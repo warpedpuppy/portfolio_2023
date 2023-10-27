@@ -11,10 +11,10 @@ import Soduko from './components/challenges/soduko/Soduko';
 import Murmuration from './components/challenges/murmuration/Murmuration';
 import ThreeOfAKind from './components/challenges/threeOfAKind/ThreeOfAKind';
 import PatternMaker from './components/challenges/pattern-maker/PatternMaker';
-import Webinars from './components/webinars/Webinars';
+import WebinarsLanding from './components/webinars/WebinarsLanding';
 import ChallengesLanding from './components/challenges/ChallengesLanding';
 import GameletLanding from './components/games/GameletLanding';
-import PrettyLittleThings from './components/pretty-little-things/PrettyLittleThings';
+import PrettyLittleThingsLanding from './components/pretty-little-things/PrettyLittleThingsLanding';
 import Gamelets from './components/games/Gamelets';
 import KlimtBackground from './components/pretty-little-things/klimt-background/KlimtBackground';
 import PrettyRing from './components/pretty-little-things/pretty-ring/PrettyRing';
@@ -38,7 +38,7 @@ function App() {
 			<Route path="*" element={<h1>home subpage not found</h1>} />
 		</Route>
 		<Route path="webinars" element={<Outlet />}>
-			<Route index element={<Webinars />} />
+			<Route index element={<WebinarsLanding />} />
 			<Route path="solitaire" element={<Solitaire />} />
 			<Route path="svg-animations" element={<SVGAnimations />} />
 			<Route path="web-dev" element={<WebDev />} />
@@ -64,7 +64,7 @@ function App() {
 			<Route path="*" element={<h1>game not found</h1>} />
 		</Route>
 		<Route path="pretty-little-things" element={<Outlet />}>
-			<Route index element={<PrettyLittleThings />} />
+			<Route index element={<PrettyLittleThingsLanding />} />
 			<Route path="glitter" element={<Glitter />} />
 			<Route path="klimt-background" element={<KlimtBackground />} />
 			<Route path="pretty-ring" element={<PrettyRing />} />

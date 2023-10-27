@@ -24,7 +24,11 @@
 		height: 500px;
 		top: -250px;
 		left: -250px;
-		z-index: 1;
+		z-index: -1;
+		canvas {
+			position: relative;
+			z-index: -1;
+		}
 	}
 }
 
