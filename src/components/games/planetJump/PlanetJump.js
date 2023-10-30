@@ -5,7 +5,7 @@ function PlanetJump({game}) {
 	return ( 
 		<GeneralLayout
 		title="planet jump"
-		subtitle="planet jump"
+		subtitle=""
 		component={<GameletCanvas game="planet-jump"/>}
 		/>
 	 ); 

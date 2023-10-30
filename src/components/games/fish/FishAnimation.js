@@ -5,7 +5,7 @@ function FishAnimation({game}) {
 	return ( 
 		<GeneralLayout
 		title="fish animation"
-		subtitle="fish animation"
+		subtitle="a background for a lecture I gave"
 		component={<GameletCanvas game="fish"/>}
 		/>
 	 ); 

@@ -8,6 +8,8 @@ function ChallengesLanding() {
 			links={
 				[
 					{link: "/challenges/fireworks", title: 'step-by-step fireworks'},
+					{link: "/challenges/soduko", title: 'soduko'},
+					{link: "/challenges/three-of-a-kind", title: 'three-of-a-kind'},
 					{link: "/challenges/murmuration", title: 'murmuration'},
 					{link: "/challenges/pattern-maker", title: 'spirograph'}
 				]

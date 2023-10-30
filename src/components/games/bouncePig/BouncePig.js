@@ -5,7 +5,7 @@ function BouncePig({game}) {
 	return ( 
 		<GeneralLayout
 		title="bounce pig"
-		subtitle="bounce pig"
+		subtitle="draw a bounce platform on the animation and send the pig flying"
 		component={<GameletCanvas game="pig"/>}
 		/>
 	 ); 

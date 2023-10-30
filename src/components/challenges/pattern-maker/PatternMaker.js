@@ -5,7 +5,7 @@ function PatternMaker() {
   return (
 	<GeneralLayout 
 	title="spirograph"
-	subtitle="spirograph"
+	subtitle=""
 	component={<PatternMakerContent />}
 	/>
   );

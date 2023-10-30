@@ -6,7 +6,7 @@ function Soduko() {
   return (
 	<GeneralLayout
 	title="soduko error handler"
-	subtitle="the grid belowwill show errors if the same number appears multple times in any row, column, or ninth section."
+	subtitle="the grid below will show errors if the same number appears multple times in any row, column, or ninth section."
 	component={<SodukoContent />}
 	/>
   );

@@ -5,7 +5,7 @@ function Glitter () {
     return (
 		<GeneralLayout
 		title="glitter"
-		subtitle="sub"
+		subtitle=""
 		component={<GlitterCanvas />} />	
 		);
 }

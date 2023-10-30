@@ -6,7 +6,7 @@ function Murmuration() {
   return (
 	<GeneralLayout 
 	title="murmuration"
-	subtitle="murmuration for a lecture series"
+	subtitle="an animation of starlings created for a lecture series"
 	component={<MurmurationContent />}
 	/>
   
