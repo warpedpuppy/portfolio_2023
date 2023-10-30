@@ -1,8 +1,8 @@
-import Utils from './utils'
+import Utils from '../../../../utils/utils'
 import Assets from './assetCreation'
 import Config from './animationsConfig'
 import RainbowSwirls from './rainbowSwirls'
-import Tweens from './Tweens'
+import Tweens from '../../../../utils/Tweens'
 import Planets from './jumpBackground/planets/planet'
 import ThreeInARow from './threeInARow'
 

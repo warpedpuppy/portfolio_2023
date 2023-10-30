@@ -1,4 +1,4 @@
-import Utils from './utils'
+import Utils from '../../../../utils/utils'
 import Assets from './assetCreation'
 import * as PIXI from 'pixijs';
 export default function JumpHero(gv) {

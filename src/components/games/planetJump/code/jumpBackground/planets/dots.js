@@ -1,5 +1,5 @@
 import Assets from '../../assetCreation'
-import Utils from '../../utils'
+import Utils from '../../../../../../utils/utils'
 import Config from '../../animationsConfig'
 
 export default function Dots () {

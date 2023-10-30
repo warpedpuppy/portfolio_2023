@@ -1,6 +1,6 @@
-import Utils from './utils'
+import Utils from '../../../../utils/utils'
 import Assets from './assetCreation'
-import Tweens from './Tweens'
+import Tweens from '../../../../utils/Tweens'
 import Config from './animationsConfig'
 
 export default function ThreeInARow() {

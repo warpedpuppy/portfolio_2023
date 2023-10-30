@@ -15,7 +15,7 @@ const Deck = {
     },
     shuffle: function(arr) {
         let currentIndex = arr.length,  randomIndex;
-        while (currentIndex != 0) {
+        while (currentIndex !== 0) {
           randomIndex = Math.floor(Math.random() * currentIndex);
           currentIndex--;
           // ec6 destructuring allows us define two variables at once!

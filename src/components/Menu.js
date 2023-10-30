@@ -3,12 +3,10 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 function Menu() {
 	const navigate = useNavigate();
-	const [ page, setPage ] = useState('home');
 	const [ collapsed, setCollapsed ] = useState(true)
 
 	function goToPage(e) {
 		let name = e.target.innerText.replace(/ /g, '-')
-		setPage(name);
 		navigate(name);
 		setCollapsed(true);
 	}

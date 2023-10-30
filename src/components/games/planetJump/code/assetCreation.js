@@ -1,6 +1,5 @@
 import * as PIXI from 'pixijs';
-import Utils from './utils'
-import Config from './animationsConfig'
+import Utils from '../../../../utils/utils';
 
 const AssetCreation = {
   utils: Utils,

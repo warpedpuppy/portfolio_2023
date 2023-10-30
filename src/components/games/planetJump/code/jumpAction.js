@@ -1,5 +1,5 @@
-import Utils from './utils'
-import Tweens from './Tweens';
+import Utils from '../../../../utils/utils'
+import Tweens from '../../../../utils/Tweens';
 export default function JumpAction(gv) {
   return {
     gravity: 0.3,

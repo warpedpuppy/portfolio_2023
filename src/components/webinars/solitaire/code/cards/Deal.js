@@ -1,4 +1,3 @@
-import Deck from './Deck.js';
 import Marker from '../visualAssets/Marker.js';
 import Slot from '../visualAssets/Slot.js';
 import VARS from '../utils/Vars.js';
@@ -89,7 +88,6 @@ const Deal = {
         return { adjustedCardCounter: this.cardCounter, adjustedStartY: this.startY }
     },
     createSlots() {
-        let width = 0;
         let allFourSlotWidths = (VARS.cardWidth + VARS.slot_spacer) * 4;
         let xOffset = (VARS.canvas.width - allFourSlotWidths) / 2;
         for (let i = 0; i < 4; i++) {
@@ -103,7 +101,6 @@ const Deal = {
             VARS.slots.push(slot);
             VARS.allVisualAssets.push(slot);
         }
-        width = ( VARS.cardWidth + VARS.slot_spacer) * 3;
     }
 }
 export default Deal;

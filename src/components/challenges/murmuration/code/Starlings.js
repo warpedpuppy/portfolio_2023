@@ -75,7 +75,6 @@ export default class Starling {
   }
   drawBody(pos, atan) {
 	const { engine } = this;
-	let startingWingTop = pos.y - this.wingHeight;
 	let wingHeight = this.cosWave(55, 55, this.wingFlapSpeed);//this.cosWave(startingWingTop, this.wingHeight, this.wingFlapSpeed)
 	let wingHeight2 = this.cosWave(10, this.wingHeight, this.wingFlapSpeed);//this.cosWave(startingWingTop, this.wingHeight, this.wingFlapSpeed)
 	//rotate   

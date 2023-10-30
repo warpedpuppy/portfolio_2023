@@ -72,7 +72,7 @@ export default function LinesCode(canvasContainer) {
     move: function () {
 
 		for (let i = 0 ; i < this.obj.BL.length; i++) {
-			let {start, end} = this.obj.BL[i];
+			// let {start, end} = this.obj.BL[i];
 
 			// let line = new PIXI.Graphics();
 			// start = [0, buffer + i * buffer];

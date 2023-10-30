@@ -1,4 +1,4 @@
-import Utils from "./utils.js";
+
 export default class Graphics {
 	static init(ctx){
 		this.ctx = ctx;

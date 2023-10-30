@@ -1,5 +1,4 @@
 import Utils from '../../../../utils/utils';
-import * as PIXI from 'pixijs';
 import AirBubbles from './airBubbles';
 import Assets from './assetCreation';
 

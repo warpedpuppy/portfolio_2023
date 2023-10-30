@@ -1,9 +1,9 @@
 import Assets from '../../assetCreation'
-import Utils from '../../utils'
+import Utils from '../../../../../../utils/utils'
 import Config from '../../animationsConfig'
 import Dots from './dots'
 import Gremlin from './gremlins'
-import Tweens from '../../Tweens'
+import Tweens from '../../../../../../utils/Tweens'
 
 export default function Planets(gv) {
   return {

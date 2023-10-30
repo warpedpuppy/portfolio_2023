@@ -1,4 +1,3 @@
-import * as PIXI from 'pixijs';
 import Utils from '../../../../utils/utils';
 import Assets from './assetCreation';
 

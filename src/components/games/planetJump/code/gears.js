@@ -1,6 +1,5 @@
 import Assets from './assetCreation'
-import Utils from './utils'
-import Config from './animationsConfig'
+import Utils from '../../../../utils/utils'
 
 export default function Gears (gv) {
   return {
@@ -22,7 +21,7 @@ export default function Gears (gv) {
         gear.alpha = 0.15
         gear.rotate = (Math.random() * 0.01) + 0.01
         if (this.utils.isMobileOnly) {
-          gear.scale.set(Config.mobileOnlyScaling)
+          gear.scale.set(1)
         }
         this.gears.push(gear)
       }

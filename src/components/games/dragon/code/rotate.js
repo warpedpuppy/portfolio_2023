@@ -1,10 +1,8 @@
 import Utils from './utils'
-import Config from './animationsConfig'
 
 export default function Rotate() {
   return {
     utils: Utils,
-    config: Config,
     movementQ: 0.1,
     init () { 
     },

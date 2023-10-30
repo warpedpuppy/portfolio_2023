@@ -18,6 +18,7 @@ const MoveCard = {
                     return true;
                 }
             }
+			return false;
 
         })
 
