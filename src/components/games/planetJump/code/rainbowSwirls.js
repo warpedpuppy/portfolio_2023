@@ -1,6 +1,6 @@
 import Utils from '../../../../utils/utils'
 import Assets from './assetCreation'
-import * as PIXI from 'pixijs';
+import * as PIXI from 'pixi.js';
 export default function RainbowSwirls(gv) {
   return {
     cont: undefined,

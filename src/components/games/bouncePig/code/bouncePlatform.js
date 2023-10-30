@@ -1,4 +1,4 @@
-import * as PIXI from 'pixijs';
+import * as PIXI from 'pixi.js';
 export default function BouncePlatform (gv) {
     return {
         line: PIXI.Sprite.from(gv.sheet.textures["line.gif"]),

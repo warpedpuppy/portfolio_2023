@@ -1,4 +1,4 @@
-import * as PIXI from 'pixijs';
+import * as PIXI from 'pixi.js';
 export default function Clouds (gv) {
     return {
         clouds: [],

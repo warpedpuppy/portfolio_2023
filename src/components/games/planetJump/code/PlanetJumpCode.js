@@ -1,4 +1,4 @@
-import * as PIXI from 'pixijs';
+import * as PIXI from 'pixi.js';
 import JumpHero from './heroJump';
 import JumpBackground from './jumpBackground';
 import AssetCreation from './assetCreation';

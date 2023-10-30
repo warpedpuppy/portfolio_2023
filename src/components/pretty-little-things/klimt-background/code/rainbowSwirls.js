@@ -1,5 +1,5 @@
 import Utils from '../../../../utils/utils';
-import * as PIXI from 'pixijs';
+import * as PIXI from 'pixi.js';
 export default function RainbowSwirls() {
   return {
     cont: undefined,

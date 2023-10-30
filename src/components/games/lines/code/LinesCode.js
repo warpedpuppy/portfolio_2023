@@ -1,4 +1,4 @@
-import * as PIXI from "pixijs";
+import * as PIXI from "pixi.js";
 export default function LinesCode(canvasContainer) {
   return {
     canvasWidth: canvasContainer.offsetWidth,

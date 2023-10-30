@@ -1,4 +1,4 @@
-import * as PIXI from 'pixijs';
+import * as PIXI from 'pixi.js';
 import Utils from './utils';
 import Hero from './hero';
 import BouncePlatform from './bouncePlatform';

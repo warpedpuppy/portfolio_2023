@@ -1,5 +1,5 @@
 import Utils from '../../../../utils/utils';
-import * as PIXI from 'pixijs';
+import * as PIXI from 'pixi.js';
 import Assets from './assetCreation';
 export default function FishSchool() {
   return {

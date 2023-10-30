@@ -1,4 +1,4 @@
-import * as PIXI from "pixijs";
+import * as PIXI from "pixi.js";
 
 export default function Ladybug (Utils, TweenMax, loader_data) {
 	return {

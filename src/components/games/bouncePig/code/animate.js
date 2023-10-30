@@ -1,4 +1,4 @@
-import * as PIXI from 'pixijs';
+import * as PIXI from 'pixi.js';
 export default function Animate(gv) {
   const clouds = gv.clouds.clouds;
   let dot1 = gv.bouncePlatform.dot1,

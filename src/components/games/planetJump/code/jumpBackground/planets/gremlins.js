@@ -1,6 +1,6 @@
 import Assets from '../../assetCreation'
 import Utils from '../../../../../../utils/utils'
-import * as PIXI from 'pixijs';
+import * as PIXI from 'pixi.js';
 // import Config from './animationsConfig';
 export default function Gremlins() {
   return {
