@@ -1,6 +1,7 @@
 .landing-page-internal-box {
 	position: relative;
-	margin: 50px auto;
+	margin: 0 auto;
+	padding: 50px 0;
 	h2, p {
 		margin-bottom: 10px;
 	}
@@ -21,7 +22,7 @@
 		border-radius: 50%;
 		width: 500px;
 		height: 500px;
-		top: -250px;
+		top: -200px;
 		left: -250px;
 		z-index: -1;
 		canvas {
