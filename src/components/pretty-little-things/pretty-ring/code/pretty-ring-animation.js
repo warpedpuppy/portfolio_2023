@@ -30,7 +30,7 @@ class PrettyRingAnimation  {
         app.ticker.add(this.ticker.bind(this));
     }
 	build(init = true) {
-		let radius = Utils.canvasWidth;
+		let radius = Utils.canvasWidth * 0.75 ;
 		let arr = Utils.distributeAroundCircle({x:0, y: 0}, this.totalItems, radius )
 
        
