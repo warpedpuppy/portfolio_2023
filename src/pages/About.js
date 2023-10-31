@@ -16,7 +16,7 @@ function About() {
           out how.
         </p>
         <p>
-          Trying to figure out what to do with this next phase of my life and so far not coming up with anything.
+          Trying to figure out what to do with this next phase of my life and so far not coming up with anything other than spiraling in endless existential crisis.
         </p>
       </div>
     </div>
