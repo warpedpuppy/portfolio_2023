@@ -4,7 +4,6 @@ import FlipPile from '../visualAssets/FlipPile.js';
 import DragContainer from '../visualAssets/DragContainer.js';
 const MoveCard = {
     moveCardListener: function(activeCard) {
-
         let possibleDestinationCards = [...VARS.slots, ...Object.keys(VARS.piles).map(item => Utils.returnLastArrayItem(VARS.piles[item]))];
 
         let target = possibleDestinationCards.find(card => {

@@ -10,7 +10,7 @@ class GlitterAnimation {
 
 	this.dotCont = new PIXI.Container();
 	this.lineCont = new PIXI.Container();
-    this.canvasWidth = Utils.returnCanvasWidth();
+    this.canvasWidth = canvas.offsetWidth;
     this.halfHeight = this.canvasHeight / 2;
     this.halfWidth = this.canvasWidth / 2;
 
