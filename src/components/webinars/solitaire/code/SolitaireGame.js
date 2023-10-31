@@ -4,7 +4,7 @@ import Deck from "./cards/Deck.js";
 import MouseDown from "./action/MouseDown.js";
 import MouseUp from "./action/MouseUp.js";
 import Animate from "./action/Animate.js";
-import { isBrowser, isMobile } from 'react-device-detect';
+import { isMobile } from 'react-device-detect';
 
 class SolitaireGame {
   canvas = undefined;
