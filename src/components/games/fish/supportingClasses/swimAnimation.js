@@ -50,7 +50,7 @@ export default function SwimAnimation(canvasContainer) {
         }
       }
 
-      const app = this.app = new PIXI.Application({ background: 'rbga(0,0,0,0)', resizeTo: canvasContainer })
+      const app = this.app = new PIXI.Application({ background: '#000000', resizeTo: canvasContainer })
       canvasContainer.appendChild(app.view)
       this.stage = app.stage
       this.stage.addChild(this.kingCont)
