@@ -4,6 +4,8 @@ import Deck from "./cards/Deck.js";
 import MouseDown from "./action/MouseDown.js";
 import MouseUp from "./action/MouseUp.js";
 import Animate from "./action/Animate.js";
+import { isBrowser, isMobile } from 'react-device-detect';
+
 class SolitaireGame {
   canvas = undefined;
   initialized = false;
@@ -26,20 +28,32 @@ class SolitaireGame {
 
   stop() {
 	Animate.stop();
-	this.canvas.removeEventListener("mousemove", this.mouseMoveHandler);
-	this.canvas.removeEventListener("mousedown", this.mouseDownHandler);
-	this.canvas.removeEventListener("mouseup", this.mouseUpHandler);
-	this.canvas.removeEventListener("mouseout", this.mouseOutHandler);
-	window.removeEventListener("resize", this.reset)
+	if (isMobile) {
+		this.canvas.removeEventListener("touchmove", this.mouseMoveHandler);
+		this.canvas.removeEventListener("touchstart", this.mouseDownHandler);
+		this.canvas.removeEventListener("touchend", this.mouseUpHandler);
+	} else {
+		this.canvas.removeEventListener("mousemove", this.mouseMoveHandler);
+		this.canvas.removeEventListener("mousedown", this.mouseDownHandler);
+		this.canvas.removeEventListener("mouseup", this.mouseUpHandler);
+		this.canvas.removeEventListener("mouseout", this.mouseOutHandler);
+	}
+	window.removeEventListener("resize", this.reset);
 	this.initialized = false;
   }
 
   addListeners() {
-	window.addEventListener("resize", this.reset)
-	this.canvas.addEventListener("mousemove", this.mouseMoveHandler);
-	this.canvas.addEventListener("mousedown", this.mouseDownHandler);
-	this.canvas.addEventListener("mouseup", this.mouseUpHandler);
-	this.canvas.addEventListener("mouseout", this.mouseOutHandler);
+	if (isMobile) {
+		this.canvas.addEventListener("touchmove", this.mouseMoveHandler);
+		this.canvas.addEventListener("touchstart", this.mouseDownHandler);
+		this.canvas.addEventListener("touchend", this.mouseUpHandler);
+	} else {
+		this.canvas.addEventListener("mousemove", this.mouseMoveHandler);
+		this.canvas.addEventListener("mousedown", this.mouseDownHandler);
+		this.canvas.addEventListener("mouseup", this.mouseUpHandler);
+		this.canvas.addEventListener("mouseout", this.mouseOutHandler);
+	}
+	window.addEventListener("resize", this.reset);
   }
 
   reset = () => {
