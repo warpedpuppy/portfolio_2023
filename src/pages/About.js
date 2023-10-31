@@ -2,7 +2,8 @@ import "./About.scss";
 import AboutAnimation from "./about-animation/AboutAnimation";
 function About() {
   return (
-	<div className="about-wrapper"><AboutAnimation />
+	<div className="about-wrapper">
+	<AboutAnimation />
     <div className="general-layout">
       <div className="landing-page-internal-box">
         
