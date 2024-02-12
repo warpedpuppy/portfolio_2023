@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import HomeAnimation from './HomeAnimation';
+import HomeAnimation from './HomeAnimationFlowers';
 
 function HomeCanvas() {
 
