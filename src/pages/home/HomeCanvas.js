@@ -13,7 +13,7 @@ function HomeCanvas() {
 
 	useEffect( () => () => gameRef.current.stop(), [] );
 
-	return <canvas ref={canvasContainer} />
+	return <div ref={canvasContainer} />
 
 
 }
