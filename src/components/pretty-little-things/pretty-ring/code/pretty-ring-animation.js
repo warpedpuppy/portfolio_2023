@@ -30,7 +30,8 @@ class PrettyRingAnimation  {
         app.ticker.add(this.ticker.bind(this));
     }
 	build(init = true) {
-		let radius = Utils.canvasWidth * 0.75 ;
+		let radius = 200 ;
+
 		let arr = Utils.distributeAroundCircle({x:0, y: 0}, this.totalItems, radius )
 
        
@@ -60,7 +61,7 @@ class PrettyRingAnimation  {
         this.particleContainer.x = (Utils.canvasWidth / 2) ;
         this.particleContainer.y = (Utils.canvasHeight / 2) ;
 
-        Tweens.tween(this.app.stage, 3, {alpha: [0,1]});	
+        Tweens.tween(this.app.stage, 1, {alpha: [0,1]});	
 	}
     pause() {
         this.pauseBoolean = !this.pauseBoolean;
@@ -81,7 +82,7 @@ class PrettyRingAnimation  {
 		window.removeEventListener('resize', this.resize)
     }
     ticker(delta) {
-        if (!this.pauseBoolean) {
+        // if (!this.pauseBoolean) {
             Tweens.animate();
             this.particleContainer.rotation += 0.004;
             for (let i = 0; i < this.totalItems; ++i) {
@@ -93,7 +94,7 @@ class PrettyRingAnimation  {
             }
         }
      
-    }
+    // }
     
 }
 export default PrettyRingAnimation;
