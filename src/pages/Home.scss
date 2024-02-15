@@ -6,7 +6,15 @@
   height: calc(100vh - 50px);
   width: 100vw;
   position: relative;
-
+  #home-page-text {
+	color: white;
+	font-weight: bold;
+	a {
+		color: white;
+		display: inline-block;
+		margin-top: 10px;
+	}
+  }
   canvas {
     height: calc(100vh - 50px);
     width: 100vw;
