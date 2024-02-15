@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import HomeAnimation from './HomeAnimation';
+import HomeAnimation from './HomeAnimationFlowers';
 
 function HomeCanvas() {
 
@@ -13,7 +13,7 @@ function HomeCanvas() {
 
 	useEffect( () => () => gameRef.current.stop(), [] );
 
-	return <canvas ref={canvasContainer} />
+	return <div ref={canvasContainer} />
 
 
 }
