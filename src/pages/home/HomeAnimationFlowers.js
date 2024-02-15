@@ -18,29 +18,64 @@ export default class HomeAnimationFlowers {
     this.center = { x: this.halfWidth, y: this.halfHeight };
     this.contextRotation = 0;
     this.flowers = [];
-    this.flowerQ = 4;
+    this.flowerQ = 10;
     this.spin = 0;
+	this.colors =  [0x62FA34, 0x440FFA, 0xFA0F3E, "#FA0FCB"];
 
     this.app = new PIXI.Application({
-      background: "#1099bb",
+      background: "#7A0DFC",
       resizeTo: window,
     });
 	this.canvas.appendChild(this.app.view);
   }
   start() {
 	
-    this.petal = PIXI.Sprite.from("/bmps/petal.png");
-    this.app.stage.addChild(this.petal);
+	for (let i = 0; i < this.flowerQ; i ++) {
+		let flower = this.flower(Utils.randomIntBetween(10, 30));
+		flower.x = Utils.randomNumberBetween(0, this.canvasWidth);
+		flower.y = Utils.randomNumberBetween(0, this.canvasHeight);
+		flower.alpha = 0.5;
+		this.flowers.push(flower)
+    this.app.stage.addChild(flower);
+	}
+    
 
     // center the sprite's anchor point
-    this.petal.anchor.set(0.5, 1);
+    
     this.app.ticker.add((delta) => this.tick(delta));
     window.addEventListener("resize", this.resizeHandler.bind(this));
+  }
+  petal () {
+	let petal = PIXI.Sprite.from("/bmps/petal.png");
+	petal.anchor.set(0.5, 1);
+	return petal;
+  }
+  flower (petalCount) {
+	let p;
+	let cont = new PIXI.Container();
+	cont.petals = [];
+	let scale = 1;
+	cont.petalCount = petalCount;
+	for (let i = 0; i < petalCount; i++) {
+
+		let spacing = 360 / petalCount;
+		let radians = (spacing* i) * (Math.PI / 180);
+		p = this.petal();
+		p.tint = Utils.randomItemFromArray(this.colors)
+		// p.
+		p.scaleShift = Utils.randomNumberBetween(0.00005, 0.002);
+		p.scale.set(scale *= 0.95)
+		p.rotation = radians;
+		cont.petals.push(p);
+		cont.addChildAt(p, 0)
+	}
+	return cont;
   }
   stop() {
     window.removeEventListener("resize", this.resizeHandler);
   }
   resizeHandler() {
+	
     this.canvasWidth = window.innerWidth;
     this.canvasHeight = window.innerHeight;
     this.halfWidth = this.canvasWidth / 2;
@@ -48,6 +83,11 @@ export default class HomeAnimationFlowers {
     this.center = { x: this.halfWidth, y: this.halfHeight };
     this.canvas.setAttribute("width", this.canvasWidth);
     this.canvas.setAttribute("height", this.canvasHeight);
+	for (let i = 0; i < this.flowerQ; i ++) {
+		let flower = this.flowers[i];
+		flower.x = Utils.randomNumberBetween(0, this.canvasWidth);
+		flower.y = Utils.randomNumberBetween(0, this.canvasHeight);
+	}
   }
   distributeAroundCircle(circleCenter, radius, i) {
     const x =
@@ -57,5 +97,13 @@ export default class HomeAnimationFlowers {
     return { x, y };
   }
   shape(x, y, img) {}
-  tick = (delta) => {this.petal.rotation += 0.1 * delta;};
+  tick = (delta) => {
+	for (let i = 0; i < this.flowerQ; i ++) {
+		let flower = this.flowers[i];
+		for (let j = 0; j < flower.petalCount; j ++) {
+			flower.petals[j].scale.set(Utils.cosWave(0.5, 0.25, flower.petals[j].scaleShift))
+		}
+		flower.rotation += 0.004
+	}
+  };
 }
