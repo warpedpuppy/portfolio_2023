@@ -10,6 +10,8 @@ export default class HomeAnimationFlowers {
     this.halfHeight = this.canvasHeight / 2;
     this.canvas.setAttribute("width", this.canvasWidth);
     this.canvas.setAttribute("height", this.canvasHeight);
+
+	this.mini = this.canvasWidth < 768 ? true : false;
     // this.ctx = canvas.getContext("2d");
     this.maxDistance = Math.max(this.halfWidth, this.halfHeight) * 1.2;
     this.itemQ = 50;
@@ -23,7 +25,7 @@ export default class HomeAnimationFlowers {
 	this.colors =  [0x62FA34, 0x440FFA, 0xFA0F3E, "#FA0FCB"];
 
     this.app = new PIXI.Application({
-      background: "#FFFFFF",//"#7A0DFC",
+      background: "#FFFFFF",
       resizeTo: window,
     });
 	this.canvas.appendChild(this.app.view);
@@ -69,6 +71,7 @@ export default class HomeAnimationFlowers {
 		cont.petals.push(p);
 		cont.addChildAt(p, 0)
 	}
+	cont.scale.set(this.mini ? 0.5 : 1 );
 	return cont;
   }
   stop() {
@@ -78,6 +81,7 @@ export default class HomeAnimationFlowers {
 	
     this.canvasWidth = window.innerWidth;
     this.canvasHeight = window.innerHeight;
+	this.mini = this.canvasWidth < 768 ? true : false;
     this.halfWidth = this.canvasWidth / 2;
     this.halfHeight = this.canvasHeight / 2;
     this.center = { x: this.halfWidth, y: this.halfHeight };
@@ -85,6 +89,7 @@ export default class HomeAnimationFlowers {
     this.canvas.setAttribute("height", this.canvasHeight);
 	for (let i = 0; i < this.flowerQ; i ++) {
 		let flower = this.flowers[i];
+		flower.scale.set(this.mini ? 0.5 : 1 );
 		flower.x = Utils.randomNumberBetween(0, this.canvasWidth);
 		flower.y = Utils.randomNumberBetween(0, this.canvasHeight);
 	}
