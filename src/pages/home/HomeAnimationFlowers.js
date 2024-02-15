@@ -23,7 +23,7 @@ export default class HomeAnimationFlowers {
 	this.colors =  [0x62FA34, 0x440FFA, 0xFA0F3E, "#FA0FCB"];
 
     this.app = new PIXI.Application({
-      background: "#7A0DFC",
+      background: "#FFFFFF",//"#7A0DFC",
       resizeTo: window,
     });
 	this.canvas.appendChild(this.app.view);
