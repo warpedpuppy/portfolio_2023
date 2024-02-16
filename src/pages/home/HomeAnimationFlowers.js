@@ -36,7 +36,7 @@ export default class HomeAnimationFlowers {
 		let flower = this.flower(Utils.randomIntBetween(10, 30));
 		flower.x = Utils.randomNumberBetween(0, this.canvasWidth);
 		flower.y = Utils.randomNumberBetween(0, this.canvasHeight);
-		flower.alpha = 0.5;
+		flower.alpha = 0.25;
 		this.flowers.push(flower)
     this.app.stage.addChild(flower);
 	}
