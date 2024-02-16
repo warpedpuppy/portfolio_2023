@@ -58,6 +58,8 @@ export default class HomeAnimationFlowers {
 	cont.petals = [];
 	let scale = 1;
 	cont.petalCount = petalCount;
+	cont.spinSpeed = Utils.randomNumberBetween(0.25, 0.75);
+	cont.spinSpeed = Math.floor(Math.random() * 2) > 0 ? -cont.spinSpeed : cont.spinSpeed ;
 	for (let i = 0; i < petalCount; i++) {
 
 		let spacing = 360 / petalCount;
@@ -108,7 +110,7 @@ export default class HomeAnimationFlowers {
 		for (let j = 0; j < flower.petalCount; j ++) {
 			flower.petals[j].scale.set(Utils.cosWave(0.5, 0.25, flower.petals[j].scaleShift))
 		}
-		flower.rotation += 0.004
+		flower.rotation += flower.spinSpeed * (Math.PI / 180);
 	}
   };
 }
