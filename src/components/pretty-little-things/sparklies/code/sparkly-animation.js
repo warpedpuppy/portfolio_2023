@@ -4,8 +4,8 @@ import * as PIXI from 'pixi.js';
 class SparklyAnimation {
         utils = Utils;
         fs = [];
-        fq = 150;
-        starQ = 200;
+        fq = 50;
+        starQ = 50;
         range = 100;
         topAlpha = 1.5;
         colors = [ 0xff7575, 0xffb775, 0xfff175, 0xc3ff76, 0x7bffb8, 0x7de8ff, 0x799fff, 0xff93f7];
