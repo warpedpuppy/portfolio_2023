@@ -15,7 +15,7 @@ function CrystalBallCanvas() {
   	<div id="crystal-ball-unifier">
         <div id="canvas-div" ref={canvasRef}></div>
         {/* <img alt="lower-half-of-promo" src='/bmps/bottom-graphic.png' /> */}
-        <div id="scroll-cover"></div>
+        {/* <div id="scroll-cover"></div> */}
 	</div>
 	);
 }
