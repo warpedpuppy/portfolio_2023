@@ -14,7 +14,14 @@ function GeneralLandingPage({title, explanatoryText, links, dotColor}) {
 			}
 			<ul>
 				{
-					links.map( (link, index) => <li key={`link${index}`}><Link to={ link.link }>{ link.title }</Link></li>)
+					links.map( (link, index) => (<li key={`link${index}`}>
+						<Link to={ link.link } 
+
+						 target={ link.link.includes("http") ? "_blank" : '' }
+
+					>{ link.title }</Link></li>)
+					
+					)
 				}
 			</ul>
 			</div>

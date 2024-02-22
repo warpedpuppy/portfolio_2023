@@ -18,7 +18,10 @@ function PrettyLittleThingsLanding() {
 					{link: "/challenges/pattern-maker", title: 'spirograph'},
 					{link: "/gamelets/pig", title: 'pig'},
 					{link: "/gamelets/fish", title: 'fish'},
-					{link: "/gamelets/planet-jump", title: 'planet jump'}
+					{link: "/gamelets/planet-jump", title: 'planet jump'},
+					{link: "/pretty-little-things/crystal-ball", title: 'maine media crystal ball'},
+					{link: "https://stately-sunshine-f0bb02.netlify.app/", title: 'super fun site'},
+					{link: "https://gentle-churros-c83d46.netlify.app/", title: 'css handout'}
 				]
 			}
 			/>
