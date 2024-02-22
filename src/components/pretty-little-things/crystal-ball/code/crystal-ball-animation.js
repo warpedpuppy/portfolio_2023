@@ -5,10 +5,12 @@ class CrystalBallAnimation {
 
         if (canvas.children.length) return;
 
+		this.canvas = canvas;
+
         const app = new PIXI.Application({
             width: 750,
             height: 699,
-            resolution: window.devicePixelRatio || 1,
+			resolution: window.devicePixelRatio || 1,
             transparent: true
         });
 		this.app = app;
@@ -115,14 +117,21 @@ class CrystalBallAnimation {
             clouds.rotation -= 0.001 * newScale;
         });
         
-        
+        window.addEventListener('resize', this.resize)
     }
     cosWave (startPoint, differential, speed) {
         var currentDate = new Date();
         return startPoint + (Math.cos(currentDate.getTime() * speed) * differential);
     }
+	resize = () => {
+		this.canvasWidth = this.canvas.offsetWidth;
+		this.canvasHeight = this.canvas.offsetHeight;
+		this.app.resize()
+
+	  }
 	stop() {
 		this.app.destroy();
+		window.removeEventListener('resize', this.resize)
 	}
 
 

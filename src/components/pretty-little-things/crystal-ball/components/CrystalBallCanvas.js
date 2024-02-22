@@ -11,8 +11,12 @@ function CrystalBallCanvas() {
 
   useEffect(() => () => gameRef.current.stop(), []);
 
-  return <div className="crystal-ball-cont">
-	<div className="plt-canvas canvas-pixi-cont" ref={canvasRef} />
-	</div>;
+  return (
+  	<div id="crystal-ball-unifier">
+        <div id="canvas-div" ref={canvasRef}></div>
+        {/* <img alt="lower-half-of-promo" src='/bmps/bottom-graphic.png' /> */}
+        <div id="scroll-cover"></div>
+	</div>
+	);
 }
 export default CrystalBallCanvas;
