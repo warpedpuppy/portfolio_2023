@@ -26,6 +26,7 @@ import PlanetJump from './components/games/planetJump/PlanetJump';
 import About from './pages/About';
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import WebDev from './components/webinars/web-dev/WebDev';
+import CrystalBall from './components/pretty-little-things/crystal-ball/CrystalBall';
 
 function App() {
   return (
@@ -69,6 +70,7 @@ function App() {
 			<Route path="klimt-background" element={<KlimtBackground />} />
 			<Route path="pretty-ring" element={<PrettyRing />} />
 			<Route path="sparklies" element={<Sparklies />} />
+			<Route path="crystal-ball" element={<CrystalBall />} />
 			<Route path="*" element={<h1>pretty little thing not found</h1>} />
 		</Route>
 		<Route path="about" element={<Outlet />}>
