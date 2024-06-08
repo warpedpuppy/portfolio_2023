@@ -27,7 +27,9 @@ import About from './pages/About';
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import WebDev from './components/webinars/web-dev/WebDev';
 import CrystalBall from './components/pretty-little-things/crystal-ball/CrystalBall';
-
+import StudentVideosLanding from './components/student-videos/StudentVideosLanding';
+import SettingUpAWS from './components/student-videos/setting-up-aws/SettingUpAWS';
+import DrawingApp from './components/student-videos/drawing-app/DrawingApp';
 function App() {
   return (
 	<BrowserRouter>
@@ -44,6 +46,12 @@ function App() {
 			<Route path="svg-animations" element={<SVGAnimations />} />
 			<Route path="web-dev" element={<WebDev />} />
 			<Route path="*" element={<h1>webinars not found</h1>} />
+		</Route>
+		<Route path="web-instruction" element={<Outlet />}>
+			<Route index element={<StudentVideosLanding />} />
+			<Route path="setting-up-aws" element={<SettingUpAWS />} />
+			<Route path="drawing-app" element={<DrawingApp />} />
+			<Route path="*" element={<h1>web instruction not found</h1>} />
 		</Route>
 		<Route path="challenges" element={<Outlet />}>
 			<Route index element={<ChallengesLanding />} />
