@@ -2,7 +2,7 @@
 
 import TabLayout from "../../../layout-templates/tabs/TabLayout";
 import LoomVideos from "../LoomVideos";
-function SettingUpAWS() {
+function ConvertCssToSass() {
   
   return (
     <div className="general-layout">
@@ -10,11 +10,11 @@ function SettingUpAWS() {
       <TabLayout
 	   active="2"
 	   	backButtonBoolean={true}
-        tabs={["setting up aws"]}
-		contentArray={[ <LoomVideos link="https://www.loom.com/embed/25746965ed3d407d824b5381043ff68a?sid=ae94fa04-f965-4d83-b347-27603eed1cf4" /> ]}
+        tabs={["convert css to sass"]}
+		contentArray={[ <LoomVideos link="https://www.loom.com/embed/a1e4e6656f3c4142a4d40a3e8ea2b30b?sid=75c24465-5e67-4ec8-b251-d38e355e52a2" /> ]}
       />
     </div>
   );
 }
 
-export default SettingUpAWS;
+export default ConvertCssToSass;

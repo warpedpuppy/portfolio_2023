@@ -7,8 +7,10 @@ function StudentVideosLanding() {
 			dotColor={'0xFF9900'}
 			links={
 				[
+					
+					{link: "/web-instruction/drawing-app", title: 'Drawing App'},
 					{link: "/web-instruction/setting-up-aws", title: 'Setting up AWS'},
-					{link: "/web-instruction/drawing-app", title: 'Drawing App'}
+					{link: "/web-instruction/css-to-sass", title: 'Convert CSS to Sass'}
 				]
 			}
 			/>

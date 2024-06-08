@@ -1,7 +1,7 @@
 
 
 import TabLayout from "../../../layout-templates/tabs/TabLayout";
-import DrawingAppVideo from "./DrawingAppVideo";
+import LoomVideos from "../LoomVideos";
 function DrawingApp() {
   
   return (
@@ -11,7 +11,7 @@ function DrawingApp() {
 	   active="2"
 	   	backButtonBoolean={true}
         tabs={["drawing app"]}
-		contentArray={[ <DrawingAppVideo /> ]}
+		contentArray={[ <LoomVideos link="https://www.loom.com/embed/c153c01554694b999d912aace0da0440?sid=192180b7-c7a7-419d-bb26-91b3540fc8e4" /> ]}
       />
     </div>
   );

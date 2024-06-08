@@ -30,6 +30,7 @@ import CrystalBall from './components/pretty-little-things/crystal-ball/CrystalB
 import StudentVideosLanding from './components/student-videos/StudentVideosLanding';
 import SettingUpAWS from './components/student-videos/setting-up-aws/SettingUpAWS';
 import DrawingApp from './components/student-videos/drawing-app/DrawingApp';
+import ConvertCssToSass from './components/student-videos/css-sass/ConvertCssToSass';
 function App() {
   return (
 	<BrowserRouter>
@@ -51,6 +52,7 @@ function App() {
 			<Route index element={<StudentVideosLanding />} />
 			<Route path="setting-up-aws" element={<SettingUpAWS />} />
 			<Route path="drawing-app" element={<DrawingApp />} />
+			<Route path="css-to-sass" element={<ConvertCssToSass />} />
 			<Route path="*" element={<h1>web instruction not found</h1>} />
 		</Route>
 		<Route path="challenges" element={<Outlet />}>
