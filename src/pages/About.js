@@ -29,6 +29,11 @@ function About() {
         <dd>And now loves to code in its stead.</dd>
 		</dl>
       </div>
+	  <hr />
+        <dl className="contact">
+        <dt>contact:</dt>
+        <dd>ted at warpedpuppy dot com</dd>
+		</dl>
     </div>
 	</div>
   );

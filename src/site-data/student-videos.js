@@ -24,6 +24,11 @@ const StudentVideos = {
 	tab:"flex box",
 	link:"https://www.loom.com/embed/1c7ea14e50234d58a910a3d226de604d?sid=5ebc8908-ccc5-4f35-8687-86a2b50e2768"
   },
+  grid: {
+	title:"css grid",
+	tab:"css grid",
+	link:"https://www.loom.com/embed/68436e078b5e4fcfa7422a45176298c2?sid=1ac28444-acad-4090-9bcc-7b6c2d0ab870"
+  },
 };
 export default StudentVideos;
 

@@ -13,6 +13,7 @@ function StudentVideosLanding() {
 					{link: "/web-instruction/css-to-sass", title: 'Convert CSS to Sass'},
 					{link: "/web-instruction/css-positioning", title: 'Positioning in CSS'},
 					{link: "/web-instruction/flex-box", title: 'Flex Box in CSS'},
+					{link: "/web-instruction/grid", title: 'Grid in CSS'},
 				]
 			}
 			/>

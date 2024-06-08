@@ -54,6 +54,7 @@ function App() {
           <Route path="css-to-sass" element={<CurriculumVideoTemplate {...StudentVideos.cssToSass} />} />
           <Route path="css-positioning" element={ <CurriculumVideoTemplate {...StudentVideos.cssPositioning} />} />
 		  <Route path="flex-box" element={ <CurriculumVideoTemplate {...StudentVideos.flexBox} />} />
+		  <Route path="grid" element={ <CurriculumVideoTemplate {...StudentVideos.grid} />} />
           <Route path="*" element={<h1>web instruction not found</h1>} />
         </Route>
         <Route path="challenges" element={<Outlet />}>
