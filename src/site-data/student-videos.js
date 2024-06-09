@@ -47,5 +47,17 @@ const StudentVideos = {
 	link:"https://www.loom.com/embed/0287c61107304b9985b45dfd4306367e?sid=a4803a83-5143-44e5-9bfd-9481a8fac6ad",
 	landingPageData: {link: "/web-instruction/native-css-variables", title: 'Native Variables in CSS'},
   },
+  forVersusForEach: {
+	title:"for versus forEach",
+	tab:"",
+	link:"https://www.loom.com/embed/efe6f476eee345729ecda14e531335ec?sid=b537292e-8f88-45cc-9dcd-3c0e8e92e6ec",
+	landingPageData: {link: "/web-instruction/for-v-forEach", title: 'For versus forEach'},
+  },
+  crudEndpoints: {
+	title:"crud endpoints",
+	tab:"",
+	link:"https://www.loom.com/embed/30950d2e878344c78a167bbb3155429c?sid=8eb48550-d87c-4b50-94f6-b605a4143a6c",
+	landingPageData: {link: "/web-instruction/crud-endpoints", title: 'CRUD Endpoints'},
+  },
 };
 export default StudentVideos;

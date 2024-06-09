@@ -38,11 +38,13 @@ function App() {
           <Route path="drawing-app" element={<CurriculumVideoTemplate {...StudentVideos.drawingApp} />} />
           <Route path="css-to-sass" element={<CurriculumVideoTemplate {...StudentVideos.cssToSass} />} />
           <Route path="css-positioning" element={ <CurriculumVideoTemplate {...StudentVideos.cssPositioning} />} />
-		  <Route path="flex-box" element={ <CurriculumVideoTemplate {...StudentVideos.flexBox} />} />
-		  <Route path="grid" element={ <CurriculumVideoTemplate {...StudentVideos.grid} />} />\
-		  <Route path="units-of-measurement" element={ <CurriculumVideoTemplate {...StudentVideos.unitsOfMeasurement} />} />
+          <Route path="flex-box" element={ <CurriculumVideoTemplate {...StudentVideos.flexBox} />} />
+          <Route path="grid" element={ <CurriculumVideoTemplate {...StudentVideos.grid} />} />\
+          <Route path="units-of-measurement" element={ <CurriculumVideoTemplate {...StudentVideos.unitsOfMeasurement} />} />
           <Route path="native-css-variables" element={ <CurriculumVideoTemplate {...StudentVideos.nativeCSSVariables} />} />
-		  <Route path="*" element={<h1>web instruction not found</h1>} />
+          <Route path="for-v-forEach" element={ <CurriculumVideoTemplate {...StudentVideos.forVersusForEach} />} />
+          <Route path="crud-endpoints" element={ <CurriculumVideoTemplate {...StudentVideos.crudEndpoints} />} />
+          <Route path="*" element={<h1>web instruction not found</h1>} />
         </Route>
         <Route path="pretty-little-things" element={<Outlet />}>
           <Route index element={<PrettyLittleThingsLanding />} />
@@ -51,13 +53,13 @@ function App() {
           <Route path="pretty-ring" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.prettyRing} />} />
           <Route path="sparklies" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.sparklies} />} />
           <Route path="crystal-ball" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.crystalBall} />} />
-		  <Route path="fireworks" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.fireworks} />} />
+          <Route path="fireworks" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.fireworks} />} />
           <Route path="soduko" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.soduko} />} />
           <Route path="maze-solver"element={<PrettyLittleThingsTemplate {...PrettyLittleThings.mazeSolver} />} />
           <Route path="murmuration" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.murmuration} />} />
           <Route path="three-of-a-kind"element={<PrettyLittleThingsTemplate {...PrettyLittleThings.threeOfAKind} />} />
           <Route path="pattern-maker" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.patternMaker} />} />
-		  <Route path="fish" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.fish} />} />
+          <Route path="fish" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.fish} />} />
           <Route path="pig" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.pig} />} />
           <Route path="planet-jump" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.planetJump} />} />
           <Route path="*" element={<h1>pretty little thing not found</h1>} />
