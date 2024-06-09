@@ -35,6 +35,11 @@ const StudentVideos = {
 	link:"https://www.loom.com/embed/68436e078b5e4fcfa7422a45176298c2?sid=1ac28444-acad-4090-9bcc-7b6c2d0ab870",
 	landingPageData: {link: "/web-instruction/grid", title: 'Grid in CSS'},
   },
+  unitsOfMeasurement: {
+	title:"units of measurement in css",
+	tab:"",
+	link:"https://www.loom.com/embed/f610981339a141ccbea2851f8b463ea2?sid=45ea77de-ff80-4e2b-8ef4-d33046c87c00",
+	landingPageData: {link: "/web-instruction/units-of-measurement", title: 'Units of Measurement in css'},
+  },
 };
 export default StudentVideos;
-
