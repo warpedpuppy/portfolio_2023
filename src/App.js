@@ -5,31 +5,16 @@ import Home from "./pages/Home";
 import Menu from "./components/Menu";
 import Solitaire from "./components/webinars/solitaire/Solitaire";
 import SVGAnimations from "./components/webinars/SVGAnimations/SVGAnimations";
-import Fireworks from "./components/challenges/fireworks/Fireworks";
-import MazeSolver from "./components/challenges/mazeSolver/MazeSolver";
-import Soduko from "./components/challenges/soduko/Soduko";
-import Murmuration from "./components/challenges/murmuration/Murmuration";
-import ThreeOfAKind from "./components/challenges/threeOfAKind/ThreeOfAKind";
-import PatternMaker from "./components/challenges/pattern-maker/PatternMaker";
 import WebinarsLanding from "./components/webinars/WebinarsLanding";
-import ChallengesLanding from "./components/challenges/ChallengesLanding";
-import GameletLanding from "./components/games/GameletLanding";
 import PrettyLittleThingsLanding from "./components/pretty-little-things/PrettyLittleThingsLanding";
-import Gamelets from "./components/games/Gamelets";
-import KlimtBackground from "./components/pretty-little-things/klimt-background/KlimtBackground";
-import PrettyRing from "./components/pretty-little-things/pretty-ring/PrettyRing";
-import Sparklies from "./components/pretty-little-things/sparklies/Sparklies";
-import Glitter from "./components/pretty-little-things/glitter/Glitter";
-import BouncePig from "./components/games/bouncePig/BouncePig";
-import FishAnimation from "./components/games/fish/FishAnimation";
-import PlanetJump from "./components/games/planetJump/PlanetJump";
 import About from "./pages/About";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import WebDev from "./components/webinars/web-dev/WebDev";
-import CrystalBall from "./components/pretty-little-things/crystal-ball/CrystalBall";
 import StudentVideosLanding from "./components/student-videos/StudentVideosLanding";
 import CurriculumVideoTemplate from "./components/student-videos/CurriculumVideos";
 import StudentVideos from "./site-data/student-videos";
+import PrettyLittleThingsTemplate from "./components/pretty-little-things/PrettyLittleThingsTemplate";
+import PrettyLittleThings from "./site-data/pretty-little-things";
 function App() {
   return (
     <BrowserRouter>
@@ -57,32 +42,22 @@ function App() {
 		  <Route path="grid" element={ <CurriculumVideoTemplate {...StudentVideos.grid} />} />
           <Route path="*" element={<h1>web instruction not found</h1>} />
         </Route>
-        <Route path="challenges" element={<Outlet />}>
-          <Route index element={<ChallengesLanding />} />
-          <Route path="fireworks" element={<Fireworks />} />
-          <Route path="soduko" element={<Soduko />} />
-          <Route path="maze-solver" element={<MazeSolver />} />
-          <Route path="murmuration" element={<Murmuration />} />
-          <Route path="three-of-a-kind" element={<ThreeOfAKind />} />
-          <Route path="pattern-maker" element={<PatternMaker />} />
-          <Route path="*" element={<h1>challenge not found</h1>} />
-        </Route>
-        <Route path="gamelets" element={<Outlet />}>
-          <Route index element={<GameletLanding />} />
-          <Route path="dragon" element={<Gamelets game="dragon" />} />
-          <Route path="fish" element={<FishAnimation />} />
-          <Route path="pig" element={<BouncePig />} />
-          <Route path="planet-jump" element={<PlanetJump />} />
-          <Route path="lines" element={<Gamelets game="lines" />} />
-          <Route path="*" element={<h1>game not found</h1>} />
-        </Route>
         <Route path="pretty-little-things" element={<Outlet />}>
           <Route index element={<PrettyLittleThingsLanding />} />
-          <Route path="glitter" element={<Glitter />} />
-          <Route path="klimt-background" element={<KlimtBackground />} />
-          <Route path="pretty-ring" element={<PrettyRing />} />
-          <Route path="sparklies" element={<Sparklies />} />
-          <Route path="crystal-ball" element={<CrystalBall />} />
+          <Route path="glitter" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.glitter} />} />
+          <Route path="klimt-background" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.klimt} />} />
+          <Route path="pretty-ring" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.prettyRing} />} />
+          <Route path="sparklies" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.sparklies} />} />
+          <Route path="crystal-ball" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.crystalBall} />} />
+		  <Route path="fireworks" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.fireworks} />} />
+          <Route path="soduko" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.soduko} />} />
+          <Route path="maze-solver"element={<PrettyLittleThingsTemplate {...PrettyLittleThings.mazeSolver} />} />
+          <Route path="murmuration" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.murmuration} />} />
+          <Route path="three-of-a-kind"element={<PrettyLittleThingsTemplate {...PrettyLittleThings.threeOfAKind} />} />
+          <Route path="pattern-maker" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.patternMaker} />} />
+		  <Route path="fish" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.fish} />} />
+          <Route path="pig" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.pig} />} />
+          <Route path="planet-jump" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.planetJump} />} />
           <Route path="*" element={<h1>pretty little thing not found</h1>} />
         </Route>
         <Route path="about" element={<Outlet />}>

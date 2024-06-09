@@ -1,4 +1,5 @@
 import Game from "../code/canvas/canvas";
+import './ThreeOfAKind.scss';
 import { useEffect, useRef } from "react";
 function ThreeContent() {
   const canvasRef = useRef(null);

@@ -11,7 +11,7 @@ export default function GameChooser (str) {
 		case "planet-jump":
 			return require('./planetJump/code/PlanetJumpCode');
 		case "fireworks1":
-			return require('../challenges/fireworks/code/StepOne');
+			return require('../pretty-little-things/fireworks/code/StepOne');
 		default:
 		  return './bouncePig/code/BouncePigCode';
 	  }

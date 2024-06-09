@@ -1,32 +1,19 @@
-import GeneralLandingPage from '../../layout-templates/GeneralLandingPage';
+import GeneralLandingPage from "../../layout-templates/GeneralLandingPage";
+import PrettyLittleThings from "../../site-data/pretty-little-things";
 function PrettyLittleThingsLanding() {
-	return ( 
-		<GeneralLandingPage
-			title="pretty little things:"
-			dotColor={'0x669900'}
-			explanatoryText={[`Over the years I've created a lot of pretty little things for work and myself.`, `Here are several of them:`]}
-			links={
-				[
-					{link: "/pretty-little-things/glitter", title: 'glitter'},
-					{link: "/pretty-little-things/klimt-background", title: 'klimt inspired background'},
-					{link: "/pretty-little-things/pretty-ring", title: 'pretty ring'},
-					{link: "/pretty-little-things/sparklies", title: 'sparklies'},
-					{link: "/challenges/fireworks", title: 'step-by-step fireworks'},
-					{link: "/challenges/soduko", title: 'soduko'},
-					{link: "/challenges/three-of-a-kind", title: 'three-of-a-kind'},
-					{link: "/challenges/murmuration", title: 'murmuration'},
-					{link: "/challenges/pattern-maker", title: 'spirograph'},
-					{link: "/gamelets/pig", title: 'pig'},
-					{link: "/gamelets/fish", title: 'fish'},
-					{link: "/gamelets/planet-jump", title: 'planet jump'},
-					{link: "/pretty-little-things/crystal-ball", title: 'maine media crystal ball'},
-					{link: "https://stately-sunshine-f0bb02.netlify.app/", title: 'super fun site'},
-					{link: "https://gentle-churros-c83d46.netlify.app/", title: 'css handout'}
-				]
-			}
-			/>
-	 );
+  return (
+    <GeneralLandingPage
+      title="pretty little things:"
+      dotColor={"0x669900"}
+      explanatoryText={[
+        `Over the years I've created a lot of pretty little things for work and myself.`,
+        `Here are several of them:`,
+      ]}
+      links={Object.values(PrettyLittleThings).map(
+        (item) => item.landingPageData
+      )}
+    />
+  );
 }
 
 export default PrettyLittleThingsLanding;
-

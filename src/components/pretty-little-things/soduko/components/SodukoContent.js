@@ -1,5 +1,6 @@
 import SudokuQuadrantChecker from "../code/SodukoTedChallenge";
 import { useEffect } from "react";
+import "./Soduko.scss";
 function SodukoContent() {
   useEffect(() => {
     SudokuQuadrantChecker();

@@ -1,4 +1,4 @@
-import '../MurmurationCanvas.scss';
+
 import { useEffect, useRef } from 'react';
 import SetUpMurmuration from "../code/index";
 function MurmurationContent() {

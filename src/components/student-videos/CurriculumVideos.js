@@ -6,7 +6,7 @@ function CurriculumVideoTemplate({title, tab, link}) {
     <div className="general-layout">
       <h1>{title}</h1>
       <TabLayout
-	   active="1"
+	    active="1"
 	   	backButtonBoolean={true}
         tabs={[tab]}
 		contentArray={[ <LoomVideos link={link} /> ]}
