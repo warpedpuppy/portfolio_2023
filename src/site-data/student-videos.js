@@ -39,7 +39,13 @@ const StudentVideos = {
 	title:"units of measurement in css",
 	tab:"",
 	link:"https://www.loom.com/embed/f610981339a141ccbea2851f8b463ea2?sid=45ea77de-ff80-4e2b-8ef4-d33046c87c00",
-	landingPageData: {link: "/web-instruction/units-of-measurement", title: 'Units of Measurement in css'},
+	landingPageData: {link: "/web-instruction/units-of-measurement", title: 'Units of Measurement in CSS'},
+  },
+  nativeCSSVariables: {
+	title:"native css variables",
+	tab:"",
+	link:"https://www.loom.com/embed/0287c61107304b9985b45dfd4306367e?sid=a4803a83-5143-44e5-9bfd-9481a8fac6ad",
+	landingPageData: {link: "/web-instruction/native-css-variables", title: 'Native Variables in CSS'},
   },
 };
 export default StudentVideos;

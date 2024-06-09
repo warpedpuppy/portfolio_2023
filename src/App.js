@@ -41,7 +41,8 @@ function App() {
 		  <Route path="flex-box" element={ <CurriculumVideoTemplate {...StudentVideos.flexBox} />} />
 		  <Route path="grid" element={ <CurriculumVideoTemplate {...StudentVideos.grid} />} />\
 		  <Route path="units-of-measurement" element={ <CurriculumVideoTemplate {...StudentVideos.unitsOfMeasurement} />} />
-          <Route path="*" element={<h1>web instruction not found</h1>} />
+          <Route path="native-css-variables" element={ <CurriculumVideoTemplate {...StudentVideos.nativeCSSVariables} />} />
+		  <Route path="*" element={<h1>web instruction not found</h1>} />
         </Route>
         <Route path="pretty-little-things" element={<Outlet />}>
           <Route index element={<PrettyLittleThingsLanding />} />
