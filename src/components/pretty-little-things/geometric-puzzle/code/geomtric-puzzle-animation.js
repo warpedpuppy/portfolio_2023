@@ -6,8 +6,8 @@ class GeometricPuzzleAnimation {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     this.blockSize = 25;
-    this.cols = 20;
-    this.rows = 10;
+    this.cols = 10;
+    this.rows = 5;
     this.colors = ["#65E83A", "#AEE83A"];
     this.clusters = {}
     this.blocksObj = {};
@@ -27,13 +27,15 @@ class GeometricPuzzleAnimation {
     };
     this.leftOffset = (canvas.width - (this.cols * this.blockSize)) / 2
 
-    this.setUp(true);
+    this.setUp();
     this.makeClusters();
     this.makeClusterObject();
     let { dimensions, totalWidth } = this.calculateDimensions();
     this.dimensions = dimensions;
     this.totalWidth = totalWidth;
     this.animate();
+    this.addMouseListeners();
+    window.addEventListener("resize", this.resizeHandler)
   }
 
 
@@ -46,7 +48,21 @@ class GeometricPuzzleAnimation {
       }
     }
   }
+  resizeHandler = () => {
+    this.canvas.width = window.innerWidth;
+    this.canvas.height = window.innerHeight;
+    this.leftOffset = (this.canvas.width - (this.cols * this.blockSize)) / 2;
+    this.setUp();
+    this.makeClusters();
+    this.makeClusterObject();
+    let { dimensions, totalWidth } = this.calculateDimensions();
+    this.dimensions = dimensions;
+    this.totalWidth = totalWidth;
+    this.solveHandler();
+  }
   stop() {
+    window.removeEventListener("resize", this.resizeHandler)
+    this.removeMouseListeners();
     this.allowAnimation = false;
   }
   draw() {
@@ -128,68 +144,78 @@ class GeometricPuzzleAnimation {
   }
 
   // // BUTTONS
-  // document.getElementById("solve").addEventListener("click", e => {
-  //     e.preventDefault();
-  // for (let key in this.blocksObj) {
-  //   let block = this.blocksObj[key];
-  //   block.x = block.storeX;
-  //   block.y = block.storeY;
-  // }
-  // })
 
-  // document.getElementById("start").addEventListener("click", e => {
-  //   e.preventDefault();
-  //   openingLayout();
-  // })
+  solveHandler() {
+    for (let key in this.blocksObj) {
+      let block = this.blocksObj[key];
+      block.x = block.storeX;
+      block.y = block.storeY;
+    }
+  }
 
+  startHandler = () => {
+    this.openingLayout();
+  }
+
+
+  mouseDownHandler = (e) => {
+    // document.body.style.cursor = "grab";
+    const { top } = this.canvas?.getBoundingClientRect()
+    const { clientX, clientY } = e;
+
+    for (let key in this.blocksObj) {
+      const { x, y } = this.blocksObj[key];
+
+      if (this.collisionDetection(clientX, clientY - top, x, y)) {
+        if (!this.blocksObj[key].moveable) break;
+        this.moveArray = this.createDraggableArray(this.blocksObj[key].cluster, clientX, clientY - top);
+      }
+    }
+  }
+
+  mouseUpHandler = () => {
+    // this.canvas.body.style.cursor = "";
+    if (this.moveArray.length) {
+      let block = this.moveArray[0];
+      if (this.squareSquareCollisionDetection(block, { x: block.storeX, y: block.storeY })) {
+        this.moveArray.forEach(item => {
+          item.x = item.storeX;
+          item.moveable = false;
+          item.y = item.storeY;
+        })
+      } else {
+        this.moveArray.forEach(item => {
+          item.x = item.startX;
+          item.y = item.startY;
+        })
+      }
+      this.moveArray = []
+    }
+  }
+  mouseMoveHandler = (e) => {
+    const { top } = this.canvas.getBoundingClientRect()
+    const { clientX, clientY } = e;
+    if (this.moveArray.length) {
+      this.moveArray.forEach(item => {
+        item.x = clientX - item.offsetX;
+        item.y = clientY - top - item.offsetY;
+      })
+    }
+  }
 
   // // MOUSE LISTENERS
-  // window.addEventListener("mousedown", e => {
-  //   document.body.style.cursor = "grab";
-  //   const { clientX, clientY } = e;
-  //   for (let key in this.blocksObj) {
-  //     const { x, y } = this.blocksObj[key];
+  addMouseListeners() {
+    this.canvas.addEventListener("mousedown", this.mouseDownHandler)
+    this.canvas.addEventListener("mouseup", this.mouseUpHandler);
+    this.canvas.addEventListener("mousemove", this.mouseMoveHandler);
 
-  //     if (collisionDetection(clientX, clientY, x, y)) {
-  //       if (!blocksObj[key].moveable) break;
-  //       this.moveArray = createDraggableArray(blocksObj[key].cluster, clientX, clientY);
-  //     }
-  //   }
+  }
+  removeMouseListeners() {
+    this.canvas.removeEventListener("mousedown", this.mouseDownHandler)
+    this.canvas.removeEventListener("mouseup", this.mouseUpHandler);
+    this.canvas.removeEventListener("mousemove", this.mouseMoveHandler);
 
-  // })
-  // window.addEventListener("mouseup", e => {
-  //   document.body.style.cursor = "";
-  //   if (moveArray.length) {
-  //     let block = this.moveArray[0];
-  //     if (squareSquareCollisionDetection(block, { x: block.storeX, y: block.storeY })) {
-  //       this.moveArray.forEach(item => {
-  //         item.x = item.storeX;
-  //         item.moveable = false;
-  //         item.y = item.storeY;
-  //       })
-  //     } else {
-  //       this.moveArray.forEach(item => {
-  //         item.x = item.startX;
-  //         item.y = item.startY;
-  //       })
-  //     }
-  //     this.moveArray = []
-  //   }
-  // });
-  // window.addEventListener("mousemove", e => {
-  //   const { clientX, clientY } = e;
-  //   if (moveArray.length) {
-  //     this.moveArray.forEach(item => {
-  //       item.x = clientX - item.offsetX;
-  //       item.y = clientY - item.offsetY;
-  //     })
-  //   }
-  // });
-
-
-
-
-
+  }
 
   above(item) {
     let blockAbove = this.blocksObj[`row-${item.row - 1}-col-${item.col}`]
