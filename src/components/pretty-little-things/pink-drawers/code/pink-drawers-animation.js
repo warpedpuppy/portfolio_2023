@@ -25,16 +25,23 @@ class PinkDrawersAnimation {
   blockContainers = [];
   blockForegrounds = [];
   blockBackgrounds = [];
+  activeDrawer = undefined;
   constructor(canvas) {
+    this.canvas = canvas;
     let w = canvas.clientWidth, h = canvas.clientHeight;
+    this.canvasHeight = h;
+
     Utils.setWidthAndHeight(w, h);
+
     const app = new PIXI.Application({
       background: '#000000',
       resizeTo: canvas,
     });
+    if (canvas.children.length) return;
     canvas.appendChild(app.view);
 
     const container = new PIXI.Container();
+
     app.stage.addChild(container);
 
     this.totalBoxes = this.horizBoxesQ * this.vertBoxesQ;
@@ -47,7 +54,6 @@ class PinkDrawersAnimation {
     this.shakeAllow = true;
     this.width = w;
     this.height = h;
-
     //make object pools
     for (let j = 0; j < this.beadQ; j++) {
       let b = this.Bead();
@@ -61,8 +67,10 @@ class PinkDrawersAnimation {
 
     this.app.ticker.add(this.animate.bind(this));
     this.resizeHandler();
-    this.rainbowShake();
+
     this.buildBoard()
+    this.rainbowShake();
+    window.onresize = this.resizeHandler;
   }
 
   smallerQs() {
@@ -83,8 +91,8 @@ class PinkDrawersAnimation {
       .endFill();
     return bead;
   }
-  resizeHandler() {
-    this.width = Utils.returnCanvasWidth();
+  resizeHandler = () => {
+    this.width = this.canvas.clientWidth;
     this.height = this.canvasHeight;
     this.clear();
     this.buildBoard(this.backgroundContainer);
@@ -98,7 +106,7 @@ class PinkDrawersAnimation {
   }
   buildBoard() {
     let horizBoxesWidth = this.horizBoxesWidth = this.width / this.horizBoxesQ,
-      vertBoxesHeight = this.height / this.vertBoxesQ,
+      vertBoxesHeight = 50, //this.height / this.vertBoxesQ,
       blockcontainer,
       blockBackground,
       blockForeground;
@@ -120,7 +128,8 @@ class PinkDrawersAnimation {
           .lineTo(horizBoxesWidth, 0)
           .lineTo(horizBoxesWidth, vertBoxesHeight)
           .lineTo(0, vertBoxesHeight)
-          .lineTo(0, 0).endFill();
+          .lineTo(0, 0)
+          .endFill();
         blockcontainer.x = i * horizBoxesWidth + horizBoxesWidth / 2;
         blockcontainer.y = j * vertBoxesHeight + vertBoxesHeight / 2;
         blockcontainer.graphic = blockForeground;
@@ -138,31 +147,25 @@ class PinkDrawersAnimation {
     this.tl = null;
   }
   rainbowShake() {
-    if (this.shakeAllow) {
-      this.shakeAllow = false;
-    } else {
-      return;
-    }
-    //console.log('start rainbow shake!!!!!')
     let newIndex = Math.floor(Math.random() * this.pegs.length);
     let element = this.pegs[newIndex];
     let parent = element.parent;
     parent.removeChild(element);
     parent.addChild(element);
-    let rotateQ = Utils.deg2rad(20);
-    // this.tl = new TimelineMax({ onComplete: done });
-    // this.tl.to(element.graphic, 1, { scaleX: 1.2, scaleY: 1.2, onComplete: this.addBeadsHandler, onCompleteParams: [element] });
-    // this.tl.to(element.graphic, 0.1, { rotation: rotateQ });
-    // this.tl.to(element.graphic, 0.1, { rotation: -rotateQ });
-    // this.tl.to(element.graphic, 0.1, { rotation: rotateQ });
-    // this.tl.to(element.graphic, 0.1, { rotation: -rotateQ });
-    // this.tl.to(element.graphic, 0.1, { rotation: 0 });
-    // this.tl.to(element.graphic, 1, { scaleX: 1, scaleY: 1 });
-    let that = this;
-    // done() {
-    //   that.shakeAllow = true;
-    //   that.rainbowShake();
-    // }
+
+    this.activeDrawer = element.graphic;
+    let rotateQ = Utils.deg2rad(5);
+    element.graphic.scale.set(1.2);
+    element.graphic.rotation = rotateQ;
+    element.graphic.shake = 0;
+    setTimeout(() => this.restore(element.graphic), 1000)
+    this.addBeadsHandler(element)
+  }
+  restore(item) {
+    item.scale.set(1);
+    item.rotation = 0;
+    this.activeDrawer = undefined;
+    setTimeout(this.rainbowShake, 1000)
   }
   addBeadsHandler(element) {
     for (let i = 0; i < this.beadsAtATime; i++) {
@@ -183,15 +186,20 @@ class PinkDrawersAnimation {
     this.beadLoopingQ = this.beadsOnStage.length;
   }
   displayFPS(fps) {
-    // document
-    //   .getElementById('fpsChecker')
-    //   .innerHTML = `current fps = ${Math.round(fps)}`;
+    document
+      .getElementById('fpsChecker')
+      .innerHTML = `current fps = ${Math.round(fps)}`;
 
-    // if (Number(fps) < 10) {
-    // 	this.smallerQs();
-    // }
+    if (Number(fps) < 10) {
+      this.smallerQs();
+    }
   }
   animate() {
+
+
+    if (this.activeDrawer) {
+      this.activeDrawer.rotation = Utils.cosWave(0, Utils.deg2rad(10), 0.05)
+    }
     let gravity = 0.03;
     let bead;
     this.displayFPS(this.app.ticker.FPS)

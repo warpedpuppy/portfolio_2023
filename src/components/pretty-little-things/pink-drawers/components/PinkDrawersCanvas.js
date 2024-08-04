@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
 import PinkDrawersAnimation from "../code/pink-drawers-animation";
+import "./PinkDrawersCanvas.scss";
 
 function PinkDrawersCanvas() {
   const canvasRef = useRef(null);
@@ -10,6 +11,11 @@ function PinkDrawersCanvas() {
 
   useEffect(() => () => gameRef.current.stop(), []);
 
-  return <div className="plt-canvas canvas-pixi-cont" ref={canvasRef} />;
+  return (
+    <div id="pink-drawer-cont">
+      <div id="fpsChecker"></div>
+      <div className="plt-canvas pink-drawer-canvas-cont canvas-pixi-cont" ref={canvasRef} />
+    </div>
+  );
 }
 export default PinkDrawersCanvas;

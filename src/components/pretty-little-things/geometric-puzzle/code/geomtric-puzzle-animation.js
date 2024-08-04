@@ -3,8 +3,21 @@ class GeometricPuzzleAnimation {
   constructor(canvas) {
     this.canvas = canvas
     this.ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+
+    this.init();
+    this.setUp();
+    this.makeClusters();
+    this.makeClusterObject();
+    this.calculateDimensions();
+
+    this.animate();
+    this.addMouseListeners();
+    window.addEventListener("resize", this.resizeHandler);
+  }
+
+  init() {
+    this.canvas.width = window.innerWidth;
+    this.canvas.height = window.innerHeight;
     this.blockSize = 25;
     this.cols = 10;
     this.rows = 5;
@@ -25,24 +38,18 @@ class GeometricPuzzleAnimation {
         return oneMore;
       }
     };
-    this.leftOffset = (canvas.width - (this.cols * this.blockSize)) / 2
+    this.leftOffset = (this.canvas.width - (this.cols * this.blockSize)) / 2;
 
-    this.setUp();
-    this.makeClusters();
-    this.makeClusterObject();
-    let { dimensions, totalWidth } = this.calculateDimensions();
-    this.dimensions = dimensions;
-    this.totalWidth = totalWidth;
-    this.animate();
-    this.addMouseListeners();
-    window.addEventListener("resize", this.resizeHandler)
   }
 
 
   setUp() {
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.cols; j++) {
-        let relativeX = (this.blockSize * j), relativeY = (this.blockSize * i), x = this.leftOffset + relativeX, y = this.blockSize + relativeY;
+        let relativeX = (this.blockSize * j),
+          relativeY = (this.blockSize * i),
+          x = this.leftOffset + relativeX,
+          y = (this.blockSize * 4) + relativeY;
         let color = this.colors[Math.floor(Math.random() * this.colors.length)];
         this.blocksObj[`row-${i}-col-${j}`] = { x, y, moveable: true, relativeX, relativeY, storeX: x, storeY: y, offsetX: 0, offsetY: 0, fillStyle: color, row: i, col: j, cluster: undefined, clusters: [], id: `row-${i}-col-${j}`, startX: undefined, startY: undefined };
       }
@@ -51,13 +58,11 @@ class GeometricPuzzleAnimation {
   resizeHandler = () => {
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
-    this.leftOffset = (this.canvas.width - (this.cols * this.blockSize)) / 2;
+    this.init();
     this.setUp();
     this.makeClusters();
     this.makeClusterObject();
-    let { dimensions, totalWidth } = this.calculateDimensions();
-    this.dimensions = dimensions;
-    this.totalWidth = totalWidth;
+    this.calculateDimensions();
     this.solveHandler();
   }
   stop() {
@@ -90,16 +95,15 @@ class GeometricPuzzleAnimation {
   }
   openingLayout() {
     let startX = (this.canvas.width - this.totalWidth) / 2;
-    let startY = (this.rows * this.blockSize) + (this.blockSize * 2)
-    for (let key in this.clusters) {
-      let cluster = this.clusters[key];
+    let startY = (this.rows * this.blockSize) + (this.blockSize * 4.5);
+    Object.values(this.clusters).forEach((cluster, key) => {
       cluster.forEach(block => {
         block.moveable = true;
         block.x = block.startX = startX + (block.relativeX - this.dimensions[key].minX);
         block.y = block.startY = startY + block.relativeY;
       })
       startX += this.dimensions[key].width + 3;
-    }
+    })
   }
   makeClusterObject() {
     for (let key in this.blocksObj) {
@@ -112,7 +116,7 @@ class GeometricPuzzleAnimation {
     }
   }
   calculateDimensions() {
-    let dimensions = {}, totalWidth = 0;;
+    let dimensions = {}, totalWidth = 0;
     for (let key in this.clusters) {
       let minY = this.canvas.height;
       let maxY = 0;
@@ -128,7 +132,8 @@ class GeometricPuzzleAnimation {
       totalWidth += width;
       dimensions[key] = { width, height: (maxY + this.blockSize) - minY, minX };
     }
-    return { dimensions, totalWidth }
+    this.dimensions = dimensions;
+    this.totalWidth = totalWidth;
   }
   createDraggableArray(cluster, clientX, clientY) {
     let arr = [];
