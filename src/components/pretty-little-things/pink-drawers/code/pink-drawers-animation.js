@@ -1,6 +1,5 @@
 import * as PIXI from "pixi.js";
 import Utils from '../../../../utils/utils';
-import Tweens from '../../../../utils/Tweens';
 
 class PinkDrawersAnimation {
   gv = {};
