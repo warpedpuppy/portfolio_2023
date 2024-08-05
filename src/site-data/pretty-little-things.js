@@ -9,6 +9,8 @@ import PatternMakerContent from '../components/pretty-little-things/pattern-make
 import MurmurationContent from '../components/pretty-little-things/murmuration/components/MumurationContent';
 import GameletCanvas from '../components/games/GameletCanvas';
 import CrystalBallCanvas from '../components/pretty-little-things/crystal-ball/components/CrystalBallCanvas';
+import PinkDrawersCanvas from '../components/pretty-little-things/pink-drawers/components/PinkDrawersCanvas';
+import GeometricPuzzle from '../components/pretty-little-things/geometric-puzzle/components/GeometricPuzzle';
 const PrettyLittleThings = {
   glitter: {
     title: "glitter",
@@ -20,7 +22,7 @@ const PrettyLittleThings = {
     },
   },
   klimt: {
-	title: "klimt inspired spirals",
+    title: "klimt inspired spirals",
     subtitle: "",
     component: <KlimtCanvas />,
     landingPageData: {
@@ -29,7 +31,7 @@ const PrettyLittleThings = {
     },
   },
   prettyRing: {
-	title: "pretty ring",
+    title: "pretty ring",
     subtitle: "",
     component: <PrettyRingCanvas />,
     landingPageData: {
@@ -47,7 +49,7 @@ const PrettyLittleThings = {
     },
   },
   fireworks: {
-	title: "fireworks",
+    title: "fireworks",
     subtitle: "",
     component: <FireworksContent />,
     landingPageData: {
@@ -56,13 +58,13 @@ const PrettyLittleThings = {
     },
   },
   soduko: {
-    title:"soduko error handler",
+    title: "soduko error handler",
     subtitle: "the grid below will show errors if the same number appears multple times in any row, column, or ninth section.",
     component: <SodukoContent />,
     landingPageData: { link: "/pretty-little-things/soduko", title: "soduko" },
   },
   threeOfAKind: {
-    title:"three-of-a-kind checker",
+    title: "three-of-a-kind checker",
     subtitle: "click on adjacent boxes to switch positions",
     component: <ThreeContent />,
     landingPageData: {
@@ -71,42 +73,60 @@ const PrettyLittleThings = {
     },
   },
   murmuration: {
-	title:"murmuration of starlings",
+    title: "murmuration of starlings",
     subtitle: "",
     component: <MurmurationContent />,
     landingPageData: { link: "/pretty-little-things/murmuration", title: "murmuration" },
   },
   patternMaker: {
-	title:"spirograph",
+    title: "spirograph",
     subtitle: "",
     component: <PatternMakerContent />,
     landingPageData: { link: "/pretty-little-things/pattern-maker", title: "spirograph" },
   },
   pig: {
-	title:"pig",
+    title: "pig",
     subtitle: "swipe screen to create jump platform",
-    component: <GameletCanvas game="pig"/>,
+    component: <GameletCanvas game="pig" />,
     landingPageData: { link: "/pretty-little-things/pig", title: "pig" },
   },
   fish: {
-	title:"fish",
+    title: "fish",
     subtitle: "",
-    component: <GameletCanvas game="fish"/>,
+    component: <GameletCanvas game="fish" />,
     landingPageData: { link: "/pretty-little-things/fish", title: "fish" },
   },
   planetJump: {
-	title:"Planet Jump",
+    title: "Planet Jump",
     subtitle: "hit space bar to jump",
-    component: <GameletCanvas game="planet-jump"/>,
+    component: <GameletCanvas game="planet-jump" />,
     landingPageData: { link: "/pretty-little-things/planet-jump", title: "planet jump" },
   },
   crystalBall: {
-	title:"page insert for local organization",
+    title: "page insert for local organization",
     subtitle: "",
     component: <CrystalBallCanvas />,
     landingPageData: {
       link: "/pretty-little-things/crystal-ball",
       title: "maine media crystal ball",
+    },
+  },
+  pinkDrawers: {
+    title: "silly little balls falling out of silly little drawers",
+    subtitle: "conceived as an fps test: can I adjust the quantity of items on the screen as the fps adjusts?",
+    component: <PinkDrawersCanvas />,
+    landingPageData: {
+      link: "/pretty-little-things/pink-drawers",
+      title: "pink drawers",
+    },
+  },
+  geometricPuzzle: {
+    title: "customizable geometric puzzle",
+    subtitle: "made for a codepen challenge",
+    component: <GeometricPuzzle />,
+    landingPageData: {
+      link: "/pretty-little-things/geometric-puzzle",
+      title: "geometric puzzle",
     },
   },
   superFunSite: {
