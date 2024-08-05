@@ -13,7 +13,10 @@ function PinkDrawersCanvas() {
 
   return (
     <div id="pink-drawer-cont">
-      <div id="fpsChecker"></div>
+      <div id="fpsChecker">
+        <p id="fps-checker-fps"></p>
+        <p id="fps-checker-ballQ"></p>
+      </div>
       <div className="plt-canvas pink-drawer-canvas-cont canvas-pixi-cont" ref={canvasRef} />
     </div>
   );

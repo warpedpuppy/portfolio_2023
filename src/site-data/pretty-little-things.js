@@ -113,7 +113,7 @@ const PrettyLittleThings = {
   },
   pinkDrawers: {
     title: "silly little balls falling out of silly little drawers",
-    subtitle: "",
+    subtitle: "conceived as an fps test: can I adjust the quantity of items on the screen as the fps adjusts?",
     component: <PinkDrawersCanvas />,
     landingPageData: {
       link: "/pretty-little-things/pink-drawers",

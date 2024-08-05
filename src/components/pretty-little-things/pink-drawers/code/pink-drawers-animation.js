@@ -54,6 +54,7 @@ class PinkDrawersAnimation {
     this.shakeAllow = true;
     this.width = w;
     this.height = h;
+
     //make object pools
     for (let j = 0; j < this.beadQ; j++) {
       let b = this.Bead();
@@ -73,12 +74,8 @@ class PinkDrawersAnimation {
     window.onresize = this.resizeHandler;
   }
 
-  smallerQs() {
-    this.beadQ = 60;
-    this.beadsAtATime = 20;
-    this.beadRadius = 20;
-  }
   stop() {
+    clearTimeout(this.timeout);
     window.onresize = undefined;
     this.app.ticker.destroy();
   }
@@ -154,20 +151,19 @@ class PinkDrawersAnimation {
     parent.addChild(element);
 
     this.activeDrawer = element.graphic;
-    let rotateQ = Utils.deg2rad(5);
     element.graphic.scale.set(1.2);
-    element.graphic.rotation = rotateQ;
     element.graphic.shake = 0;
-    setTimeout(() => this.restore(element.graphic), 1000)
+    this.timeout = setTimeout(() => this.restore(element.graphic), 1000)
     this.addBeadsHandler(element)
   }
   restore(item) {
     item.scale.set(1);
     item.rotation = 0;
     this.activeDrawer = undefined;
-    setTimeout(this.rainbowShake, 1000)
+    this.timeout = setTimeout(this.rainbowShake, 1000)
   }
   addBeadsHandler(element) {
+
     for (let i = 0; i < this.beadsAtATime; i++) {
       let bead = this.beads[this.beadCounter]
       bead.x = Math.random() * this.horizBoxesWidth - (this.horizBoxesWidth / 2);
@@ -186,12 +182,18 @@ class PinkDrawersAnimation {
     this.beadLoopingQ = this.beadsOnStage.length;
   }
   displayFPS(fps) {
-    document
-      .getElementById('fpsChecker')
-      .innerHTML = `current fps = ${Math.round(fps)}`;
 
-    if (Number(fps) < 10) {
-      this.smallerQs();
+    document
+      .getElementById('fps-checker-fps')
+      .innerHTML = `current fps = ${Math.round(fps)}`;
+    document
+      .getElementById('fps-checker-ballQ')
+      .innerHTML = `current ball per drawer q = ${this.beadsAtATime}`;
+
+    if (Number(fps) < 30) {
+      this.beadsAtATime = 20;
+    } else {
+      this.beadsAtATime = 400;
     }
   }
   animate() {
