@@ -1,20 +1,21 @@
 #home-page {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
+  padding-top: 150px;
   align-items: center;
   height: calc(100vh - 50px);
   width: 100vw;
   position: relative;
   #home-page-text {
-	font-weight: bold;
-	padding: 0 10px;
-	color: black;
-	a {
-		color: black;
-		display: inline-block;
-		margin-top: 10px;
-	}
+    font-weight: bold;
+    padding: 0 10px;
+    color: black;
+    a {
+      color: black;
+      display: inline-block;
+      margin-top: 10px;
+    }
   }
   canvas {
     height: calc(100vh - 50px);

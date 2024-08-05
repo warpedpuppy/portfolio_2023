@@ -1,19 +1,18 @@
 import { useEffect, useRef } from 'react';
-import HomeAnimation from './HomeAnimationFlowers';
+import HomeAnimation from './HomeAnimation';
 
 function HomeCanvas() {
 
-	const canvasContainer = useRef(null);
-	const gameRef = useRef(null);
+  const canvasContainer = useRef(null);
+  const gameRef = useRef(null);
 
-	useEffect( () => {
-		gameRef.current = new HomeAnimation(canvasContainer.current);
-		gameRef.current.start();
-	}, [canvasContainer])
+  useEffect(() => {
+    gameRef.current = new HomeAnimation(canvasContainer.current);
+  }, [canvasContainer])
 
-	useEffect( () => () => gameRef.current.stop(), [] );
+  useEffect(() => () => gameRef.current.stop(), []);
 
-	return <div ref={canvasContainer} />
+  return <canvas ref={canvasContainer} />
 
 
 }
