@@ -6,7 +6,9 @@
     font-size: 1.25rem;
     position: relative;
     z-index: 10;
-    margin: 10px 0 20px;
+    &.subtitle {
+      margin: 10px 0 20px;
+    }
   }
   .content-container {
     margin: 50px 0;

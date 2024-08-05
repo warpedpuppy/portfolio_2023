@@ -64,6 +64,7 @@ function App() {
           <Route path="planet-jump" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.planetJump} />} />
           <Route path="pink-drawers" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.pinkDrawers} />} />
           <Route path="geometric-puzzle" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.geometricPuzzle} />} />
+          <Route path="tropical-plants" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.tropicalPlants} />} />
           <Route path="*" element={<h1>pretty little thing not found</h1>} />
         </Route>
         <Route path="about" element={<Outlet />}>

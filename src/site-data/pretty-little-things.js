@@ -11,6 +11,7 @@ import GameletCanvas from '../components/games/GameletCanvas';
 import CrystalBallCanvas from '../components/pretty-little-things/crystal-ball/components/CrystalBallCanvas';
 import PinkDrawersCanvas from '../components/pretty-little-things/pink-drawers/components/PinkDrawersCanvas';
 import GeometricPuzzle from '../components/pretty-little-things/geometric-puzzle/components/GeometricPuzzle';
+import TropicalPlants from '../components/pretty-little-things/tropical-plants/components/TropicalPlants';
 const PrettyLittleThings = {
   glitter: {
     title: "glitter",
@@ -127,6 +128,15 @@ const PrettyLittleThings = {
     landingPageData: {
       link: "/pretty-little-things/geometric-puzzle",
       title: "geometric puzzle",
+    },
+  },
+  tropicalPlants: {
+    title: "tropical plant graphic",
+    subtitle: "made in a rush for a previous portfolio",
+    component: <TropicalPlants />,
+    landingPageData: {
+      link: "/pretty-little-things/tropical-plants",
+      title: "tropical plants",
     },
   },
   superFunSite: {
