@@ -12,6 +12,7 @@ import CrystalBallCanvas from '../components/pretty-little-things/crystal-ball/c
 import PinkDrawersCanvas from '../components/pretty-little-things/pink-drawers/components/PinkDrawersCanvas';
 import GeometricPuzzle from '../components/pretty-little-things/geometric-puzzle/components/GeometricPuzzle';
 import TropicalPlants from '../components/pretty-little-things/tropical-plants/components/TropicalPlants';
+import Sierpinski from '../components/pretty-little-things/sierpinski/components/Sierpinski';
 const PrettyLittleThings = {
   glitter: {
     title: "glitter",
@@ -137,6 +138,15 @@ const PrettyLittleThings = {
     landingPageData: {
       link: "/pretty-little-things/tropical-plants",
       title: "tropical plants",
+    },
+  },
+  sierpinski: {
+    title: "Sierpinski graphic",
+    subtitle: "",
+    component: <Sierpinski />,
+    landingPageData: {
+      link: "/pretty-little-things/sierpinski",
+      title: "sierpinski",
     },
   },
   superFunSite: {
