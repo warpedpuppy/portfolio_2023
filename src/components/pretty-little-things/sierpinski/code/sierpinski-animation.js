@@ -104,7 +104,6 @@ export default class SierpinkskiAnimation {
     if (graphic.ratio < 1) {
       graphic.ratio += this.ratioIncrease;
     } else if (!graphic.hasNewPoints) {
-      console.log("make new graphic")
       graphic.hasNewPoints = true;
       this.newGraphic(point1, point2, point3);
     }
