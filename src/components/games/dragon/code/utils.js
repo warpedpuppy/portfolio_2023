@@ -77,9 +77,7 @@ const Utils = {
   lineAngle (point1, point2) {
     return Math.atan2(point2.y - point1.y, point2.x - point1.x)
   },
-  numberWithCommas (x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-  },
+
   distanceAndAngle (point1, point2) {
     let xs = 0
     let ys = 0
@@ -127,12 +125,7 @@ const Utils = {
   randomNumberBetween (min, max) {
     return Math.random() * (max - min) + min
   },
-  deg2rad (degree) {
-    return degree * (Math.PI / 180)
-  },
-  rad2deg (radians) {
-    return radians * 180 / Math.PI
-  },
+
   shuffle (array) {
     let currentIndex = array.length
     let temporaryValue; let
@@ -223,13 +216,8 @@ const Utils = {
       b: parseInt(result[3], 16)
     } : null
   },
-  componentToHex (c) {
-    const hex = c.toString(16)
-    return hex.length === 1 ? `0${hex}` : hex
-  },
-  rgbToHex (r, g, b) {
-    return `#${this.componentToHex(r)}${this.componentToHex(g)}${this.componentToHex(b)}`
-  },
+
+
   circleRectangleCollisionRegPointCenter (circle, rect) {
     const distX = Math.abs(circle.x - rect.x - rect.width * 0.25)
     const distY = Math.abs(circle.y - rect.y - rect.height * 0.25)
