@@ -44,7 +44,7 @@ export default class HomeAnimation {
     }
   }
   draw() {
-    this.ctx.strokeStyle = `rgba( 0 0 0 / 0.15)`;
+    this.ctx.strokeStyle = `rgba( 0 0 0 / 0.05)`;
     for (let i = 0; i < this.lines.length; i++) {
       let line = this.lines[i];
       this.ctx.beginPath();
