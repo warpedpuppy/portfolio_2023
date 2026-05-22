@@ -1,21 +1,40 @@
 #aboutPoems * {
-	margin: 3px 0;
+	margin: 2px 0;
 	color: #333;
-
+	font-size: 0.85rem;
+	line-height: 1.55;
+	letter-spacing: 0.01em;
 }
 #aboutPoems dt {
 	font-weight: bold;
+	margin-top: 14px;
+	font-size: 0.78rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: rgba(51, 51, 51, 0.65);
 }
 #aboutPoems dd {
-	margin: 0 0 0 50px;
+	margin: 0 0 0 40px;
 }
 .about-wrapper {
 	width: 85%;
 	margin: 0 auto;
 	position: relative;
+	.general-layout h2 {
+		font-size: 1rem;
+		letter-spacing: 0.04em;
+	}
 	.contact {
+		font-size: 0.85rem;
+		dt {
+			font-size: 0.78rem;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			color: rgba(51, 51, 51, 0.65);
+		}
 		dd {
 			font-weight: bold;
+			margin-top: 4px;
 		}
 	}
 }

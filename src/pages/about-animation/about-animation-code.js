@@ -31,7 +31,7 @@ class AboutAnimationCode {
 		width: this.canvasWidth,
 		height: 10,
 		color: Utils.randomHex(),
-		speed: Math.random() * 3
+		speed: Math.random() * 0.8
 	}
   }
 
