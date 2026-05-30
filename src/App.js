@@ -2,6 +2,7 @@ import "./App.scss";
 import "./sass/LandingPages.scss";
 import "./sass/GeneralLayout.scss";
 import Home from "./pages/Home";
+import NeonHome from "./pages/NeonHome";
 import Menu from "./components/Menu";
 import Solitaire from "./components/webinars/solitaire/Solitaire";
 import SVGAnimations from "./components/webinars/SVGAnimations/SVGAnimations";
@@ -21,7 +22,7 @@ function App() {
     <BrowserRouter>
       <Menu />
       <Routes>
-        <Route index element={<Home />} />
+        <Route index element={<NeonHome />} />
         <Route path="home" element={<Outlet />}>
           <Route index element={<Home />} />
           <Route path="*" element={<h1>home subpage not found</h1>} />

@@ -1,0 +1,332 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;500&display=swap');
+
+// ── Design tokens ──────────────────────────────────────────────────────────────
+:root {
+  --bg:         #05020f;
+  --bg2:        #0a051a;
+  --cyan:       #00e5ff;
+  --pink:       #ff00ff;
+  --green:      #00ff88;
+  --orange:     #ff9d00;
+  --purple:     #c084fc;
+  --text:       #c8d4e8;
+  --muted:      #5a6a80;
+  --mono:       'Share Tech Mono', 'Courier New', monospace;
+  --sans:       'Inter', system-ui, sans-serif;
+}
+
+// ── Reset / base ───────────────────────────────────────────────────────────────
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+.neon-home {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.7;
+  min-height: 100vh;
+
+  // Subtle tech-grid background
+  background-image:
+    linear-gradient(rgba(0,229,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,229,255,0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+// ── Nav ────────────────────────────────────────────────────────────────────────
+.nh-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(5,2,15,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,229,255,0.15);
+  padding: 0.7rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  .nh-nav-brand {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--cyan);
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .nh-nav-links {
+    display: flex;
+    gap: 1.8rem;
+    list-style: none;
+    flex-wrap: wrap;
+
+    a {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+
+      &:hover { color: var(--cyan); }
+    }
+  }
+}
+
+// ── Hero ───────────────────────────────────────────────────────────────────────
+.nh-hero {
+  padding: 7rem 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+// Spinning logo
+.nh-logo-scene {
+  perspective: 900px;
+}
+.nh-logo-spin {
+  animation: nh-spin 7s linear infinite;
+  display: block;
+  width: clamp(180px, 35vw, 280px);
+  filter:
+    drop-shadow(0 0 14px rgba(0,229,255,0.4))
+    drop-shadow(0 0 36px rgba(0,229,255,0.15));
+}
+@keyframes nh-spin {
+  from { transform: rotateY(0deg);   }
+  to   { transform: rotateY(360deg); }
+}
+
+.nh-hero-name {
+  font-family: var(--mono);
+  font-size: clamp(1.6rem, 5vw, 3rem);
+  color: var(--cyan);
+  letter-spacing: 0.06em;
+  text-shadow: 0 0 20px rgba(0,229,255,0.5);
+}
+
+.nh-hero-tagline {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  color: var(--muted);
+  max-width: 520px;
+  letter-spacing: 0.02em;
+}
+
+// ── Layout ─────────────────────────────────────────────────────────────────────
+.nh-page {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 1.5rem 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+// ── Neon box  ──────────────────────────────────────────────────────────────────
+// Usage: <section class="neon-box" data-label="section name" style="--c: var(--cyan)">
+.neon-box {
+  position: relative;
+  border: 1px solid var(--c, var(--cyan));
+  border-radius: 6px;
+  padding: 2rem 2rem 1.8rem;
+  background: rgba(5,2,15,0.7);
+  box-shadow:
+    0 0 12px rgba(0,0,0,0.6),
+    0 0 0 1px var(--c, var(--cyan)),
+    0 0 24px -8px var(--c, var(--cyan));
+
+  &::before {
+    content: attr(data-label);
+    position: absolute;
+    top: -0.65em;
+    left: 1.2rem;
+    padding: 0 0.5rem;
+    background: var(--bg);
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--c, var(--cyan));
+  }
+}
+
+// ── About ──────────────────────────────────────────────────────────────────────
+.nh-about-intro {
+  font-size: 0.95rem;
+  color: var(--text);
+  margin-bottom: 1.4rem;
+  max-width: 680px;
+}
+
+.nh-limericks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+.nh-limerick {
+  background: rgba(255,255,255,0.03);
+  border-left: 2px solid var(--cyan);
+  padding: 0.9rem 1rem;
+  border-radius: 0 4px 4px 0;
+
+  .nh-limerick-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.65;
+  }
+}
+
+// ── Live sites ────────────────────────────────────────────────────────────────
+.nh-sites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.2rem;
+}
+
+.nh-site-card {
+  display: block;
+  text-decoration: none;
+  background: rgba(0,255,136,0.04);
+  border: 1px solid rgba(0,255,136,0.3);
+  border-radius: 5px;
+  padding: 1.2rem 1.4rem;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+
+  &:hover {
+    border-color: var(--green);
+    box-shadow: 0 0 18px -4px var(--green);
+    background: rgba(0,255,136,0.07);
+  }
+
+  .nh-site-name {
+    font-family: var(--mono);
+    font-size: 1rem;
+    color: var(--green);
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .nh-site-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  .nh-site-arrow {
+    display: inline-block;
+    color: var(--green);
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    margin-top: 0.6rem;
+    opacity: 0.6;
+  }
+}
+
+// ── Pretty little things ───────────────────────────────────────────────────────
+.nh-plt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.75rem;
+}
+
+.nh-plt-item {
+  display: block;
+  text-decoration: none;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--purple);
+  letter-spacing: 0.06em;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgba(192,132,252,0.25);
+  border-radius: 4px;
+  background: rgba(192,132,252,0.04);
+  transition: all 0.18s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &:hover {
+    border-color: var(--purple);
+    color: #fff;
+    background: rgba(192,132,252,0.1);
+    box-shadow: 0 0 14px -4px var(--purple);
+  }
+}
+
+// ── Instruction ────────────────────────────────────────────────────────────────
+.nh-instruction-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+
+  @media (max-width: 640px) { grid-template-columns: 1fr; }
+}
+
+.nh-instruction-col h3 {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 0.8rem;
+}
+
+.nh-instruction-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  a {
+    font-size: 0.83rem;
+    color: var(--muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.18s;
+
+    &::before {
+      content: '›';
+      color: var(--orange);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    &:hover { color: var(--text); }
+  }
+}
+
+// ── Contact ────────────────────────────────────────────────────────────────────
+.nh-contact {
+  font-family: var(--mono);
+  font-size: 1rem;
+  color: var(--pink);
+  text-shadow: 0 0 16px rgba(255,0,255,0.5);
+  letter-spacing: 0.04em;
+}
+
+// ── Responsive nav ────────────────────────────────────────────────────────────
+@media (max-width: 600px) {
+  .nh-nav-links { display: none; }
+  .nh-logo-spin { width: clamp(140px, 60vw, 200px); }
+}
