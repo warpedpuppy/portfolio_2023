@@ -159,39 +159,35 @@
 }
 
 // ── About ──────────────────────────────────────────────────────────────────────
-.nh-about-intro {
-  font-size: 0.95rem;
+.nh-bio {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 720px;
+}
+
+.nh-bio-para {
+  font-size: 0.93rem;
   color: var(--text);
-  margin-bottom: 1.4rem;
-  max-width: 680px;
+  line-height: 1.75;
 }
 
-.nh-limericks {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.2rem;
+.nh-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
 }
 
-.nh-limerick {
-  background: rgba(255,255,255,0.03);
-  border-left: 2px solid var(--cyan);
-  padding: 0.9rem 1rem;
-  border-radius: 0 4px 4px 0;
-
-  .nh-limerick-label {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-  }
-
-  p {
-    font-size: 0.82rem;
-    color: var(--text);
-    line-height: 1.65;
-  }
+.nh-skill-tag {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--cyan);
+  border: 1px solid rgba(0,229,255,0.35);
+  border-radius: 3px;
+  padding: 0.2rem 0.55rem;
+  background: rgba(0,229,255,0.05);
 }
 
 // ── Live sites ────────────────────────────────────────────────────────────────

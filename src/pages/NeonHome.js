@@ -83,37 +83,27 @@ function NeonLogo() {
 }
 
 // ── Content data ──────────────────────────────────────────────────────────────
-const limericks = [
-  {
-    label: "biographical poem 1",
-    lines: [
-      "There once was a coder named Ted",
-      "In Maine did he make his bed",
-      "He spent most of his days,",
-      "a lost in a haze.",
-      "'Cept when his dogs he did fed.",
-    ],
-  },
-  {
-    label: "biographical poem 2",
-    lines: [
-      "There once was a coder named Ted",
-      "Whose rhyme-schemes made ears badly bled",
-      "But he didn't care,",
-      "'cause twas named for a bear.",
-      "And he always enjoyed seeing red.",
-    ],
-  },
-  {
-    label: "biographical poem 3",
-    lines: [
-      "There once was a coder named Ted",
-      "Who once, as a lawyer, did pled.",
-      "But he hated that job,",
-      "At heart, he's a slob,",
-      "And now loves to code in its stead.",
-    ],
-  },
+const bio = [
+  `I'm Ted Walther, a frontend developer and creative coder based in Maine.
+   I've been building for the web for over two decades — across the full
+   evolution of the modern frontend stack. My focus is on things that move:
+   canvas animation, interactive graphics, and the kind of physics-aware,
+   detail-oriented UI work that makes an interface feel genuinely alive.`,
+  `Alongside product and client work I teach. I've led webinars on SVG
+   animation, application architecture, and game development, and produced
+   curriculum video series covering CSS, flexbox, grid, API design, and more.
+   Teaching sharpens the work — explaining something clearly forces you to
+   actually understand it.`,
+  `Right now I'm building Utilspalooza — a living reference of animation
+   formulas with live canvas demos — and Trying Something, an interactive
+   music education platform combining rhythm training, progressive exercises,
+   and synthesized audio across 20+ theory topics. I'm drawn to the places
+   where mathematics, music, and software genuinely overlap.`,
+];
+
+const skills = [
+  "canvas / WebGL", "React / TypeScript", "animation & physics",
+  "creative coding", "music technology", "web instruction",
 ];
 
 const liveSites = [
@@ -209,18 +199,15 @@ function NeonHome() {
           data-label="// about"
           style={{"--c": "var(--cyan)"}}
         >
-          <p className="nh-about-intro">
-            I'm Ted — a developer based in Maine with a background in law
-            (briefly), a deep love of animation, and a habit of building
-            things that are probably too elaborate but extremely fun.
-          </p>
-          <div className="nh-limericks">
-            {limericks.map((l) => (
-              <div className="nh-limerick" key={l.label}>
-                <div className="nh-limerick-label">{l.label}</div>
-                {l.lines.map((line, i) => <p key={i}>{line}</p>)}
-              </div>
+          <div className="nh-bio">
+            {bio.map((para, i) => (
+              <p key={i} className="nh-bio-para">{para}</p>
             ))}
+            <div className="nh-skills">
+              {skills.map((s) => (
+                <span key={s} className="nh-skill-tag">{s}</span>
+              ))}
+            </div>
           </div>
         </section>
 
