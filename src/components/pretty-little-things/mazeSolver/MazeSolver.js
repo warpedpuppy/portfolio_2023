@@ -9,8 +9,6 @@ function MazeSolver() {
 		// gameRef.current = new GameCode(canvasContainer.current);
 	}, [canvasContainer])
 
-	useEffect( () => () => gameRef.current.stop(), [] );
-
 
 	
 	return ( <>

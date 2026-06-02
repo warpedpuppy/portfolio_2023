@@ -13,9 +13,8 @@ function GameletCanvas({game}) {
 	useEffect( () => {
 		gameRef.current = gameCode(canvasContainer.current);
 		gameRef.current.start();
+		return () => gameRef.current.stop();
 	}, [canvasContainer, gameCode])
-
-	useEffect( () => () => gameRef.current.stop(), [] );
 
 
 	return ( 

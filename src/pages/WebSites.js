@@ -1,17 +1,39 @@
-import "./WebSites.scss";
-import GeneralLandingPage from '../layout-templates/GeneralLandingPage';
+import WebSitesLandingPage from '../layout-templates/WebSitesLandingPage';
+
+const sites = [
+  {
+    name: 'trying something',
+    url:  'http://tryingsomething.com',
+    image: '/images/sites/tryingsomething.png',
+    tagline: 'Hear it. Read it. Play it.',
+    description:
+      'Interactive rhythm training and music theory for curious beginners and ' +
+      'serious learners alike. Tap along to rhythms displayed on a live staff, ' +
+      'explore the circle of fifths, read sheet music, and build real musical ' +
+      'intuition — one exercise at a time.',
+    tags: ['Music Education', 'React', 'Vite', 'Web Audio'],
+  },
+  {
+    name: 'utilspalooza',
+    url:  'http://utilspalooza.com',
+    image: '/images/sites/utilspalooza.png',
+    tagline: 'Canvas animation formulas. Live demos.',
+    description:
+      'A living reference of canvas animation utilities — collision detection, ' +
+      'trigonometry, easing, bezier curves, and more. Every formula pairs with ' +
+      'a live interactive canvas demo so you can see exactly what it does. ' +
+      'Select what you need and download a ready-to-use TypeScript or JavaScript file.',
+    tags: ['Animation', 'React', 'TypeScript', 'Canvas'],
+  },
+];
+
 function WebSites() {
   return (
-    <GeneralLandingPage
+    <WebSitesLandingPage
       title="web sites:"
-      explanatoryText={[`I'm currently working on the following two web sites`]}
-      dotColor={'0xBBCB50'}
-      links={
-        [
-          { link: "http://tryingsomething.com", title: 'trying something' },
-          { link: "http://utilspalooza.com", title: 'utils palooza' }
-        ]
-      }
+      explanatoryText={["A couple of things I'm currently building."]}
+      dotColor="0xBBCB50"
+      sites={sites}
     />
   );
 }

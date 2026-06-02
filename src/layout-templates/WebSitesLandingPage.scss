@@ -1,0 +1,45 @@
+.web-sites-landing {
+
+  .wslp-header {
+    position: relative;
+    padding: 50px 0 24px;
+
+    h2 {
+      position: relative;
+      z-index: 2;
+    }
+
+    p {
+      font-size: 0.875rem;
+      color: rgba(0, 0, 0, 0.45);
+      margin-top: 6px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .landing-animation {
+      position: absolute;
+      border-radius: 50%;
+      width: 500px;
+      height: 500px;
+      top: -200px;
+      left: -250px;
+      z-index: -1;
+
+      canvas { position: relative; z-index: -1; }
+    }
+  }
+
+  .wslp-cards {
+    position: relative;
+    z-index: 2;
+    padding-bottom: 60px;
+    max-width: calc(100vw - 40px);
+  }
+}
+
+@media (min-width: 768px) {
+  .web-sites-landing .wslp-cards {
+    width: 460px;
+  }
+}
