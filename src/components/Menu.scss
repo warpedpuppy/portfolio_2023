@@ -106,21 +106,23 @@ nav {
 
 @media (min-width: $mobile-breakpoint) {
   nav {
-    // background-color: red;
     ul {
       flex-direction: row;
-	  position: static;
-	  list-style-type: none;
-	  z-index: 400;
-	  li {
-		border: none;
-		width: auto;
-		margin: 0 20px;
-		cursor: pointer;
-	  }
+      position: static;
+      list-style-type: none;
+      z-index: 400;
+      align-self: flex-end;
+      padding-bottom: 4px;
+      li {
+        border: none;
+        width: auto;
+        margin: 0 20px;
+        cursor: pointer;
+        font-size: 0.82rem;
+      }
     }
-	.hamburger {
-		display: none;
-	}
+    .hamburger {
+      display: none;
+    }
   }
 }
