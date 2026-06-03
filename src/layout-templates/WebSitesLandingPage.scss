@@ -1,7 +1,9 @@
 .web-sites-landing {
-
+  margin: 0 auto;
+  max-width: 80%;
   .wslp-header {
     position: relative;
+    left: -50px;
     padding: 50px 0 24px;
 
     h2 {
@@ -26,7 +28,10 @@
       left: -250px;
       z-index: -1;
 
-      canvas { position: relative; z-index: -1; }
+      canvas {
+        position: relative;
+        z-index: -1;
+      }
     }
   }
 
@@ -39,7 +44,10 @@
 }
 
 @media (min-width: 768px) {
-  .web-sites-landing .wslp-cards {
-    width: 460px;
+  .web-sites-landing {
+    max-width: 45%;
+    .wslp-cards {
+      width: 100%;
+    }
   }
 }
