@@ -5,12 +5,11 @@ function LandingAnimation({dotColor}) {
 	const canvasContainer = useRef(null);
 	const gameRef = useRef(null);
 	useEffect( () => {
-		if (gameRef.current) return;
 		gameRef.current = new LandingAnimationCode(canvasContainer.current, dotColor);
 		gameRef.current.start();
-	}, [canvasContainer, dotColor])
-
-	useEffect( () => () => gameRef.current.stop(), [] );
+		return () => gameRef.current.stop();
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
 
 	return <div className="landing-animation"  ref={canvasContainer} />;
 }

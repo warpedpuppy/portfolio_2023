@@ -23,6 +23,7 @@ class AboutAnimationCode {
   }
   stop() {
     this.halt = true;
+    if (this.rafId) cancelAnimationFrame(this.rafId);
   }
   square () {
 	return {
@@ -47,7 +48,7 @@ class AboutAnimationCode {
 		
 	}
 
-    requestAnimationFrame(this.animate);
+    this.rafId = requestAnimationFrame(this.animate);
   };
 }
 export default AboutAnimationCode;

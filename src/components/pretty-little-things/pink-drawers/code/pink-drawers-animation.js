@@ -76,7 +76,7 @@ class PinkDrawersAnimation {
   stop() {
     clearTimeout(this.timeout);
     window.onresize = undefined;
-    this.app.ticker.destroy();
+    this.app.destroy(true, { stageOptions: true });
   }
   Bead() {
     let bead = new PIXI.Graphics();
