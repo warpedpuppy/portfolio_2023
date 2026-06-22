@@ -59,14 +59,14 @@ function About() {
             </dd>
           </dl>
 
-          <dl id="aboutPoems">
+          {/* <dl id="aboutPoems">
             <dt>and, because some habits stick:</dt>
             <dd>There once was a coder named Ted</dd>
             <dd>Who once, as a lawyer, did pled.</dd>
             <dd>He hated the courts,</dd>
             <dd>Preferred different sorts,</dd>
             <dd>And now loves to code in its stead.</dd>
-          </dl>
+          </dl> */}
         </div>
 
         <hr />

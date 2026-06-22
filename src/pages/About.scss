@@ -1,89 +1,101 @@
+#aboutPoems {
+  margin-left: 0;
+}
 #aboutPoems * {
-	margin: 2px 0;
-	color: #333;
-	font-size: 0.85rem;
-	line-height: 1.55;
-	letter-spacing: 0.01em;
+  margin: 2px 0;
+  color: #333;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
 }
 #aboutPoems dt {
-	font-weight: bold;
-	margin-top: 14px;
-	font-size: 0.78rem;
-	letter-spacing: 0.08em;
-	text-transform: uppercase;
-	color: rgba(51, 51, 51, 0.65);
+  font-weight: bold;
+  margin-top: 14px;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(51, 51, 51, 0.65);
 }
 #aboutPoems dd {
-	margin: 0 0 0 40px;
+  margin: 0 0 0 40px;
 }
 .about-bio {
-	max-width: 46ch;
-	p {
-		color: #333;
-		font-size: 0.9rem;
-		line-height: 1.65;
-		margin: 0 0 14px;
-	}
-	em {
-		font-style: italic;
-	}
+  max-width: 80vw;
+  p {
+    color: #333;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin: 0 0 14px;
+  }
+  em {
+    font-style: italic;
+  }
 }
 .about-meta {
-	margin: 22px 0 6px;
-	font-size: 0.85rem;
-	dt {
-		font-size: 0.78rem;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-		color: rgba(51, 51, 51, 0.65);
-		margin-top: 14px;
-	}
-	dd {
-		margin: 4px 0 0;
-		line-height: 1.55;
-		color: #333;
-	}
-	a {
-		color: #333;
-		text-decoration: underline;
-		text-underline-offset: 2px;
-		&:hover {
-			color: #000;
-		}
-	}
+  margin: 22px 0 6px;
+  font-size: 0.85rem;
+  max-width: 80vw;
+  dt {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(51, 51, 51, 0.65);
+    margin-top: 14px;
+  }
+  dd {
+    margin: 4px 0 0;
+    line-height: 1.55;
+    color: #333;
+  }
+  a {
+    color: #333;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    &:hover {
+      color: #000;
+    }
+  }
 }
 .contact a {
-	color: inherit;
-	text-decoration: underline;
-	text-underline-offset: 2px;
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 .about-wrapper {
-	width: 85%;
-	margin: 0 auto;
-	position: relative;
-	.general-layout h2 {
-		font-size: 1rem;
-		letter-spacing: 0.04em;
-	}
-	.contact {
-		font-size: 0.85rem;
-		dt {
-			font-size: 0.78rem;
-			letter-spacing: 0.08em;
-			text-transform: uppercase;
-			color: rgba(51, 51, 51, 0.65);
-		}
-		dd {
-			font-weight: bold;
-			margin-top: 4px;
-		}
-	}
+  width: 85%;
+  margin: 0 auto;
+  position: relative;
+  .general-layout h2 {
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+  }
+  .contact {
+    font-size: 0.85rem;
+    dt {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(51, 51, 51, 0.65);
+      margin-top: 14px;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    dd {
+      font-weight: bold;
+      margin-top: 4px;
+      margin-bottom: 0;
+    }
+  }
 }
 
 @media (min-width: 1024px) {
-	.about-wrapper {
-		width: max-content;
-		margin: 0 auto;
-		position: relative;
-	}
+  #aboutPoems {
+    margin-left: 140px;
+  }
+  .about-wrapper {
+    width: max-content;
+    margin: 0 auto;
+    position: relative;
+  }
 }
