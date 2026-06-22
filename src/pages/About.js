@@ -12,16 +12,7 @@ function About() {
           <div className="about-bio">
             <p>
               I'm Ted &mdash; a frontend developer with 20+ years building for
-              the web. Seven of those years were spent deep in ActionScript 3
-              during the Flash era, which is where I fell for motion and
-              interactive graphics; the rest as a frontend engineer who's happy
-              to reach into the backend when the work calls for it.
-            </p>
-            <p>
-              Before code, I was a lawyer. I traded the courtroom for the canvas
-              and never looked back &mdash; though the habit of arguing a point
-              all the way to its conclusion turns out to be useful in both lines
-              of work.
+              the web.
             </p>
             <p>
               These days I build interactive animation, considered frontend
@@ -32,12 +23,12 @@ function About() {
           </div>
 
           <dl className="about-meta">
-            <dt>what I work with</dt>
+            {/* <dt>what I work with</dt>
             <dd>
               JavaScript &middot; TypeScript &middot; React &middot; Next.js
               &middot; HTML5 Canvas &amp; SVG &middot; SCSS &middot; Node
               &middot; ActionScript 3
-            </dd>
+            </dd> */}
 
             <dt>currently building</dt>
             <dd>
