@@ -79,6 +79,9 @@ function App() {
         </Route>
         <Route path="*" element={<h1>not found</h1>} />
       </Routes>
+      <footer style={{ textAlign: 'center', padding: '20px', fontSize: '0.75rem', color: 'rgba(0,0,0,0.4)', borderTop: '1px solid rgba(0,0,0,0.1)', marginTop: '24px' }}>
+        © {new Date().getFullYear()} Warped Puppy LLC
+      </footer>
     </BrowserRouter>
   );
 }
