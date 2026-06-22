@@ -16,6 +16,47 @@
 #aboutPoems dd {
 	margin: 0 0 0 40px;
 }
+.about-bio {
+	max-width: 46ch;
+	p {
+		color: #333;
+		font-size: 0.9rem;
+		line-height: 1.65;
+		margin: 0 0 14px;
+	}
+	em {
+		font-style: italic;
+	}
+}
+.about-meta {
+	margin: 22px 0 6px;
+	font-size: 0.85rem;
+	dt {
+		font-size: 0.78rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: rgba(51, 51, 51, 0.65);
+		margin-top: 14px;
+	}
+	dd {
+		margin: 4px 0 0;
+		line-height: 1.55;
+		color: #333;
+	}
+	a {
+		color: #333;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+		&:hover {
+			color: #000;
+		}
+	}
+}
+.contact a {
+	color: inherit;
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
 .about-wrapper {
 	width: 85%;
 	margin: 0 auto;
