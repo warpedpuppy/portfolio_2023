@@ -1,12 +1,37 @@
+ :root {
+  --mondrian-paper: #f6f1e6;
+  --mondrian-panel: #fcfaf4;
+  --mondrian-ink: #121212;
+  --mondrian-muted: rgba(18, 18, 18, 0.7);
+  --mondrian-line: rgba(18, 18, 18, 0.18);
+  --mondrian-red: #bf3b2b;
+  --mondrian-blue: #2753a3;
+  --mondrian-yellow: #d7b02b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Menlo, Consolas,
-    'Liberation Mono', monospace;
+  font-family: "Avenir Next", "Helvetica Neue", "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background:
+    linear-gradient(90deg, transparent 0, transparent calc(100% - 18px), rgba(18, 18, 18, 0.04) calc(100% - 18px), rgba(18, 18, 18, 0.04) 100%),
+    linear-gradient(180deg, transparent 0, transparent calc(100% - 18px), rgba(18, 18, 18, 0.04) calc(100% - 18px), rgba(18, 18, 18, 0.04) 100%),
+    var(--mondrian-paper);
+  background-size: 160px 160px, 160px 160px, auto;
+  color: var(--mondrian-ink);
 }
 
 code {
-  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Menlo, Consolas,
-    'Liberation Mono', monospace;
+  font-family: "JetBrains Mono", "Fira Code", "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+}
+
+a,
+a:visited {
+  color: var(--mondrian-ink);
 }

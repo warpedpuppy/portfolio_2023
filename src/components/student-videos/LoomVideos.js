@@ -6,11 +6,11 @@ function LoomVideos({link}) {
 		>
 		  <iframe
 			src={link}
-			title="aws set up"
-			frameborder="0"
-			webkitallowfullscreen
-			mozallowfullscreen
-			allowfullscreen
+			title="teaching video"
+			frameBorder="0"
+			webkitallowfullscreen="true"
+			mozallowfullscreen="true"
+			allowFullScreen={true}
 			style={{
 			  position: "absolute",
 			  top: "0",

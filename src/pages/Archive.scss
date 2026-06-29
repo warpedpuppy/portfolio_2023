@@ -1,0 +1,41 @@
+.archive-page {
+  padding: 0 0 72px;
+}
+
+.archive-intro {
+  padding: 64px clamp(20px, 5vw, 64px) 36px;
+  max-width: 900px;
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    line-height: 0.98;
+    margin-bottom: 18px;
+  }
+
+  p {
+    max-width: 62ch;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(20, 31, 26, 0.78);
+    margin-bottom: 18px;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  li a {
+    display: inline-flex;
+    padding: 10px 14px;
+    border: 1px solid rgba(20, 31, 26, 0.16);
+    border-radius: 999px;
+    text-decoration: none;
+    background: rgba(255, 252, 245, 0.84);
+  }
+}
+
+.archive-legacy-home {
+  border-top: 1px solid rgba(20, 31, 26, 0.1);
+}

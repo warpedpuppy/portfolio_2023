@@ -2,6 +2,7 @@ import "./App.scss";
 import "./sass/LandingPages.scss";
 import "./sass/GeneralLayout.scss";
 import Home from "./pages/Home";
+import Archive from "./pages/Archive";
 import Menu from "./components/Menu";
 import Solitaire from "./components/webinars/solitaire/Solitaire";
 import SVGAnimations from "./components/webinars/SVGAnimations/SVGAnimations";
@@ -26,6 +27,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="*" element={<h1>home subpage not found</h1>} />
         </Route>
+        <Route path="archive" element={<Archive />} />
         <Route path="webinars" element={<Outlet />}>
           <Route index element={<WebinarsLanding />} />
           <Route path="solitaire" element={<Solitaire />} />
@@ -40,7 +42,7 @@ function App() {
           <Route path="css-to-sass" element={<CurriculumVideoTemplate {...StudentVideos.cssToSass} />} />
           <Route path="css-positioning" element={<CurriculumVideoTemplate {...StudentVideos.cssPositioning} />} />
           <Route path="flex-box" element={<CurriculumVideoTemplate {...StudentVideos.flexBox} />} />
-          <Route path="grid" element={<CurriculumVideoTemplate {...StudentVideos.grid} />} />\
+          <Route path="grid" element={<CurriculumVideoTemplate {...StudentVideos.grid} />} />
           <Route path="units-of-measurement" element={<CurriculumVideoTemplate {...StudentVideos.unitsOfMeasurement} />} />
           <Route path="native-css-variables" element={<CurriculumVideoTemplate {...StudentVideos.nativeCSSVariables} />} />
           <Route path="for-v-forEach" element={<CurriculumVideoTemplate {...StudentVideos.forVersusForEach} />} />
@@ -79,9 +81,7 @@ function App() {
         </Route>
         <Route path="*" element={<h1>not found</h1>} />
       </Routes>
-      <footer style={{ textAlign: 'center', padding: '20px', fontSize: '0.75rem', color: 'rgba(0,0,0,0.4)', borderTop: '1px solid rgba(0,0,0,0.1)', marginTop: '24px' }}>
-        © {new Date().getFullYear()} Warped Puppy LLC
-      </footer>
+      <footer className="site-footer">© {new Date().getFullYear()} Warped Puppy LLC</footer>
     </BrowserRouter>
   );
 }

@@ -1,32 +1,35 @@
 import './Menu.scss';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-function Menu() {
-	const navigate = useNavigate();
-	const [ collapsed, setCollapsed ] = useState(true)
+import { Link } from 'react-router-dom';
 
-	function goToPage(e) {
-		let name = e.target.innerText.replace(/ /g, '-')
-		navigate(name);
-		setCollapsed(true);
-	}
+const navItems = [
+	{ href: '/#featured-work', label: 'Work' },
+	{ href: '/#teaching', label: 'Teaching' },
+	{ href: '/#about', label: 'About' },
+	{ href: '/archive', label: 'Archive', internal: true },
+];
+
+function Menu() {
+	const [ collapsed, setCollapsed ] = useState(true)
 
 	return ( 
 		<nav className={ collapsed ? 'collapsed' : '' }>
-		<h1><Link to="/">warped puppy</Link></h1>
+		<h1><Link to="/">Warped Puppy</Link></h1>
 		<div className='hamburger' onClick={ () => setCollapsed(!collapsed)}>
 			<span></span>
 			<span></span>
 			<span></span>
 		</div>
 		<ul>
-			<li onClick={ e => goToPage(e)}>webinars</li>
-			{/* <li onClick={ e => goToPage(e)}>challenges</li>
-			<li onClick={ e => goToPage(e)}>gamelets</li> */}
-			<li onClick={ e => goToPage(e)}>web instruction</li>
-			<li onClick={ e => goToPage(e)}>pretty little things</li>
-			<li onClick={ e => goToPage(e)}>web sites</li>
-			<li onClick={ e => goToPage(e)}>about</li>
+			{navItems.map((item) => (
+				<li key={item.label}>
+					{item.internal ? (
+						<Link to={item.href} onClick={() => setCollapsed(true)}>{item.label}</Link>
+					) : (
+						<a href={item.href} onClick={() => setCollapsed(true)}>{item.label}</a>
+					)}
+				</li>
+			))}
 		</ul>
 		<div className='menu-screen'></div>
 		</nav>
