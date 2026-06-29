@@ -1,6 +1,7 @@
 import './Menu.scss';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import WarpedPuppyMark from './svgs/WarpedPuppyMark';
 
 const navItems = [
 	{ href: '/#featured-work', label: 'Work' },
@@ -14,6 +15,7 @@ function Menu() {
 
 	return ( 
 		<nav className={ collapsed ? 'collapsed' : '' }>
+		<WarpedPuppyMark />
 		<h1><Link to="/">Warped Puppy</Link></h1>
 		<div className='hamburger' onClick={ () => setCollapsed(!collapsed)}>
 			<span></span>

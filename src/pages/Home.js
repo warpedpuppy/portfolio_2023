@@ -105,7 +105,7 @@ function Home() {
       <section className="content-section" id="featured-work">
         <div className="section-heading">
           <p className="section-kicker">Featured work</p>
-          <h2>Three projects, clearly separated.</h2>
+          <h2>What I'm actively building.</h2>
         </div>
 
         <div className="featured-grid">
@@ -134,7 +134,7 @@ function Home() {
       <section className="content-section teaching-section" id="teaching">
         <div className="section-heading">
           <p className="section-kicker">Teaching</p>
-          <h2>Webinars and course videos still belong here.</h2>
+          <h2>Talks and lessons on building for the web.</h2>
         </div>
 
         <div className="teaching-grid">
