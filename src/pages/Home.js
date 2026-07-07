@@ -1,34 +1,40 @@
 import "./Home.scss";
+import StudentVideos from "../site-data/student-videos";
+import { Link } from "react-router-dom";
 
-const featuredSites = [
+const primaryProjects = [
   {
-    name: "tugtug",
-    eyebrow: "active product",
-    description:
-      "A code health dashboard for GitHub repositories that combines complexity, churn, coupling, and trend data to show where risk actually lives in a codebase.",
-    stack: ["Next.js", "React", "Supabase", "GitHub API", "d3"],
+    name: "Tugtug",
+    eyebrow: "code health dashboard",
     href: "https://tugtug.com",
-    cta: "Visit site",
+    description:
+      "Tugtug examines GitHub repositories through the signals that tend to make maintenance expensive: complexity, churn, coupling, size, ownership, and change history. The goal is not another vanity score. It is a practical map of where the codebase is asking for attention, which files are drifting toward risk, and whether that risk is getting better or worse over time.",
+    details: [
+      "Next.js, React, Supabase, GitHub API, Octokit, d3",
+      "Repository analytics, trend views, code risk summaries",
+    ],
   },
   {
-    name: "trying something",
-    eyebrow: "music education",
-    description:
-      "Interactive rhythm and music-theory exercises for learners who want to hear, read, and internalize what they are practicing instead of staring at static lessons.",
-    stack: ["Vite", "React", "Web Audio"],
-    href: "https://tryingsomething.com",
-    cta: "Visit site",
-  },
-  {
-    name: "utilspalooza",
-    eyebrow: "animation reference",
-    description:
-      "A working library of animation formulas, utilities, and live canvas demos. It is part reference, part playground, and part download station for code that is actually useful.",
-    stack: ["Vite", "React", "TypeScript", "Canvas"],
+    name: "Utilspalooza",
+    eyebrow: "animation utilities",
     href: "https://utilspalooza.com",
-    cta: "Visit site",
+    description:
+      "Utilspalooza is a working reference library for animation formulas, helpers, and examples. It keeps the math visible, the demos live, and the code close enough to copy into real projects. The site is partly documentation, partly studio, and partly a way to keep useful animation knowledge from being trapped in old experiments.",
+    details: [
+      "Vite, React, TypeScript, Canvas",
+      "Formula library, example gallery, exportable utility code",
+    ],
   },
 ];
+
+const supportingProject = {
+  name: "Tryingsomething",
+  eyebrow: "music education",
+  href: "https://tryingsomething.com",
+  description:
+    "A rhythm-reading project for learners who need to connect notation, sound, and timing through direct practice.",
+  details: ["Vite, React, Web Audio", "Interactive rhythm exercises"],
+};
 
 const webinars = [
   {
@@ -45,156 +51,81 @@ const webinars = [
   },
 ];
 
-const teachingVideos = [
-  {
-    title: "Setting up AWS",
-    href: "/web-instruction/setting-up-aws",
-  },
-  {
-    title: "Drawing App",
-    href: "/web-instruction/drawing-app",
-  },
-  {
-    title: "Convert CSS to Sass",
-    href: "/web-instruction/css-to-sass",
-  },
-  {
-    title: "Positioning in CSS",
-    href: "/web-instruction/css-positioning",
-  },
-  {
-    title: "Flex Box in CSS",
-    href: "/web-instruction/flex-box",
-  },
-  {
-    title: "Grid in CSS",
-    href: "/web-instruction/grid",
-  },
-];
+const tutorialVideos = Object.values(StudentVideos).map((item) => ({
+  title: item.landingPageData.title,
+  href: item.landingPageData.link,
+}));
+
+function ProjectArticle({ project, quiet = false }) {
+  return (
+    <article className={quiet ? "project-article project-article--quiet" : "project-article"}>
+      <div className="project-heading">
+        <p>{project.eyebrow}</p>
+        <h2>{project.name}</h2>
+      </div>
+      <p className="project-description">{project.description}</p>
+      <div className="project-footer">
+        <ul aria-label={`${project.name} details`}>
+          {project.details.map((detail) => (
+            <li key={detail}>{detail}</li>
+          ))}
+        </ul>
+        <a href={project.href} target="_blank" rel="noreferrer">
+          Visit
+        </a>
+      </div>
+    </article>
+  );
+}
+
+function LinkList({ title, href, items }) {
+  return (
+    <section className="archive-list" aria-labelledby={`${title}-heading`}>
+      <div className="archive-list-heading">
+        <h2 id={`${title}-heading`}>{title}</h2>
+        <Link to={href}>All</Link>
+      </div>
+      <ol>
+        {items.map((item, index) => (
+          <li key={item.href}>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <Link to={item.href}>{item.title}</Link>
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
+}
 
 function Home() {
   return (
     <main className="portfolio-home">
-      <section className="hero-section" id="top">
-        <p className="section-kicker">Ted Walther / Warped Puppy</p>
-        <div className="hero-grid">
-          <div>
-            <h1>I build small web products with clear purpose.</h1>
-            <p className="hero-copy">
-              This portfolio now centers on the three things I am actively
-              building: one product aimed at becoming a business, one for music
-              education, and one for animation utilities. The older work still
-              exists, but it no longer gets the front page.
-            </p>
-          </div>
-          <div className="hero-aside">
-            <p>
-              Frontend developer with 20+ years on the web, with a bias toward
-              thoughtful interfaces, interactive teaching, and tools that earn
-              their keep.
-            </p>
-            <div className="hero-actions">
-              <a href="#featured-work">See featured work</a>
-              <a href="#teaching">Teaching archive</a>
-              <a href="/archive">Portfolio archive</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="content-section" id="featured-work">
-        <div className="section-heading">
-          <p className="section-kicker">Featured work</p>
-          <h2>What I'm actively building.</h2>
+      <section className="work-intro" id="featured-work" aria-label="Featured work">
+        <div className="intro-label">
+          <p>Ted Walther</p>
         </div>
 
-        <div className="featured-grid">
-          {featuredSites.map((site) => (
-            <article className="feature-card" key={site.name}>
-              <p className="feature-eyebrow">{site.eyebrow}</p>
-              <h3>{site.name}</h3>
-              <p className="feature-description">{site.description}</p>
-              <ul className="tag-list">
-                {site.stack.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-              {site.href ? (
-                <a href={site.href} target="_blank" rel="noreferrer">
-                  {site.cta}
-                </a>
-              ) : (
-                <p className="feature-status">{site.status}</p>
-              )}
-            </article>
+        <div className="primary-work">
+          {primaryProjects.map((project) => (
+            <ProjectArticle project={project} key={project.name} />
           ))}
         </div>
+
+        <ProjectArticle project={supportingProject} quiet />
       </section>
 
-      <section className="content-section teaching-section" id="teaching">
-        <div className="section-heading">
-          <p className="section-kicker">Teaching</p>
-          <h2>Talks and lessons on building for the web.</h2>
-        </div>
-
-        <div className="teaching-grid">
-          <article className="resource-panel">
-            <h3>Webinars I’ve taught</h3>
-            <p>
-              Longer-form talks on JavaScript, SVG animation, and practical web
-              development.
-            </p>
-            <ul>
-              {webinars.map((item) => (
-                <li key={item.href}>
-                  <a href={item.href}>{item.title}</a>
-                </li>
-              ))}
-            </ul>
-            <a className="panel-link" href="/webinars">
-              View all webinars
-            </a>
-          </article>
-
-          <article className="resource-panel">
-            <h3>Teaching videos</h3>
-            <p>
-              Shorter curriculum videos and code-review-style lessons for
-              students learning the web stack.
-            </p>
-            <ul>
-              {teachingVideos.map((item) => (
-                <li key={item.href}>
-                  <a href={item.href}>{item.title}</a>
-                </li>
-              ))}
-            </ul>
-            <a className="panel-link" href="/web-instruction">
-              Browse the teaching library
-            </a>
-          </article>
-        </div>
+      <section className="teaching-archive" id="teaching" aria-label="Teaching archive">
+        <LinkList title="Webinars Hosted" href="/webinars" items={webinars} />
+        <LinkList title="Tutorial Videos" href="/web-instruction" items={tutorialVideos} />
       </section>
 
-      <section className="content-section about-section" id="about">
-        <div className="section-heading">
-          <p className="section-kicker">About</p>
-          <h2>Careful, usable, and a little stubborn about quality.</h2>
-        </div>
-        <div className="about-grid">
-          <p>
-            I spent years doing interactive and frontend work across very
-            different eras of the web. What matters most to me now is whether a
-            thing is understandable, elegant, and actually useful once the
-            novelty burns off.
-          </p>
-          <div className="about-links">
-            <a href="https://github.com/warpedpuppy" target="_blank" rel="noreferrer">
-              GitHub
-            </a>
-            <a href="mailto:ted@warpedpuppy.com">ted@warpedpuppy.com</a>
-            <a href="/about">More about me</a>
-          </div>
+      <section className="contact-strip" id="about" aria-label="Contact">
+        <p>Frontend development, product interfaces, animation tools, and web instruction.</p>
+        <div>
+          <a href="https://github.com/warpedpuppy" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+          <a href="mailto:ted@warpedpuppy.com">ted@warpedpuppy.com</a>
         </div>
       </section>
     </main>

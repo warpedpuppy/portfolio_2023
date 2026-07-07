@@ -23,13 +23,14 @@
  }
 
  a, a:visited {
-	color: #333;
+	color: var(--site-ink);
  }
 
 .site-footer {
   text-align: center;
   padding: 20px;
   font-size: 0.75rem;
-  color: rgba(20, 31, 26, 0.45);
-  border-top: 1px solid rgba(20, 31, 26, 0.1);
+  color: rgba(230, 224, 212, 0.42);
+  background: #0d1110;
+  border-top: 1px solid rgba(225, 218, 202, 0.1);
 }

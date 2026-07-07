@@ -1,17 +1,18 @@
 .general-layout {
   max-width: 1180px;
   margin: 0 auto;
-  padding: 36px var(--left-right-margin) 72px;
+  padding: 32px var(--left-right-margin) 72px;
   min-height: 100vh;
   position: relative;
+  color: var(--site-ink);
 
   h1 {
     max-width: 18ch;
     font-size: clamp(1.8rem, 4vw, 3rem);
     line-height: 1.06;
     letter-spacing: -0.03em;
-    font-weight: 600;
-    margin-bottom: 12px;
+    font-weight: 400;
+    margin-bottom: 18px;
   }
 
   h2 {
@@ -44,11 +45,9 @@
   z-index: 0;
   margin: 24px auto 0;
   padding: 18px;
-  border: 2px solid var(--mondrian-ink);
-  background:
-    linear-gradient(90deg, rgba(39, 83, 163, 0.08) 0 14px, transparent 14px 100%),
-    var(--mondrian-panel);
-  box-shadow: 14px 14px 0 rgba(215, 176, 43, 0.16);
+  border: 1px solid var(--site-line);
+  background: rgba(255, 255, 255, 0.035);
+  box-shadow: none;
   border-radius: 8px;
   .loading {
     position: absolute;
@@ -67,7 +66,8 @@
     aspect-ratio: 560 / 315;
     position: relative;
     z-index: 2;
-    background: #ffffff;
+    background: #0a0d0c;
     border: 0;
+    border-radius: 4px;
   }
 }

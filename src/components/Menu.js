@@ -6,8 +6,6 @@ import WarpedPuppyMark from './svgs/WarpedPuppyMark';
 const navItems = [
 	{ href: '/#featured-work', label: 'Work' },
 	{ href: '/#teaching', label: 'Teaching' },
-	{ href: '/#about', label: 'About' },
-	{ href: '/archive', label: 'Archive', internal: true },
 ];
 
 function Menu() {

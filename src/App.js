@@ -2,7 +2,6 @@ import "./App.scss";
 import "./sass/LandingPages.scss";
 import "./sass/GeneralLayout.scss";
 import Home from "./pages/Home";
-import Archive from "./pages/Archive";
 import Menu from "./components/Menu";
 import Solitaire from "./components/webinars/solitaire/Solitaire";
 import SVGAnimations from "./components/webinars/SVGAnimations/SVGAnimations";
@@ -27,7 +26,6 @@ function App() {
           <Route index element={<Home />} />
           <Route path="*" element={<h1>home subpage not found</h1>} />
         </Route>
-        <Route path="archive" element={<Archive />} />
         <Route path="webinars" element={<Outlet />}>
           <Route index element={<WebinarsLanding />} />
           <Route path="solitaire" element={<Solitaire />} />
