@@ -2,6 +2,19 @@ import WebSitesLandingPage from '../layout-templates/WebSitesLandingPage';
 
 const sites = [
   {
+    name: 'tugtug',
+    url:  'https://tugtug.com',
+    image: '/images/sites/tugtug.png',
+    tagline: 'See where the risk lives in any codebase.',
+    description:
+      'A code health dashboard for GitHub repositories. Tugtug reads the ' +
+      'signals that make maintenance expensive — complexity, churn, coupling, ' +
+      'ownership, and change history — and turns them into a practical map of ' +
+      'where a codebase is asking for attention and whether that risk is ' +
+      'getting better or worse over time.',
+    tags: ['Code Analytics', 'Next.js', 'Supabase', 'GitHub API', 'd3'],
+  },
+  {
     name: 'trying something',
     url:  'http://tryingsomething.com',
     image: '/images/sites/tryingsomething.png',
@@ -31,7 +44,7 @@ function WebSites() {
   return (
     <WebSitesLandingPage
       title="web sites:"
-      explanatoryText={["A couple of things I'm currently building."]}
+      explanatoryText={["A few things I'm currently building."]}
       dotColor="0xBBCB50"
       sites={sites}
     />
