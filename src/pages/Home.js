@@ -51,7 +51,12 @@ const webinars = [
   },
 ];
 
-const tutorialVideos = Object.values(StudentVideos).map((item) => ({
+const featuredTutorials = [
+  StudentVideos.aws,
+  StudentVideos.grid,
+  StudentVideos.forVersusForEach,
+  StudentVideos.crudEndpoints,
+].map((item) => ({
   title: item.landingPageData.title,
   href: item.landingPageData.link,
 }));
@@ -116,7 +121,7 @@ function Home() {
 
       <section className="teaching-archive" id="teaching" aria-label="Teaching archive">
         <LinkList title="Webinars Hosted" href="/webinars" items={webinars} />
-        <LinkList title="Tutorial Videos" href="/web-instruction" items={tutorialVideos} />
+        <LinkList title="Tutorial Videos" href="/web-instruction" items={featuredTutorials} />
       </section>
 
       <section className="contact-strip" id="about" aria-label="Contact">

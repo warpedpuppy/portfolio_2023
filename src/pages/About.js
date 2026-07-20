@@ -23,12 +23,11 @@ function About() {
           </div>
 
           <dl className="about-meta">
-            {/* <dt>what I work with</dt>
+            <dt>what I work with</dt>
             <dd>
               JavaScript &middot; TypeScript &middot; React &middot; Next.js
               &middot; HTML5 Canvas &amp; SVG &middot; SCSS &middot; Node
-              &middot; ActionScript 3
-            </dd> */}
+            </dd>
 
             <dt>currently building</dt>
             <dd>

@@ -2,13 +2,13 @@ const StudentVideos = {
   aws: {
     title: "setting up aws",
     tab: "setting up aws",
-    link: "https://www.loom.com/embed/25746965ed3d407d824b5381043ff68a?sid:ae94fa04-f965-4d83-b347-27603eed1cf4",
+    link: "https://www.loom.com/embed/25746965ed3d407d824b5381043ff68a?sid=ae94fa04-f965-4d83-b347-27603eed1cf4",
 	landingPageData: {link: "/web-instruction/setting-up-aws", title: 'Setting up AWS'}
   },
   drawingApp: {
     title: "drawing app",
     tab: "drawing app",
-    link: "https://www.loom.com/embed/c153c01554694b999d912aace0da0440?sid:192180b7-c7a7-419d-bb26-91b3540fc8e4",
+    link: "https://www.loom.com/embed/c153c01554694b999d912aace0da0440?sid=192180b7-c7a7-419d-bb26-91b3540fc8e4",
 	landingPageData: {link: "/web-instruction/drawing-app", title: 'Drawing App'},
   },
   cssToSass: {

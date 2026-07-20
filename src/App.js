@@ -56,7 +56,6 @@ function App() {
           <Route path="crystal-ball" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.crystalBall} />} />
           <Route path="fireworks" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.fireworks} />} />
           <Route path="soduko" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.soduko} />} />
-          <Route path="maze-solver" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.mazeSolver} />} />
           <Route path="murmuration" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.murmuration} />} />
           <Route path="three-of-a-kind" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.threeOfAKind} />} />
           <Route path="pattern-maker" element={<PrettyLittleThingsTemplate {...PrettyLittleThings.patternMaker} />} />
