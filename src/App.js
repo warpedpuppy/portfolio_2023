@@ -8,7 +8,6 @@ import SVGAnimations from "./components/webinars/SVGAnimations/SVGAnimations";
 import WebinarsLanding from "./components/webinars/WebinarsLanding";
 import PrettyLittleThingsLanding from "./components/pretty-little-things/PrettyLittleThingsLanding";
 import About from "./pages/About";
-import WebSites from "./pages/WebSites";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import WebDev from "./components/webinars/web-dev/WebDev";
 import StudentVideosLanding from "./components/student-videos/StudentVideosLanding";
@@ -72,10 +71,6 @@ function App() {
         <Route path="about" element={<Outlet />}>
           <Route index element={<About />} />
           <Route path="*" element={<h1>about not found</h1>} />
-        </Route>
-        <Route path="web-sites" element={<Outlet />}>
-          <Route index element={<WebSites />} />
-          <Route path="*" element={<h1>web sites not found</h1>} />
         </Route>
         <Route path="*" element={<h1>not found</h1>} />
       </Routes>

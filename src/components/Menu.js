@@ -25,7 +25,6 @@ function Menu() {
 			<li onClick={ e => goToPage(e)}>gamelets</li> */}
 			<li onClick={ e => goToPage(e)}>web instruction</li>
 			<li onClick={ e => goToPage(e)}>pretty little things</li>
-			<li onClick={ e => goToPage(e)}>web sites</li>
 			<li onClick={ e => goToPage(e)}>about</li>
 		</ul>
 		<div className='menu-screen'></div>
